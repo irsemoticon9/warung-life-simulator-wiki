@@ -3,3 +3,21 @@
 @media(max-width:1100px){.main-area{padding:0 28px}.content-layout{grid-template-columns:minmax(0,1fr) 190px;gap:17px}.quick-stats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){:root{--sidebar:275px}.sidebar{transform:translateX(-100%);transition:transform .25s}.sidebar.open{transform:translateX(0)}.mobile-backdrop.show{display:block;position:fixed;inset:0;background:#0009;z-index:15}.main-area{margin-left:0;padding:0 17px}.topbar{height:58px;justify-content:flex-start;gap:12px}.mobile-menu{display:block}.top-actions{margin-left:auto}.breadcrumb{font-size:9px}.hero{padding:28px 23px;min-height:250px}.hero-art{opacity:.24;right:-35px}.hero-copy>p{max-width:420px}.hero-meta{max-width:280px}.quick-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat-card{padding:10px 9px}.stat-card:last-child{grid-column:span 2}.content-toolbar{align-items:stretch;flex-direction:column;margin-top:30px}.search-box{width:100%}.content-layout{display:block}.right-rail{display:none}.guide-content{padding:22px 17px}.guide-content h2{font-size:22px}.guide-content h3{font-size:17px}.footer{flex-wrap:wrap}.footer span:nth-child(2){order:3;width:100%}}
 @media(max-width:390px){.version-pill{display:none}.hero h1{font-size:32px}.stat-card small{font-size:8px}.stat-icon{width:30px;height:30px}}
+
+/* Hasil quest warga: tampilan dua kolom untuk membandingkan cabang bantu dan tolak. */
+.outcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:17px 0 25px;align-items:start}
+.outcome-card{min-width:0;padding:15px 15px 13px;border:1px solid var(--line);border-radius:11px;background:#1b231d}
+.outcome-card.accept{border-color:#465b35;background:linear-gradient(160deg,#202b1e,#19211b)}
+.outcome-card.reject{border-color:#654139;background:linear-gradient(160deg,#2a211e,#201b19)}
+.outcome-label{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid #ffffff14;font-size:10px;letter-spacing:1px}
+.outcome-label span{width:21px;height:21px;display:grid;place-items:center;border-radius:7px;font-size:14px;font-weight:700}
+.outcome-card.accept .outcome-label{color:#c4e99a}
+.outcome-card.accept .outcome-label span{background:#344b2c;color:#c4e99a}
+.outcome-card.reject .outcome-label{color:#f0a08d}
+.outcome-card.reject .outcome-label span{background:#50312a;color:#f0a08d}
+.outcome-card p,.outcome-card li{font-size:12px;line-height:1.65}
+.outcome-card ul,.outcome-card ol{padding-left:18px}
+.outcome-card p:first-of-type{margin-top:0}
+.outcome-card p:last-child,.outcome-card ul:last-child{margin-bottom:2px}
+.outcome-card strong{color:#f0f4ed}
+@media(max-width:700px){.outcome-grid{grid-template-columns:1fr;gap:10px}.outcome-card{padding:14px}}

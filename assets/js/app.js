@@ -22,6 +22,7 @@
       marked.setOptions({ gfm: true, breaks: false, headerIds: false, mangle: false });
       const raw = marked.parse(markdown);
       content.innerHTML = window.DOMPurify ? DOMPurify.sanitize(raw) : raw;
+      formatOutcomeColumns();
       buildNavigation();
       bindAnchors();
       buildSearchIndex();
@@ -33,6 +34,49 @@
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  }
+
+  // Kelompokkan hasil cabang BANTU/TOLAK menjadi dua kolom agar mudah dibandingkan.
+  function formatOutcomeColumns() {
+    const children = [...content.children];
+    const isOutcome = el => el.tagName === "P" && /^HASIL\\s*[—-]/i.test(plain(el).replace(/\\s+/g, " "));
+    const isBoundary = el => /^(H2|H3|H4|HR)$/.test(el.tagName);
+    const blocks = [];
+
+    for (let i = 0; i < children.length; i++) {
+      if (!isOutcome(children[i])) continue;
+      const start = i;
+      const title = plain(children[i]).toUpperCase();
+      const kind = title.includes("TOLAK") ? "reject" : "accept";
+      let end = i + 1;
+      while (end < children.length && !isOutcome(children[end]) && !isBoundary(children[end])) end++;
+      blocks.push({ nodes: children.slice(start, end), kind, title });
+      i = end - 1;
+    }
+
+    for (let i = 0; i < blocks.length - 1; i++) {
+      const first = blocks[i], second = blocks[i + 1];
+      if (first.kind === second.kind) continue;
+      const firstNode = first.nodes[0];
+      if (!firstNode.parentNode || firstNode.parentNode !== content) continue;
+      const grid = document.createElement("div");
+      grid.className = "outcome-grid";
+      const ordered = [first, second].sort((a, b) => a.kind === "accept" ? -1 : 1);
+      ordered.forEach(block => {
+        const card = document.createElement("section");
+        card.className = `outcome-card ${block.kind}`;
+        const label = document.createElement("div");
+        label.className = "outcome-label";
+        label.innerHTML = block.kind === "accept"
+          ? '<span>✓</span><b>HASIL DITERIMA · BANTU</b>'
+          : '<span>×</span><b>HASIL DITOLAK</b>';
+        card.appendChild(label);
+        block.nodes.forEach(node => card.appendChild(node));
+        grid.appendChild(card);
+      });
+      content.insertBefore(grid, firstNode);
+      i++;
+    }
   }
 
   function buildNavigation() {
