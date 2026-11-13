@@ -2938,7 +2938,7 @@ Catatan: efek total upgrade maksimal +50% keramaian dan +85% kesabaran.
 
 ### Mini-Game Mancing (Ikan)
 
-Lokasi: area sawah. Setiap kali mancing memakai 20% energi. Rata-rata sekali mancing menghasilkan sekitar Rp10.000.
+Lokasi: area sawah. Setiap lemparan memakai 5% energi (tiap lemparan = 3 menit game), tanpa batas waktu — bisa berhenti kapan saja. Rata-rata sekali mancing menghasilkan sekitar Rp10.000.
 
 Cara main:
 1. Lemparkan joran ke air
@@ -2955,7 +2955,7 @@ Bonus:
 
 ### Mini-Game Petik Buah
 
-Lokasi: area sawah. Setiap kali petik buah memakai 15% energi. Rata-rata sekali petik menghasilkan sekitar Rp9.000.
+Lokasi: area sawah. Memetik buah tidak memakai energi. Rata-rata sekali petik menghasilkan sekitar Rp9.000.
 
 Cara main:
 1. Pilih pohon buah
