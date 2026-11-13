@@ -126,7 +126,6 @@
       watchHeadings();
       rewriteSectionLinks();
       showOnlyCurrentSection();
-      initTheme();
       setupSearch();
       setupMobileNav();
       updateCrumb();
@@ -400,28 +399,6 @@
     });
   }
 
-  function initTheme() {
-    const stored = storedTheme();
-    if (stored) {
-      applyTheme(stored);
-      if (themeBtn) {
-        themeBtn.setAttribute("aria-pressed", String(stored === "light"));
-        themeIcon.textContent = stored === "light" ? "☾" : "☀";
-      }
-    } else {
-      applyTheme(systemTheme());
-    }
-    if (themeBtn) {
-      themeBtn.addEventListener("click", () => {
-        const next = (document.documentElement.getAttribute("data-theme") || systemTheme()) === "light" ? "dark" : "light";
-        try { localStorage.setItem(THEME_KEY, next); } catch (_) {}
-        applyTheme(next);
-        if (themeIcon) themeIcon.textContent = next === "light" ? "☾" : "☀";
-      });
-      lightQuery.addEventListener("change", () => { if (!storedTheme()) applyTheme(systemTheme()); });
-    }
-  }
-
   function rewriteSectionLinks() {
     Object.keys(SLUG_TO_PAGE).forEach((slug) => {
       const page = SLUG_TO_PAGE[slug];
@@ -492,8 +469,9 @@
     if (!searchInput || !searchResults) return;
     searchInput.addEventListener("input", () => {
       const q = searchInput.value.trim().toLowerCase();
-      if (q.length < 2) { searchResults.innerHTML = ""; return; }
+      if (q.length < 2) { searchResults.innerHTML = ""; searchResults.hidden = true; return; }
       const hits = searchIndex.filter(item => item.text.toLowerCase().includes(q));
+      searchResults.hidden = false;
       searchResults.innerHTML = hits.length
         ? hits.map(hit => {
             const targetPage = hit.page || pageFile(currentPageKey());
