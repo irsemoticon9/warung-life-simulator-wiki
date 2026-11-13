@@ -933,7 +933,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 ### 4.8 Kasbon Bu Ida (`kasbon_bu_ida`)
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 6 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Pasar · Bu Ida (pukul 08.0–20.0)
+#### Tahap 1 - Pasar · Bu Ida (pukul 08.0–19.00, selama pasar buka)
 
   *Bu Ida duduk di lapaknya. Keranjang buahnya masih setengah penuh.*
   **Bu Ida:** Eh, Pak Misran... Pasar lagi sepi, Pak. Buah saya banyak yang nggak laku.
@@ -964,7 +964,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
    - aksi: `tunda`
 
   **Pak Misran:** Saya hitung uang warung dulu ya, Bu. Nanti saya ke sini lagi.
-  **Bu Ida:** Iya, Pak. Saya di lapak sampai pasar tutup, jam sembilan malam.
+  **Bu Ida:** Iya, Pak. Saya di lapak sampai pasar tutup, jam sembilan malam. *(Catatan: dalam versi ini pasar tutup 19.00 sesuai kode game; dialog asli menyebut 9 malam.)*
 
 **HASIL - BANTU (tolong):**
 
@@ -1702,7 +1702,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 ### 4.19 Pesanan Arisan Ibu-Ibu (`arisan_bu_ida`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Pasar · Bu Ida (pukul 08.0–20.0)
+#### Tahap 1 - Pasar · Bu Ida (pukul 08.0–19.00, selama pasar buka)
 
   **Bu Ida:** Eh, Pak Misran, mampir ke pasar juga? Ibu-ibu arisan mau masak besar buat syukuran kampung sebentar lagi.
   **Bu Ida:** Kami perlu gula pasir sama teh celup yang banyak. Di lapak saya cuma ada buah. Kalau beli di grosir Haji Maman, ibu-ibu repot bolak-balik naik angkot.

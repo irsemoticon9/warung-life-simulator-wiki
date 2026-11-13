@@ -361,20 +361,19 @@
   }
 
   function buildSearchIndex() {
-    searchIndex = [...content.querySelectorAll("h2,h3,h4,p,li,tr,blockquote")].map((el, index) => {
+    const all = [...content.querySelectorAll("h2,h3,h4,p,li,tr,blockquote")];
+    let currentH2 = null;
+    searchIndex = all.map((el, index) => {
+      if (el.tagName === "H2") currentH2 = el;
       if (!el.id) el.id = `entry-${index}`;
-      let h2 = el.tagName === "H2" ? el : null;
-      if (!h2) {
-        let n = el.previousElementSibling;
-        while (n && n.tagName !== "H2") n = n.previousElementSibling;
-        h2 = n;
-      }
-      let page = pageFile(currentPageKey());
-      if (h2) {
-        for (const key in PAGE_MATCH) if (PAGE_MATCH[key](h2)) { page = pageFile(key); break; }
-      }
-      return { id: el.id, text: plain(el), heading: el.closest("section")?.querySelector("h2")?.textContent || "", tag: el.tagName, page };
+      return { id: el.id, text: plain(el), heading: currentH2 ? plain(currentH2) : "", tag: el.tagName, page: pageForH2(currentH2) };
     }).filter(item => item.text.length > 2);
+  }
+
+  function pageForH2(h2) {
+    if (!h2) return pageFile(currentPageKey());
+    for (const key in PAGE_MATCH) if (PAGE_MATCH[key](h2)) return pageFile(key);
+    return SLUG_TO_PAGE[h2.id] || pageFile(currentPageKey());
   }
 
   function bindAnchors() {
@@ -479,6 +478,15 @@
             return `<a class="result-item" href="${href}"><b>${escapeHtml(hit.text.slice(0, 110))}${hit.text.length > 110 ? "…" : ""}</b><small>${escapeHtml(hit.tag)} · Klik untuk menuju bagian</small></a>`;
           }).join("")
         : `<div class="muted">Tidak ada hasil. Coba kata kunci lain.</div>`;
+    });
+    searchResults.addEventListener("click", (e) => {
+      const a = e.target.closest("a.result-item");
+      if (!a) return;
+      const [file, hash] = (a.getAttribute("href") || "").split("#");
+      if (file && file !== pageFile(currentPageKey())) return; // navigasi ke halaman lain
+      e.preventDefault();
+      if (hash) revealTarget(hash);
+      searchResults.hidden = true;
     });
   }
 
