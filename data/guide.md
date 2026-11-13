@@ -1804,7 +1804,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ### 4.21 Susu Sekolah (`susu_sd`)
 
-- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · bukan Ramadan · **JANJI** (hanya hari libur warung) · setelah quest "Ucup Ingin Sekolah" selesai dengan hasil TOLAK (cabang tolak)
+- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · hari sekolah (bukan Minggu) · hanya hari libur warung · bukan Ramadan · setelah menolak "Ucup Ingin Sekolah" · muncul setelah quest "Hadiah Lomba HUT Sekolah" selesai
 #### Tahap 1 - SD · Neng Shinta (pukul 13.0–17.0)
 
   **Neng Shinta:** Pak Misran! Bu Guru lagi cari warung yang bisa sediakan susu kotak buat adik-adik SD.
@@ -2763,45 +2763,47 @@ Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jua
 ### 6.1 Harga Barang
 
 
-| Nama Barang | Harga Jual | Keuntungan |
-|---|---|---|
-| Mie goreng | Rp3500 | Rp1000 |
-| Mie rebus | Rp3500 | Rp1000 |
-| Minyak goreng 1 L | Rp19500 | Rp2500 |
-| Galon isi ulang | Rp8000 | Rp2000 |
-| LPG 3 kg | Rp22000 | Rp4000 |
-| Beras 1 kg | Rp15000 | Rp2000 |
-| Telur | Rp2500 | Rp500 |
-| Ciki | Rp2500 | Rp1000 |
-| Permen | Rp500 | Rp300 |
-| Biskuit | Rp3000 | Rp1000 |
-| Air mineral 600 ml | Rp4000 | Rp1500 |
-| Teh manis botol | Rp4500 | Rp1500 |
-| Kopi susu botol | Rp6500 | Rp2000 |
-| Minuman soda kaleng | Rp7000 | Rp2000 |
-| Minuman energi | Rp7000 | Rp2000 |
-| Minuman sachet | Rp1500 | Rp500 |
-| Kerupuk | Rp1000 | Rp500 |
-| Sayuran (cabai, bawang, tomat) | Rp5000 | Rp1000 |
-| Obat warung | Rp3500 | Rp1000 |
-| Buku tulis | Rp4500 | Rp1500 |
-| Rengginang Nenek Sumi | Rp5000 | Rp2000 |
-| Makanan kucing | Rp8000 | Rp2000 |
-| Gula pasir 1/2 kg | Rp10000 | Rp1500 |
-| Teh celup | Rp8500 | Rp2000 |
-| Sabun mandi | Rp4500 | Rp1500 |
-| Deterjen bubuk | Rp10000 | Rp2000 |
-| Susu kotak | Rp5000 | Rp1500 |
-| Es krim | Rp5000 | Rp2000 |
-| Kurma 250 g | Rp15000 | Rp3000 |
-| Sirup botol | Rp16000 | Rp3000 |
-| Roti | Rp4000 | Rp1000 |
-| Jamu kunyit asam | Rp5000 | Rp1500 |
-| Top-up Saldo E-Wallet Rp10.000 | Rp11000 | Rp1000 |
-| Paket data 2 GB | Rp14000 | Rp2000 |
-| Paket data 5 GB | Rp28000 | Rp3000 |
-| Paket data 10 GB | Rp49000 | Rp4000 |
-| Token listrik Rp20.000 | Rp22000 | Rp2000 |
+| Nama Barang | Modal | Jual | Keuntungan | Peluang |
+|---|---|---|---|---|
+| Mie goreng | Rp2500 | Rp3500 | Rp1000 | 10 |
+| Mie rebus | Rp2500 | Rp3500 | Rp1000 | 8 |
+| Minyak goreng 1 L | Rp17000 | Rp19500 | Rp2500 | 6 |
+| Galon isi ulang | Rp6000 | Rp8000 | Rp2000 | 4 |
+| LPG 3 kg | Rp18000 | Rp22000 | Rp4000 | 3 |
+| Beras 1 kg | Rp13000 | Rp15000 | Rp2000 | 4 |
+| Telur | Rp2000 | Rp2500 | Rp500 | 6 |
+| Ciki | Rp1500 | Rp2500 | Rp1000 | 8 |
+| Permen | Rp200 | Rp500 | Rp300 | 6 |
+| Biskuit | Rp2000 | Rp3000 | Rp1000 | 6 |
+| Air mineral 600 ml | Rp2500 | Rp4000 | Rp1500 | 7 |
+| Teh manis botol | Rp3000 | Rp4500 | Rp1500 | 6 |
+| Kopi susu botol | Rp4500 | Rp6500 | Rp2000 | 4 |
+| Minuman soda kaleng | Rp5000 | Rp7000 | Rp2000 | 4 |
+| Minuman energi | Rp5000 | Rp7000 | Rp2000 | 4 |
+| Minuman sachet | Rp1000 | Rp1500 | Rp500 | 6 |
+| Kerupuk | Rp500 | Rp1000 | Rp500 | 7 |
+| Sayuran (cabai, bawang, tomat) | Rp4000 | Rp5000 | Rp1000 | 5 |
+| Obat warung | Rp2500 | Rp3500 | Rp1000 | 3 |
+| Buku tulis | Rp3000 | Rp4500 | Rp1500 | 3 |
+| Rengginang Nenek Sumi | Rp3000 | Rp5000 | Rp2000 | 4 |
+| Makanan kucing | Rp6000 | Rp8000 | Rp2000 | 3 |
+| Gula pasir 1/2 kg | Rp8500 | Rp10000 | Rp1500 | 5 |
+| Teh celup | Rp6500 | Rp8500 | Rp2000 | 3 |
+| Sabun mandi | Rp3000 | Rp4500 | Rp1500 | 4 |
+| Deterjen bubuk | Rp8000 | Rp10000 | Rp2000 | 4 |
+| Susu kotak | Rp3500 | Rp5000 | Rp1500 | 4 |
+| Es krim | Rp3000 | Rp5000 | Rp2000 | 4 |
+| Kurma 250 g | Rp12000 | Rp15000 | Rp3000 | 3 |
+| Sirup botol | Rp13000 | Rp16000 | Rp3000 | 3 |
+| Roti | Rp3000 | Rp4000 | Rp1000 | 4 |
+| Jamu kunyit asam | Rp3500 | Rp5000 | Rp1500 | 3 |
+| Top-up Saldo E-Wallet Rp10.000 | Rp10000 | Rp11000 | Rp1000 | 3 |
+| Paket data 2 GB | Rp12000 | Rp14000 | Rp2000 | 3 |
+| Paket data 5 GB | Rp25000 | Rp28000 | Rp3000 | 2 |
+| Paket data 10 GB | Rp45000 | Rp49000 | Rp4000 | 1 |
+| Token listrik Rp20.000 | Rp20000 | Rp22000 | Rp2000 | 2 |
+
+
 
 ---
 
@@ -2862,6 +2864,25 @@ Buah hasil mini-game petik buah di area sawah. Disimpan di Tas dan dijual di Pas
 | Kelapa | 1500 | 0 | Tidak muncul acak (dapat dari pohon) |
 
 Catatan: makin kecil angka = makin langka. Kelapa tidak muncul acak di mini-game petik; didapat dari pohon kelapa yang tumbuh di area sawah.
+
+### 6.4 Perbandingan Harga Pasar & Grosir (November 2026)
+
+Perbandingan harga barang di game dengan harga pasar/online di Indonesia, berdasarkan hasil pencarian 13 November 2026 (berita harga, HET, SP2KP, dan daftar harga toko). Angka pasar berubah-ubah — ini sekadar acuan gambaran, bukan harga resmi.
+
+| Barang | Harga dalam game | Harga pasar/online | Sumber (Nov 2026) |
+|---|---|---|---|
+| Beras 1 kg | Rp15.000 | Medium HET Rp13.500–15.500/kg; BI Rp15.600–15.900/kg; Super I Rp18.100/kg | HET & PIHPS (12–13 Nov 2026) |
+| Minyak goreng 1 L | Rp19.500 | Minyakita Rp15.700–15.800/L; curah Rp19.460/L; premium bermerk Rp22.600–23.900/L | GIMNI & SP2KP (12 Nov 2026) |
+| Telur | Rp2.500/ butir | Pasar Rp21.500–28.900/kg (≈ Rp2.200–3.000/ butir); acuan pemerintah Rp24.000/kg | Sun Egg, ANTARA (13 Nov 2026) |
+| LPG 3 kg | Rp22.000 | Rp19.000/tabung di agen & pangkalan resmi (subsidi) | Pertamina, CNBC (5 Nov 2026) |
+| Air mineral botol | Rp4.000/600 ml | Aqua 1 L ± Rp4.450 retail; grosir Rp3.000–5.000/ botol | Daftar harga toko (Nov 2026) |
+| Teh manis botol | Rp4.500 | Teh Tong Tji grosir Rp4.500–5.000/ botol; Sosro 450 ml ± Rp6.900–9.900 | Google, retail (Nov 2026) |
+| Sayuran (cabai) | Rp5.000 | Cabai rawit Rp46.000–93.400/kg (perbedaan antar daerah besar) | detikcom, ANTARA (13 Nov 2026) |
+
+Catatan:
+
+- Harga dalam game dipakai developer untuk balance gameplay, jadi tidak harus sama persis dengan pasar — misalnya mie goreng di game adalah makanan jadi, bukan mie instan kemasan (acuan modal mie instan: dus 40 pcs grosir Rp90.700–107.000, ± Rp2.300–2.700/pcs).
+- Harga telur di game dihitung per butir; pasar menghitung per kilogram, jadi angka sengaja dikonversi.
 
 
 
@@ -2956,13 +2977,14 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 - Mancing: energi -5% per lempar, 3 menit game per lempar, jam 6.0-18.5
 - Petik buah: 20 menit game, energi -0%, jam 6.0-18.0
 - Buah matang menunggu dipanen (tidak busuk)
+- Tas: ikan dan buah maksimal 5 per kotak. Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
 
 ## 9. Kalender
 
 ### Hari & Waktu
 
 - **Hari sekolah**: Senin-Sabtu (bukan Minggu)
-- **Hari libur warung**: hari di mana warung tutup, Pak Misran bisa keluar. Event khusus hanya muncul di hari libur.
+- **Hari libur warung**: setiap Jumat warung tutup. Pagi Jumat bebas jalan keliling kampung; sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus hanya muncul di hari libur warung.
 - **Ramadan**: selama Ramadan, beberapa event tidak muncul.
 - **Gajian (tanggal muda)**: tanggal 25 s.d. 3 (hari gajian pabrik). Warung lebih ramai.
 
@@ -2976,8 +2998,8 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 ### Energi
 
 - Energi 100% di awal hari
-- Mancing: -20% energi
-- Petik buah: -15% energi
+- Mancing: -5% energi per lemparan (tiap lemparan = 3 menit game)
+- Petik buah: tanpa biaya energi
 - Jalan-jalan: -10% energi
 - Tidur: mengisi energi kembali
 
@@ -2989,6 +3011,7 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 - **Stok**: selalu isi stok barang yang laris (mie goreng, teh botol, air mineral, ciki).
 - **Reputasi**: bantu warga untuk meningkatkan reputasi dan mendapat ulasan bintang 5.
 - **Iklan**: aktifkan iklan untuk mendapat bonus (x2 ikan, dll). Mode pengembang bisa dimatikan dengan kode khusus.
+- **Pindah HP**: progress bisa dipindah ke HP baru lewat kode transfer. Pembelian "Tanpa Iklan" ikut pindah (diverifikasi ke toko). Kalau belum ikut, buka game sekali di HP lama (versi terbaru, dengan internet) lalu buat kode lagi, atau tekan "Pulihkan Pembelian" kalau memakai akun Google yang sama.
 - **Hemat energi**: jangan mancing/petik setiap hari, selang-seling dengan jalan-jalan.
 
 ### Tips Omzet
@@ -3001,7 +3024,7 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 ### Tips Quest Warga
 
 - **Baca dialog dengan teliti**: pilihan tolong/tolak menentukan quest selanjutnya.
-- **Ucup Ingin Sekolah**: tolong → Ucup Juara Kelas; tolak → Susu Sekolah.
+- **Ucup Ingin Sekolah**: tolong → Ucup Juara Kelas; tolak → Susu Sekolah (muncul setelah "Hadiah Lomba HUT Sekolah" selesai).
 - **Program Bantuan Warung (Fariz)**: JANGAN bayar Rp1.000.000! Ini jebakan (tipu_fariz).
 - **Janji**: hanya hari libur warung. Event khusus hanya muncul di hari libur.
 
@@ -3009,4 +3032,48 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 
 - **Mancing**: lemparkan jauh untuk peluang ikan langka lebih tinggi. Iklan x2 menggandakan jumlah.
 - **Petik buah**: pilih pohon yang matang. Kelapa dari pohon kelapa, bukan dari mini-game.
-- **Energi**: mancing -20%, petik -15%. Selang-seling agar tidak kehabisan energi.
+- **Energi**: mancing -5% per lempar, petik buah gratis. Selang-seling agar tidak kehabisan energi.
+
+### Belanja Grosir (Haji Maman)
+
+- Belanja barang grosiran di Haji Maman. Kalau salah pesan, tekan tombol "Batal 1": barang dikembalikan ke Tas dan uangnya dikembalikan, total belanja grosir dikurangi.
+
+### Buku Hutang
+
+- Kalau warga belanja kasbon atau meminjam, jumlahnya dicatat di Buku Hutang — tampil seperti buku catatan asli dengan tulisan tangan tinta warna.
+- Setiap hutang punya tanggal jatuh tempo (misalnya "dikembalikan 14 hari lagi").
+- Kalau lewat jatuh tempo, muncul tanda "Telat X hari!".
+- Tekan "Tagih!" untuk menagih pembayaran.
+- Setelah dibayar, tercatat "Lunas ✓".
+- Kalau warganya pindah rumah, hutangnya hilang ("Pindah rumah, hilang").
+
+## 11. Change Log
+
+Riwayat pembaruan versi game yang didokumentasikan wiki ini. Daftar v0.39 bersumber dari teks resmi "What's New" di data game dan perbandingan file v0.38 vs v0.39 (13 November 2026).
+
+### v0.39 (13 November 2026)
+
+**Fitur baru**
+
+- **Jumat resmi libur warung**: warung tutup, jadi pagi Jumat bebas keliling kampung. Mulai jam 12.30, Pak Misran berangkat sendiri ke Masjid Al-Ikhlas untuk Jumatan.
+- **Jumatan dipoles**: jalan otomatis bisa dihentikan dengan joystick, Pak Misran tidak lagi ketabrak kendaraan, dan Jumatan tidak lagi muncul di hari Minggu. Sholat mulai begitu sampai di depan masjid (sebelum 13.00).
+- **Pindah HP**: progres bisa dipindah ke HP baru lewat kode transfer. Pembelian "Tanpa Iklan" diperiksa langsung ke toko dan ikut pindah. Kalau belum ikut, buka game sekali di HP lama (versi terbaru, dengan internet) lalu buat kode lagi, atau tekan "Pulihkan Pembelian" kalau memakai akun Google yang sama.
+- **Buku Hutang dirombak**: tampil seperti buku catatan asli dengan tulisan tangan tinta warna. Tiap hutang punya tanggal jatuh tempo, tanda "Telat X hari!", tombol "Tagih!", tanda "Lunas ✓", dan hutang hangus kalau warganya pindah rumah ("Pindah rumah, hilang").
+- **Grosir "Batal 1"**: belanja grosir di Haji Maman salah pencet? Tekan "Batal 1" — barang kembali ke Tas, uang dikembalikan, total belanja grosir dikurangi.
+- **Tas terbatas**: ikan dan buah maksimal 5 per kotak. Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
+- **Misi Susu Sekolah**: sekarang baru muncul setelah quest "Hadiah Lomba HUT Sekolah" selesai.
+
+**Perbaikan (bug fix)**
+
+- Token listrik dan barang yang tertutup kertas pesanan sekarang selalu bisa diklik.
+- Titik merah aplikasi HP hilang setelah dibuka. Misi Susu Sekolah dan cerita warga yang berjalan selalu muncul.
+- Menyentuh daftar yang sedang digeser tidak lagi ikut memencet tombol +5.
+
+**Lainnya (tidak terlihat langsung saat main)**
+
+- Posisi dan hadap NPC di 6 event digeser: Hadiah Lomba HUT Sekolah, Motor Kang Asep, Pangkalan Gas, Susu Sekolah, Rahasia Rudi (tahap 2), dan Dadan Membaca (tahap 2).
+- Font baru PatrickHand dipakai untuk tulisan tangan di Buku Hutang.
+
+### v0.38 (versi dasar wiki ini)
+
+Wiki ini pertama kali ditulis untuk versi 0.38, jadi bagian 1 sampai 10 di atas menggambarkan kondisi game saat v0.38 — lengkap dengan pembaruan v0.39 yang disebut di halaman ini. Riwayat perubahan lengkap v0.38 terhadap versi sebelumnya tidak bisa direkonstruksi dari file yang tersedia, karena build v0.37 tidak tersedia untuk dibandingkan.

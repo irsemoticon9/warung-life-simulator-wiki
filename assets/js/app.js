@@ -53,7 +53,8 @@
     "daftar-upgrade": "daftar-upgrade.html",
     "panduan-mini-game": "panduan-mini-game.html",
     "kalender": "kalender.html",
-    "tips-trik": "tips-trik.html"
+    "tips-trik": "tips-trik.html",
+    "change-log": "change-log.html"
   };
   const PAGE_MATCH = {
     "beranda": (h) => /^Isi$/i.test(plain(h)),
@@ -66,7 +67,8 @@
     "daftar-upgrade": (h) => /^7\.\s*Daftar Upgrade/i.test(plain(h)),
     "panduan-mini-game": (h) => /^8\.\s*Panduan Mini/i.test(plain(h)),
     "kalender": (h) => /^9\.\s*Kalender/i.test(plain(h)),
-    "tips-trik": (h) => /^10\.\s*Tips/i.test(plain(h))
+    "tips-trik": (h) => /^10\.\s*Tips/i.test(plain(h)),
+    "change-log": (h) => /^11\.\s*Change Log/i.test(plain(h))
   };
   const SLUG_TO_PAGE = {
     "isi": "index.html",
@@ -79,7 +81,8 @@
     "7-daftar-upgrade": "daftar-upgrade.html",
     "8-panduan-mini-game": "panduan-mini-game.html",
     "9-kalender": "kalender.html",
-    "10-tips-trik": "tips-trik.html"
+    "10-tips-trik": "tips-trik.html",
+    "11-change-log": "change-log.html"
   };
   const currentPageKey = () => {
     if (window.GUIDE_PAGE) return window.GUIDE_PAGE;
@@ -334,10 +337,12 @@
       { key: "daftar-upgrade", icon: "⚙️", label: "Daftar Upgrade" },
       { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
       { key: "kalender", icon: "📅", label: "Kalender" },
-      { key: "tips-trik", icon: "💡", label: "Tips & Trik" }
+      { key: "tips-trik", icon: "💡", label: "Tips & Trik" },
+      { key: "change-log", icon: "🗒️", label: "Change Log", sep: true }
     ];
     const cur = currentPageKey();
     sideNav.innerHTML = items.map((it) =>
+      (it.sep ? `<div class="nav-sep">LOG VERSI</div>` : "") +
       `<a class="nav-link${it.key === cur ? " active" : ""}" href="${pageFile(it.key)}"><span>${it.icon}</span>${escapeHtml(it.label)}</a>`
     ).join("");
 
@@ -525,7 +530,8 @@
       "daftar-upgrade": "Daftar Upgrade",
       "panduan-mini-game": "Panduan Mini-Game",
       "kalender": "Kalender",
-      "tips-trik": "Tips & Trik"
+      "tips-trik": "Tips & Trik",
+      "change-log": "Change Log"
     };
     crumb.textContent = labels[cur] || cur;
   }
