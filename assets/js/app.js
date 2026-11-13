@@ -19,7 +19,7 @@
       if (!response.ok) throw new Error("HTTP " + response.status);
       const markdown = await response.text();
       if (!window.marked) throw new Error("Library Markdown tidak berhasil dimuat. Periksa koneksi internet lalu muat ulang.");
-      marked.setOptions({ gfm: true, breaks: false, headerIds: false, mangle: false });
+      marked.setOptions({ gfm: true, breaks: false });
       const raw = marked.parse(markdown);
       content.innerHTML = window.DOMPurify ? DOMPurify.sanitize(raw) : raw;
       formatOutcomeColumns();
@@ -39,44 +39,46 @@
   // Kelompokkan hasil cabang BANTU/TOLAK menjadi dua kolom agar mudah dibandingkan.
   function formatOutcomeColumns() {
     const children = [...content.children];
-    const isOutcome = el => el.tagName === "P" && /^HASIL\\s*[—-]/i.test(plain(el).replace(/\\s+/g, " "));
-    const isBoundary = el => /^(H2|H3|H4|HR)$/.test(el.tagName);
+    const textOf = el => plain(el).replace(/\s+/g, " ").trim();
+    const isOutcome = el => el.tagName === "P" && /^HASIL\s*[—–-]/i.test(textOf(el));
+    const isBoundary = el => /^(H2|H3|H4|HR)$/.test(el.tagName)
+      || (el.tagName === "P" && /^(Sapaan warga|Tahap \d|Pertanyaan)/i.test(textOf(el)));
     const blocks = [];
 
     for (let i = 0; i < children.length; i++) {
       if (!isOutcome(children[i])) continue;
-      const start = i;
-      const title = plain(children[i]).toUpperCase();
-      const kind = title.includes("TOLAK") ? "reject" : "accept";
+      const kind = /TOLAK/i.test(textOf(children[i])) ? "reject" : "accept";
       let end = i + 1;
       while (end < children.length && !isOutcome(children[end]) && !isBoundary(children[end])) end++;
-      blocks.push({ nodes: children.slice(start, end), kind, title });
+      blocks.push({ header: children[i], nodes: children.slice(i + 1, end), kind });
       i = end - 1;
     }
 
-    for (let i = 0; i < blocks.length - 1; i++) {
-      const first = blocks[i], second = blocks[i + 1];
-      if (first.kind === second.kind) continue;
-      const firstNode = first.nodes[0];
-      if (!firstNode.parentNode || firstNode.parentNode !== content) continue;
+    const used = new Set();
+    blocks.forEach((block, i) => {
+      if (used.has(i)) return;
+      const next = blocks[i + 1];
+      const pair = next && next.kind !== block.kind ? next : null;
+      if (pair) used.add(i + 1);
+
       const grid = document.createElement("div");
-      grid.className = "outcome-grid";
-      const ordered = [first, second].sort((a, b) => a.kind === "accept" ? -1 : 1);
-      ordered.forEach(block => {
-        const card = document.createElement("section");
-        card.className = `outcome-card ${block.kind}`;
-        const label = document.createElement("div");
-        label.className = "outcome-label";
-        label.innerHTML = block.kind === "accept"
-          ? '<span>✓</span><b>HASIL DITERIMA · BANTU</b>'
-          : '<span>×</span><b>HASIL DITOLAK</b>';
-        card.appendChild(label);
-        block.nodes.forEach(node => card.appendChild(node));
-        grid.appendChild(card);
-      });
-      content.insertBefore(grid, firstNode);
-      i++;
-    }
+      grid.className = pair ? "outcome-grid" : "outcome-grid single";
+      [block, ...(pair ? [pair] : [])]
+        .sort((a, b) => (a.kind === "accept" ? -1 : 1))
+        .forEach(b => {
+          const card = document.createElement("section");
+          card.className = `outcome-card ${b.kind}`;
+          const label = document.createElement("div");
+          label.className = "outcome-label";
+          label.innerHTML = b.kind === "accept"
+            ? '<span>✓</span><b>HASIL DITERIMA · BANTU</b>'
+            : '<span>×</span><b>HASIL DITOLAK</b>';
+          card.appendChild(label);
+          b.nodes.forEach(node => card.appendChild(node));
+          grid.appendChild(card);
+        });
+      block.header.replaceWith(grid);
+    });
   }
 
   function buildNavigation() {
@@ -84,12 +86,12 @@
     headings.forEach((heading, index) => {
       heading.id = slugify(plain(heading)) || `section-${index}`;
     });
-    const names = ["Quest Level", "Cerita Utama", "Quest Warga", "Daftar Barang", "Daftar Upgrade"];
-    const icons = ["🏆", "📖", "👥", "🛒", "⚙️"];
+    const icons = ["📑", "🏆", "📖", "👥", "🛒", "⚙️"];
+    const labelOf = h => plain(h).replace(/^\d+\.\s*/, "");
     const home = `<a class="nav-link active" href="#top"><span>⌂</span> Beranda</a>`;
-    const links = headings.map((h, i) => `<a class="nav-link" href="#${h.id}"><span>${icons[i] || "▸"}</span>${escapeHtml(names[i] || plain(h))}</a>`).join("");
+    const links = headings.map((h, i) => `<a class="nav-link" href="#${h.id}"><span>${icons[i] || "▸"}</span>${escapeHtml(labelOf(h))}</a>`).join("");
     sideNav.innerHTML = home + links;
-    toc.innerHTML = headings.map(h => `<a href="#${h.id}">${escapeHtml(plain(h))}</a>`).join("");
+    toc.innerHTML = headings.map(h => `<a href="#${h.id}">${escapeHtml(labelOf(h))}</a>`).join("");
   }
 
   function bindAnchors() {
