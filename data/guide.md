@@ -2865,27 +2865,30 @@ Buah hasil mini-game petik buah di area sawah. Disimpan di Tas dan dijual di Pas
 
 Catatan: makin kecil angka = makin langka. Kelapa tidak muncul acak di mini-game petik; didapat dari pohon kelapa yang tumbuh di area sawah.
 
-### 6.4 Perbandingan Harga Pasar & Grosir (November 2026)
+### 6.4 Harga Beli: Belanja Online vs Grosir
 
-Perbandingan harga barang di game dengan harga pasar/online di Indonesia, berdasarkan hasil pencarian 13 November 2026 (berita harga, HET, SP2KP, dan daftar harga toko). Angka pasar berubah-ubah — ini sekadar acuan gambaran, bukan harga resmi.
+Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan **Grosir** (kios Haji Maman di pasar). Harga keduanya berubah setiap hari, tapi mekanismenya berbeda.
 
-| Barang | Harga dalam game | Harga pasar/online | Sumber (Nov 2026) |
-|---|---|---|---|
-| Beras 1 kg | Rp15.000 | Medium HET Rp13.500–15.500/kg; BI Rp15.600–15.900/kg; Super I Rp18.100/kg | HET & PIHPS (12–13 Nov 2026) |
-| Minyak goreng 1 L | Rp19.500 | Minyakita Rp15.700–15.800/L; curah Rp19.460/L; premium bermerk Rp22.600–23.900/L | GIMNI & SP2KP (12 Nov 2026) |
-| Telur | Rp2.500/ butir | Pasar Rp21.500–28.900/kg (≈ Rp2.200–3.000/ butir); acuan pemerintah Rp24.000/kg | Sun Egg, ANTARA (13 Nov 2026) |
-| LPG 3 kg | Rp22.000 | Rp19.000/tabung di agen & pangkalan resmi (subsidi) | Pertamina, CNBC (5 Nov 2026) |
-| Air mineral botol | Rp4.000/600 ml | Aqua 1 L ± Rp4.450 retail; grosir Rp3.000–5.000/ botol | Daftar harga toko (Nov 2026) |
-| Teh manis botol | Rp4.500 | Teh Tong Tji grosir Rp4.500–5.000/ botol; Sosro 450 ml ± Rp6.900–9.900 | Google, retail (Nov 2026) |
-| Sayuran (cabai) | Rp5.000 | Cabai rawit Rp46.000–93.400/kg (perbedaan antar daerah besar) | detikcom, ANTARA (13 Nov 2026) |
+**Belanja Online**
 
-Catatan:
+- Harga dasarnya = harga beli (kolom Modal di 6.1).
+- Setiap pagi, 1-3 barang kebagian **promo harian** dengan diskon acak **10%, 15%, atau 20%**. Diumumkan lewat chat "Sales Grosir" (mis. *Promo khusus hari ini: beras 15%, telur 10%*).
+- Barang **khas agen** — barang yang terbuka karena cerita warga **ditolak** (mis. Susu Sekolah setelah menolak "Ucup Ingin Sekolah") — harganya **10% lebih mahal** dari harga dasar.
+- Harga akhir dibulatkan ke kelipatan Rp100.
 
-- Harga dalam game dipakai developer untuk balance gameplay, jadi tidak harus sama persis dengan pasar — misalnya mie goreng di game adalah makanan jadi, bukan mie instan kemasan (acuan modal mie instan: dus 40 pcs grosir Rp90.700–107.000, ± Rp2.300–2.700/pcs).
-- Harga telur di game dihitung per butir; pasar menghitung per kilogram, jadi angka sengaja dikonversi.
+**Grosir (Haji Maman)**
 
+- Kiosnya di pasar, di antara kios toples dan kios buah.
+- Harganya **acak setiap hari** — beda tiap hari, tanpa rumus tetap.
+- Barang yang dibeli masuk ke **Tas** dulu, baru ditata ke rak warung.
+- Salah pencet bisa dibatalkan satu-satu lewat tombol **"Batal 1"** (v0.39): barang kembali ke Tas, uang dikembalikan, total belanja dikurangi.
 
+**Perbedaan utamanya**
 
+- Tidak ada selisih harga tetap di antara dua kanal — keduanya berubah tiap hari.
+- Di aplikasi Belanja Online, diskon promo yang sedang aktif selalu terlihat (label "PROMO -x%").
+- Barang khas agen selalu minimal 10% di atas harga belinya.
+- Semua harga dihitung di dalam game, jadi tidak butuh internet; internet hanya untuk cek lisensi, cek versi, kode redeem, papan online, dan pengiriman data.
 ## 7. Daftar Upgrade
 
 
