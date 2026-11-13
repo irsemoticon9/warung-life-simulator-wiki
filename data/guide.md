@@ -2987,8 +2987,11 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 ### Hari & Waktu
 
 - **Hari sekolah**: Senin-Sabtu (bukan Minggu)
-- **Hari libur warung**: setiap Jumat warung tutup. Pagi Jumat bebas jalan keliling kampung; sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus hanya muncul di hari libur warung.
-- **Ramadan**: selama Ramadan, beberapa event tidak muncul.
+- **Jam buka warung**: buka 09.00, tutup 17.00 (5 sore); selama Ramadan boleh sampai 19.00 (7 sore).
+- **Hari libur warung**: setiap **Senin dan Jumat**. Senin untuk istirahat dan silaturahmi; pagi Jumat bebas jalan keliling kampung, sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus (janji ketemu warga) hanya muncul di hari libur warung.
+- **Pasar (lapak Bu Ida)**: buka 06.00-19.00, **libur Selasa & Kamis**. Ikan dan buah dari Tas bisa dijual ke Bu Ida hanya saat pasar buka. Angkot ke pasar Rp2.000, jalan 05.00-21.00.
+- **Malam**: pukul 21.00 boleh pulang tidur (hari berganti); sesudah 21.00 energi turun lebih cepat. Ronda malam Jumat (malam Kamis) kumpul di pos ronda mulai 21.00.
+- **Ramadan**: selama Ramadan, beberapa event tidak muncul; warung boleh buka sampai 19.00, buka puasa sekali sehari sesudah Maghrib (18.00), tarawih 19.30-21.00.
 - **Gajian (tanggal muda)**: tanggal 25 s.d. 3 (hari gajian pabrik). Warung lebih ramai.
 
 ### Musim
