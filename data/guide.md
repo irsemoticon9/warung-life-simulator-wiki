@@ -356,7 +356,8 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ### 4.1 Ucup Ingin Sekolah (`ucup_sekolah`)
 
-- **Syarat muncul:** Level ≥ 1 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung) · **hasil menentukan hadiah selanjutnya:** **tolong** → **Ucup Juara Kelas**, **tolak** → **Susu Sekolah**
+- **Syarat muncul:** Level ≥ 1 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung) · **hasil menentukan hadiah selanjutnya:** **tolong** → **Ucup Juara Kelas**, **tolak** → **Susu Sekolah** · *Catatan: jalur tolong akan membuka susu kotak langsung tanpa perlu menyelesaikan misi Susu Sekolah.*
+
 #### Tahap 1 - SD · Ucup (pukul 08.0–13.0)
 
   **Ucup:** Hhh... enak ya jadi mereka. Masih bisa sekolah...
@@ -1805,6 +1806,9 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 ### 4.21 Susu Sekolah (`susu_sd`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · hari sekolah (bukan Minggu) · hanya hari libur warung · bukan Ramadan · setelah menolak "Ucup Ingin Sekolah" · muncul setelah quest "Hadiah Lomba HUT Sekolah" selesai
+
+> **Catatan wiki** *(analisis dari data & logika game, bukan pengumuman resmi developer)*: Susu Sekolah adalah jalur alternatif dari *Ucup Juara Kelas* — keduanya membuka barang **susu kotak**. Kalau kamu ambil jalur **tolong** ("Ucup Ingin Sekolah" dibantu, quest *Ucup Juara Kelas*), syarat "setelah menolak" tidak pernah terpenuhi, jadi dialog Susu Sekolah tidak akan muncul dan quest ini tidak bisa dijalankan. Meski begitu, quest ini bisa tetap terlihat di daftar misi — versi 0.39 menampilkan "Misi Susu Sekolah" terus-menerus di aplikasi HP. Itu sisa tampilan, bukan misi aktif: tidak memblokir apa pun, dan reward (susu kotak, reputasi, pelanggan) sudah didapat lewat jalur tolong.
+
 #### Tahap 1 - SD · Neng Shinta (pukul 13.0–17.0)
 
   **Neng Shinta:** Pak Misran! Bu Guru lagi cari warung yang bisa sediakan susu kotak buat adik-adik SD.
