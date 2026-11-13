@@ -134,11 +134,153 @@
   }
 
   function formatOutcomeColumns() {
-    // Format outcome columns if needed (placeholder)
+    // Group HASIL - BANTU and HASIL - TOLAK into outcome-grid
+    const labels = [...content.querySelectorAll("p")];
+    const bantuLabels = labels.filter((el) => {
+      const st = el.querySelector("strong");
+      return st && /HASIL\s*-\s*BANTU/i.test(st.textContent || "");
+    });
+    bantuLabels.forEach((bantuLabel) => {
+      if (bantuLabel.closest(".outcome-card")) return;
+      // Find the tolak label
+      let tolakLabel = null;
+      let n = bantuLabel.nextElementSibling;
+      while (n) {
+        if (n.tagName === "P") {
+          const st = n.querySelector("strong");
+          if (st && /HASIL\s*-\s*TOLAK/i.test(st.textContent || "")) {
+            tolakLabel = n;
+            break;
+          }
+        }
+        if (n.tagName === "H2" || n.tagName === "H3") break;
+        n = n.nextElementSibling;
+      }
+      if (!tolakLabel) return;
+      // Collect bantu content (between bantuLabel and tolakLabel)
+      const bantuContent = [];
+      n = bantuLabel.nextElementSibling;
+      while (n && n !== tolakLabel) {
+        bantuContent.push(n);
+        n = n.nextElementSibling;
+      }
+      // Collect tolak content (after tolakLabel until next h2/h3 or end)
+      const tolakContent = [];
+      n = tolakLabel.nextElementSibling;
+      while (n && n.tagName !== "H2" && n.tagName !== "H3") {
+        tolakContent.push(n);
+        n = n.nextElementSibling;
+      }
+      // Create outcome grid
+      const grid = document.createElement("div");
+      grid.className = "outcome-grid";
+      // Accept card
+      const acceptCard = document.createElement("div");
+      acceptCard.className = "outcome-card accept";
+      const acceptLabel = document.createElement("p");
+      acceptLabel.className = "outcome-label";
+      const acceptSpan = document.createElement("span");
+      acceptSpan.textContent = "✓";
+      acceptLabel.appendChild(acceptSpan);
+      const acceptStrong = bantuLabel.querySelector("strong");
+      const acceptText = acceptStrong ? acceptStrong.textContent.replace(/HASIL\s*-\s*/i, "").trim() : "BANTU";
+      const acceptLabelSpan = document.createElement("span");
+      acceptLabelSpan.textContent = acceptText;
+      acceptLabel.appendChild(acceptLabelSpan);
+      acceptCard.appendChild(acceptLabel);
+      bantuContent.forEach((el) => acceptCard.appendChild(el));
+      // Reject card
+      const rejectCard = document.createElement("div");
+      rejectCard.className = "outcome-card reject";
+      const rejectLabel = document.createElement("p");
+      rejectLabel.className = "outcome-label";
+      const rejectSpan = document.createElement("span");
+      rejectSpan.textContent = "✗";
+      rejectLabel.appendChild(rejectSpan);
+      const rejectStrong = tolakLabel.querySelector("strong");
+      const rejectText = rejectStrong ? rejectStrong.textContent.replace(/HASIL\s*-\s*/i, "").trim() : "TOLAK";
+      const rejectLabelSpan = document.createElement("span");
+      rejectLabelSpan.textContent = rejectText;
+      rejectLabel.appendChild(rejectLabelSpan);
+      rejectCard.appendChild(rejectLabel);
+      tolakContent.forEach((el) => rejectCard.appendChild(el));
+      grid.appendChild(acceptCard);
+      grid.appendChild(rejectCard);
+      // Replace bantuLabel with grid
+      const parent = bantuLabel.parentElement;
+      if (!parent) return;
+      parent.insertBefore(grid, bantuLabel);
+      // Remove original elements
+      bantuLabel.remove();
+      tolakLabel.remove();
+      // Remove bantu content (already moved)
+      // Remove tolak content (already moved)
+    });
   }
 
+  const DIALOGUE_CHARS = new Set(["Abah Karta","Agus","Bu Ida","Dimas","Haji Doni","Kang Asep","Kang Dadan","Kang Fadil","Kang Hasan","Mang Ujang","Mas Fariz","Mba Giska","Nenek Sumi","Neng Shinta","Pak Misran","Pak RT","Pak Rudi","Ucup","Warga","Arab","Bu Guru","Bu Ningsih","Bu RT","Bu Yati","Mas Fajar","Pak Darto","Pak Slamet","Nenek","Shinta"]);
+
   function formatDialogues() {
-    // Format dialogue lines (placeholder)
+    // Wrap dialogue/label lines in .dlg containers
+    const paragraphs = [...content.querySelectorAll("p")];
+    paragraphs.forEach((p) => {
+      if (!p.parentElement) return; // skip already processed
+      const text = (p.textContent || "").trim();
+      const strongEl = p.querySelector("strong");
+      if (!strongEl) return;
+      const strongText = strongEl.textContent.trim();
+      if (!strongText.endsWith(":")) return;
+      if (p.closest(".dlg")) return;
+      // Collect consecutive paragraphs that start with **Name:**
+      const group = [p];
+      let n = p.nextElementSibling;
+      while (n && n.tagName === "P") {
+        const st = n.querySelector("strong");
+        if (!st || !st.textContent.trim().endsWith(":")) break;
+        group.push(n);
+        n = n.nextElementSibling;
+      }
+      // Create dlg container
+      const dlg = document.createElement("div");
+      dlg.className = "dlg";
+      group.forEach((el) => {
+        const st = el.querySelector("strong");
+        const name = st ? st.textContent.trim().replace(/:$/, "").trim() : "";
+        const fullText = (el.textContent || "").trim();
+        const colonIdx = fullText.indexOf(":");
+        const sayText = colonIdx >= 0 ? fullText.substring(colonIdx + 1).trim() : "";
+        const isChar = DIALOGUE_CHARS.has(name);
+        if (isChar) {
+          const line = document.createElement("p");
+          line.className = "dlg-line";
+          const who = document.createElement("span");
+          who.className = "dlg-who";
+          who.textContent = name;
+          const say = document.createElement("span");
+          say.className = "dlg-say";
+          say.textContent = sayText;
+          line.appendChild(who);
+          line.appendChild(say);
+          dlg.appendChild(line);
+        } else {
+          const label = document.createElement("p");
+          label.className = "dlg-label";
+          const strong = document.createElement("strong");
+          strong.textContent = name + ":";
+          label.appendChild(strong);
+          if (sayText) {
+            const span = document.createElement("span");
+            span.textContent = " " + sayText;
+            label.appendChild(span);
+          }
+          dlg.appendChild(label);
+        }
+      });
+      const parent = group[0].parentElement;
+      if (!parent) return;
+      parent.insertBefore(dlg, group[0]);
+      group.forEach((el) => { if (el.parentElement) el.remove(); });
+    });
   }
 
   function formatQuestAccordions() {
@@ -289,6 +431,21 @@
   function showOnlyCurrentSection() {
     const cur = currentPageKey();
     const headings = [...content.querySelectorAll("h2")];
+    if (cur === "beranda") {
+      // On beranda, hide all guide sections (navigation via icon buttons)
+      headings.forEach((h) => {
+        const group = [h];
+        let n = h.nextElementSibling;
+        while (n && n.tagName !== "H2") { group.push(n); n = n.nextElementSibling; }
+        group.forEach((el) => { el.style.display = "none"; });
+      });
+      // Hide the content layout's article but keep search working
+      const hero = document.querySelector(".hero");
+      const qs = document.querySelector(".quick-stats");
+      if (hero) hero.style.display = "";
+      if (qs) qs.style.display = "";
+      return;
+    }
     headings.forEach((h) => {
       const isCurrent = PAGE_MATCH[cur] ? PAGE_MATCH[cur](h) : false;
       const group = [h];
@@ -296,12 +453,10 @@
       while (n && n.tagName !== "H2") { group.push(n); n = n.nextElementSibling; }
       group.forEach((el) => { el.style.display = isCurrent ? "" : "none"; });
     });
-    if (cur !== "beranda") {
-      const hero = document.querySelector(".hero");
-      const qs = document.querySelector(".quick-stats");
-      if (hero) hero.style.display = "none";
-      if (qs) qs.style.display = "none";
-    }
+    const hero = document.querySelector(".hero");
+    const qs = document.querySelector(".quick-stats");
+    if (hero) hero.style.display = "none";
+    if (qs) qs.style.display = "none";
   }
 
   function revealTarget(id) {
@@ -372,6 +527,7 @@
     };
     crumb.textContent = labels[cur] || cur;
   }
+
 
   init();
 })();

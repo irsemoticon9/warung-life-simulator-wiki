@@ -1,28 +1,12 @@
-# Warung Life Simulator - PANDUAN QUEST PENUH (v0.38)
-> Versi lengkap tanpa ringkasan: semua dialog, semua pilihan, semua tahap, semua hasil.
-> Sumber: file data asli game v0.38 - data/tugas.json, data/cerita.json, data/event.json, data/barang.json, data/upgrade.json.
-
-
-## Isi
-
-1. [Daftar NPC & Pelanggan](#1-daftar-npc--pelanggan)
-2. [Quest Level (10 level)](#2-quest-level)
-3. [Cerita Utama (10 bab)](#3-cerita-utama)
-4. [Quest Warga (34 cerita)](#4-quest-warga)
-5. [Daftar Kejadian Acak](#5-daftar-kejadian-acak)
-6. [Daftar Harga](#6-daftar-harga)
-7. [Daftar Upgrade (12)](#7-daftar-upgrade)
-8. [Panduan Mini-Game](#8-panduan-mini-game)
-9. [Kalender](#9-kalender)
-10. [Tips & Trik](#10-tips--trik)
-
----
+# Warung Life Simulator Wiki - Fanmade
+> Sebuah Wiki Fanmade untuk Warung Life Simulator.
+> Panduan ini dibuat dengan bantuan AI. Segala Informasi Bertujuan untuk Membuat Game Menjadi Lebih Informatif. Selalu Support Neo Paw Studio selaku Developer.
 
 ## 1. Daftar NPC & Pelanggan
 
 ### NPC (Warga)
 
-Warga desa yang muncul di mode jalan-jalan. Disapa dengan tombol Ngobrol.
+Warga desa yang bisa kamu temui saat jalan-jalan di kampung. Tekan tombol Ngobrol untuk menyapa mereka.
 
 | ID | Nama | Keterangan |
 |---|---|---|
@@ -44,42 +28,42 @@ Warga desa yang muncul di mode jalan-jalan. Disapa dengan tombol Ngobrol.
 ### Pelanggan (Tipe)
 
 **Preferensi pelanggan (barang yang disukai):**
-- **Pelajar**: es_krim (2.0x), ciki (2.0x), teh_botol (2.0x), data_2gb (2.0x)
-- **Pekerja kantoran**: kopi_susu (3.0x), danda (2.0x)
-- **Ojek online**: sachet (2.5x), kopi_susu (2.0x), air_mineral (2.0x), danda (2.5x)
-- **Ibu rumah tangga**: gula (2.5x), sabun (2.0x), deterjen (2.5x), token_listrik (2.0x), beras (3.0x), telur (3.0x), lpg (3.0x), galon (2.0x), minyak_goreng (3.0x)
-- **Anak kecil**: es_krim (3.0x), susu_kotak (2.5x), permen (3.0x), ciki (3.0x), biskuit (2.0x)
-- **Nenek**: gula (2.0x), biskuit (3.0x), beras (2.0x), telur (2.0x)
-- **Siswi SMP**: es_krim (2.0x), susu_kotak (2.0x), ciki (2.0x), permen (2.0x), teh_botol (2.0x), data_2gb (2.5x)
-- **Santri (peci putih)**: sabun (2.0x), mi_rebus (2.0x), mi_goreng (2.0x), teh_botol (2.0x)
-- **Santri (peci hitam)**: sabun (2.0x), mi_rebus (2.0x), mi_goreng (2.0x), teh_botol (2.0x)
-- **Tukang bangunan**: kopi_bubuk (2.0x), sachet (3.0x), kopi_susu (2.5x), air_mineral (2.5x)
-- **Petani**: kopi_bubuk (2.0x), sachet (2.5x), air_mineral (2.0x), teh_botol (2.0x)
-- **Mba Giska**: token_listrik (2.0x), teh_botol (2.5x), air_mineral (2.0x), kopi_susu (2.0x), danda (2.5x), data_5gb (2.0x)
-- **Pak RT**: sachet (2.5x), kopi_susu (2.0x), kerupuk (2.0x)
+- **Pelajar**: es krim, ciki, teh botol, data 2gb
+- **Pekerja kantoran**: kopi susu, danda
+- **Ojek online**: sachet, kopi susu, air mineral, danda
+- **Ibu rumah tangga**: gula, sabun, deterjen, token listrik, beras, telur, lpg, galon, minyak goreng
+- **Anak kecil**: es krim, susu kotak, permen, ciki, biskuit
+- **Nenek**: gula, biskuit, beras, telur
+- **Siswi SMP**: es krim, susu kotak, ciki, permen, teh botol, data 2gb
+- **Santri (peci putih)**: sabun, mi rebus, mi goreng, teh botol
+- **Santri (peci hitam)**: sabun, mi rebus, mi goreng, teh botol
+- **Tukang bangunan**: kopi bubuk, sachet, kopi susu, air mineral
+- **Petani**: kopi bubuk, sachet, air mineral, teh botol
+- **Mba Giska**: token listrik, teh botol, air mineral, kopi susu, danda, data 5gb
+- **Pak RT**: sachet, kopi susu, kerupuk
 
 
-Tipe pelanggan yang datang ke warung. Masing-masing punya kesukaan barang berbeda.
+Tipe-tipe pelanggan yang datang ke warung. Setiap tipe punya kesukaan barang yang berbeda, jadi stok yang tepat akan membuat mereka lebih sering belanja.
 
-| Tipe | Nama | Tinggi | Kesukaan utama |
-|---|---|---|---|
-| pelajar | Pelajar | 270 | es_krim (2.0x), ciki (2.0x), teh_botol (2.0x) |
-| kantoran | Pekerja kantoran | 285 | kopi_susu (3.0x), danda (2.0x), token_listrik (1.5x) |
-| ojek | Ojek online | 285 | sachet (2.5x), danda (2.5x), kopi_susu (2.0x) |
-| ibu_rumah_tangga | Ibu rumah tangga | 265 | beras (3.0x), telur (3.0x), lpg (3.0x) |
-| anak | Anak kecil | 185 | es_krim (3.0x), permen (3.0x), ciki (3.0x) |
-| nenek | Nenek | 250 | biskuit (3.0x), gula (2.0x), beras (2.0x) |
-| siswi | Siswi SMP | 240 | data_2gb (2.5x), es_krim (2.0x), susu_kotak (2.0x) |
-| santri_putih | Santri (peci putih) | 255 | sabun (2.0x), mi_rebus (2.0x), mi_goreng (2.0x) |
-| santri_hitam | Santri (peci hitam) | 255 | sabun (2.0x), mi_rebus (2.0x), mi_goreng (2.0x) |
-| tukang | Tukang bangunan | 285 | sachet (3.0x), kopi_susu (2.5x), air_mineral (2.5x) |
-| petani | Petani | 280 | sachet (2.5x), kopi_bubuk (2.0x), air_mineral (2.0x) |
-| giska | Mba Giska | 270 | teh_botol (2.5x), danda (2.5x), token_listrik (2.0x) |
-| pak_rt | Pak RT | 285 | sachet (2.5x), kopi_susu (2.0x), kerupuk (2.0x) |
+| Tipe Pelanggan | Nama | Barang yang Disukai |
+|---|---|---|
+| pelajar | Pelajar | es krim, ciki, teh botol |
+| kantoran | Pekerja kantoran | kopi susu, danda, token listrik |
+| ojek | Ojek online | sachet, danda, kopi susu |
+| ibu_rumah_tangga | Ibu rumah tangga | beras, telur, lpg |
+| anak | Anak kecil | es krim, permen, ciki |
+| nenek | Nenek | biskuit, gula, beras |
+| siswi | Siswi SMP | data 2gb, es krim, susu kotak |
+| santri_putih | Santri (peci putih) | sabun, mi rebus, mi goreng |
+| santri_hitam | Santri (peci hitam) | sabun, mi rebus, mi goreng |
+| tukang | Tukang bangunan | sachet, kopi susu, air mineral |
+| petani | Petani | sachet, kopi bubuk, air mineral |
+| giska | Mba Giska | teh botol, danda, token listrik |
+| pak_rt | Pak RT | sachet, kopi susu, kerupuk |
 
 ### Varian NPC
 
-Varian warna pakaian pembeli/pejalan tanpa model baru.
+Varian penampilan pembeli dan pejalan kaki. Mereka memakai model yang sama tapi dengan warna pakaian berbeda.
 
 - **Pelajar (pramuka)** (pelajar_pramuka): seragam pramuka - Jajang
 - **Pelajar SMP** (pelajar_smp): seragam SMP - Rendi
@@ -133,7 +117,7 @@ Progres dihitung sejak level itu dimulai (boleh lewat beberapa hari). Semua syar
 |---|---|---|---|---|---|---|---|---|
 | 1 | Pemula | 15 | 25 | Rp100000 | Rp15000 | beruntun 5 | - | - |
 | 2 | Mulai Dikenal | 40 | 70 | Rp400000 | Rp50000 | multi 8 | kipas | kerupuk |
-| 3 | Langganan Kampung | 90 | 160 | Rp1000000 | Rp100000 | laba_hari 40000 | spanduk, bangku | minuman_energi |
+| 3 | Langganan Kampung | 90 | 160 | Rp1000000 | Rp100000 | laba_hari 40000 | spanduk, bangku | minuman energi |
 | 4 | Warung Ramai | 180 | 320 | Rp2200000 | Rp200000 | multi 25 | kurir_cepat | - |
 | 5 | Juragan Warung | 350 | 620 | Rp4500000 | Rp300000 | beruntun 20 | radio | - |
 | 6 | Toko Kebanggaan | 480 | 850 | Rp6500000 | Rp400000 | minuman 50 | qris | - |
@@ -151,7 +135,7 @@ Pak Misran mengirim uang untuk Agus (anak, kuliah di kota) dan keperluan rumah t
 Membayar bab level sama = ikut jadi syarat naik level itu.
 Lewat batas → denda dan dialog terlambat.
 
-**Barang yang sudah terbuka di hari pertama:** mi_goreng, mi_rebus, telur, biskuit, air_mineral, sachet, ciki, permen
+**Barang yang sudah terbuka di hari pertama:** mi goreng, mi rebus, telur, biskuit, air mineral, sachet, ciki, permen
 
 **Sewa kios** (kepada Pak Haji Rasyid), per level: Rp250000 → Rp300000 → Rp375000 → Rp450000 → Rp550000 → Rp650000 → Rp750000 → Rp800000 → Rp850000 → Rp900000
 (Sewa aktual = dasar + keringanan 15% omzet + 50% upah kerja sampingan, maksimal per_minggu di atas. Denda keterlambatan bab: 10%.)
@@ -162,7 +146,7 @@ Lewat batas → denda dan dialog terlambat.
 - **Target:** Rp150000
 - **Batas:** 12 hari
 - **Level terkait:** 1
-- **Barang terbuka setelah lunas:** teh_botol
+- **Barang terbuka setelah lunas:** teh botol
 
 **Dialog awal bab:**
 
@@ -185,7 +169,7 @@ Lewat batas → denda dan dialog terlambat.
 - **Target:** Rp350000
 - **Batas:** 16 hari
 - **Level terkait:** 2
-- **Barang terbuka setelah lunas:** kopi_susu
+- **Barang terbuka setelah lunas:** kopi susu
 
 **Dialog awal bab:**
 
@@ -218,7 +202,7 @@ Lewat batas → denda dan dialog terlambat.
 - **Target:** Rp650000
 - **Batas:** 16 hari
 - **Level terkait:** 4
-- **Barang terbuka setelah lunas:** danda, data_2gb, data_5gb, data_10gb
+- **Barang terbuka setelah lunas:** danda, data 2gb, data 5gb, data 10gb
 
 **Dialog awal bab:**
 
@@ -236,7 +220,7 @@ Lewat batas → denda dan dialog terlambat.
 - **Target:** Rp1000000
 - **Batas:** 26 hari
 - **Level terkait:** 5
-- **Barang terbuka setelah lunas:** minyak_goreng
+- **Barang terbuka setelah lunas:** minyak goreng
 
 **Dialog awal bab:**
 
@@ -358,14 +342,14 @@ Lewat batas → denda dan dialog terlambat.
 
 ## 4. Quest Warga
 
-Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd. Warga cerita berdiri di 'posisi' (koordinat gambar area) pada jam [mulai, selesai) mulai hari 'hari_min', ditandai titik merah di atas kepala; pemain mendekat lalu menekan 'Sapa'. tahap = urutan bagian cerita (bisa pindah area/tokoh). siapa di dialog: bapak, id tipe warga (anak, nenek, petani, santri_putih, ...), id tokoh (haji_doni, pak_rt), atau kosong (narasi). pilihan.opsi.aksi: tolong / tolak = cerita selesai dengan hasil itu, lanjut = ke tahap berikutnya, ulang = jawaban salah (tetap di tahap ini), tunda = nanti saja. biaya = uang yang dibayar kalau memilih opsi ini. maju_menit = waktu berjalan (misalnya membantu bekerja). pergi_ke = [[x, y], ...] warga itu berjalan pergi lalu hilang; hilang = true warga itu langsung memudar hilang (misalnya kucing digendong). perjalanan = {teks, menit, langkah (true = suara langkah kaki), detik} layar gelap berisi keterangan, misalnya Pak Misran kembali ke warung mengambil obat; sesudahnya dialog_sesudah. hasil.tolong/tolak: bintang = naik sekian bintang, reputasi = tambah/kurang poin (0-100), buka = barang yang terbuka, pelanggan = pengali seberapa sering tipe itu datang ke warung (0,4 = jarang, 1,5 = lebih sering), popup = isi pop-up hasil (judul, isi, daftar, gambar). obrolan = percakapan pengganti saat menyapa warga itu di jalan sesudah cerita selesai (format sama dengan warga.json). tetap = sesudah cerita selesai tokoh ini tetap berdiri di sana dan bisa disapa (obrolan dari bagian obrolan). akrab: false = cerita ini tidak mengubah keakraban warga yang terlibat. jika_uang_cukup / jika_uang_kurang (di opsi) = pilihan hanya tampil kalau uang >= / < angka itu. hasil.chat = pesan Wasap sesudah cerita selesai: [[pengirim, teks, kontak]] (kontak: rt, agus, juragan, sales). tahap.gendong = id tipe tokoh (kucing) yang dipeluk Pak Misran selama tahap itu. setelah_hasil = cerita ini hanya muncul kalau hasil cerita setelah sama dengan nilai ini. hari_sekolah = awal cerita tidak muncul hari Minggu. bukan_ramadan = awal cerita tidak muncul selama Ramadan. tahap.jam_ketat = tahap lanjutan tetap mengikuti jam. pendamping_sesudah.digendong = penerima langsung menggendong tokoh itu. tahap.pendamping = warga lain yang ikut berdiri di adegan itu. tahap.bawa = berkas model barang (misalnya res://assets/upgrade/kardus_bawa.glb) yang dipeluk Pak Misran selama tahap itu, lepas sendiri saat cerita selesai.
+Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di lokasi tertentu pada jam tertentu, mulai hari tertentu. Pemain mendekat lalu menekan "Sapa" untuk memulai cerita. Setiap cerita punya beberapa tahap yang bisa pindah area atau tokoh. Pilihan jawaban: tolong (membantu), tolak (menolak), lanjut (ke tahap berikut), ulang (jawaban salah), tunda (nanti saja). Hasil cerita bisa menambah reputasi, membuka barang baru, atau mengubah frekuensi pelanggan datang.
 
 **Lembar nama tokoh:** `` · `agus` · `agusdatang` · `bapak (narasi)` · `anak` · `siswi` · `pelajar` · `nenek` · `petani` · `santri_putih` · `santri_hitam` · `giska` · `tukang` · `kantoran` · `kurir` · `ojek` · `ibu_rumah_tangga` · `pak_rt` · `haji_doni` · `fariz` · `kucing` · `juragan`
 
 *Penjelasan pendek:*
 - **JANJI** = event khusus hari libur warung; maks 2 janji per libur.
 - **HARI SEKOLAH** = tidak muncul hari Minggu.
-- **bukan_ramadan** = tidak muncul selama Ramadan.
+- **bukan_ramadan** = tidak muncul selama Ramadan (beberapa event tidak muncul di Ramadan).
 - Setiap event punya beberapa `tahap` (lokasi/tim). Dekat → tekan **Sapa**.
 - Pilihan: **tolong** (membantu) / **tolak** (tolak).
 - Setelah cerita selesai muncul **obrolan** (percakapan warga).
@@ -414,7 +398,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 **HASIL - BANTU (tolong):**
 
 - bintang: 1
-- barang terbuka: buku_tulis
+- barang terbuka: buku tulis
 - pelanggan: Ucup x1.3, Nenek Sumi x1.3
 
   **Pop-up "Barang Baru Terbuka!"**
@@ -841,7 +825,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 **HASIL - BANTU (tolong):**
 
 - reputasi: 2
-- barang terbuka: makanan_kucing
+- barang terbuka: makanan kucing
 - pelanggan: Mba Giska x1.6
 
   **Pop-up "Si Neo Pulang!"**
@@ -1745,7 +1729,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 - uang: 220000
 - ramai: 0.02
-- barang terbuka: gula, kopi_bubuk
+- barang terbuka: gula, kopi bubuk
 - pelanggan: Bu Ida x1.3
 
   **Pop-up "Barang Baru Terbuka!"**
@@ -1799,7 +1783,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 **HASIL - BANTU (tolong):**
 
 - reputasi: 3
-- barang terbuka: susu_kotak
+- barang terbuka: susu kotak
 - pelanggan: Ucup x1.3, Neng Shinta x1.2, Dimas x1.2
 
   **Pop-up "Barang Baru Terbuka!"**
@@ -1845,7 +1829,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 **HASIL - BANTU (tolong):**
 
 - reputasi: 3
-- barang terbuka: susu_kotak
+- barang terbuka: susu kotak
 - pelanggan: Ucup x1.3, Neng Shinta x1.2, Dimas x1.2
 
   **Pop-up "Barang Baru Terbuka!"**
@@ -1997,7 +1981,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 - reputasi: 2
 - ramai: 0.02
-- barang terbuka: token_listrik
+- barang terbuka: token listrik
 - pesan WA: Pak RT: "Bapak-Ibu, sekarang beli token listrik bisa di warung Pak Misran. Nggak usah jauh-jauh ke kecamatan lagi."
 
   **Pop-up "Barang Baru Terbuka!"**
@@ -2075,7 +2059,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 ---
 
-### 4.26 Freezer Es Krim (`freezer_es_krim`)
+### 4.26 Freezer Es Krim (`freezer_es krim`)
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
 #### Tahap 1 - Warung · Kang Dadan (pukul 10.0–17.0)
@@ -2104,7 +2088,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 **HASIL - BANTU (tolong):**
 
 - ramai: 0.03
-- barang terbuka: es_krim
+- barang terbuka: es krim
 - pelanggan: Ucup x1.2, Neng Shinta x1.15, Dimas x1.15
 
   **Pop-up "Barang Baru Terbuka!"**
@@ -2735,18 +2719,18 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 ## 5. Daftar Kejadian Acak
 
-Kejadian acak di warung. Mulai muncul hari ke-2, peluang 45% ada satu kejadian siang per hari.
+Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, ada peluang 45% setiap hari ada satu kejadian siang.
 
-| Kejadian | Mulai hari | Efek | Cara mengatasi |
+| Kejadian | Mulai Hari | Dampak | Cara Mengatasi |
 |---|---|---|---|
-| Listrik padam | 1 | Minuman tidak laris (jeda 1.25x) | Beli genset |
-| Rombongan datang | 1 | Jeda 0.7x, air mineral/teh/ciki laris | - |
-| Palak preman | 1 | Setoran Rp10.000-20.000, reputasi -1 jika tolak | Beli CCTV |
-| Borongan | 1 | Pesanan 2-3 jenis, 3-8 unit, reputasi +2 | - |
-| Gajian (tanggal muda) | 1 | Jeda 0.7x, belanja lebih banyak | - |
-| Arisan | 1 | Pesanan 2-4 jenis, 3-6 unit, tip Rp5.000-15.000, reputasi +1 | - |
-| Preman nongkrong | 1 | Jeda 8x (sangat sepi), 3-4 menit | Beli CCTV |
-| Pencurian | 5 | Kehilangan barang (maks 2 jenis, 3 unit, Rp40.000) | Beli CCTV |
+| Listrik padam | Hari 1 | Minuman tidak laris | Beli genset |
+| Rombongan datang | Hari 1 | Lebih ramai, air mineral/teh/ciki laris | - |
+| Palak preman | Hari 1 | Setoran Rp10.000-20.000 | Beli CCTV |
+| Borongan | Hari 1 | Pesanan 2-3 jenis, 3-8 unit, reputasi +2 | - |
+| Gajian (tanggal muda) | Hari 1 | Jeda 0.7x, belanja lebih banyak | - |
+| Arisan | Hari 1 | Pesanan 2-4 jenis, 3-6 unit, tip Rp5.000-15.000, reputasi +1 | - |
+| Preman nongkrong | Hari 1 | Sangat sepi, 3-4 menit | Beli CCTV |
+| Pencurian | 5 | Kehilangan barang (maks Rp40.000) | Beli CCTV |
 | Uang palsu | 8 | Ketahuan saat tutup, hanya uang tunai | Beli QRIS |
 | Tikus | 6 | Makan barang (beras, gula, kerupuk, rengginang, biskuit, roti) | Beli CCTV (Neo minimal Tetangga akrab) |
 
@@ -2766,93 +2750,93 @@ Kejadian acak di warung. Mulai muncul hari ke-2, peluang 45% ada satu kejadian s
 
 **Preman nongkrong:** Preman nongkrong di warung. Jeda 8x (sangat sepi). Durasi 3-4 menit. CCTV membantu.
 
-**Pencurian:** Kehilangan barang. Peluang 8% per hari (mulai hari 5). CCTV mengurangi 75%. Maks 2 jenis, 3 unit, Rp40.000.
+**Pencurian:** Kehilangan barang. Mulai hari 5. CCTV membantu. Maks 2 jenis, 3 unit, Rp40.000.
 
-**Uang palsu:** Peluang 5% per hari (mulai hari 8). Ketahuan saat tutup, hanya uang tunai. QRIS mengurangi kejadian.
+**Uang palsu:** Mulai hari 8. Ketahuan saat tutup, hanya uang tunai. QRIS mengurangi kejadian.
 
-**Tikus:** Peluang 7% per hari (mulai hari 6). Malam hari, ketahuan saat buka. Jarang kalau Neo minimal Tetangga akrab. Makan beras, gula, kerupuk, rengginang, biskuit, roti.
+**Tikus:** Mulai hari 6. Malam hari, ketahuan saat buka. Jarang kalau Neo minimal Tetangga akrab. Makan beras, gula, kerupuk, rengginang, biskuit, roti.
 
 ## 6. Daftar Harga
 
-Daftar harga semua barang, ikan, dan buah yang bisa dijual di Pasar.
+Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jual = harga jual ke pelanggan.
 
 ### 6.1 Harga Barang
 
 
-| ID | Nama | Modal | Jual | Untung | Stok awal | Peluang |
-|---|---|---|---|---|---|---|
-| mi_goreng | Mie goreng | Rp2500 | Rp3500 | Rp1000 | 15 | 10 |
-| mi_rebus | Mie rebus | Rp2500 | Rp3500 | Rp1000 | 15 | 8 |
-| minyak_goreng | Minyak goreng 1 L | Rp17000 | Rp19500 | Rp2500 | 5 | 6 |
-| galon | Galon isi ulang | Rp6000 | Rp8000 | Rp2000 | 3 | 4 |
-| lpg | LPG 3 kg | Rp18000 | Rp22000 | Rp4000 | 2 | 3 |
-| beras | Beras 1 kg | Rp13000 | Rp15000 | Rp2000 | 5 | 4 |
-| telur | Telur | Rp2000 | Rp2500 | Rp500 | 20 | 6 |
-| ciki | Ciki | Rp1500 | Rp2500 | Rp1000 | 10 | 8 |
-| permen | Permen | Rp200 | Rp500 | Rp300 | 30 | 6 |
-| biskuit | Biskuit | Rp2000 | Rp3000 | Rp1000 | 15 | 6 |
-| air_mineral | Air mineral 600 ml | Rp2500 | Rp4000 | Rp1500 | 12 | 7 |
-| teh_botol | Teh manis botol | Rp3000 | Rp4500 | Rp1500 | 12 | 6 |
-| kopi_susu | Kopi susu botol | Rp4500 | Rp6500 | Rp2000 | 10 | 4 |
-| soda | Minuman soda kaleng | Rp5000 | Rp7000 | Rp2000 | 10 | 4 |
-| minuman_energi | Minuman energi | Rp5000 | Rp7000 | Rp2000 | 8 | 4 |
-| sachet | Minuman sachet | Rp1000 | Rp1500 | Rp500 | 20 | 6 |
-| kerupuk | Kerupuk | Rp500 | Rp1000 | Rp500 | 25 | 7 |
-| sayur | Sayuran (cabai, bawang, tomat) | Rp4000 | Rp5000 | Rp1000 | 6 | 5 |
-| obat | Obat warung | Rp2500 | Rp3500 | Rp1000 | 8 | 3 |
-| buku_tulis | Buku tulis | Rp3000 | Rp4500 | Rp1500 | 10 | 3 |
-| rengginang | Rengginang Nenek Sumi | Rp3000 | Rp5000 | Rp2000 | 10 | 4 |
-| makanan_kucing | Makanan kucing | Rp6000 | Rp8000 | Rp2000 | 6 | 3 |
-| gula | Gula pasir 1/2 kg | Rp8500 | Rp10000 | Rp1500 | 8 | 5 |
-| kopi_bubuk | Teh celup | Rp6500 | Rp8500 | Rp2000 | 6 | 3 |
-| sabun | Sabun mandi | Rp3000 | Rp4500 | Rp1500 | 8 | 4 |
-| deterjen | Deterjen bubuk | Rp8000 | Rp10000 | Rp2000 | 6 | 4 |
-| susu_kotak | Susu kotak | Rp3500 | Rp5000 | Rp1500 | 10 | 4 |
-| es_krim | Es krim | Rp3000 | Rp5000 | Rp2000 | 10 | 4 |
-| kurma | Kurma 250 g | Rp12000 | Rp15000 | Rp3000 | 8 | 3 |
-| sirup | Sirup botol | Rp13000 | Rp16000 | Rp3000 | 8 | 3 |
-| roti | Roti | Rp3000 | Rp4000 | Rp1000 | 0 | 4 |
-| jamu | Jamu kunyit asam | Rp3500 | Rp5000 | Rp1500 | 0 | 3 |
-| danda | Top-up Saldo E-Wallet Rp10.000 | Rp10000 | Rp11000 | Rp1000 | - | 3 |
-| data_2gb | Paket data 2 GB | Rp12000 | Rp14000 | Rp2000 | - | 3 |
-| data_5gb | Paket data 5 GB | Rp25000 | Rp28000 | Rp3000 | - | 2 |
-| data_10gb | Paket data 10 GB | Rp45000 | Rp49000 | Rp4000 | - | 1 |
-| token_listrik | Token listrik Rp20.000 | Rp20000 | Rp22000 | Rp2000 | - | 2 |
+| Nama Barang | Harga Jual | Keuntungan |
+|---|---|---|
+| Mie goreng | Rp3500 | Rp1000 |
+| Mie rebus | Rp3500 | Rp1000 |
+| Minyak goreng 1 L | Rp19500 | Rp2500 |
+| Galon isi ulang | Rp8000 | Rp2000 |
+| LPG 3 kg | Rp22000 | Rp4000 |
+| Beras 1 kg | Rp15000 | Rp2000 |
+| Telur | Rp2500 | Rp500 |
+| Ciki | Rp2500 | Rp1000 |
+| Permen | Rp500 | Rp300 |
+| Biskuit | Rp3000 | Rp1000 |
+| Air mineral 600 ml | Rp4000 | Rp1500 |
+| Teh manis botol | Rp4500 | Rp1500 |
+| Kopi susu botol | Rp6500 | Rp2000 |
+| Minuman soda kaleng | Rp7000 | Rp2000 |
+| Minuman energi | Rp7000 | Rp2000 |
+| Minuman sachet | Rp1500 | Rp500 |
+| Kerupuk | Rp1000 | Rp500 |
+| Sayuran (cabai, bawang, tomat) | Rp5000 | Rp1000 |
+| Obat warung | Rp3500 | Rp1000 |
+| Buku tulis | Rp4500 | Rp1500 |
+| Rengginang Nenek Sumi | Rp5000 | Rp2000 |
+| Makanan kucing | Rp8000 | Rp2000 |
+| Gula pasir 1/2 kg | Rp10000 | Rp1500 |
+| Teh celup | Rp8500 | Rp2000 |
+| Sabun mandi | Rp4500 | Rp1500 |
+| Deterjen bubuk | Rp10000 | Rp2000 |
+| Susu kotak | Rp5000 | Rp1500 |
+| Es krim | Rp5000 | Rp2000 |
+| Kurma 250 g | Rp15000 | Rp3000 |
+| Sirup botol | Rp16000 | Rp3000 |
+| Roti | Rp4000 | Rp1000 |
+| Jamu kunyit asam | Rp5000 | Rp1500 |
+| Top-up Saldo E-Wallet Rp10.000 | Rp11000 | Rp1000 |
+| Paket data 2 GB | Rp14000 | Rp2000 |
+| Paket data 5 GB | Rp28000 | Rp3000 |
+| Paket data 10 GB | Rp49000 | Rp4000 |
+| Token listrik Rp20.000 | Rp22000 | Rp2000 |
 
 ---
 
 
 
 **Jam laris (barang lebih sering diminta di jam tertentu):**
-- Air mineral 600 ml: jam 11-15 (pengali 1.6x)
-- Teh manis botol: jam 11-16 (pengali 1.5x)
-- Kopi susu botol: jam 6-9 (pengali 2.2x)
-- Minuman soda kaleng: jam 16-21 (pengali 1.8x)
-- Minuman energi: jam 10-16 (pengali 1.4x)
-- Minuman sachet: jam 6-10 (pengali 1.6x)
-- Kerupuk: jam 11-14 (pengali 1.5x)
-- Sayuran (cabai, bawang, tomat): jam 6-10 (pengali 2.0x)
-- Buku tulis: jam 6-8 (pengali 2.0x)
-- Buku tulis: jam 13-15 (pengali 1.5x)
-- Rengginang Nenek Sumi: jam 15-18 (pengali 1.5x)
-- Gula pasir 1/2 kg: jam 6-10 (pengali 1.6x)
-- Gula pasir 1/2 kg: jam 15-18 (pengali 1.3x)
-- Teh celup: jam 6-10 (pengali 1.5x)
-- Sabun mandi: jam 15-19 (pengali 1.4x)
-- Deterjen bubuk: jam 7-11 (pengali 1.6x)
-- Susu kotak: jam 6-9 (pengali 1.6x)
-- Susu kotak: jam 12-15 (pengali 1.4x)
-- Es krim: jam 11-16 (pengali 1.8x)
-- Roti: jam 6-10 (pengali 1.8x)
-- Roti: jam 15-18 (pengali 1.3x)
-- Jamu kunyit asam: jam 6-9 (pengali 1.6x)
-- Jamu kunyit asam: jam 15-18 (pengali 1.4x)
+- Air mineral 600 ml: jam 11-15
+- Teh manis botol: jam 11-16
+- Kopi susu botol: jam 6-9
+- Minuman soda kaleng: jam 16-21
+- Minuman energi: jam 10-16
+- Minuman sachet: jam 6-10
+- Kerupuk: jam 11-14
+- Sayuran (cabai, bawang, tomat): jam 6-10
+- Buku tulis: jam 6-8
+- Buku tulis: jam 13-15
+- Rengginang Nenek Sumi: jam 15-18
+- Gula pasir 1/2 kg: jam 6-10
+- Gula pasir 1/2 kg: jam 15-18
+- Teh celup: jam 6-10
+- Sabun mandi: jam 15-19
+- Deterjen bubuk: jam 7-11
+- Susu kotak: jam 6-9
+- Susu kotak: jam 12-15
+- Es krim: jam 11-16
+- Roti: jam 6-10
+- Roti: jam 15-18
+- Jamu kunyit asam: jam 6-9
+- Jamu kunyit asam: jam 15-18
 
 ### 6.2 Harga Ikan
 
 Ikan hasil mini-game memancing di area sawah. Disimpan di Tas dan dijual di Pasar. Harga per ekor.
 
-| Ikan | Harga jual (Rp) | Peluang muncul | Jendela ketuk (detik) | Keterangan |
+| Ikan | Harga jual (Rp) | Kemungkinan muncul | Jendela ketuk (detik) | Keterangan |
 |---|---|---|---|---|
 | Ikan wader | 500 | 35 | 0,8 | Biasa |
 | Ikan mujair | 1500 | 25 | 0,75 | Biasa |
@@ -2862,14 +2846,14 @@ Ikan hasil mini-game memancing di area sawah. Disimpan di Tas dan dijual di Pasa
 | Ikan baung | 10000 | 2 | 0,42 | Langka |
 | Ikan dewa | 100000 | 0,5% (legendaris) | 0,3 | Legendaris |
 
-Catatan: peluang = bobot kemunculan (makin kecil makin langka). Ikan dewa adalah legendaris: peluang 0,5% per ikan yang menyambar, diundi terpisah, tidak ikut bonus lemparan jauh dan tidak ikut digandakan iklan x2. Jendela = detik untuk mengetuk saat pelampung tenggelam (ikan langka lebih gesit).
+Catatan: makin kecil angka = makin langka. Ikan dewa adalah legendaris: peluang 0,5% per ikan yang menyambar, diundi terpisah, tidak ikut bonus lemparan jauh dan tidak ikut digandakan iklan x2. Jendela = detik untuk mengetuk saat pelampung tenggelam (ikan langka lebih gesit).
 
 
 
 ### 6.3 Harga Buah
 Buah hasil mini-game petik buah di area sawah. Disimpan di Tas dan dijual di Pasar. Harga per buah.
 
-| Buah | Harga jual (Rp) | Peluang muncul | Keterangan |
+| Buah | Harga jual (Rp) | Kemungkinan muncul | Keterangan |
 |---|---|---|---|
 | Jambu air | 500 | 45 | Biasa |
 | Sawo | 700 | 25 | Biasa |
@@ -2877,29 +2861,29 @@ Buah hasil mini-game petik buah di area sawah. Disimpan di Tas dan dijual di Pas
 | Alpukat | 2000 | 10 | Langka |
 | Kelapa | 1500 | 0 | Tidak muncul acak (dapat dari pohon) |
 
-Catatan: peluang = bobot kemunculan (makin kecil makin langka). Kelapa tidak muncul acak di mini-game petik; didapat dari pohon kelapa yang tumbuh di area sawah.
+Catatan: makin kecil angka = makin langka. Kelapa tidak muncul acak di mini-game petik; didapat dari pohon kelapa yang tumbuh di area sawah.
 
 
 
 ## 7. Daftar Upgrade
 
 
-Daftar upgrade warung. level = level tugas yang dibutuhkan, harga = harga beli (sekali beli, permanen). butuh = upgrade lain yang harus dimiliki dulu. efek: respon (+detik waktu melayani), sabar (+persen kesabaran semua pelanggan), sabar_antre (+persen kesabaran saat antre), maks_antre (+orang), ramai (+persen keramaian; semua upgrade menambah sedikit, makin tinggi level makin kecil, total maks batas.ramai 50%), malam (+persen keramaian 15.00-17.00, Lampu LED), banyak (+peluang pesan banyak barang), minuman (+persen minuman dibeli), buka_barang (barang yang terbuka), kurir (detik kurir datang), tip (+peluang tip), supplier (persen harga supplier, negatif = lebih murah), ulasan_baik (+persen peluang pelanggan puas menulis ulasan), genset/cctv (untuk kejadian acak). biaya_hari = biaya rutin per hari (listrik, bensin, sewa gudang) yang ditambahkan ke biaya harian. visual: model = file di assets/upgrade (dari Meshy), posisi = titik dasar objek di gambar latar (piksel), tinggi_m = tinggi objek (meter; 100 px latar = 1 meter), lebar = pengali panjang ke samping saja, angkat = naik berapa piksel, di_atas = diletakkan di atas upgrade lain {induk, x = geser sepanjang induk (meter, + ke kanan), z = geser ke depan (meter)}, hadap = putaran model (derajat; -45 = menghadap jalan/pembeli di kiri bawah, 45 = menghadap kanan bawah, sejajar garis latar), gerak = goyang/denyut/getar/kedip, ganti = upgrade yang visualnya digantikan, jejak = [panjang, lebar] alas benda di lantai (meter) = penghalang di mode jalan-jalan. Kulkas, gas LPG, dan galon sudah ada di lukisan latar (bukan upgrade).
+Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (sekali beli, permanen).
 
-| ID | Nama | Level | Harga | Biaya/hari |
-|---|---|---|---|---|
-| etalase | Etalase kaca | 1 | Rp425000 | - |
-| kipas | Kipas angin | 2 | Rp415000 | Rp1000 |
-| lampu | Lampu LED terang | 2 | Rp495000 | Rp1000 |
-| spanduk | Spanduk baru | 3 | Rp665000 | - |
-| bangku | Bangku tunggu | 3 | Rp750000 | - |
-| radio | Radio | 5 | Rp995000 | Rp500 |
-| wifi | WiFi gratis | 10 | Rp885000 | Rp3000 |
-| kurir_cepat | Langganan kurir cepat | 4 | Rp830000 | - |
-| qris | Pembayaran QRIS | 6 | Rp1165000 | Rp500 |
-| genset | Genset | 8 | Rp1660000 | Rp1500 |
-| cctv | CCTV | 7 | Rp1990000 | Rp1000 |
-| tv_warung | TV warung | 9 | Rp2550000 | Rp2000 |
+| Nama | Level | Harga | Biaya/hari |
+|---|---|---|---|
+| Etalase kaca | 1 | Rp425000 | - |
+| Kipas angin | 2 | Rp415000 | Rp1000 |
+| Lampu LED terang | 2 | Rp495000 | Rp1000 |
+| Spanduk baru | 3 | Rp665000 | - |
+| Bangku tunggu | 3 | Rp750000 | - |
+| Radio | 5 | Rp995000 | Rp500 |
+| WiFi gratis | 10 | Rp885000 | Rp3000 |
+| Langganan kurir cepat | 4 | Rp830000 | - |
+| Pembayaran QRIS | 6 | Rp1165000 | Rp500 |
+| Genset | 8 | Rp1660000 | Rp1500 |
+| CCTV | 7 | Rp1990000 | Rp1000 |
+| TV warung | 9 | Rp2550000 | Rp2000 |
 
 **Detail tiap upgrade:**
 
@@ -2916,7 +2900,7 @@ Daftar upgrade warung. level = level tugas yang dibutuhkan, harga = harga beli (
 - **CCTV** (level 7, Rp1990000 + biaya harian Rp1000): Kamera pengawas. Kejadian buruk (pencurian, palak) jauh berkurang. Pembeli 1% lebih ramai. Listrik +Rp1.000/hari.
 - **TV warung** (level 9, Rp2550000 + biaya harian Rp2000): TV tabung di atas meja kecil: pembeli betah menunggu sambil menonton. Kesabaran saat antre +30% dan antrean boleh 1 orang lebih panjang. Listrik +Rp2.000/hari.
 
-Batas efek total: ramai maks +0.5, sabar maks +0.85.
+Catatan: efek total upgrade maksimal +50% keramaian dan +85% kesabaran.
 
 ---
 
@@ -2930,7 +2914,7 @@ Batas efek total: ramai maks +0.5, sabar maks +0.85.
 
 ### Mini-Game Mancing (Ikan)
 
-Lokasi: area sawah. Energi 20% per mancing. Rata-rata sekali mancing ~Rp10.000.
+Lokasi: area sawah. Setiap kali mancing memakai 20% energi. Rata-rata sekali mancing menghasilkan sekitar Rp10.000.
 
 Cara main:
 1. Lemparkan joran ke air
@@ -2947,7 +2931,7 @@ Bonus:
 
 ### Mini-Game Petik Buah
 
-Lokasi: area sawah. Energi 15% per petik. Rata-rata sekali petik ~Rp9.000.
+Lokasi: area sawah. Setiap kali petik buah memakai 15% energi. Rata-rata sekali petik menghasilkan sekitar Rp9.000.
 
 Cara main:
 1. Pilih pohon buah
@@ -2978,8 +2962,8 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 ### Hari & Waktu
 
 - **Hari sekolah**: Senin-Sabtu (bukan Minggu)
-- **Hari libur warung (JANJI)**: hari di mana warung tutup, Pak Misran bisa keluar. Event dengan `janji: true` hanya muncul di hari libur.
-- **Ramadan**: selama Ramadan, event dengan `bukan_ramadan: true` tidak muncul.
+- **Hari libur warung**: hari di mana warung tutup, Pak Misran bisa keluar. Event khusus hanya muncul di hari libur.
+- **Ramadan**: selama Ramadan, beberapa event tidak muncul.
 - **Gajian (tanggal muda)**: tanggal 25 s.d. 3 (hari gajian pabrik). Warung lebih ramai.
 
 ### Musim
@@ -3019,7 +3003,7 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 - **Baca dialog dengan teliti**: pilihan tolong/tolak menentukan quest selanjutnya.
 - **Ucup Ingin Sekolah**: tolong → Ucup Juara Kelas; tolak → Susu Sekolah.
 - **Program Bantuan Warung (Fariz)**: JANGAN bayar Rp1.000.000! Ini jebakan (tipu_fariz).
-- **Janji**: hanya hari libur warung. Event dengan janji: true hanya muncul di hari libur.
+- **Janji**: hanya hari libur warung. Event khusus hanya muncul di hari libur.
 
 ### Tips Mini-Game
 
