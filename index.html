@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101311">
+  <meta name="theme-color" content="#161008">
   <meta name="description" content="Wiki dan panduan lengkap Warung Life Simulator v0.38. Quest level, cerita utama, quest warga, barang, dan upgrade.">
-  <title>Warung Life Wiki — Panduan v0.38</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%F0%9F%8F%AA%3C/text%3E%3C/svg%3E">
+  <title>Warung Life Simulator Wiki: Panduan v0.38</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <a class="brand" href="#top" aria-label="Warung Life Wiki beranda">
-        <span class="brand-mark">🏪</span>
+        <img class="brand-mark" src="assets/img/warung-life-logo.png" width="128" height="128" alt="Logo Warung Life Simulator">
         <span><strong>WARUNG LIFE</strong><small>COMMUNITY WIKI</small></span>
       </a>
       <div class="side-label">NAVIGASI</div>
@@ -35,21 +35,20 @@
         <button class="mobile-menu" id="menuBtn" aria-label="Buka navigasi">☰</button>
         <div class="breadcrumb"><span>WIKI</span><i>/</i><b id="crumbCurrent">BERANDA</b></div>
         <div class="top-actions">
-          <span class="version-pill">● VERSION 0.38</span>
-          <a class="github-link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">GH ↗</a>
-        </div>
-      </header>
+    <span class="version-pill">● VERSION 0.38</span>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Ganti tema terang atau gelap"><span class="theme-icon" aria-hidden="true">☀</span></button>
+  </div>
+</header>
 
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><span></span> PANDUAN KOMUNITAS</div>
-          <h1>Bangun warungmu.<br><em>Jadi legenda kampung.</em></h1>
-          <p>Semua yang perlu kamu ketahui untuk menuntaskan perjalanan Pak Misran — dari warung kecil sampai punya kios sendiri.</p>
+          <h1>Warung Life Simulator</h1>
+          <p>An Unofficial Wiki for Warung Life Simulator.<br><span class="hero-tagline">Panduan Sederhana untuk Bermain Warung Life Simulator</span></p>
           <div class="hero-meta"><span>📚 Panduan lengkap</span><span>•</span><span>Update v0.38</span><span>•</span><span>Bahasa Indonesia</span></div>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="sun"></div><div class="awning"></div><div class="shop-window"><span>WARUNG</span><b>PAK MISRAN</b></div>
-          <div class="counter"></div><div class="plant">🌿</div><div class="hero-emoji">🏪</div>
+        <div class="hero-art">
+          <img class="hero-art-img" src="assets/img/warung-life-hero.png" width="768" height="453" fetchpriority="high" alt="Ilustrasi warung Warung Life Simulator">
         </div>
       </section>
 
@@ -86,6 +85,7 @@
   <div class="mobile-backdrop" id="backdrop"></div>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script>window.GUIDE_PAGE = "beranda";</script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

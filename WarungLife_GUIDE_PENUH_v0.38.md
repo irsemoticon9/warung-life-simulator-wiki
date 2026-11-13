@@ -1,6 +1,6 @@
-# Warung Life Simulator — PANDUAN QUEST PENUH (v0.38)
+# Warung Life Simulator - PANDUAN QUEST PENUH (v0.38)
 > Versi lengkap tanpa ringkasan: semua dialog, semua pilihan, semua tahap, semua hasil.
-> Sumber: file data asli game v0.38 — data/tugas.json, data/cerita.json, data/event.json, data/barang.json, data/upgrade.json.
+> Sumber: file data asli game v0.38 - data/tugas.json, data/cerita.json, data/event.json, data/barang.json, data/upgrade.json.
 
 ## Isi
 
@@ -35,16 +35,16 @@ Progres dihitung sejak level itu dimulai (boleh lewat beberapa hari). Semua syar
 
 | Lvl | Nama | Pelanggan | Barang | Omzet | Hadiah | Khusus | Upgrade wajib | Barang baru |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Pemula | 15 | 25 | Rp100000 | Rp15000 | beruntun 5 | — | — |
+| 1 | Pemula | 15 | 25 | Rp100000 | Rp15000 | beruntun 5 | - | - |
 | 2 | Mulai Dikenal | 40 | 70 | Rp400000 | Rp50000 | multi 8 | kipas | kerupuk |
 | 3 | Langganan Kampung | 90 | 160 | Rp1000000 | Rp100000 | laba_hari 40000 | spanduk, bangku | minuman_energi |
-| 4 | Warung Ramai | 180 | 320 | Rp2200000 | Rp200000 | multi 25 | kurir_cepat | — |
-| 5 | Juragan Warung | 350 | 620 | Rp4500000 | Rp300000 | beruntun 20 | radio | — |
-| 6 | Toko Kebanggaan | 480 | 850 | Rp6500000 | Rp400000 | minuman 50 | qris | — |
-| 7 | Raja Warung | 650 | 1150 | Rp9500000 | Rp500000 | laba_hari 100000 | cctv | — |
-| 8 | Saudagar Kampung | 850 | 1500 | Rp13000000 | Rp600000 | multi 30 | genset | — |
-| 9 | Pengusaha Desa | 1000 | 1800 | Rp16000000 | Rp800000 | minuman 90 | tv_warung | — |
-| 10 | Legenda Warung Kampung | 1200 | 2150 | Rp21000000 | Rp1000000 | laba_hari 150000 | wifi | — |
+| 4 | Warung Ramai | 180 | 320 | Rp2200000 | Rp200000 | multi 25 | kurir_cepat | - |
+| 5 | Juragan Warung | 350 | 620 | Rp4500000 | Rp300000 | beruntun 20 | radio | - |
+| 6 | Toko Kebanggaan | 480 | 850 | Rp6500000 | Rp400000 | minuman 50 | qris | - |
+| 7 | Raja Warung | 650 | 1150 | Rp9500000 | Rp500000 | laba_hari 100000 | cctv | - |
+| 8 | Saudagar Kampung | 850 | 1500 | Rp13000000 | Rp600000 | multi 30 | genset | - |
+| 9 | Pengusaha Desa | 1000 | 1800 | Rp16000000 | Rp800000 | minuman 90 | tv_warung | - |
+| 10 | Legenda Warung Kampung | 1200 | 2150 | Rp21000000 | Rp1000000 | laba_hari 150000 | wifi | - |
 
 Catatan: angka omzet yang tampil di game = target x faktor_macet(), dibulatkan ke atas ke ribuan terdekat.
 
@@ -59,7 +59,7 @@ Lewat batas → denda dan dialog terlambat.
 **Sewa kios** (kepada Pak Haji Rasyid), per level: Rp250000 → Rp300000 → Rp375000 → Rp450000 → Rp550000 → Rp650000 → Rp750000 → Rp800000 → Rp850000 → Rp900000
 (Sewa aktual = dasar + keringanan 15% omzet + 50% upah kerja sampingan, maksimal per_minggu di atas. Denda keterlambatan bab: 10%.)
 
-### Bab 1 — Uang Pendaftaran
+### Bab 1 - Uang Pendaftaran
 
 - **Keperluan:** uang pendaftaran kuliah
 - **Target:** Rp150000
@@ -82,7 +82,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Warung mulai dikenal tetangga. Supplier langganan mau menitipkan barang baru.*
 
-### Bab 2 — Buku dan Ospek
+### Bab 2 - Buku dan Ospek
 
 - **Keperluan:** buku dan perlengkapan ospek
 - **Target:** Rp350000
@@ -98,7 +98,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Sales minuman dari kota melihat warungmu makin ramai dan mulai menitipkan barang.*
 
-### Bab 3 — Atap Kios Bocor
+### Bab 3 - Atap Kios Bocor
 
 - **Keperluan:** biaya perbaikan atap kios
 - **Target:** Rp500000
@@ -115,7 +115,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Atap kios sudah diperbaiki. Pelanggan makin betah berlama-lama di warung.*
 
-### Bab 4 — Agus Jatuh Sakit
+### Bab 4 - Agus Jatuh Sakit
 
 - **Keperluan:** biaya berobat Agus
 - **Target:** Rp650000
@@ -133,7 +133,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Berkat ajaran Agus, warungmu sekarang melayani top-up e-wallet dan paket data (isi saldonya lewat Belanja Online).*
 
-### Bab 5 — Laptop untuk Kuliah
+### Bab 5 - Laptop untuk Kuliah
 
 - **Keperluan:** laptop bekas untuk kuliah
 - **Target:** Rp1000000
@@ -150,7 +150,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Agen sembako melihat warungmu ramai dan mulai memasok barang baru.*
 
-### Bab 6 — Saung Warga
+### Bab 6 - Saung Warga
 
 - **Keperluan:** patungan perbaikan saung warga
 - **Target:** Rp1200000
@@ -165,7 +165,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Warga makin menghargai Pak Misran. Namanya disebut-sebut di pengajian.*
 
-### Bab 7 — Uang Semester
+### Bab 7 - Uang Semester
 
 - **Keperluan:** uang semester
 - **Target:** Rp1500000
@@ -178,7 +178,7 @@ Lewat batas → denda dan dialog terlambat.
   **Agus:** Batasnya tanggal {batas}, Pak.
   **Pak Misran:** Bapak sudah siapkan dari jauh hari, Gus. Tinggal sedikit lagi.
 
-### Bab 8 — Gaji Pertama Agus
+### Bab 8 - Gaji Pertama Agus
 
 - **Keperluan:** kiriman gaji pertama dari Agus
 - **Target:** Rp2000000
@@ -196,7 +196,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Kabar gaji pertama Agus membuat Pak Misran makin semangat mengurus warung.*
 
-### Bab 9 — Cek Kesehatan Bapak
+### Bab 9 - Cek Kesehatan Bapak
 
 - **Keperluan:** biaya cek kesehatan lengkap
 - **Target:** Rp1500000
@@ -214,7 +214,7 @@ Lewat batas → denda dan dialog terlambat.
 
 **Setelah naik level:** *Pak Misran lebih sehat dan segar. Warung pun makin lancar diurus.*
 
-### Bab 10 — Kios Milik Sendiri
+### Bab 10 - Kios Milik Sendiri
 
 - **Keperluan:** pembelian kios dari Pak Haji Rasyid
 - **Target:** Rp24000000
@@ -275,7 +275,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.1 Ucup Ingin Sekolah (`ucup_sekolah`)
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — SD · Ucup (pukul 08.0–13.0)
+#### Tahap 1 - SD · Ucup (pukul 08.0–13.0)
 
   **Ucup:** Hhh... enak ya jadi mereka. Masih bisa sekolah...
   **Pak Misran:** Lho, Ucup? Kok sendirian di lapangan? Jam segini kamu nggak masuk kelas?
@@ -313,7 +313,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Cup, Bapak pikirkan dulu, ya. Nanti Bapak cari kamu lagi di sini.
   **Ucup:** Iya, Pak. Ucup biasanya di sini sampai siang.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - bintang: 1
 - barang terbuka: buku_tulis
@@ -327,7 +327,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Reputasi warung naik 1 bintang
   - Ucup dan Nenek Sumi jadi langganan setia
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Ucup x0.4
 
@@ -356,7 +356,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.2 Beras Abah Karta (`beras_abah_karta`)
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 1
-#### Tahap 1 — Sawah · Abah Karta (pukul 07.0–17.0)
+#### Tahap 1 - Sawah · Abah Karta (pukul 07.0–17.0)
 
   **Abah Karta:** Aduh, Pak Misran... pusing saya. Panen tahun ini bagus, berasnya banyak.
   **Pak Misran:** Lho, panen bagus kok malah pusing, Abah?
@@ -387,7 +387,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Nanti saya pikirkan dulu ya, Abah.
   **Abah Karta:** Mangga, Pak. Saya di sawah sampai sore.
 
-#### Tahap 2 — Rumah Warga · Pak RT (pukul 07.0–21.0)
+#### Tahap 2 - Rumah Warga · Pak RT (pukul 07.0–21.0)
 
   **Pak RT:** Eh, Pak Misran. Tumben mampir ke pos ronda. Ada perlu apa?
   **Pak Misran:** Begini, Pak RT. Abah Karta mau titip jual beras hasil panennya di warung saya.
@@ -415,7 +415,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak RT:** Kalau kemahalan, kasihan warga, Pak. Coba dipikir lagi.
 
-#### Tahap 3 — Sawah · Abah Karta (pukul 07.0–17.0)
+#### Tahap 3 - Sawah · Abah Karta (pukul 07.0–17.0)
 
   **Pak Misran:** Abah, ini surat dari Pak RT. Beras Abah boleh dijual di warung saya.
   **Abah Karta:** Masyaallah! Terima kasih, Pak Misran. Mulai besok beras saya antar ke warung, harganya bersahabat.
@@ -423,7 +423,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - barang terbuka: beras
@@ -436,7 +436,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Bonus stok beras dari Abah Karta
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - reputasi: -4
 
@@ -463,7 +463,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.3 Persiapan Pengajian (`pengajian_haji_doni`)
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 2
-#### Tahap 1 — Masjid · Haji Doni (pukul 07.0–17.0)
+#### Tahap 1 - Masjid · Haji Doni (pukul 07.0–17.0)
 
   **Haji Doni:** Assalamualaikum, Pak Misran. Kebetulan sekali Bapak lewat.
   **Pak Misran:** Waalaikumsalam, Haji Doni. Kelihatannya sibuk sekali?
@@ -492,7 +492,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Nanti saya ke sini lagi ya, Haji Doni.
   **Haji Doni:** Baik, saya di sini sampai sore.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - barang terbuka: sayur
@@ -505,7 +505,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Bonus stok sayuran
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Lain Kali, Ya"**
@@ -531,7 +531,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.4 Surat untuk Emak (`surat_kang_hasan`)
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 2
-#### Tahap 1 — Pesantren · Kang Hasan (pukul 15.0–21.0)
+#### Tahap 1 - Pesantren · Kang Hasan (pukul 15.0–21.0)
 
   *Kang Hasan berdiri sendirian di halaman pesantren, menggenggam selembar surat yang sudah lusuh.*
   **Pak Misran:** Assalamualaikum, Kang Hasan. Kok melamun sendirian?
@@ -562,7 +562,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Kang, Bapak ke warung dulu sebentar, ya.
   **Kang Hasan:** Iya, Pak. Saya di sini sampai Isya.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - barang terbuka: obat
@@ -576,7 +576,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Santri lebih sering belanja di warung
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -602,7 +602,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.5 Layangan Dimas (`layangan_dimas`)
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 3 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Sawah · Dimas (pukul 14.0–18.0)
+#### Tahap 1 - Sawah · Dimas (pukul 14.0–18.0)
 
   *Dimas berdiri di pematang sawah sambil menatap ke atas pohon kelapa. Benang layangan menjuntai dari pelepahnya.*
   **Pak Misran:** Lho, Dimas? Kok bengong di sini?
@@ -632,7 +632,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Bapak ke warung dulu, ya. Nanti Bapak lewat sini lagi.
   **Dimas:** Iya, Pak. Saya tunggu di sini.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 - pelanggan: Dimas x1.5, Neng Shinta x1.3
@@ -644,7 +644,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Pelajar lebih sering jajan di warung
   - +2 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -669,7 +669,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.6 Si Neo Hilang (`kucing_bu_ida`)
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 4
-#### Tahap 1 — Rumah Warga · Mba Giska (pukul 08.0–18.0)
+#### Tahap 1 - Rumah Warga · Mba Giska (pukul 08.0–18.0)
 
   **Mba Giska:** Pak Misran, ya? Maaf ganggu, Pak... lihat kucing putih krem nggak? Bulunya lebat, namanya Neo.
   **Mba Giska:** Saya bawa dia dari kota waktu pindah ke Cianjur. Di kota dia nggak pernah keluar rumah, jadi belum kenal jalan di kampung.
@@ -701,7 +701,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Nanti kalau lewat masjid saya lihat-lihat, ya, Mba.
   **Mba Giska:** Iya, Pak. Saya di sini terus nungguin Neo.
 
-#### Tahap 2 — Masjid · Mang Ujang (pukul 07.0–18.0)
+#### Tahap 2 - Masjid · Mang Ujang (pukul 07.0–18.0)
 
   **Pak Misran:** Mang Ujang, lihat kucing putih krem yang bulunya lebat, nggak?
   **Mang Ujang:** Oh, kucing putih yang bulunya lebat itu? Ada, Pak! Dari kemarin ngumpet di dekat sini, nggak mau pergi.
@@ -710,7 +710,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `lanjut`)*
 
-#### Tahap 3 — Masjid · Si Neo (pukul 07.0–18.0)
+#### Tahap 3 - Masjid · Si Neo (pukul 07.0–18.0)
 
   *Si Neo meringkuk, kaki depannya diangkat sedikit. Ia mengeong pelan melihat Pak Misran.*
 
@@ -731,7 +731,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   *Si Neo mendesis dan mundur. Kakinya sedang sakit, jangan dipaksa.*
 
-#### Tahap 4 — Rumah Warga · Mba Giska (pukul 07.0–21.0)
+#### Tahap 4 - Rumah Warga · Mba Giska (pukul 07.0–21.0)
 
   **Mba Giska:** NEO! Ya ampun, Neo! (memeluk kucingnya)
   **Pak Misran:** Ketemu di masjid, Mba. Kakinya keseleo sedikit, dikompres air hangat saja.
@@ -740,7 +740,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 - barang terbuka: makanan_kucing
@@ -754,7 +754,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Mba Giska lebih sering belanja di warung
   - +2 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -781,7 +781,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.7 Hadiah Lomba HUT Sekolah (`lomba_shinta`)
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 3 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — SD · Neng Shinta (pukul 13.0–17.0)
+#### Tahap 1 - SD · Neng Shinta (pukul 13.0–17.0)
 
   **Neng Shinta:** Pak Misran! Kebetulan banget. Saya Shinta, yang suka beli pulsa di warung Bapak.
   **Pak Misran:** Oh, Neng Shinta. Lagi apa di SD? Bukannya sudah SMP?
@@ -813,7 +813,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Bapak pikirkan dulu ya, Neng.
   **Neng Shinta:** Iya, Pak. Saya di sini tiap pulang sekolah sampai sore.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - pelanggan: Ucup x1.3, Neng Shinta x1.4, Dimas x1.2
@@ -825,7 +825,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Anak sekolah lebih sering mampir ke warung
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -851,7 +851,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.8 Kasbon Bu Ida (`kasbon_bu_ida`)
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 6 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Pasar · Bu Ida (pukul 08.0–20.0)
+#### Tahap 1 - Pasar · Bu Ida (pukul 08.0–20.0)
 
   *Bu Ida duduk di lapaknya. Keranjang buahnya masih setengah penuh.*
   **Bu Ida:** Eh, Pak Misran... Pasar lagi sepi, Pak. Buah saya banyak yang nggak laku.
@@ -884,7 +884,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Saya hitung uang warung dulu ya, Bu. Nanti saya ke sini lagi.
   **Bu Ida:** Iya, Pak. Saya di lapak sampai pasar tutup, jam sembilan malam.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - pelanggan: Bu Ida x1.4, Abah Karta x1.2
@@ -898,7 +898,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Ibu-ibu dan petani lebih sering belanja di warung
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -923,7 +923,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.9 Surat dari Cucu (`surat_nenek_sumi`)
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 5 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Rumah Warga · Nenek Sumi (pukul 09.0–17.0)
+#### Tahap 1 - Rumah Warga · Nenek Sumi (pukul 09.0–17.0)
 
   *Nenek Sumi berdiri di depan rumahnya, memegang amplop putih dekat sekali ke wajahnya.*
   **Nenek Sumi:** Nak Misran... sini sebentar. Ini surat dari cucu Nenek, si Rara, yang kuliah di Jakarta.
@@ -950,7 +950,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Nanti saya mampir lagi ya, Nek. Saya ke warung dulu.
   **Nenek Sumi:** Iya, Nak. Nenek di sini saja.
 
-#### Tahap 2 — Rumah Warga · Nenek Sumi (pukul 07.0–21.0)
+#### Tahap 2 - Rumah Warga · Nenek Sumi (pukul 07.0–21.0)
 
   **Pak Misran:** Nek, di surat ada nomor HP Rara. Bagaimana kalau kita telepon pakai HP saya? Bisa lihat wajahnya juga.
   **Nenek Sumi:** Bisa begitu, Nak? Nenek nggak ngerti HP...
@@ -975,7 +975,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Kalau begitu kita tulis surat balasan saja, Nek. Nenek yang bicara, saya yang menulis.
   **Nenek Sumi:** Iya, Nak. Bilang ke Rara, Nenek sehat, Nenek bangga...
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - barang terbuka: rengginang
@@ -989,7 +989,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Nenek Sumi lebih sering mampir ke warung
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - reputasi: 1
 
@@ -1015,7 +1015,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.10 Program Bantuan Warung (`tipu_fariz`)
 
 - **Syarat muncul:** Level ≥ 6 · Hari ≥ 10 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Warung · Mas Fariz (pukul 10.0–16.0)
+#### Tahap 1 - Warung · Mas Fariz (pukul 10.0–16.0)
 
   *Seorang pemuda berkaus hitam dan bercelana pendek menghampiri Pak Misran di depan warung. Senyumnya ramah, ponselnya tidak lepas dari tangan.*
   **Mas Fariz:** Assalamualaikum, Pak. Dengan Pak Misran, pemilik Warung {warung}? Perkenalkan, saya Fariz dari Bandung, petugas lapangan Program Warung Mitra Sejahtera.
@@ -1061,7 +1061,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Saya pikir-pikir dulu ya, Mas.
   **Mas Fariz:** Jangan kelamaan, Pak. Kuotanya hari ini saja. Saya masih di sekitar sini sampai sore.
 
-#### Tahap 2 — Rumah Warga · Pak RT (pukul 16.0–22.0)
+#### Tahap 2 - Rumah Warga · Pak RT (pukul 16.0–22.0)
 
   *Uang yang dijanjikan tidak pernah masuk. Nomor Mas Fariz juga sudah tidak aktif.*
   **Pak RT:** Pak Misran! Ada pemuda dari kota ngaku petugas program bantuan warung, ya?
@@ -1081,7 +1081,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Jadi pelajaran buat saya, Pak RT. Tolong dikabari ke warga, ya.
   **Pak RT:** Pasti, Pak. Yang sabar, ya.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 - pesan WA: Pak RT: "Warga, hati-hati! Ada pemuda ngaku petugas "Program Warung Mitra Sejahtera", minta bayar Rp150.000 dulu supaya dapat bantuan Rp1.000.000. Itu PENIPUAN. Alhamdulillah Pak Misran nggak ketipu. Bantuan resmi nggak pernah minta bayar duluan."
@@ -1094,7 +1094,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Pak RT mengingatkan warga di grup
   - +2 ulasan baik dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pesan WA: Pak RT: "Warga, hati-hati! Ada pemuda ngaku petugas "Program Warung Mitra Sejahtera", minta bayar Rp150.000 dulu supaya dapat bantuan Rp1.000.000. Itu PENIPUAN, sudah ada korban di kampung kita. Bantuan resmi nggak pernah minta bayar duluan."
 
@@ -1111,7 +1111,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.11 Snack Rapat Pak Rudi (`snack_rapat_rudi`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 4 · bukan Ramadan
-#### Tahap 1 — Warung · Pak Rudi (pukul 07.0–10.0)
+#### Tahap 1 - Warung · Pak Rudi (pukul 07.0–10.0)
 
   **Pak Rudi:** Pak Misran! Untung ketemu. Saya lagi pusing, Pak.
   **Pak Misran:** Kenapa, Pak Rudi? Pagi-pagi sudah kusut begitu mukanya.
@@ -1142,7 +1142,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak Rudi:** Jangan lama-lama, Pak. Saya di sini sampai jam sepuluh.
 
-#### Tahap 2 — Masjid · Pak Rudi (pukul 07.0–21.0)
+#### Tahap 2 - Masjid · Pak Rudi (pukul 07.0–21.0)
 
   **Pak Misran:** Pak Rudi, ini 30 kotak snack-nya.
   **Pak Rudi:** Masyaallah, rapi sekali, Pak! Orang dinas pasti senang. Ini Rp250.000, sesuai janji.
@@ -1150,7 +1150,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 - uang: 250000
@@ -1168,7 +1168,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Pak Rudi lebih sering belanja
   - +2 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Pak Rudi x0.7
 
@@ -1193,7 +1193,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.12 Motor Kang Asep Mogok (`motor_kang_asep`)
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 5
-#### Tahap 1 — SD · Kang Asep (pukul 15.0–20.0)
+#### Tahap 1 - SD · Kang Asep (pukul 15.0–20.0)
 
   **Kang Asep:** Aduh, aduh... Motor saya mogok lagi, sekarang saya tinggal di bengkel. Rantainya putus, kampas remnya juga habis.
   **Pak Misran:** Kenapa, Kang Asep? Motornya rewel?
@@ -1224,7 +1224,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Kang Asep:** Iya, Pak. Saya masih di sini nunggu anak-anak pulang les.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - ramai: 0.02
 - pelanggan: Kang Asep x1.5
@@ -1238,7 +1238,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Warung 2% lebih ramai
   - Kang Asep lebih sering belanja
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Kang Asep x0.7
 
@@ -1263,7 +1263,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.13 Istri Kang Dadan Melahirkan (`istri_kang_dadan`)
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 7
-#### Tahap 1 — Warung · Kang Dadan (pukul 17.0–21.0)
+#### Tahap 1 - Warung · Kang Dadan (pukul 17.0–21.0)
 
   **Kang Dadan:** Pak Misran... maaf ganggu. Boleh bicara sebentar?
   **Pak Misran:** Boleh, Kang Dadan. Kok kelihatan gelisah?
@@ -1289,7 +1289,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Maaf, Kang Dadan. Uang saya lagi habis buat sewa kios.
   **Kang Dadan:** Iya, Pak... Saya coba pinjam ke bos saja.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 1
 - kurir: 0.8
@@ -1304,7 +1304,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Kurir belanja 20% lebih cepat datang
   - +1 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - kurir: 1.15
 
@@ -1329,7 +1329,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.14 Perkakas Mang Ujang (`alat_mang_ujang`)
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 8
-#### Tahap 1 — Masjid · Mang Ujang (pukul 07.0–12.0)
+#### Tahap 1 - Masjid · Mang Ujang (pukul 07.0–12.0)
 
   **Mang Ujang:** Astagfirullah... Semua perkakas saya hilang, Pak Misran. Gergaji, bor, palu, semua diambil maling semalam.
   **Pak Misran:** Ya Allah, Mang Ujang! Terus kerjaannya bagaimana?
@@ -1360,7 +1360,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Mang Ujang:** Saya di masjid sampai Zuhur, Pak. Bantu bersih-bersih, daripada nganggur.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - ramai: 0.02
@@ -1376,7 +1376,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Mang Ujang lebih sering belanja
   - +3 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Mang Ujang x0.7
 
@@ -1401,7 +1401,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.15 Kitab Kang Fadil (`kitab_kang_fadil`)
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 6
-#### Tahap 1 — Pesantren · Kang Fadil (pukul 07.0–12.0)
+#### Tahap 1 - Pesantren · Kang Fadil (pukul 07.0–12.0)
 
   **Kang Fadil:** Assalamualaikum, Pak Misran...
   **Pak Misran:** Waalaikumsalam, Kang Fadil. Kok kelihatan bingung?
@@ -1431,7 +1431,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Kang Fadil:** Iya, Pak. Saya di sini sampai Zuhur, murojaah hafalan.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - ramai: 0.02
@@ -1445,7 +1445,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Para santri lebih sering belanja
   - +3 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Kang Fadil x0.75
 
@@ -1470,7 +1470,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.16 Lampu Kedip Zebra Cross (`lampu_zebra_pak_rt`)
 
 - **Syarat muncul:** Level ≥ 6 · Hari ≥ 9
-#### Tahap 1 — Rumah Warga · Pak RT (pukul 16.0–21.0)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 16.0–21.0)
 
   **Pak RT:** Pak Misran, pas sekali. Saya lagi keliling minta sumbangan warga.
   **Pak RT:** Motor sering ngebut di zebra cross depan warung. Sudah beberapa kali warga hampir keserempet.
@@ -1499,7 +1499,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak RT:** Boleh, Pak. Saya di pos ronda sampai malam.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - ramai: 0.03
@@ -1514,7 +1514,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Warung 3% lebih ramai
   - +3 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -1538,7 +1538,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.17 Izin Agen Air Galon (`izin_depot_galon`)
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 1
-#### Tahap 1 — Rumah Warga · Pak RT (pukul 08.0–21.0)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 08.0–21.0)
 
   **Pak RT:** Pak Misran! Kebetulan. Tadi orang depot air isi ulang mampir ke pos ronda, nanyain warung Bapak.
   **Pak Misran:** Oh, soal galon titipan itu, Pak RT? Sudah lama nangkring di rak, tapi belum boleh saya jual.
@@ -1561,7 +1561,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak RT:** Iya, Pak. Kapan saja Bapak siap, saya di pos ronda.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 1
 - barang terbuka: galon
@@ -1578,7 +1578,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.18 Pangkalan Gas Resmi (`pangkalan_gas`)
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 1
-#### Tahap 1 — SD · Kang Asep (pukul 15.0–20.0)
+#### Tahap 1 - SD · Kang Asep (pukul 15.0–20.0)
 
   **Kang Asep:** Pak Misran! Saya baru dari agen LPG di kecamatan, saudara saya kerja di sana.
   **Kang Asep:** Katanya mereka cari pangkalan baru di kampung ini. Warung Bapak kan sudah ada tabung titipan, tinggal izinnya.
@@ -1601,7 +1601,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Kang Asep:** Iya, Pak. Saya mangkal di sini tiap sore, nunggu anak-anak pulang les.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 - ramai: 0.02
@@ -1620,7 +1620,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.19 Pesanan Arisan Ibu-Ibu (`arisan_bu_ida`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Pasar · Bu Ida (pukul 08.0–20.0)
+#### Tahap 1 - Pasar · Bu Ida (pukul 08.0–20.0)
 
   **Bu Ida:** Eh, Pak Misran, mampir ke pasar juga? Ibu-ibu arisan mau masak besar buat syukuran kampung sebentar lagi.
   **Bu Ida:** Kami perlu gula pasir sama teh celup yang banyak. Di lapak saya cuma ada buah. Kalau beli di grosir Haji Maman, ibu-ibu repot bolak-balik naik angkot.
@@ -1643,7 +1643,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Bu Ida:** Iya, Pak. Tapi jangan lama-lama, syukurannya sebentar lagi.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - uang: 220000
 - ramai: 0.02
@@ -1669,7 +1669,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.20 Ucup Juara Kelas (`ucup_juara`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · bukan Ramadan · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — SD · Ucup (pukul 08.0–13.0)
+#### Tahap 1 - SD · Ucup (pukul 08.0–13.0)
 
   **Ucup:** Pak Misran! Pak Misran! Ucup ranking satu di kelas!
   **Pak Misran:** Masyaallah, Cup! Hebat sekali kamu!
@@ -1698,7 +1698,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Ucup:** Iya, Pak. Ucup di sini sampai pulang sekolah.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - barang terbuka: susu_kotak
@@ -1723,7 +1723,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.21 Susu Sekolah (`susu_sd`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · bukan Ramadan · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — SD · Neng Shinta (pukul 13.0–17.0)
+#### Tahap 1 - SD · Neng Shinta (pukul 13.0–17.0)
 
   **Neng Shinta:** Pak Misran! Bu Guru lagi cari warung yang bisa sediakan susu kotak buat adik-adik SD.
   **Neng Shinta:** Stok pertamanya sekitar Rp90.000, Pak. Nanti anak-anak bisa beli sendiri sebelum sekolah.
@@ -1744,7 +1744,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Neng Shinta:** Iya, Pak. Saya di sini tiap pulang sekolah.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - barang terbuka: susu_kotak
@@ -1763,7 +1763,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.22 Hama Wereng di Sawah (`panen_abah`)
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 1
-#### Tahap 1 — Sawah · Abah Karta (pukul 07.0–17.0)
+#### Tahap 1 - Sawah · Abah Karta (pukul 07.0–17.0)
 
   **Abah Karta:** Aduh, Pak Misran... Lihat ini, padinya kena wereng. Batangnya mulai kuning.
   **Pak Misran:** Astagfirullah, Abah. Masih bisa diselamatkan?
@@ -1788,7 +1788,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Maaf, Abah. Uang warung lagi dipakai buat Agus.
   **Abah Karta:** Iya, Pak... Abah coba pinjam ke kelompok tani saja.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - pelanggan: Abah Karta x1.4
@@ -1802,7 +1802,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Abah Karta lebih sering belanja
   - +3 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Abah Karta x0.7
 
@@ -1823,7 +1823,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.23 Laundry Mba Giska (`laundry_giska`)
 
 - **Syarat muncul:** Level ≥ 6 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Rumah Warga · Mba Giska (pukul 09.0–18.0)
+#### Tahap 1 - Rumah Warga · Mba Giska (pukul 09.0–18.0)
 
   **Mba Giska:** Pak Misran! Saya mau buka usaha laundry kiloan di rumah. Banyak santri sama pekerja yang butuh.
   **Mba Giska:** Saya butuh sabun dan deterjen rutin tiap minggu. Bapak mau jadi pemasok saya?
@@ -1846,7 +1846,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Mba Giska:** Oke, Pak. Saya masih beres-beres mesin cucinya kok.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - uang: 170000
 - ramai: 0.02
@@ -1872,7 +1872,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.24 Loket Token Listrik (`token_pak_rt`)
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1
-#### Tahap 1 — Rumah Warga · Pak RT (pukul 16.0–21.0)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 16.0–21.0)
 
   **Pak RT:** Pak Misran, semalam rumah Nenek Sumi gelap. Token listriknya habis, konter terdekat sudah tutup.
   **Pak RT:** Warga minta saya cari warung yang bisa jual token listrik. Warung Bapak kan sudah ada konter pulsa.
@@ -1895,7 +1895,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak RT:** Boleh, Pak. Saya di pos ronda tiap sore.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 - ramai: 0.02
@@ -1915,7 +1915,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.25 Dimas Masuk SMK (`dimas_smk`)
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Sawah · Dimas (pukul 14.0–18.0)
+#### Tahap 1 - Sawah · Dimas (pukul 14.0–18.0)
 
   **Dimas:** Pak Misran... Dimas keterima di SMK jurusan mesin.
   **Pak Misran:** Wah, selamat, Dim! Kok mukanya sedih?
@@ -1944,7 +1944,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Dimas:** Iya, Pak. Dimas di sini sampai sore.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - ramai: 0.01
@@ -1959,7 +1959,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Anak sekolah lebih sering belanja
   - +3 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - pelanggan: Dimas x0.75
 
@@ -1980,7 +1980,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.26 Freezer Es Krim (`freezer_es_krim`)
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Warung · Kang Dadan (pukul 10.0–17.0)
+#### Tahap 1 - Warung · Kang Dadan (pukul 10.0–17.0)
 
   **Kang Dadan:** Pak Misran, kantor saya sekarang juga distributor es krim. Mereka cari warung buat titip freezer.
   **Kang Dadan:** Saya langsung rekomendasikan warung Bapak. Warung paling ramai di kampung ini.
@@ -2003,7 +2003,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Kang Dadan:** Iya, Pak. Tawarannya masih berlaku kok.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - ramai: 0.03
 - barang terbuka: es_krim
@@ -2022,7 +2022,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.27 Umrah untuk Ibunda (`umrah_haji_doni`)
 
 - **Syarat muncul:** Level ≥ 9 · Hari ≥ 1
-#### Tahap 1 — Masjid · Haji Doni (pukul 07.0–17.0)
+#### Tahap 1 - Masjid · Haji Doni (pukul 07.0–17.0)
 
   **Haji Doni:** Pak Misran, ibu saya sudah sepuh. Dari dulu beliau ingin sekali umrah sebelum ajal.
   **Haji Doni:** Tabungan saya hampir cukup, tapi kurang sedikit. Jamaah masjid sepakat patungan.
@@ -2051,7 +2051,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Saya doakan dari sini, Haji Doni. Semoga lancar semuanya.
   **Haji Doni:** Aamiin. Terima kasih, Pak.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 4
 - ramai: 0.03
@@ -2064,7 +2064,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Warung 3% lebih ramai
   - +4 ulasan bintang 5
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -2078,7 +2078,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.28 Agus Pulang (`agus_mudik`)
 
 - **Syarat muncul:** Hari ≥ 85 · Hari ≤ 85
-#### Tahap 1 — Warung · Agus (pukul 07.0–22.0)
+#### Tahap 1 - Warung · Agus (pukul 07.0–22.0)
 
   *Hari Raya Idulfitri. Takbir masih terdengar dari masjid. Seorang pemuda dengan ransel besar berjalan pelan ke depan warung.*
   **Pak Misran:** Mohon maaf lahir batin, Mas. Warung lagi libur Lebaran, tapi kalau ada yang perlu, Bapak carikan.
@@ -2104,7 +2104,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak Misran:** Ayo masuk, Gus. Bapak buatkan kopi. Ceritakan semua soal kuliahmu.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - agus_bantu: 4
@@ -2121,7 +2121,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.29 Takjil Masjid (`takjil_masjid`)
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 56 · Hari ≤ 84 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Masjid · Haji Doni (pukul 09.0–17.0)
+#### Tahap 1 - Masjid · Haji Doni (pukul 09.0–17.0)
 
   **Haji Doni:** Assalamualaikum, Pak Misran. Setiap sore selama Ramadan, masjid menyiapkan takjil gratis untuk jamaah dan musafir yang lewat.
   **Haji Doni:** Kas masjid sedang menipis. Kalau warung Bapak berkenan menyumbang teh botol dan kurma untuk buka bersama, insyaallah berkah.
@@ -2149,7 +2149,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Haji Doni:** Iya, Pak. Kabari saya kalau sudah siap.
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 - ramai: 0.02
@@ -2164,7 +2164,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Warung 2% lebih ramai
   - Warga memberi ulasan baik
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Takjil Masjid"**
@@ -2183,7 +2183,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.30 Abah Karta Tersesat (`abah_tersesat`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1
-#### Tahap 1 — Masjid · Abah Karta (pukul 16.0–21.0)
+#### Tahap 1 - Masjid · Abah Karta (pukul 16.0–21.0)
 
   *Abah Karta berdiri sendirian di depan masjid. Sarungnya terbalik, matanya terus menatap pintu masjid.*
   **Abah Karta:** Eh, Misran... Abah lagi nungguin Ambu. Katanya sebentar lagi beres ngaji.
@@ -2215,7 +2215,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Abah, saya ke warung dulu sebentar, ya.
   **Abah Karta:** Iya, Misran. Abah di sini saja, nungguin Ambu.
 
-#### Tahap 2 — Rumah Warga · Pak RT (pukul 07.0–21.0)
+#### Tahap 2 - Rumah Warga · Pak RT (pukul 07.0–21.0)
 
   **Pak Misran:** Pak RT, tadi saya ketemu Abah Karta di masjid. Beliau nungguin Ambu...
   **Pak RT:** Astaghfirullah. Sudah dua kali minggu ini, Pak. Kemarin Bu Ida menemukan Abah di jembatan sawah waktu pulang dari pasar.
@@ -2239,7 +2239,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak RT:** Ya sudah, Pak. Biar saya cari warga lain.
 
-#### Tahap 3 — Sawah · Abah Karta (pukul 07.0–21.0)
+#### Tahap 3 - Sawah · Abah Karta (pukul 07.0–21.0)
 
   **Abah Karta:** Pak Misran! Sini, sini. Abah dengar dari Pak RT... Abah bikin repot, ya?
   **Pak Misran:** Nggak repot, Abah. Saya senang nemenin Abah ngobrol.
@@ -2251,7 +2251,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 
@@ -2262,7 +2262,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Abah Karta dan Pak RT makin akrab dengan Pak Misran
   - +2 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -2283,7 +2283,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.31 Rahasia Pak Rudi (`rahasia_rudi`)
 
 - **Syarat muncul:** Level ≥ 8 · Hari ≥ 1 · bukan Ramadan · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Masjid · Pak Rudi (pukul 10.0–15.0)
+#### Tahap 1 - Masjid · Pak Rudi (pukul 10.0–15.0)
 
   *Pak Rudi berdiri di depan masjid dengan kemeja kantor dan tas kerjanya. Matanya kosong.*
   **Pak Rudi:** Eh... Pak Misran. Saya... lagi istirahat.
@@ -2317,7 +2317,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   **Pak Misran:** Pak Rudi, nanti saya ke sini lagi, ya.
   **Pak Rudi:** Iya, Pak... saya di sini sampai sore.
 
-#### Tahap 2 — SD · Kang Asep (pukul 07.0–21.0)
+#### Tahap 2 - SD · Kang Asep (pukul 07.0–21.0)
 
   **Pak Misran:** Kang Asep, kenal yang lagi cari pegawai? Untuk teman saya. Orangnya jujur dan rajin.
   **Kang Asep:** Hmm... Oh! Koperasi sekolah SD ini lagi cari bendahara, Pak. Kemarin kepala sekolahnya nanya ke saya.
@@ -2328,7 +2328,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `lanjut`)*
 
-#### Tahap 3 — Warung · Pak Rudi (pukul 07.0–21.0)
+#### Tahap 3 - Warung · Pak Rudi (pukul 07.0–21.0)
 
   **Pak Rudi:** Pak Misran! Saya... akhirnya cerita ke istri.
   **Pak Rudi:** Saya kira dia bakal marah. Ternyata dia cuma memeluk saya dan bilang, "Kenapa nggak dari dulu, Pak?"
@@ -2339,7 +2339,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 
@@ -2350,7 +2350,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Pak Rudi dan Kang Asep makin akrab dengan Pak Misran
   - +2 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -2371,7 +2371,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.32 Wali Wisuda Kang Fadil (`wisuda_fadil`)
 
 - **Syarat muncul:** Level ≥ 8 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 — Pesantren · Kang Fadil (pukul 08.0–17.0)
+#### Tahap 1 - Pesantren · Kang Fadil (pukul 08.0–17.0)
 
   **Kang Fadil:** Pak Misran! Alhamdulillah, saya sudah khatam hafalan 30 juz.
   **Pak Misran:** MasyaAllah, Kang Fadil! Bapak ikut bangga.
@@ -2401,7 +2401,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Kang Fadil:** Iya, Pak. Wisudanya masih beberapa hari lagi.
 
-#### Tahap 2 — Masjid · Haji Doni (pukul 07.0–21.0)
+#### Tahap 2 - Masjid · Haji Doni (pukul 07.0–21.0)
 
   **Pak Misran:** Haji Doni, saya mau jadi wali wisuda Kang Fadil. Boleh pinjam baju koko yang pantas?
   **Haji Doni:** Wali wisuda tahfiz? MasyaAllah, itu kehormatan besar, Pak Misran.
@@ -2412,7 +2412,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `lanjut`)*
 
-#### Tahap 3 — Pesantren · Kang Fadil (pukul 07.0–21.0)
+#### Tahap 3 - Pesantren · Kang Fadil (pukul 07.0–21.0)
 
   *Wisuda baru saja selesai di aula pesantren. Pak Misran tadi mendampingi Kang Fadil naik panggung. Surat Ar-Rahman dilantunkannya tanpa sekali pun tersendat.*
   **Kang Hasan:** Fadil, tadi merdu sekali! Pak Misran sampai menahan air mata.
@@ -2424,7 +2424,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 3
 
@@ -2435,7 +2435,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Kang Fadil, Kang Hasan, dan Haji Doni makin akrab dengan Pak Misran
   - +3 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -2455,7 +2455,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.33 Rahasia Kang Dadan (`dadan_membaca`)
 
 - **Syarat muncul:** Level ≥ 9 · Hari ≥ 1
-#### Tahap 1 — Warung · Kang Dadan (pukul 16.0–21.0)
+#### Tahap 1 - Warung · Kang Dadan (pukul 16.0–21.0)
 
   *Kang Dadan berdiri di depan warung, menatap layar HP lama sekali.*
   **Kang Dadan:** Pak Misran... boleh minta tolong bacakan ini? Mata saya... eh, HP saya buram.
@@ -2486,7 +2486,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Kang Dadan:** Iya, Pak. Tolong jangan bilang siapa-siapa, ya.
 
-#### Tahap 2 — SD · Neng Shinta (pukul 07.0–21.0)
+#### Tahap 2 - SD · Neng Shinta (pukul 07.0–21.0)
 
   **Pak Misran:** Neng Shinta, masih punya buku belajar membaca waktu SD dulu?
   **Neng Shinta:** Masih, Pak! Buku "Ini Budi" sama buku latihan menulis huruf. Buat siapa, Pak?
@@ -2496,7 +2496,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `lanjut`)*
 
-#### Tahap 3 — Warung · Kang Dadan (pukul 07.0–21.0)
+#### Tahap 3 - Warung · Kang Dadan (pukul 07.0–21.0)
 
   *Sejak itu Kang Dadan rajin belajar huruf demi huruf sesudah warung tutup. Hari ini ia ingin menunjukkan hasilnya.*
   **Kang Dadan:** Pak... coba dengar. "I-ni Bu-di. I-ni i-bu Bu-di."
@@ -2509,7 +2509,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 2
 
@@ -2520,7 +2520,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Kang Dadan dan Neng Shinta makin akrab dengan Pak Misran
   - +2 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 
   **Pop-up "Cerita Selesai"**
@@ -2541,7 +2541,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 ### 3.34 Kampung Kita (`kampung_kita`)
 
 - **Syarat muncul:** Level ≥ 10 · Hari ≥ 1
-#### Tahap 1 — Rumah Warga · Pak RT (pukul 08.0–20.0)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 08.0–20.0)
 
   *Pak RT memegang selembar surat berkop kecamatan. Wajahnya pucat.*
   **Pak RT:** Pak Misran, ini surat dari kecamatan. Ada rencana jalan tol baru, dan jalurnya lewat kampung kita.
@@ -2573,11 +2573,11 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
   **Pak RT:** Jangan terlalu lama, Pak. Batas waktunya tidak panjang.
 
-#### Tahap 2 — ? · ? (pukul 07.0–21.0)
+#### Tahap 2 - ? · ? (pukul 07.0–21.0)
 
 *(aksi otomatis tahap ini: `lanjut`)*
 
-#### Tahap 3 — Rumah Warga · Pak RT (pukul 07.0–21.0)
+#### Tahap 3 - Rumah Warga · Pak RT (pukul 07.0–21.0)
 
   **Pak RT:** Lengkap, Pak? ...Semuanya?
   **Pak Misran:** Semuanya, Pak RT. Sampai Ucup ikut menggambar.
@@ -2586,7 +2586,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `lanjut`)*
 
-#### Tahap 4 — Masjid · Haji Doni (pukul 07.0–21.0)
+#### Tahap 4 - Masjid · Haji Doni (pukul 07.0–21.0)
 
   *Warga berkumpul di halaman masjid. Dua petugas kecamatan menunggu di serambi.*
   **Haji Doni:** Bapak-bapak dari kecamatan, ini tanda tangan seluruh warga asli. Tidak ada satu pun yang menolak.
@@ -2601,7 +2601,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
 
 *(aksi otomatis tahap ini: `tolong`)*
 
-**HASIL — BANTU (tolong):**
+**HASIL - BANTU (tolong):**
 
 - reputasi: 5
 - pesan WA: Pak RT: "Bapak-Ibu, alhamdulillah! Kecamatan resmi memindahkan jalur tol ke utara. Terima kasih seluruh warga, terutama Pak Misran yang mengetuk pintu kita satu per satu."
@@ -2613,7 +2613,7 @@ Cerita warga (event non-acak) di mode jalan-jalan, dijalankan scripts/jelajah.gd
   - Semua warga yang ditemui makin akrab dengan Pak Misran
   - +5 ulasan bintang 5 dari warga
 
-**HASIL — TOLAK:**
+**HASIL - TOLAK:**
 
 - reputasi: -2
 
@@ -2684,14 +2684,14 @@ Daftar upgrade warung. level = level tugas yang dibutuhkan, harga = harga beli (
 
 | ID | Nama | Level | Harga | Biaya/hari |
 |---|---|---|---|---|
-| etalase | Etalase kaca | 1 | Rp425000 | — |
+| etalase | Etalase kaca | 1 | Rp425000 | - |
 | kipas | Kipas angin | 2 | Rp415000 | Rp1000 |
 | lampu | Lampu LED terang | 2 | Rp495000 | Rp1000 |
-| spanduk | Spanduk baru | 3 | Rp665000 | — |
-| bangku | Bangku tunggu | 3 | Rp750000 | — |
+| spanduk | Spanduk baru | 3 | Rp665000 | - |
+| bangku | Bangku tunggu | 3 | Rp750000 | - |
 | radio | Radio | 5 | Rp995000 | Rp500 |
 | wifi | WiFi gratis | 10 | Rp885000 | Rp3000 |
-| kurir_cepat | Langganan kurir cepat | 4 | Rp830000 | — |
+| kurir_cepat | Langganan kurir cepat | 4 | Rp830000 | - |
 | qris | Pembayaran QRIS | 6 | Rp1165000 | Rp500 |
 | genset | Genset | 8 | Rp1660000 | Rp1500 |
 | cctv | CCTV | 7 | Rp1990000 | Rp1000 |

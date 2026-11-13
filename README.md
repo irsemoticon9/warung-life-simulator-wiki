@@ -33,4 +33,7 @@ Lalu buka http://localhost:8000.
 - Tidak membutuhkan backend, database, build tools, atau server berbayar.
 - Panduan lengkap tersimpan di `data/guide.md`.
 - Renderer Markdown dan sanitasi HTML dimuat dari jsDelivr CDN. Saat pertama membuka website diperlukan koneksi internet.
+- Logo dan gambar warung memakai `assets/img/warung-life-logo.png` (logo, favicon) dan `assets/img/warung-life-hero.png` (hero).
+- Tema gelap/terang otomatis mengikuti sistem; tombol tema di bilah atas untuk ganti manual (pilihan disimpan di browser).
+- Navigasi menggunakan halaman terpisah per bagian: `quest-level.html`, `cerita-utama.html`, `quest-warga.html`, `daftar-barang.html`, `daftar-upgrade.html`. Beranda di `index.html`.
 - Isi panduan dipertahankan dari dokumen sumber yang diunggah; website tidak mengubah isi game guide.
