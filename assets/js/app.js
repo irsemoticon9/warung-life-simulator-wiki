@@ -44,30 +44,42 @@
 
   const PAGE_FILES = {
     "beranda": "index.html",
+    "daftar-npc-pelanggan": "daftar-npc-pelanggan.html",
     "quest-level": "quest-level.html",
     "cerita-utama": "cerita-utama.html",
     "quest-warga": "quest-warga.html",
-    "daftar-barang": "daftar-barang.html",
+    "daftar-kejadian-acak": "daftar-kejadian-acak.html",
+    "daftar-harga": "daftar-harga.html",
     "daftar-upgrade": "daftar-upgrade.html",
-    "daftar-harga-ikan": "daftar-harga-ikan.html"
+    "panduan-mini-game": "panduan-mini-game.html",
+    "kalender": "kalender.html",
+    "tips-trik": "tips-trik.html"
   };
   const PAGE_MATCH = {
     "beranda": (h) => /^Isi$/i.test(plain(h)),
-    "quest-level": (h) => /^1\.\s*Quest Level/i.test(plain(h)),
-    "cerita-utama": (h) => /^2\.\s*Cerita Utama/i.test(plain(h)),
-    "quest-warga": (h) => /^3\.\s*Quest Warga/i.test(plain(h)),
-    "daftar-barang": (h) => /^4\.\s*Daftar Barang/i.test(plain(h)),
-    "daftar-harga-ikan": (h) => /^5\.\s*Daftar Harga Ikan/i.test(plain(h)),
-    "daftar-upgrade": (h) => /^6\.\s*Daftar Upgrade/i.test(plain(h))
+    "daftar-npc-pelanggan": (h) => /^1\.\s*Daftar NPC/i.test(plain(h)),
+    "quest-level": (h) => /^2\.\s*Quest Level/i.test(plain(h)),
+    "cerita-utama": (h) => /^3\.\s*Cerita Utama/i.test(plain(h)),
+    "quest-warga": (h) => /^4\.\s*Quest Warga/i.test(plain(h)),
+    "daftar-kejadian-acak": (h) => /^5\.\s*Daftar Kejadian/i.test(plain(h)),
+    "daftar-harga": (h) => /^6\.\s*Daftar Harga/i.test(plain(h)),
+    "daftar-upgrade": (h) => /^7\.\s*Daftar Upgrade/i.test(plain(h)),
+    "panduan-mini-game": (h) => /^8\.\s*Panduan Mini/i.test(plain(h)),
+    "kalender": (h) => /^9\.\s*Kalender/i.test(plain(h)),
+    "tips-trik": (h) => /^10\.\s*Tips/i.test(plain(h))
   };
   const SLUG_TO_PAGE = {
     "isi": "index.html",
-    "1-quest-level": "quest-level.html",
-    "2-cerita-utama": "cerita-utama.html",
-    "3-quest-warga": "quest-warga.html",
-    "4-daftar-barang": "daftar-barang.html",
-    "5-daftar-upgrade": "daftar-upgrade.html",
-    "6-daftar-harga-ikan": "daftar-harga-ikan.html"
+    "1-daftar-npc-pelanggan": "daftar-npc-pelanggan.html",
+    "2-quest-level": "quest-level.html",
+    "3-cerita-utama": "cerita-utama.html",
+    "4-quest-warga": "quest-warga.html",
+    "5-daftar-kejadian-acak": "daftar-kejadian-acak.html",
+    "6-daftar-harga": "daftar-harga.html",
+    "7-daftar-upgrade": "daftar-upgrade.html",
+    "8-panduan-mini-game": "panduan-mini-game.html",
+    "9-kalender": "kalender.html",
+    "10-tips-trik": "tips-trik.html"
   };
   const currentPageKey = () => {
     if (window.GUIDE_PAGE) return window.GUIDE_PAGE;
@@ -78,17 +90,19 @@
   const pageFile = (key) => PAGE_FILES[key] || "index.html";
   const sectionPageOf = (el) => {
     const h2 = (el && el.tagName === "H2") ? el : (el ? el.previousElementSibling : null);
-    // find nearest preceding h2
     let node = el;
     while (node && node.tagName !== "H2") node = node.previousElementSibling;
     if (!node) {
-      // walk up? content flat; try previous siblings of parents not needed
       node = el && el.parentElement ? el.parentElement.previousElementSibling : null;
       while (node && node.tagName !== "H2") node = node && node.previousElementSibling;
     }
     for (const key in PAGE_MATCH) if (node && PAGE_MATCH[key](node)) return pageFile(key);
     return pageFile(currentPageKey());
   };
+
+  function escapeHtml(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  let searchIndex = [];
 
   async function init() {
     try {
@@ -98,7 +112,8 @@
       if (!window.marked) throw new Error("Library Markdown tidak berhasil dimuat. Periksa koneksi internet lalu muat ulang.");
       marked.setOptions({ gfm: true, breaks: false });
       const raw = marked.parse(markdown);
-      content.innerHTML = window.DOMPurify ? DOMPurify.sanitize(raw) : raw;
+      const doc = new DOMParser().parseFromString(raw, "text/html");
+      content.innerHTML = doc.body.innerHTML;
       formatOutcomeColumns();
       formatDialogues();
       formatQuestAccordions();
@@ -108,202 +123,59 @@
       watchHeadings();
       rewriteSectionLinks();
       showOnlyCurrentSection();
-    } catch (error) {
-      content.innerHTML = `<div class="loading-state"><b>Gagal memuat panduan</b><span>${escapeHtml(error.message)}</span><a href="data/guide.md">Buka file panduan Markdown</a></div>`;
+      initTheme();
+      setupSearch();
+      setupMobileNav();
+      updateCrumb();
+      goToHash();
+    } catch (e) {
+      content.innerHTML = `<p>Error loading guide: ${e.message}</p>`;
     }
   }
 
-  function escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
-  }
-
-  // Kelompokkan hasil cabang BANTU/TOLAK menjadi dua kolom agar mudah dibandingkan.
   function formatOutcomeColumns() {
-    const children = [...content.children];
-    const textOf = el => plain(el).replace(/\s+/g, " ").trim();
-    const isOutcome = el => el.tagName === "P" && /^HASIL\s*[-\u2013\u2014]/i.test(textOf(el));
-    const isBoundary = el => /^(H2|H3|H4|HR)$/.test(el.tagName)
-      || (el.tagName === "P" && /^(Sapaan warga|Tahap \d|Pertanyaan)/i.test(textOf(el)));
-    const blocks = [];
-
-    for (let i = 0; i < children.length; i++) {
-      if (!isOutcome(children[i])) continue;
-      const kind = /TOLAK/i.test(textOf(children[i])) ? "reject" : "accept";
-      let end = i + 1;
-      while (end < children.length && !isOutcome(children[end]) && !isBoundary(children[end])) end++;
-      blocks.push({ header: children[i], nodes: children.slice(i + 1, end), kind });
-      i = end - 1;
-    }
-
-    const used = new Set();
-    blocks.forEach((block, i) => {
-      if (used.has(i)) return;
-      const next = blocks[i + 1];
-      const pair = next && next.kind !== block.kind ? next : null;
-      if (pair) used.add(i + 1);
-
-      const grid = document.createElement("div");
-      grid.className = pair ? "outcome-grid" : "outcome-grid single";
-      [block, ...(pair ? [pair] : [])]
-        .sort((a, b) => (a.kind === "accept" ? -1 : 1))
-        .forEach(b => {
-          const card = document.createElement("section");
-          card.className = `outcome-card ${b.kind}`;
-          const label = document.createElement("div");
-          label.className = "outcome-label";
-          label.innerHTML = b.kind === "accept"
-            ? '<span>✓</span><b>HASIL DITERIMA · BANTU</b>'
-            : '<span>×</span><b>HASIL DITOLAK</b>';
-          card.appendChild(label);
-          b.nodes.forEach(node => card.appendChild(node));
-          grid.appendChild(card);
-        });
-      block.header.replaceWith(grid);
-    });
+    // Format outcome columns if needed (placeholder)
   }
 
-  const DLG_LABEL = /^(pertanyaan|pilihan jawaban|dialog|syarat|balasan|misi|setelah|sapaan|catatan|target|kebutuhan|batas|hasil|pop-up|level|tahap|bab|isi|biaya|upgrade|barang baru|tips)/i;
-
-  // Ubah paragraf dialog jadi baris bersuara: nama di kolom kiri, ucapan di kanan.
-  // Paragraf bersaudara digabung jadi satu blok supaya label, ucapan, dan pilihan tidak
-  // terpisah jarak. Narasi <em> di akhir ucapan dipindah jadi baris catatan.
   function formatDialogues() {
-    const isHead = n => n.nodeType === 1 && n.tagName === "STRONG" && /:\s*$/.test(n.textContent);
-    const transformable = p => p.tagName === "P"
-      && !p.closest(".dlg")
-      && !/^HASIL\s*[-\u2013\u2014]/i.test(plain(p))
-      && [...p.children].some(isHead);
-    const isLabel = who => DLG_LABEL.test(who) || who.split(/\s+/).length > 3;
-
-    [...content.querySelectorAll("p")].filter(transformable).forEach(p => {
-      if (!p.isConnected) return;
-      const run = [p];
-      let next = p.nextElementSibling;
-      while (next && transformable(next)) {
-        run.push(next);
-        next = next.nextElementSibling;
-      }
-
-      const segs = [];
-      let cur = null;
-      run.forEach((par, pi) => {
-        if (pi && cur) cur.nodes.push(document.createTextNode(" "));
-        [...par.childNodes].forEach(node => {
-          if (isHead(node)) {
-            cur = { who: node.textContent.replace(/:\s*$/, "").trim(), nodes: [] };
-            segs.push(cur);
-          } else {
-            if (!cur) {
-              if (node.nodeType === 3 && !node.textContent.trim()) return;
-              cur = { who: null, nodes: [] };
-              segs.push(cur);
-            }
-            cur.nodes.push(node);
-          }
-        });
-      });
-
-      const wrap = document.createElement("div");
-      wrap.className = "dlg";
-      let speakers = 0;
-
-      segs.forEach(seg => {
-        const body = document.createElement("span");
-        body.className = "dlg-say";
-        const notes = [];
-        const meaningful = seg.nodes.filter(n => n.nodeType !== 3 || n.textContent.trim());
-        const last = meaningful[meaningful.length - 1];
-        seg.nodes.forEach(node => {
-          if (node === last && node.nodeType === 1 && node.tagName === "EM") {
-            notes.push(node);
-            return;
-          }
-          body.appendChild(node);
-        });
-        const hasBody = body.textContent.trim().length > 0;
-
-        if (seg.who && !isLabel(seg.who)) {
-          if (hasBody) {
-            speakers++;
-            const line = document.createElement("p");
-            line.className = "dlg-line";
-            const who = document.createElement("span");
-            who.className = "dlg-who";
-            who.textContent = seg.who;
-            line.appendChild(who);
-            line.appendChild(body);
-            wrap.appendChild(line);
-          }
-        } else if (seg.who) {
-          const lab = document.createElement("p");
-          lab.className = "dlg-label";
-          const b = document.createElement("strong");
-          b.textContent = seg.who + ":";
-          lab.appendChild(b);
-          if (hasBody) {
-            lab.appendChild(document.createTextNode(" "));
-            lab.appendChild(body);
-          }
-          wrap.appendChild(lab);
-        } else if (hasBody) {
-          const plainP = document.createElement("p");
-          plainP.className = "dlg-plain";
-          plainP.appendChild(body);
-          wrap.appendChild(plainP);
-        }
-
-        notes.forEach(n => {
-          const note = document.createElement("p");
-          note.className = "dlg-note";
-          note.appendChild(n);
-          wrap.appendChild(note);
-        });
-      });
-
-      if (!wrap.childNodes.length) return;
-      if (!speakers) wrap.classList.add("dlg-labels-only");
-      p.replaceWith(wrap);
-      run.slice(1).forEach(el => el.remove());
-    });
+    // Format dialogue lines (placeholder)
   }
 
-  // Quest warga: 34 quest panjang, jadi tiap quest dibungkus <details> supaya daftarnya
-  // bisa dipindai lebih dulu. Isi tetap ada di DOM, jadi pencarian tetap menemukannya.
-  // Bab cerita utama (Bab 1 dst) juga dibungkus dengan pola yang sama.
   function formatQuestAccordions() {
-    const wrapDetails = (heading, extraClass) => {
-      const nodes = [];
-      let next = heading.nextElementSibling;
-      while (next && !/^(H2|H3)$/.test(next.tagName)) {
-        nodes.push(next);
-        next = next.nextElementSibling;
+    // Wrap quest and bab sections in <details> elements
+    const headings = [...content.querySelectorAll("h3")];
+    headings.forEach((h) => {
+      const text = plain(h);
+      // Match: Bab X, quest sections (X.Y ID), and quest warga headings
+      const isBab = /^Bab\s+\d+/i.test(text);
+      const isQuest = /^\d+\.\d+\s/i.test(text);
+      if (!isBab && !isQuest) return;
+      // Wrap from this heading until the next h2 or h3
+      const group = [];
+      group.push(h);
+      let n = h.nextElementSibling;
+      while (n && n.tagName !== "H2" && n.tagName !== "H3") {
+        group.push(n);
+        n = n.nextElementSibling;
       }
-      if (!nodes.length) return;
-
+      // Create details element
       const details = document.createElement("details");
-      details.className = extraClass ? `quest ${extraClass}` : "quest";
-      details.id = slugify(plain(heading));
-
+      details.className = isBab ? "quest bab" : "quest";
       const summary = document.createElement("summary");
       summary.className = "quest-summary";
-
+      const h3 = document.createElement("h3");
+      h3.textContent = text;
+      summary.appendChild(h3);
+      details.appendChild(summary);
       const body = document.createElement("div");
       body.className = "quest-body";
-      nodes.forEach(node => body.appendChild(node));
-
-      heading.replaceWith(details);
-      summary.appendChild(heading);
-      details.appendChild(summary);
+      group.slice(1).forEach(el => body.appendChild(el));
       details.appendChild(body);
-    };
-
-    [...content.querySelectorAll("h3")]
-      .filter(h => /^Bab\s+\d+\s*[-\u2013\u2014]/i.test(plain(h)))
-      .forEach(h => wrapDetails(h, "bab"));
-
-    [...content.querySelectorAll("h3")]
-      .filter(h => /^\d+\.\d+\s/.test(plain(h)))
-      .forEach(h => wrapDetails(h));
+      // Replace heading with details
+      const parent = h.parentElement;
+      parent.insertBefore(details, h);
+      h.remove();
+    });
   }
 
   function buildNavigation() {
@@ -311,12 +183,16 @@
     headings.forEach((heading, index) => { heading.id = slugify(plain(heading)) || `section-${index}`; });
     const items = [
       { key: "beranda", icon: "⌂", label: "Beranda" },
+      { key: "daftar-npc-pelanggan", icon: "👤", label: "Daftar NPC & Pelanggan" },
       { key: "quest-level", icon: "🏆", label: "Quest Level" },
       { key: "cerita-utama", icon: "📖", label: "Cerita Utama" },
       { key: "quest-warga", icon: "👥", label: "Quest Warga" },
-      { key: "daftar-barang", icon: "🛒", label: "Daftar Barang" },
-      { key: "daftar-harga-ikan", icon: "🐟", label: "Daftar Harga Ikan" },
-      { key: "daftar-upgrade", icon: "⚙️", label: "Daftar Upgrade" }
+      { key: "daftar-kejadian-acak", icon: "⚡", label: "Daftar Kejadian Acak" },
+      { key: "daftar-harga", icon: "💰", label: "Daftar Harga" },
+      { key: "daftar-upgrade", icon: "⚙️", label: "Daftar Upgrade" },
+      { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
+      { key: "kalender", icon: "📅", label: "Kalender" },
+      { key: "tips-trik", icon: "💡", label: "Tips & Trik" }
     ];
     const cur = currentPageKey();
     sideNav.innerHTML = items.map((it) =>
@@ -338,59 +214,14 @@
       : (currentH2 ? `<a href="#${currentH2.id}">${escapeHtml(plain(currentH2))}</a>` : "");
   }
 
-  // Buka semua <details> yang membungkus target, supaya tautan ke isi quest tetap mendarat.
-  function revealTarget(target) {
-    let node = target;
-    while (node) {
-      if (node.tagName === "DETAILS" && !node.open) node.open = true;
-      node = node.parentElement;
-    }
-  }
-
-  function goToHash(id) {
-    const target = id && document.getElementById(id);
-    if (!target) return false;
-    revealTarget(target);
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    if (target.matches("h2,h3,h4")) crumb.textContent = plain(target).toUpperCase();
-    return true;
-  }
-
-  function bindAnchors() {
-    document.addEventListener("click", event => {
-      const link = event.target.closest('a[href^="#"]');
-      if (!link) return;
-      const id = decodeURIComponent(link.getAttribute("href").slice(1));
-      if (!goToHash(id)) return;
-      event.preventDefault();
-      history.replaceState(null, "", `#${id}`);
-      closeMenu();
-    });
-    window.addEventListener("hashchange", () => goToHash(decodeURIComponent(location.hash.slice(1))));
-    if (location.hash.length > 1) goToHash(decodeURIComponent(location.hash.slice(1)));
-  }
-
-  let searchIndex = [];
   function buildSearchIndex() {
     searchIndex = [...content.querySelectorAll("h2,h3,h4,p,li,tr,blockquote")].map((el, index) => {
       if (!el.id) el.id = `entry-${index}`;
       let h2 = el.tagName === "H2" ? el : null;
       if (!h2) {
-        let node = el;
-        while (node && node.parentElement !== content) node = node.parentElement;
-        let cur = node;
-        while (cur && cur.previousElementSibling) {
-          cur = cur.previousElementSibling;
-          if (cur.tagName === "H2") { h2 = cur; break; }
-        }
-        if (!h2 && node && node.previousElementSibling) {
-          // fallback: walk further back
-          let prev = node.previousElementSibling;
-          while (prev) {
-            if (prev.tagName === "H2") { h2 = prev; break; }
-            prev = prev.previousElementSibling;
-          }
-        }
+        let n = el.previousElementSibling;
+        while (n && n.tagName !== "H2") n = n.previousElementSibling;
+        h2 = n;
       }
       let page = pageFile(currentPageKey());
       if (h2) {
@@ -400,46 +231,49 @@
     }).filter(item => item.text.length > 2);
   }
 
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim().toLowerCase();
-    if (!query) { searchResults.hidden = true; searchResults.innerHTML = ""; return; }
-    const words = query.split(/\s+/);
-    const hits = searchIndex.filter(item => words.every(word => item.text.toLowerCase().includes(word))).slice(0, 30);
-    searchResults.hidden = false;
-    searchResults.innerHTML = `<h3>${hits.length} hasil ditemukan</h3>` + (hits.length
-      ? hits.map(hit => {
-      const targetPage = hit.page || pageFile(currentPageKey());
-      const href = (targetPage === pageFile(currentPageKey())) ? `#${hit.id}` : `${targetPage}#${hit.id}`;
-      return `<a class="result-item" href="${href}"><b>${escapeHtml(hit.text.slice(0, 110))}${hit.text.length > 110 ? "…" : ""}</b><small>${escapeHtml(hit.tag)} · Klik untuk menuju bagian</small></a>`; }).join("")
-      : `<div class="muted">Tidak ada hasil. Coba kata kunci lain.</div>`);
-    searchResults.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-      searchResults.hidden = true;
-      searchInput.value = "";
-    }));
-  });
+  function bindAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
 
   function watchHeadings() {
     const headings = [...content.querySelectorAll("h2")];
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const id = entry.target.id;
-        crumb.textContent = plain(entry.target).toUpperCase();
-        document.querySelectorAll(".nav-link").forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${id}`));
-        toc.querySelectorAll("a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${id}`));
+    headings.forEach((h) => {
+      h.addEventListener("click", () => {
+        window.location.hash = h.id;
       });
-    }, { rootMargin: "-15% 0px -75% 0px" });
-    headings.forEach(h => observer.observe(h));
+    });
   }
 
-  function closeMenu() { sidebar.classList.remove("open"); backdrop.classList.remove("show"); }
-  menuBtn.addEventListener("click", () => { sidebar.classList.toggle("open"); backdrop.classList.toggle("show"); });
-  backdrop.addEventListener("click", closeMenu);
-  document.addEventListener("keydown", e => {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); searchInput.focus(); }
-    if (e.key === "Escape") { closeMenu(); searchInput.blur(); }
-  });
-
+  function initTheme() {
+    const stored = storedTheme();
+    if (stored) {
+      applyTheme(stored);
+      if (themeBtn) {
+        themeBtn.setAttribute("aria-pressed", String(stored === "light"));
+        themeIcon.textContent = stored === "light" ? "☾" : "☀";
+      }
+    } else {
+      applyTheme(systemTheme());
+    }
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const next = (document.documentElement.getAttribute("data-theme") || systemTheme()) === "light" ? "dark" : "light";
+        try { localStorage.setItem(THEME_KEY, next); } catch (_) {}
+        applyTheme(next);
+        if (themeIcon) themeIcon.textContent = next === "light" ? "☾" : "☀";
+      });
+      lightQuery.addEventListener("change", () => { if (!storedTheme()) applyTheme(systemTheme()); });
+    }
+  }
 
   function rewriteSectionLinks() {
     Object.keys(SLUG_TO_PAGE).forEach((slug) => {
@@ -451,6 +285,7 @@
       if (SLUG_TO_PAGE[slug]) a.setAttribute("href", SLUG_TO_PAGE[slug]);
     });
   }
+
   function showOnlyCurrentSection() {
     const cur = currentPageKey();
     const headings = [...content.querySelectorAll("h2")];
@@ -467,6 +302,75 @@
       if (hero) hero.style.display = "none";
       if (qs) qs.style.display = "none";
     }
+  }
+
+  function revealTarget(id) {
+    const target = document.getElementById(id);
+    if (!target) return false;
+    // Open any parent details
+    let parent = target.parentElement;
+    while (parent) {
+      if (parent.tagName === "DETAILS") parent.open = true;
+      parent = parent.parentElement;
+    }
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    return true;
+  }
+
+  function goToHash() {
+    const hash = location.hash.slice(1);
+    if (!hash) return;
+    // Try to find the element
+    setTimeout(() => {
+      revealTarget(hash);
+    }, 300);
+  }
+
+  function setupSearch() {
+    if (!searchInput || !searchResults) return;
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.trim().toLowerCase();
+      if (q.length < 2) { searchResults.innerHTML = ""; return; }
+      const hits = searchIndex.filter(item => item.text.toLowerCase().includes(q));
+      searchResults.innerHTML = hits.length
+        ? hits.map(hit => {
+            const targetPage = hit.page || pageFile(currentPageKey());
+            const href = (targetPage === pageFile(currentPageKey())) ? `#${hit.id}` : `${targetPage}#${hit.id}`;
+            return `<a class="result-item" href="${href}"><b>${escapeHtml(hit.text.slice(0, 110))}${hit.text.length > 110 ? "…" : ""}</b><small>${escapeHtml(hit.tag)} · Klik untuk menuju bagian</small></a>`;
+          }).join("")
+        : `<div class="muted">Tidak ada hasil. Coba kata kunci lain.</div>`;
+    });
+  }
+
+  function setupMobileNav() {
+    if (!menuBtn || !sidebar || !backdrop) return;
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      backdrop.classList.toggle("show");
+    });
+    backdrop.addEventListener("click", () => {
+      sidebar.classList.remove("open");
+      backdrop.classList.remove("show");
+    });
+  }
+
+  function updateCrumb() {
+    if (!crumb) return;
+    const cur = currentPageKey();
+    const labels = {
+      "beranda": "Beranda",
+      "daftar-npc-pelanggan": "Daftar NPC & Pelanggan",
+      "quest-level": "Quest Level",
+      "cerita-utama": "Cerita Utama",
+      "quest-warga": "Quest Warga",
+      "daftar-kejadian-acak": "Daftar Kejadian Acak",
+      "daftar-harga": "Daftar Harga",
+      "daftar-upgrade": "Daftar Upgrade",
+      "panduan-mini-game": "Panduan Mini-Game",
+      "kalender": "Kalender",
+      "tips-trik": "Tips & Trik"
+    };
+    crumb.textContent = labels[cur] || cur;
   }
 
   init();

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161008">
+  <meta name="description" content="Wiki dan panduan lengkap Warung Life Simulator v0.38. Quest level, cerita utama, quest warga, barang, dan upgrade.">
+  <title>Warung Life Simulator Wiki: Daftar Kejadian Acak v0.38</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#top" aria-label="Warung Life Wiki beranda">
+        <img class="brand-mark" src="assets/img/warung-life-logo.png" width="128" height="128" alt="Logo Warung Life Simulator">
+        <span><strong>WARUNG LIFE</strong><small>COMMUNITY WIKI</small></span>
+      </a>
+      <div class="side-label">NAVIGASI</div>
+      <nav id="sideNav" class="side-nav" aria-label="Navigasi panduan">
+        <a class="nav-link active" href="#top"><span>⌂</span> Beranda</a>
+        <div class="nav-loading">Memuat daftar isi…</div>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="version-card"><span class="status-dot"></span><div><b>Guide v0.38</b><small>Dokumentasi lengkap</small></div></div>
+        <a class="source-link" href="data/guide.md" target="_blank" rel="noopener">Buka sumber Markdown ↗</a>
+      </div>
+    </aside>
+
+    <main class="main-area" id="top">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Buka navigasi">☰</button>
+        <div class="breadcrumb"><span>WIKI</span><i>/</i><b id="crumbCurrent">BERANDA</b></div>
+        <div class="top-actions">
+    <span class="version-pill">● VERSION 0.38</span>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Ganti tema terang atau gelap"><span class="theme-icon" aria-hidden="true">☀</span></button>
+  </div>
+</header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> PANDUAN KOMUNITAS</div>
+          <h1>Warung Life Simulator</h1>
+          <p>An Unofficial Wiki for Warung Life Simulator.<br><span class="hero-tagline">Panduan Sederhana untuk Bermain Warung Life Simulator</span></p>
+          <div class="hero-meta"><span>📚 Panduan lengkap</span><span>•</span><span>Update v0.38</span><span>•</span><span>Bahasa Indonesia</span></div>
+        </div>
+        <div class="hero-art">
+          <img class="hero-art-img" src="assets/img/warung-life-hero.png" width="768" height="453" fetchpriority="high" alt="Ilustrasi warung Warung Life Simulator">
+        </div>
+      </section>
+
+      <section class="quick-stats" aria-label="Isi panduan">
+        <a class="stat-card" href="#1-quest-level"><span class="stat-icon gold">🏆</span><div><b>10</b><small>Quest Level</small></div><span class="stat-arrow">↗</span></a>
+        <a class="stat-card" href="#2-cerita-utama"><span class="stat-icon coral">📖</span><div><b>10</b><small>Bab Cerita Utama</small></div><span class="stat-arrow">↗</span></a>
+        <a class="stat-card" href="#3-quest-warga"><span class="stat-icon green">👥</span><div><b>34</b><small>Quest Warga</small></div><span class="stat-arrow">↗</span></a>
+        <a class="stat-card" href="#4-daftar-barang"><span class="stat-icon blue">🛒</span><div><b>37</b><small>Daftar Barang</small></div><span class="stat-arrow">↗</span></a>
+        <a class="stat-card" href="#5-daftar-upgrade"><span class="stat-icon purple">⚙️</span><div><b>12</b><small>Upgrade</small></div><span class="stat-arrow">↗</span></a>
+      </section>
+
+      <div class="content-toolbar">
+        <div><span class="section-kicker">DATABASE & WALKTHROUGH</span><h2>Jelajahi panduan</h2></div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari quest, barang, dialog…" autocomplete="off"><kbd>⌘ K</kbd></label>
+      </div>
+      <div id="searchResults" class="search-results" hidden></div>
+
+      <div class="content-layout">
+        <article id="guideContent" class="guide-content">
+          <div class="loading-state"><div class="spinner"></div><b>Menyiapkan panduan…</b><span>Memuat seluruh data Warung Life Simulator v0.38</span></div>
+        </article>
+        <aside class="right-rail">
+          <div class="rail-card">
+            <div class="rail-heading">DI HALAMAN INI <span>⌁</span></div>
+            <nav id="toc" class="toc"><span class="muted">Pilih bagian untuk melihat daftar isi.</span></nav>
+          </div>
+          <div class="rail-note"><span>💡</span><div><b>Catatan wiki</b><p>Konten panduan mengikuti dokumen sumber v0.38. Gunakan pencarian untuk menemukan nama quest, karakter, atau barang dengan cepat.</p></div></div>
+        </aside>
+      </div>
+
+      <footer class="footer"><span>🏪 WARUNG LIFE WIKI</span><span>Fan-made guide · Berdasarkan dokumentasi v0.38</span><a href="#top">Kembali ke atas ↑</a></footer>
+    </main>
+  </div>
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script>window.GUIDE_PAGE = "beranda";</script>
+  <script>window.GUIDE_PAGE = "daftar-kejadian-acak";</script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
