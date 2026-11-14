@@ -122,6 +122,7 @@
       content.innerHTML = doc.body.innerHTML;
       formatOutcomeColumns();
       formatDialogues();
+      formatPlaceholders();
       formatQuestAccordions();
       buildNavigation();
       bindAnchors();
@@ -189,7 +190,9 @@
       acceptSpan.textContent = "✓";
       acceptLabel.appendChild(acceptSpan);
       const acceptStrong = bantuLabel.querySelector("strong");
-      const acceptText = acceptStrong ? acceptStrong.textContent.replace(/HASIL\s*-\s*/i, "").trim() : "BANTU";
+      const acceptText = acceptStrong
+        ? acceptStrong.textContent.replace(/HASIL\s*-\s*/i, "").replace(/:$/, "").trim()
+        : "BANTU";
       const acceptLabelSpan = document.createElement("span");
       acceptLabelSpan.textContent = acceptText;
       acceptLabel.appendChild(acceptLabelSpan);
@@ -204,7 +207,9 @@
       rejectSpan.textContent = "✗";
       rejectLabel.appendChild(rejectSpan);
       const rejectStrong = tolakLabel.querySelector("strong");
-      const rejectText = rejectStrong ? rejectStrong.textContent.replace(/HASIL\s*-\s*/i, "").trim() : "TOLAK";
+      const rejectText = rejectStrong
+        ? rejectStrong.textContent.replace(/HASIL\s*-\s*/i, "").replace(/:$/, "").trim()
+        : "TOLAK";
       const rejectLabelSpan = document.createElement("span");
       rejectLabelSpan.textContent = rejectText;
       rejectLabel.appendChild(rejectLabelSpan);
@@ -226,45 +231,133 @@
 
   const DIALOGUE_CHARS = new Set(["Abah Karta","Agus","Bu Ida","Dimas","Haji Doni","Kang Asep","Kang Dadan","Kang Fadil","Kang Hasan","Mang Ujang","Mas Fariz","Mba Giska","Nenek Sumi","Neng Shinta","Pak Misran","Pak RT","Pak Rudi","Ucup","Warga","Arab","Bu Guru","Bu Ningsih","Bu RT","Bu Yati","Mas Fajar","Pak Darto","Pak Slamet","Nenek","Shinta"]);
 
+  // Frasa yang menandakan sebuah "Nama:" adalah label bagian, bukan penutur dialog.
+  const LABEL_WORDS = /(dialog|setelah|pertanyaan|pilihan|hasil|sapaan|balasan|barang|sewa|lembar|pop-up|catatan|syarat|target|batas|level|keperluan|tahap|reputasi|bonus|harga|modal|efek|interaksi|aksi|alur|kesimpulan|ringkasan)/i;
+
+  function isSpeakerName(name, sayText, allowAnyName) {
+    if (!sayText) return false;
+    if (DIALOGUE_CHARS.has(name)) return true;
+    if (!allowAnyName) return false;
+    if (name.length > 22) return false;
+    if (LABEL_WORDS.test(name)) return false;
+    return true;
+  }
+
   function formatDialogues() {
-    // Wrap dialogue/label lines in .dlg containers
-    const paragraphs = [...content.querySelectorAll("p")];
-    paragraphs.forEach((p) => {
-      if (!p.parentElement) return; // skip already processed
-      const text = (p.textContent || "").trim();
-      const strongEl = p.querySelector("strong");
-      if (!strongEl) return;
-      const strongText = strongEl.textContent.trim();
-      if (!strongText.endsWith(":")) return;
-      if (p.closest(".dlg")) return;
-      // Collect consecutive paragraphs that start with **Name:**
-      const group = [p];
-      let n = p.nextElementSibling;
-      while (n && n.tagName === "P") {
-        const st = n.querySelector("strong");
-        if (!st || !st.textContent.trim().endsWith(":")) break;
-        group.push(n);
-        n = n.nextElementSibling;
+    // Satu paragraf markdown bisa memuat banyak baris dialog (tanpa baris kosong).
+    // Pecah per penutur: setiap <strong>Nama:</strong> di awal baris jadi satu .dlg-line,
+    // baris miring (*narasi*) jadi .dlg-note. Hasilnya satu baris = satu penutur.
+    const h2s = [...content.querySelectorAll("h2")];
+    const sectionOf = (node) => {
+      let title = "";
+      for (const h of h2s) {
+        if (h.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING) title = h.textContent.trim();
+        else break;
       }
-      // Create dlg container
+      return title;
+    };
+
+    const paragraphs = [...content.querySelectorAll("p, li")];
+    paragraphs.forEach((p) => {
+      if (!p.isConnected || p.closest(".dlg")) return;
+
+      const nameStrongs = [...p.querySelectorAll(":scope > strong")].filter((s) =>
+        /^[^:]{1,80}:$/.test(s.textContent.trim())
+      );
+      if (!nameStrongs.length) return;
+
+      const inStory = /^[34]\./.test(sectionOf(p));
+
+      // Butir daftar hanya diproses kalau memang dialog: penutur di awal butir.
+      // Butir metadata (Keperluan, Target, Batas, dan sejenisnya) dibiarkan apa adanya.
+      if (p.tagName === "LI") {
+        if (nameStrongs[0] !== p.firstElementChild) return;
+        const first = nameStrongs[0];
+        const firstName = first.textContent.trim().replace(/:$/, "").trim();
+        const firstSay = (first.nextSibling?.textContent || "").trim();
+        if (!isSpeakerName(firstName, firstSay, inStory)) return;
+        // Di daftar sapaan warga, dua penutur dipisah " / " dalam satu bullet.
+        // Ganti pemisah itu jadi batas baris supaya tiap penutur dapat barisnya sendiri.
+        [...p.childNodes].forEach((n) => {
+          if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace(/\s+\/\s+/g, "\n");
+        });
+      }
+
+      const segments = [];
+      let cur = null;
+      const flush = () => {
+        if (!cur) return;
+        cur.text = (cur.text || "")
+          .replace(/[\t\u00a0]+/g, " ")
+          .replace(/\s*\n\s*/g, " ")
+          .replace(/\s{2,}/g, " ")
+          .trim();
+        if (cur.name || cur.text) segments.push(cur);
+        cur = null;
+      };
+
+      [...p.childNodes].forEach((node) => {
+        if (node.nodeType === 3) {
+          if (!cur) cur = { name: "", text: "", narration: false };
+          cur.text += node.nodeValue;
+          return;
+        }
+        if (node.nodeType !== 1) return;
+
+        if (node.tagName === "STRONG") {
+          const t = node.textContent.trim();
+          const m = t.match(/^([^:]{1,80}):$/);
+          if (m && (!cur || !cur.text.trim() || /\n\s*$/.test(cur.text))) {
+            flush();
+            cur = { name: m[1].trim(), text: "", narration: false };
+            return;
+          }
+        }
+
+        if (node.tagName === "EM") {
+          const t = (node.textContent || "").trim();
+          const atLineStart = !cur || !cur.text.trim() || /\n\s*$/.test(cur.text);
+          if (t && atLineStart) {
+            flush();
+            cur = { name: "", text: t, narration: true };
+            return;
+          }
+        }
+
+        if (!cur) cur = { name: "", text: "", narration: false };
+        cur.text += node.textContent || "";
+      });
+      flush();
+
+      if (!segments.some((s) => s.name || s.narration)) return;
+
       const dlg = document.createElement("div");
       dlg.className = "dlg";
-      group.forEach((el) => {
-        const st = el.querySelector("strong");
-        const name = st ? st.textContent.trim().replace(/:$/, "").trim() : "";
-        const fullText = (el.textContent || "").trim();
-        const colonIdx = fullText.indexOf(":");
-        const sayText = colonIdx >= 0 ? fullText.substring(colonIdx + 1).trim() : "";
-        const isChar = DIALOGUE_CHARS.has(name);
-        if (isChar) {
+
+      segments.forEach((seg) => {
+        if (seg.narration) {
+          const note = document.createElement("p");
+          note.className = "dlg-note";
+          note.textContent = seg.text;
+          dlg.appendChild(note);
+          return;
+        }
+        if (!seg.name) {
+          const note = document.createElement("p");
+          note.className = "dlg-note";
+          note.textContent = seg.text;
+          dlg.appendChild(note);
+          return;
+        }
+        if (isSpeakerName(seg.name, seg.text, inStory)) {
           const line = document.createElement("p");
           line.className = "dlg-line";
           const who = document.createElement("span");
           who.className = "dlg-who";
-          who.textContent = name;
+          who.textContent = seg.name;
           const say = document.createElement("span");
           say.className = "dlg-say";
-          say.textContent = sayText;
+          say.textContent = seg.text;
           line.appendChild(who);
           line.appendChild(say);
           dlg.appendChild(line);
@@ -272,20 +365,63 @@
           const label = document.createElement("p");
           label.className = "dlg-label";
           const strong = document.createElement("strong");
-          strong.textContent = name + ":";
+          strong.textContent = seg.name + ":";
           label.appendChild(strong);
-          if (sayText) {
+          if (seg.text) {
             const span = document.createElement("span");
-            span.textContent = " " + sayText;
+            span.textContent = " " + seg.text;
             label.appendChild(span);
           }
           dlg.appendChild(label);
         }
       });
-      const parent = group[0].parentElement;
-      if (!parent) return;
-      parent.insertBefore(dlg, group[0]);
-      group.forEach((el) => { if (el.parentElement) el.remove(); });
+
+      if (p.tagName === "LI") {
+        // Pertahankan <li> agar penanda daftar tetap tampil; isinya jadi blok dialog.
+        p.textContent = "";
+        p.classList.add("dlg-li");
+        p.appendChild(dlg);
+      } else {
+        p.replaceWith(dlg);
+      }
+    });
+  }
+
+  // Angka/nominal di dokumen memakai placeholder seperti {target} atau {batas}.
+  // Beri gaya token supaya tidak terbaca seperti salah tulis, tanpa mengubah teksnya.
+  function formatPlaceholders() {
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || node.nodeValue.indexOf("{") === -1) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (parent.closest("code, pre, script, style, .dlg-who, .var-token")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((node) => {
+      const text = node.nodeValue;
+      const re = /\{([^{}\n]{1,30})\}/g;
+      let m;
+      let last = 0;
+      let changed = false;
+      const frag = document.createDocumentFragment();
+      while ((m = re.exec(text))) {
+        changed = true;
+        frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const span = document.createElement("span");
+        span.className = "var-token";
+        span.textContent = "{" + m[1].trim() + "}";
+        span.title = "Nilai mengikuti progres permainan";
+        frag.appendChild(span);
+        last = m.index + m[0].length;
+      }
+      if (!changed) return;
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
     });
   }
 

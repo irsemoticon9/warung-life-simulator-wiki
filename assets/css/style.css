@@ -48,7 +48,8 @@
 .outcome-card.accept{border-color:var(--accent-dim);background:linear-gradient(160deg,var(--accept-g1),var(--accept-g2))}
 .outcome-card.reject{border-color:var(--coral-dim);background:linear-gradient(160deg,var(--reject-g1),var(--reject-g2))}
 .outcome-label{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid #ffffff14;font-size:10px;letter-spacing:1px}
-.outcome-label span{width:21px;height:21px;display:grid;place-items:center;border-radius:7px;font-size:14px;font-weight:700}
+.outcome-label > span:first-child{flex:0 0 21px;width:21px;height:21px;display:grid;place-items:center;border-radius:7px;font-size:14px;font-weight:700}
+.outcome-label > span:last-child{flex:1 1 auto;min-width:0;line-height:1.5}
 .outcome-card.accept .outcome-label{color:var(--accept)}
 .outcome-card.accept .outcome-label span{background:var(--tile);color:var(--accept)}
 .outcome-card.reject .outcome-label{color:var(--reject)}
@@ -62,16 +63,26 @@
 
 /* Dialog: nama pembicara jadi kolom kiri tetap, ucapan di kanan. Tanpa kotak, garis, atau glow;
    hierarki dibentuk tipografi + perataan supaya satu adegan bisa dipindai dari nama ke ucapan. */
-.dlg{display:grid;gap:10px;margin:14px 0 18px}
+.dlg{display:grid;gap:10px;margin:14px 0 18px;max-width:100%;font-size:13px}
 .dlg > :first-child{margin-top:0}
-.dlg .dlg-line{display:grid;grid-template-columns:minmax(72px,104px) minmax(0,1fr);gap:12px;margin:0;align-items:baseline}
-.dlg .dlg-who{font:600 12px/1.5 "Space Grotesk",sans-serif;color:var(--dlg-who);text-align:right;overflow-wrap:anywhere}
-.dlg .dlg-say{color:var(--dlg-say);font-size:13.5px;line-height:1.7;overflow-wrap:anywhere}
-.dlg .dlg-note{margin:0;color:var(--tiny);font-size:12.5px;font-style:italic;line-height:1.6}
-.dlg .dlg-label{margin:8px 0 0;font-size:12px;letter-spacing:.03em;color:var(--dlg-label)}
+.dlg .dlg-line{display:grid;grid-template-columns:minmax(64px,96px) minmax(0,1fr);gap:10px;margin:0 0 4px;align-items:baseline}
+.dlg .dlg-who{font:600 11px/1.4 "Space Grotesk",sans-serif;color:var(--dlg-who);text-align:right;overflow-wrap:anywhere;white-space:nowrap}
+.dlg .dlg-say{color:var(--dlg-say);font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.dlg .dlg-note{margin:0;color:var(--tiny);font-size:11px;font-style:italic;line-height:1.5}
+.dlg .dlg-label{margin:6px 0 0;font-size:11px;letter-spacing:.02em;color:var(--dlg-label)}
 .dlg .dlg-label:first-child{margin-top:0}
-.dlg .dlg-label strong{color:var(--rail-b);font-weight:600}
+.dlg .dlg-label strong{color:var(--rail-b);font-weight:600}  
 .dlg .dlg-plain{margin:0;color:var(--li)}
+/* Placeholder nilai dinamis, mis. {target} atau {batas}, dibedakan dari teks biasa. */
+.var-token{display:inline-block;padding:0 5px;border-radius:4px;background:var(--wash);color:var(--accent);font:600 11.5px/1.6 "Space Grotesk",sans-serif;letter-spacing:.02em;white-space:nowrap;vertical-align:baseline}
+/* Dialog yang berasal dari butir daftar (mis. sapaan warga): penanda daftar tetap, ucapannya per baris. */
+.guide-content li.dlg-li{margin:8px 0}
+.guide-content li.dlg-li > .dlg{margin:2px 0}
+.guide-content li.dlg-li .dlg-label{margin-top:0}
+/* Responsive: narrower who column on small screens */
+@media(max-width:760px){.dlg .dlg-line{grid-template-columns:minmax(48px,80px) minmax(0,1fr)}}  
+/* Light theme adjustments */
+@media(prefers-color-scheme:light){.dlg .dlg-who{color:var(--dlg-who)}.dlg .dlg-say{color:var(--dlg-say)}}
 .guide-content p > em:only-child{display:block;color:var(--tiny);font-size:12.5px;line-height:1.6}
 .outcome-card .dlg{margin:10px 0}
 .outcome-card .dlg .dlg-line{grid-template-columns:minmax(0,1fr);gap:2px}
