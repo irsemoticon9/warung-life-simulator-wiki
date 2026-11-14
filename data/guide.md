@@ -342,7 +342,7 @@ Lewat batas → denda dan dialog terlambat.
 
 ## 4. Quest Warga
 
-Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di lokasi tertentu pada jam tertentu, mulai hari tertentu. Pemain mendekat lalu menekan "Sapa" untuk memulai cerita. Setiap cerita punya beberapa tahap yang bisa pindah area atau tokoh. Pilihan jawaban: tolong (membantu), tolak (menolak), lanjut (ke tahap berikut), ulang (jawaban salah), tunda (nanti saja). Hasil cerita bisa menambah reputasi, membuka barang baru, atau mengubah frekuensi pelanggan datang.
+Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di lokasi tertentu pada jam tertentu, mulai hari tertentu. Pemain mendekat lalu menekan "Sapa" untuk memulai cerita. Setiap cerita punya beberapa tahap yang bisa pindah area atau tokoh. Pilihan jawaban: tolong (membantu), tolak (menolak), lanjut (ke tahap berikut), ulang (jawaban salah), tunda (nanti saja). Hasil cerita bisa menambah reputasi, membuka barang baru, atau mengubah frekuensi pelanggan datang. Reputasi di sini = skor warung: menambah keramaian pelanggan (tidak menentukan level selanjutnya).
 
 **Lembar nama tokoh:** `` · `agus` · `agusdatang` · `bapak (narasi)` · `anak` · `siswi` · `pelajar` · `nenek` · `petani` · `santri_putih` · `santri_hitam` · `giska` · `tukang` · `kantoran` · `kurir` · `ojek` · `ibu_rumah_tangga` · `pak_rt` · `haji_doni` · `fariz` · `kucing` · `juragan`
 
@@ -2723,20 +2723,22 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ## 5. Daftar Kejadian Acak
 
-Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, ada peluang 45% setiap hari ada satu kejadian siang.
+Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap siang diundi apakah ada satu kejadian (peluang 45% per hari). Kalau ada, satu kejadian dipilih dari kejadian yang memenuhi syarat hari itu (jam, tanggal, level), dan kolom Bobot Undian menentukan mana yang paling sering muncul: angka besar = lebih sering.
 
-| Kejadian | Mulai Hari | Dampak | Cara Mengatasi |
-|---|---|---|---|
-| Listrik padam | Hari 1 | Minuman tidak laris | Beli genset |
-| Rombongan datang | Hari 1 | Lebih ramai, air mineral/teh/ciki laris | - |
-| Palak preman | Hari 1 | Setoran Rp10.000-20.000 | Beli CCTV |
-| Borongan | Hari 1 | Pesanan 2-3 jenis, 3-8 unit, reputasi +2 | - |
-| Gajian (tanggal muda) | Hari 1 | Jeda 0.7x, belanja lebih banyak | - |
-| Arisan | Hari 1 | Pesanan 2-4 jenis, 3-6 unit, tip Rp5.000-15.000, reputasi +1 | - |
-| Preman nongkrong | Hari 1 | Sangat sepi, 3-4 menit | Beli CCTV |
-| Pencurian | 5 | Kehilangan barang (maks Rp40.000) | Beli CCTV |
-| Uang palsu | 8 | Ketahuan saat tutup, hanya uang tunai | Beli QRIS |
-| Tikus | 6 | Makan barang (beras, gula, kerupuk, rengginang, biskuit, roti) | Beli CCTV (Neo minimal Tetangga akrab) |
+| Kejadian | Mulai Hari | Bobot Undian | Dampak | Cara Mengatasi |
+|---|---|---|---|---|
+| Listrik padam | Hari 1 | 2 | Minuman tidak laris | Beli genset |
+| Rombongan datang | Hari 1 | 2.5 | Lebih ramai, air mineral/teh/ciki laris | - |
+| Palak preman | Hari 1 | 1.5 | Setoran Rp10.000-20.000 | Beli CCTV |
+| Borongan | Hari 1 | 2.5 | Pesanan 2-3 jenis, 3-8 unit, reputasi +2 | - |
+| Gajian (tanggal muda) | Hari 1 | 4 | Pelanggan datang lebih sering, belanja lebih banyak | - |
+| Arisan | Hari 1 | 2 | Pesanan 2-4 jenis, 3-6 unit, tip Rp5.000-15.000, reputasi +1 | - |
+| Preman nongkrong | Hari 1 | - | Sangat sepi, 3-4 menit | Beli CCTV |
+| Pencurian | 5 | - | Kehilangan barang (maks Rp40.000) | Beli CCTV |
+| Uang palsu | 8 | - | Ketahuan saat tutup, hanya uang tunai | Beli QRIS |
+| Tikus | 6 | - | Makan barang (beras, gula, kerupuk, rengginang, biskuit, roti) | Neo minimal Tetangga akrab |
+
+**Catatan undian:** Gajian paling sering muncul (bobot 4), palak preman paling jarang (bobot 1.5). Kejadian bertanda "-" (preman nongkrong, pencurian, uang palsu, tikus) tidak ikut undian bobot; mereka dicek terpisah tiap hari dengan peluang sendiri: pencurian 8%, tikus 7%, uang palsu 5%.
 
 ### Detail kejadian:
 
@@ -3017,41 +3019,43 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 
 ### Tips Pemula
 
-Untuk pemain yang baru mulai (v0.39). Urutan di bawah mengikuti alur hari pertama.
+Untuk pemain baru mulai di v0.39, dari hari pertama sampai kebiasaan harian.
 
 **Membuka warung (hari 1)**
 
-- Klik HP, lalu buka Belanja Online, dan beli mie goreng, mie rebus, telur, biskuit, air mineral, sachet, ciki, dan permen (minimal 2 masing-masing) sebelum warung dibuka.
-- Modal buka Rp630.000: etalase kaca sudah dibayar dari modal, sisanya untuk stok. Jangan buka warung kosong.
+- Klik HP, buka Belanja Online, lalu beli mie goreng, mie rebus, telur, biskuit, air mineral, sachet, ciki, dan permen (minimal 2 masing-masing) sebelum warung dibuka.
+- Modal Rp630.000 sudah termasuk etalase kaca; Rp130.000 sisanya untuk belanja stok.
 - 2 tabung gas dan 3 galon sudah dititipkan di rak, tapi belum boleh dijual sebelum izin penyalur gas dan agen air galon keluar.
 
 **Misi utama**
 
-- Kirim uang ke Agus lewat HP, aplikasi Wasap. Kiriman ini misi utama sekaligus salah satu tugas level; dahulukan dari hal lain.
-- Bab 1: kumpulkan Rp150000 dalam 12 hari. Lunas membuka teh botol (barang baru, untung Rp1500 per botol).
+- Kirim uang ke Agus lewat HP (aplikasi Wasap). Ini misi utama sekaligus salah satu tugas level, jadi dahulukan.
+- Bab 1: kumpulkan Rp150000 dalam 12 hari. Lunas membuka teh botol (barang baru, untung Rp1500 per botol). Lewat batas bab kena denda 10% dan dialog terlambat.
 
-**Bayar sewa**
+**Sewa kios**
 
-- Sewa kios dibayar tiap Minggu malam ke Pak Haji Rasyid (Rp250000 di level 1). Sisakan uangnya; terlambat kena denda 10%.
+- Sewa ke Pak Haji Rasyid tiap Minggu malam: Rp250000 di level 1, naik tiap level. Sisakan uangnya dari omzet.
 
 **Kebiasaan harian**
 
-- Cek chat "Sales Grosir" tiap pagi: 1-3 barang dapat promo 10-20%. Isi stok pas promo, hemat modal.
-- Bandingkan dua kanal belanja (Belanja Online dan kios grosir Haji Maman): harga keduanya berubah tiap hari dan tidak ada yang selalu lebih murah; beli yang lebih murah hari itu.
-- Isi ulang barang yang laris: mie goreng, mie rebus, air mineral, ciki, biskuit, telur (peluang tinggi, modal murah).
+- Cek chat "Sales Grosir" tiap pagi: 1-3 barang kebagian promo 10-20%. Isi stok pas promo, hemat modal.
+- Bandingkan dua kanal belanja (Belanja Online dan kios grosir Haji Maman). Harga keduanya berubah tiap hari, tidak ada yang selalu lebih murah; beli yang lebih murah hari itu.
+- Isi ulang yang laris: mie goreng, mie rebus, air mineral, ciki, biskuit, telur (peluang tinggi, modal murah).
 - Sesuaikan stok dengan jam laris: kopi, susu, jamu di pagi hari (jam 6-9); air mineral dan teh di siang hari (jam 11-16); soda di sore-malam (jam 16-21).
 
 **Hindari dulu**
 
-- Jangan buru-buru beli upgrade mahal. Level 1-3 fokus jualan: kipas dan lampu baru pas level 2, spanduk dan bangku pas level 3. CCTV, genset, dan QRIS baru penting saat kejadian acak mulai sering (mulai hari ke-2, peluang 45% per hari).
-- Jangan membayar Rp1000000 ke Fariz (Program Bantuan Warung): itu jebakan, uangnya tidak kembali.
-- Jangan mancing tiap hari: tiap lempar memotong energi 5%. Selang-seling dengan jalan-jalan atau petik buah (gratis energi).
+- Level 1-3 fokus jualan dulu. Kipas dan lampu baru terbuka di level 2, spanduk dan bangku di level 3. CCTV, genset, dan QRIS baru penting setelah kejadian acak mulai sering (mulai hari ke-2, 45% per hari).
+- Jangan membayar Rp1000000 ke Fariz (Program Bantuan Warung). Itu jebakan, uangnya tidak kembali.
+- Jangan mancing tiap hari: tiap lempar memakan 5% energi (bar di atas layar) dan 3 menit waktu game. Petik buah tidak memotong energi, jadi selang-selingkan keduanya.
 
 **Sering dilupakan**
 
-- Buka tab jalan-jalan tiap hari: cerita warga non-acak muncul di lokasi dan jam tertentu. Membantu warga menaikkan reputasi dan membuka barang baru.
-- Baca dialog warga sebelum memilih: tolong dan tolak membuka jalur berbeda. Contoh: menolak "Ucup Ingin Sekolah" membuka Susu Sekolah.
-- CCTV mencegah tiga kejadian acak sekaligus (preman nongkrong, pencurian, tikus). Itulah sebabnya upgrade ini bernilai walau mahal.
+- Buka tab jalan-jalan tiap hari. Cerita warga non-acak muncul di lokasi dan jam tertentu; membantu warga menaikkan reputasi dan membuka barang baru.
+- Baca dialog warga sebelum memilih. Tolong dan tolak membuka jalur berbeda, contoh: menolak "Ucup Ingin Sekolah" membuka jalur Susu Sekolah (setelah "Hadiah Lomba HUT Sekolah" selesai).
+- CCTV memangkas pencurian (peluang 8% per hari turun jadi 2%) dan mengurangi palak preman. Untuk tikus, yang membantu adalah hubungan dengan Neo (kucing Bu Ida) di aplikasi HP: minimal "Tetangga akrab". CCTV tidak banyak menolong untuk tikus.
+
+---
 
 ### Tips Umum
 
