@@ -3057,7 +3057,19 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 - Setelah dibayar, tercatat "Lunas ✓".
 - Kalau warganya pindah rumah, hutangnya hilang ("Pindah rumah, hilang").
 
-## 11. Change Log
+## 11. Papan Peringkat
+
+Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain — tidak perlu melakukan apa-apa agar masuk papan.
+
+**Panel komunitas (live):**
+
+Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) — data yang sama dengan yang tampil di dalam game. Ada 3 versi tab: Sepanjang Masa, Minggu Ini, dan Bulan Ini.
+
+<div id="papanWidget"></div>
+
+*Catatan: di dalam game papan hanya 2 versi (Sepanjang Masa dan Bulan Ini). Tab "Minggu Ini" adalah versi komunitas: saat ini server mengembalikan data yang sama dengan Bulan Ini untuk kueri mingguan, sehingga ketiganya menampilkan daftar yang sama.*
+
+## 12. Change Log
 
 Riwayat pembaruan versi game yang didokumentasikan wiki ini. Daftar v0.39 bersumber dari teks resmi "What's New" di data game dan perbandingan file v0.38 vs v0.39 (13 November 2026).
 

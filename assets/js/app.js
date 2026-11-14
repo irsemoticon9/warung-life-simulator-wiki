@@ -54,6 +54,7 @@
     "panduan-mini-game": "panduan-mini-game.html",
     "kalender": "kalender.html",
     "tips-trik": "tips-trik.html",
+    "papan-peringkat": "leaderboard.html",
     "change-log": "change-log.html"
   };
   const PAGE_MATCH = {
@@ -68,7 +69,8 @@
     "panduan-mini-game": (h) => /^8\.\s*Panduan Mini/i.test(plain(h)),
     "kalender": (h) => /^9\.\s*Kalender/i.test(plain(h)),
     "tips-trik": (h) => /^10\.\s*Tips/i.test(plain(h)),
-    "change-log": (h) => /^11\.\s*Change Log/i.test(plain(h))
+    "papan-peringkat": (h) => /^11\.\s*Papan Peringkat/i.test(plain(h)),
+    "change-log": (h) => /^12\.\s*Change Log/i.test(plain(h))
   };
   const SLUG_TO_PAGE = {
     "isi": "index.html",
@@ -82,7 +84,8 @@
     "8-panduan-mini-game": "panduan-mini-game.html",
     "9-kalender": "kalender.html",
     "10-tips-trik": "tips-trik.html",
-    "11-change-log": "change-log.html"
+    "11-papan-peringkat": "leaderboard.html",
+    "12-change-log": "change-log.html"
   };
   const currentPageKey = () => {
     if (window.GUIDE_PAGE) return window.GUIDE_PAGE;
@@ -129,6 +132,7 @@
       setupSearch();
       setupMobileNav();
       updateCrumb();
+      initPapanWidget();
       goToHash();
     } catch (e) {
       content.innerHTML = `<p>Error loading guide: ${e.message}</p>`;
@@ -337,11 +341,12 @@
       { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
       { key: "kalender", icon: "📅", label: "Kalender" },
       { key: "tips-trik", icon: "💡", label: "Tips & Trik" },
-      { key: "change-log", icon: "🗒️", label: "Change Log", sep: true }
+      { key: "papan-peringkat", icon: "🏅", label: "Papan Peringkat", sep: "PAPAN PERINGKAT" },
+      { key: "change-log", icon: "🗒️", label: "Change Log", sep: "LOG VERSI" }
     ];
     const cur = currentPageKey();
     sideNav.innerHTML = items.map((it) =>
-      (it.sep ? `<div class="nav-sep">LOG VERSI</div>` : "") +
+      (it.sep ? `<div class="nav-sep">${it.sep}</div>` : "") +
       `<a class="nav-link${it.key === cur ? " active" : ""}" href="${pageFile(it.key)}"><span>${it.icon}</span>${escapeHtml(it.label)}</a>`
     ).join("");
 
@@ -502,6 +507,88 @@
     });
   }
 
+  function initPapanWidget() {
+    const WIDGET = document.getElementById("papanWidget");
+    if (!WIDGET) return;
+
+    const API_URL = "https://vfeihrxdwynivqcksxwl.supabase.co/rest/v1/rpc/ambil_papan";
+    const API_KEY = "sb_publishable_bGjm_-NNAqleprvQoE3dLA_IVYxzKmr";
+
+    const TABS = [
+      { id: "semua", label: "Seluas Masa", note: "Kumulatif sejak warung pertama dibuka" },
+      { id: "bulan", label: "Bulan Ini", note: "Mulai dari nol setiap tanggal 1" },
+      { id: "minggu", label: "Minggu Ini", note: "Papan komunitas — saat ini data sama dengan Bulan Ini" }
+    ];
+
+    const BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
+    function fmtNum(n) { return (n||0).toLocaleString("id-ID"); }
+
+    async function fetchData(jenis) {
+      const r = await fetch(API_URL, {
+        method: "POST",
+        headers: { "apikey": API_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({ p_jenis: jenis, p_id: "" })
+      });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }
+
+    function bulanLabel(bulan) {
+      const parts = String(bulan || "").split("-");
+      if (parts.length !== 2) return bulan || "";
+      return BULAN[parseInt(parts[1], 10) - 1] + " " + parts[0];
+    }
+
+    function buildTable(daftar) {
+      const thead = "<tr><th>#</th><th>Nama Warung</th><th>Pembeli</th><th>Bintang</th><th>Level</th></tr>";
+      const tbody = daftar.map((row, i) => {
+        const rank = i + 1;
+        const [name, total, , stars, level] = row;
+        const kelas = rank <= 3 ? ` class="rank-${rank}"` : "";
+        return `<tr><td${kelas}>${rank}</td><td>${escapeHtml(String(name || "—"))}</td><td class="num">${fmtNum(total)}</td><td>${Number(stars) || 0} ★</td><td>${Number(level) || 0}</td></tr>`;
+      }).join("");
+      return `<table class="leaderboard-table"><thead>${thead}</tbody>${tbody}</table>`;
+    }
+
+    const cache = {};
+    let current = "semua";
+
+    function loadTab(id, fresh) {
+      buttons.forEach((b) => b.classList.toggle("active", b.dataset.tab === id));
+      body.innerHTML = '<div class="papan-status muted"><div class="spinner"></div>Memuat papan…</div>';
+      const job = (fresh || !cache[id])
+        ? fetchData(id).then((d) => { cache[id] = d; return d; })
+            .catch((e) => { cache[id] = { error: e.message }; return cache[id]; })
+        : Promise.resolve(cache[id]);
+      job.then((data) => {
+        if (current !== id) return;
+        if (data.error) {
+          body.innerHTML = `<div class="papan-error">Papan tidak bisa dimuat: ${escapeHtml(data.error)}.<br>Periksa koneksi internet, lalu <button class="papan-retry" type="button">muat ulang</button>.</div>`;
+          body.querySelector(".papan-retry").addEventListener("click", () => loadTab(id, true));
+          return;
+        }
+        const totalWarung = data.jumlah_warung != null ? fmtNum(data.jumlah_warung) : "";
+        const status = `Top 50 dari ${totalWarung} warung · ${bulanLabel(data.bulan)}`;
+        body.innerHTML = `<div class="papan-status muted">${status}</div>` + buildTable(data.daftar || []);
+      });
+    }
+
+    WIDGET.innerHTML = `<div class="papan-tabs" role="tablist">${TABS.map((t) => `<button class="papan-tab${t.id === current ? " active" : ""}" data-tab="${t.id}" role="tab" type="button">${t.label}</button>`).join("")}</div><div class="papan-note muted">${TABS.find((t) => t.id === current).note}</div><div class="papan-body"></div>`;
+
+    const buttons = [...WIDGET.querySelectorAll(".papan-tab")];
+    const note = WIDGET.querySelector(".papan-note");
+    const body = WIDGET.querySelector(".papan-body");
+
+    buttons.forEach((b) => b.addEventListener("click", () => {
+      current = b.dataset.tab;
+      note.textContent = TABS.find((t) => t.id === current).note;
+      loadTab(current);
+    }));
+
+    loadTab(current);
+  }
+
   function updateCrumb() {
     if (!crumb) return;
     const cur = currentPageKey();
@@ -517,6 +604,7 @@
       "panduan-mini-game": "Panduan Mini-Game",
       "kalender": "Kalender",
       "tips-trik": "Tips & Trik",
+      "papan-peringkat": "Papan Peringkat",
       "change-log": "Change Log"
     };
     crumb.textContent = labels[cur] || cur;
