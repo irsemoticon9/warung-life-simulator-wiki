@@ -3015,6 +3015,44 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 
 ## 10. Tips & Trik
 
+### Tips Pemula
+
+Untuk pemain yang baru mulai (v0.39). Urutan di bawah mengikuti alur hari pertama.
+
+**Membuka warung (hari 1)**
+
+- Klik HP, lalu buka Belanja Online, dan beli mie goreng, mie rebus, telur, biskuit, air mineral, sachet, ciki, dan permen (minimal 2 masing-masing) sebelum warung dibuka.
+- Modal buka Rp630.000: etalase kaca sudah dibayar dari modal, sisanya untuk stok. Jangan buka warung kosong.
+- 2 tabung gas dan 3 galon sudah dititipkan di rak, tapi belum boleh dijual sebelum izin penyalur gas dan agen air galon keluar.
+
+**Misi utama**
+
+- Kirim uang ke Agus lewat HP, aplikasi Wasap. Kiriman ini misi utama sekaligus salah satu tugas level; dahulukan dari hal lain.
+- Bab 1: kumpulkan Rp150000 dalam 12 hari. Lunas membuka teh botol (barang baru, untung Rp1500 per botol).
+
+**Bayar sewa**
+
+- Sewa kios dibayar tiap Minggu malam ke Pak Haji Rasyid (Rp250000 di level 1). Sisakan uangnya; terlambat kena denda 10%.
+
+**Kebiasaan harian**
+
+- Cek chat "Sales Grosir" tiap pagi: 1-3 barang dapat promo 10-20%. Isi stok pas promo, hemat modal.
+- Bandingkan dua kanal belanja (Belanja Online dan kios grosir Haji Maman): harga keduanya berubah tiap hari dan tidak ada yang selalu lebih murah; beli yang lebih murah hari itu.
+- Isi ulang barang yang laris: mie goreng, mie rebus, air mineral, ciki, biskuit, telur (peluang tinggi, modal murah).
+- Sesuaikan stok dengan jam laris: kopi, susu, jamu di pagi hari (jam 6-9); air mineral dan teh di siang hari (jam 11-16); soda di sore-malam (jam 16-21).
+
+**Hindari dulu**
+
+- Jangan buru-buru beli upgrade mahal. Level 1-3 fokus jualan: kipas dan lampu baru pas level 2, spanduk dan bangku pas level 3. CCTV, genset, dan QRIS baru penting saat kejadian acak mulai sering (mulai hari ke-2, peluang 45% per hari).
+- Jangan membayar Rp1000000 ke Fariz (Program Bantuan Warung): itu jebakan, uangnya tidak kembali.
+- Jangan mancing tiap hari: tiap lempar memotong energi 5%. Selang-seling dengan jalan-jalan atau petik buah (gratis energi).
+
+**Sering dilupakan**
+
+- Buka tab jalan-jalan tiap hari: cerita warga non-acak muncul di lokasi dan jam tertentu. Membantu warga menaikkan reputasi dan membuka barang baru.
+- Baca dialog warga sebelum memilih: tolong dan tolak membuka jalur berbeda. Contoh: menolak "Ucup Ingin Sekolah" membuka Susu Sekolah.
+- CCTV mencegah tiga kejadian acak sekaligus (preman nongkrong, pencurian, tikus). Itulah sebabnya upgrade ini bernilai walau mahal.
+
 ### Tips Umum
 
 - **Fokus upgrade**: beli etalase (level 1) dan kipas (level 2) dulu untuk meningkatkan pelanggan.
