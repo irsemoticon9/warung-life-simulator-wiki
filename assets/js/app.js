@@ -61,16 +61,16 @@
     "beranda": (h) => /^Isi$/i.test(plain(h)),
     "daftar-npc-pelanggan": (h) => /^1\.\s*Daftar NPC/i.test(plain(h)),
     "quest-level": (h) => /^2\.\s*Quest Level/i.test(plain(h)),
-    "cerita-utama": (h) => /^3\.\s*Cerita Utama/i.test(plain(h)),
-    "quest-warga": (h) => /^4\.\s*Quest Warga/i.test(plain(h)),
-    "daftar-kejadian-acak": (h) => /^5\.\s*Daftar Kejadian/i.test(plain(h)),
-    "daftar-harga": (h) => /^6\.\s*Daftar Harga/i.test(plain(h)),
-    "daftar-upgrade": (h) => /^7\.\s*Daftar Upgrade/i.test(plain(h)),
-    "panduan-mini-game": (h) => /^8\.\s*Panduan Mini/i.test(plain(h)),
-    "kalender": (h) => /^9\.\s*Kalender/i.test(plain(h)),
-    "tips-trik": (h) => /^10\.\s*Tips/i.test(plain(h)),
-    "papan-peringkat": (h) => /^11\.\s*Papan Peringkat/i.test(plain(h)),
-    "change-log": (h) => /^12\.\s*Change Log/i.test(plain(h))
+    "cerita-utama": (h) => /^3\.\s*Cerita Utama/i.test(plain(h)) || /^4\.\s*Epilog/i.test(plain(h)),
+    "quest-warga": (h) => /^5\.\s*Quest Warga/i.test(plain(h)),
+    "daftar-kejadian-acak": (h) => /^6\.\s*Daftar Kejadian/i.test(plain(h)),
+    "daftar-harga": (h) => /^7\.\s*Daftar Harga/i.test(plain(h)),
+    "daftar-upgrade": (h) => /^8\.\s*Daftar Upgrade/i.test(plain(h)),
+    "panduan-mini-game": (h) => /^9\.\s*Panduan Mini/i.test(plain(h)) || /^14\.\s*OjekKampung/i.test(plain(h)),
+    "kalender": (h) => /^10\.\s*Kalender/i.test(plain(h)) || /^13\.\s*Save & Akun/i.test(plain(h)),
+    "tips-trik": (h) => /^11\.\s*Tips/i.test(plain(h)),
+    "papan-peringkat": (h) => /^12\.\s*Papan Peringkat/i.test(plain(h)) || /^15\.\s*Supporter Badge/i.test(plain(h)),
+    "change-log": (h) => /^16\.\s*Change Log/i.test(plain(h))
   };
   const SLUG_TO_PAGE = {
     "isi": "index.html",
@@ -470,14 +470,19 @@
       { key: "daftar-npc-pelanggan", icon: "👤", label: "Daftar NPC & Pelanggan" },
       { key: "quest-level", icon: "🏆", label: "Quest Level" },
       { key: "cerita-utama", icon: "📖", label: "Cerita Utama" },
+      { key: "cerita-utama", icon: "🎬", label: "Epilog: Tiga Tahun Kemudian" },
       { key: "quest-warga", icon: "👥", label: "Quest Warga" },
       { key: "daftar-kejadian-acak", icon: "⚡", label: "Daftar Kejadian Acak" },
       { key: "daftar-harga", icon: "💰", label: "Daftar Harga" },
       { key: "daftar-upgrade", icon: "⚙️", label: "Daftar Upgrade" },
       { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
       { key: "kalender", icon: "📅", label: "Kalender" },
+      { key: "kalender", icon: "☁️", label: "Save & Akun (Cloud)" },
+      { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
+      { key: "panduan-mini-game", icon: "🏍️", label: "OjekKampung" },
       { key: "tips-trik", icon: "💡", label: "Tips & Trik" },
       { key: "papan-peringkat", icon: "🏅", label: "Papan Peringkat", sep: "PAPAN PERINGKAT" },
+      { key: "papan-peringkat", icon: "🏅", label: "Supporter Badge" },
       { key: "change-log", icon: "🗒️", label: "Change Log", sep: "LOG VERSI" }
     ];
     const cur = currentPageKey();
