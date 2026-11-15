@@ -1752,6 +1752,8 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 ### 4.20 Ucup Juara Kelas (`ucup_juara`)
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · bukan Ramadan · **JANJI** (hanya hari libur warung) · **setelah** quest "Ucup Ingin Sekolah" selesai dengan hasil **tolong**
+
+> **Pernyataan developer** (Neo Paw Studio, [Threads](https://www.threads.com/@neopawstudio/post/Dfv_ejDk2Nj)): kalau Ucup dibantu di "Ucup Ingin Sekolah", cerita inilah yang muncul sebagai gantinya, dan cerita ini yang membuka susu kotak. Sebaliknya, Susu Sekolah baru bisa muncul kalau Ucup tidak dibantu.
 #### Tahap 1 - SD · Ucup (pukul 08.0–13.0)
 
   **Ucup:** Pak Misran! Pak Misran! Ucup ranking satu di kelas!
@@ -1805,9 +1807,20 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ### 4.21 Susu Sekolah (`susu_sd`)
 
-- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · hari sekolah (bukan Minggu) · hanya hari libur warung · bukan Ramadan · setelah menolak "Ucup Ingin Sekolah" · muncul setelah quest "Hadiah Lomba HUT Sekolah" selesai
+- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · hari sekolah (bukan Minggu) · bukan bulan Ramadan (hari 55–84) · hanya hari libur warung, Senin atau Jumat, dan itu pun hanya kalau ada janji untuk hari itu · setelah menolak "Ucup Ingin Sekolah" · setelah quest "Hadiah Lomba HUT Sekolah" selesai. Tempat: SD, pukul 13.0–17.0.
 
-> **Catatan wiki** *(analisis dari data & logika game, bukan pengumuman resmi developer)*: Susu Sekolah adalah jalur alternatif dari *Ucup Juara Kelas* — keduanya membuka barang **susu kotak**. Kalau kamu ambil jalur **tolong** ("Ucup Ingin Sekolah" dibantu, quest *Ucup Juara Kelas*), syarat "setelah menolak" tidak pernah terpenuhi, jadi dialog Susu Sekolah tidak akan muncul dan quest ini tidak bisa dijalankan. Meski begitu, quest ini bisa tetap terlihat di daftar misi — versi 0.39 menampilkan "Misi Susu Sekolah" terus-menerus di aplikasi HP. Itu sisa tampilan, bukan misi aktif: tidak memblokir apa pun, dan reward (susu kotak, reputasi, pelanggan) sudah didapat lewat jalur tolong.
+> **Pernyataan developer** (Neo Paw Studio lewat Threads). Semua syarat ini harus terpenuhi:
+> 1. Warung sudah Level 5 atau lebih.
+> 2. Waktu cerita "Ucup Ingin Sekolah", pemain harus memilih "tidak membantu Ucup".
+> 3. Kalau Ucup dibantu, Susu Sekolah memang tidak akan pernah muncul.
+> 4. Sebagai gantinya muncul cerita "Ucup Juara Kelas" (Ucup di SD, jam 08–13), dan cerita itu yang membuka susu kotak.
+> 5. Cerita "Hadiah Lomba HUT Sekolah" (Neng Shinta) sudah selesai.
+> 6. Bukan hari Minggu dan bukan bulan Ramadan (hari 55–84).
+> 7. Di hari libur (Senin/Jumat), Neng Shinta hanya datang kalau memang ada janji untuk hari itu.
+>
+> Tempatnya di SD, jam 13.00–17.00. Misi yang tidak tercentang di daftar HP itu konsekuensi dari pilihan yang diambil, bukan bug yang perlu dikejar. Untuk sementara biarkan tidak tercentang; developer akan memperbaiki agar hilang dari list.
+>
+> Sumber: [@neopawstudio di Threads](https://www.threads.com/@neopawstudio/post/Dfv_ejDk2Nj)
 
 #### Tahap 1 - SD · Neng Shinta (pukul 13.0–17.0)
 
