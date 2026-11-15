@@ -1,4 +1,4 @@
-# Warung Life Simulator Wiki - Fanmade
+# Warung Life Simulator Wiki - Fanmade (v0.40)
 > Sebuah Wiki Fanmade untuk Warung Life Simulator.
 > Panduan ini dibuat dengan bantuan AI. Segala Informasi Bertujuan untuk Membuat Game Menjadi Lebih Informatif. Selalu Support Neo Paw Studio selaku Developer.
 
@@ -24,6 +24,9 @@ Warga desa yang bisa kamu temui saat jalan-jalan di kampung. Tekan tombol Ngobro
 | petani | Abah Karta | Warga desa |
 | pak_rt | Pak RT | Warga desa |
 | kurir | Kang Dadan | Warga desa |
+| ibu_rumah_tangga | Bu Eni | Warga desa (pengganti Pak Misran di warung setelah epilog) |
+| anak | Raka | Warga desa (kasir baru di warung) |
+| kantoran | Kang Dedi | Warga desa (istirahat di rumah) |
 
 ### Pelanggan (Tipe)
 
@@ -340,7 +343,35 @@ Lewat batas → denda dan dialog terlambat.
 - Masuk, Pak. Bapak jangan lupa makan.
 
 
-## 4. Quest Warga
+
+## 4. Epilog: Tiga Tahun Kemudian
+
+Fitur baru v0.40: scene sinematik setelah tamat (semua level selesai).
+
+### Cerita
+Pak Misran menutup warung dan menyerahkannya ke Bu Eni. Agus (anak Pak Misran) jadi guru TIK SD kampung. Neo (kucing) sudah tua. Kang Dedi istirahat di rumah. Raka jadi kasir baru.
+
+### Karakter Baru
+- **Bu Eni**: pengganti Pak Misran di warung
+- **Raka**: kasir baru di warung
+- **Kang Dedi**: istirahat di rumah (tidak bisa bekerja)
+
+### Adegan
+- Pak Misran menutup pintu rumah, menitipkan ke Agus
+- Pak Misran berhenti di depan warung, memandangi rak-rak yang sudah kosong
+- Bu Eni: "Insya Allah saya jaga baik-baik, Pak."
+- Raka: "Pak Misran, nanti Raka yang jaga kasir!"
+- Neo sudah tua, hanya menoleh pelan
+- Agus memeluk bapaknya erat-erat
+- Angkot membawa Pak Misran ke terminal, lalu ke kota
+- Neo masih menoleh ke arah jalan, seolah menunggu angkot itu kembali
+
+### Musik & Animasi
+- Musik: musik_pamit.mp3
+- Animasi: lengan_peluk (peluk), lengan_salim (salim)
+
+
+## 5. Quest Warga
 
 Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di lokasi tertentu pada jam tertentu, mulai hari tertentu. Pemain mendekat lalu menekan "Sapa" untuk memulai cerita. Setiap cerita punya beberapa tahap yang bisa pindah area atau tokoh. Pilihan jawaban: tolong (membantu), tolak (menolak), lanjut (ke tahap berikut), ulang (jawaban salah), tunda (nanti saja). Hasil cerita bisa menambah reputasi, membuka barang baru, atau mengubah frekuensi pelanggan datang. Reputasi di sini = skor warung: menambah keramaian pelanggan (tidak menentukan level selanjutnya).
 
@@ -2635,7 +2666,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Pak, tadi saya baca papan nama warung Bapak dari jauh. Sekarang semua tulisan kelihatan, hehe. / **Pak Misran:** Hebat, Kang! Nanti kita lanjut belajar menulis.
 - **Warga:** Pak, teman rahasia Bapak sudah lancar membaca? Kartu hurufnya berguna, kan? / **Pak Misran:** Berguna sekali, Neng. Katanya terima kasih.
 
----
+
 
 ### 4.34 Kampung Kita (`kampung_kita`)
 
@@ -2733,8 +2764,60 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
+---
 
-## 5. Daftar Kejadian Acak
+### 4.35 Epilog: Tiga Tahun Kemudian (`sinema_pamit`)
+
+- **Syarat muncul:** Setelah tamat (semua level selesai), epilog otomatis muncul
+- **Tipe:** Cinema (sinematik), tidak ada pilihan jawaban, hanya menonton
+
+#### Tahap 1 - Warung · Pak Misran (pukul 07.0–22.0)
+
+  *Pagi itu, Pak Misran menutup pintu rumahnya untuk terakhir kalinya.*
+  **Pak Misran:** Rumah ini Bapak titip ya, Gus. Jendelanya dibuka tiap pagi, biar tidak lembap.
+  **Agus:** Iya, Pak. Aku rawat baik-baik. Kan aku yang tinggal di sini sekarang.
+  **Pak Misran:** Guru TIK SD kampung... Bapak masih tidak percaya, Gus.
+  **Agus:** Ayo, Pak. Bu Eni sudah menunggu di warung.
+
+  *Pak Misran berhenti di depan warung. Lama ia memandangi rak-rak yang sudah kosong, yang ia jaga bertahun-tahun.*
+  **Pak Misran:** Dulu Bapak mulai dari satu rak mi instan... sekarang giliran Bu Eni yang mengisi lagi.
+  **Bu Eni:** Insya Allah saya jaga baik-baik, Pak. Kang Dedi titip salam, masih istirahat di rumah.
+  **Pak Misran:** Bilang sama Dedi, cepat sehat. Nanti kita ngopi lagi di bangku itu.
+
+  **Raka:** Pak Misran, nanti Raka yang jaga kasir!
+  **Pak Misran:** Wah, kasir baru. Kembaliannya jangan salah, ya.
+
+  *Neo sudah tua. Ia tidak lagi berlari menyambut, hanya menoleh pelan.*
+  **Pak Misran:** Neo... Bapak pergi dulu, ya. Jaga warung sama Bu Eni.
+
+  **Agus:** Pak... jangan lupa kontrol ke dokter. Nanti aku telepon tiap malam.
+  **Pak Misran:** Kamu juga, Gus. Ngajar yang sabar. Anak-anak kampung ini butuh guru kayak kamu.
+
+  *Agus memeluk bapaknya erat-erat. Tidak ada yang bicara untuk beberapa saat.*
+  *Agus mencium tangan bapaknya lama sekali, seperti waktu kecil dulu setiap berangkat sekolah.*
+  **Pak Misran:** Sudah, sudah... nanti Bapak ikut nangis.
+
+  **Pak Misran:** Angkotnya sudah datang. Assalamualaikum, semuanya.
+  **Warga:** Waalaikumsalam, Pak. Hati-hati di jalan.
+
+  *Angkot itu membawa Pak Misran ke terminal, lalu ke kota.*
+  *Di depan warung, Neo masih menoleh ke arah jalan, seolah menunggu angkot itu kembali.*
+
+  **Pop-up "Epilog"**
+  - Tiga tahun kemudian...
+  - Warung Bu Eni
+  - Neo sudah tua
+
+**HASIL:**
+- Tidak ada reward (epilog naratif)
+- Musik: musik_pamit.mp3
+- Animasi: lengan_peluk (peluk), lengan_salim (salim)
+
+---
+
+
+
+## 6. Daftar Kejadian Acak
 
 Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap siang diundi apakah ada satu kejadian (peluang 45% per hari). Kalau ada, satu kejadian dipilih dari kejadian yang memenuhi syarat hari itu (jam, tanggal, level), dan kolom Bobot Undian menentukan mana yang paling sering muncul: angka besar = lebih sering.
 
@@ -2775,7 +2858,7 @@ Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap
 
 **Tikus:** Mulai hari 6. Malam hari, ketahuan saat buka. Jarang kalau Neo minimal Tetangga akrab. Makan beras, gula, kerupuk, rengginang, biskuit, roti.
 
-## 6. Daftar Harga
+## 7. Daftar Harga
 
 Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jual = harga jual ke pelanggan.
 
@@ -2799,7 +2882,6 @@ Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jua
 | Kopi susu botol | Rp4500 | Rp6500 | Rp2000 | 4 |
 | Minuman soda kaleng | Rp5000 | Rp7000 | Rp2000 | 4 |
 | Minuman energi | Rp5000 | Rp7000 | Rp2000 | 4 |
-| Minuman sachet | Rp1000 | Rp1500 | Rp500 | 6 |
 | Kerupuk | Rp500 | Rp1000 | Rp500 | 7 |
 | Sayuran (cabai, bawang, tomat) | Rp4000 | Rp5000 | Rp1000 | 5 |
 | Obat warung | Rp2500 | Rp3500 | Rp1000 | 3 |
@@ -2908,7 +2990,7 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 - Di aplikasi Belanja Online, diskon promo yang sedang aktif selalu terlihat (label "PROMO -x%").
 - Barang khas agen selalu minimal 10% di atas harga belinya.
 - Semua harga dihitung di dalam game, jadi tidak butuh internet; internet hanya untuk cek lisensi, cek versi, kode redeem, papan online, dan pengiriman data.
-## 7. Daftar Upgrade
+## 8. Daftar Upgrade
 
 
 Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (sekali beli, permanen).
@@ -2927,6 +3009,8 @@ Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (
 | Genset | 8 | Rp1660000 | Rp1500 |
 | CCTV | 7 | Rp1990000 | Rp1000 |
 | TV warung | 9 | Rp2550000 | Rp2000 |
+| Motor (Wishlist) | - | Cicilan | Rp5000/hari |
+
 
 **Detail tiap upgrade:**
 
@@ -2943,21 +3027,23 @@ Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (
 - **CCTV** (level 7, Rp1990000 + biaya harian Rp1000): Kamera pengawas. Kejadian buruk (pencurian, palak) jauh berkurang. Pembeli 1% lebih ramai. Listrik +Rp1.000/hari.
 - **TV warung** (level 9, Rp2550000 + biaya harian Rp2000): TV tabung di atas meja kecil: pembeli betah menunggu sambil menonton. Kesabaran saat antre +30% dan antrean boleh 1 orang lebih panjang. Listrik +Rp2.000/hari.
 
+- **Motor** (Wishlist, cicilan): Motor untuk narik ojek (OjekKampung). Beli di aplikasi Wishlist, bisa dicicil (uang muka + cicilan bulanan). Matel (debt collector) datang kalau telat bayar, motor bisa disita. Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi.
+
 Catatan: efek total upgrade maksimal +50% keramaian dan +85% kesabaran.
 
 ---
 
 ---
 
-*Dibuat dari data game v0.38 (versionCode 40), 34 quest warga, 10 bab cerita, 10 level, 37 barang, 12 upgrade.
+*Dibuat dari data game v0.40 (versionCode 44), 34 quest warga + epilog, 10 bab cerita, 10 level, 37 barang, 12 upgrade, fitur baru: OjekKampung, Save & Akun, Pembayaran, Epilog, Supporter Badge.
 
 
 
-## 8. Panduan Mini-Game
+## 9. Panduan Mini-Game
 
 ### Mini-Game Mancing (Ikan)
 
-Lokasi: area sawah. Setiap lemparan memakai 5% energi (tiap lemparan = 3 menit game), tanpa batas waktu — bisa berhenti kapan saja. Rata-rata sekali mancing menghasilkan sekitar Rp10.000.
+Lokasi: area sawah. Setiap lemparan memakai 5% energi (tiap lemparan = 3 menit game), tanpa batas waktu — bisa berhenti kapan saja. Rata-rata sekali mancing menghasilkan sekitar Rp10.000. Jam mancing: 06.00-20.00 (dengan suasana senja).
 
 Cara main:
 1. Lemparkan joran ke air
@@ -2996,12 +3082,43 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 
 ### Aturan Mini-Game
 
-- Mancing: energi -5% per lempar, 3 menit game per lempar, jam 6.0-18.5
+- Mancing: energi -5% per lempar, 3 menit game per lempar, jam 6.0-20.0 (suasana senja)
 - Petik buah: 20 menit game, energi -0%, jam 6.0-18.0
 - Buah matang menunggu dipanen (tidak busuk)
-- Tas: ikan dan buah maksimal 5 per kotak. Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
+- Tas: ikan dan buah maksimal 5 per kotak (v0.39). **v0.40**: Tas kini muat **10 barang sejenis** per kotak (ikan, buah, dan barang grosir). Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
 
-## 9. Kalender
+### Mini-Game OjekKampung (Ride-Hailing)
+
+Mini-game mengantar penumpang atau barang naik motor, tersedia setelah warung tutup (sore-malam). Butuh motor sendiri (beli di aplikasi Wishlist, terbuka di Level Warung tertentu).
+
+**Syarat main:**
+- Punya motor (beli di Wishlist, bisa dicicil)
+- Warung sudah tutup (sore-malam)
+- Buka aplikasi OjekKampung di HP
+
+**Cara main:**
+1. Ambil order dari aplikasi OjekKampung
+2. Antar penumpang/barang ke tujuan (Sawah Abah Karta, Terminal kecamatan, Puskesmas, Toko Haji Maman, Rumah Bu Ida, dll.)
+3. Mini-game nyetir: ketuk atas/bawah untuk pindah lajur, tahan untuk rem pelan di polisi tidur, hindari lubang, ayam, genangan
+4. Ongkos + tip masuk ke uang warung
+
+**Reward:**
+- Ongkos Rp5.000-35.000 per antaran + tip
+- Hujan: ongkos +25%, tapi jalan licin
+- Energi: tiap order = sekali antar, ongkos langsung masuk
+
+**Barang titipan (delivery):** Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — barang-barang yang diantar ke tujuan tertentu (Rumah Kang Dadan, Warung Bu Enok, Apotek desa, Rumah Bu Ida, dll.)
+
+**Cicilan motor:**
+- Motor bisa dicicil (uang muka + cicilan bulanan)
+- Kalau telat bayar, matel (debt collector) datang dan motor bisa disita
+- Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi
+
+### Mini-Game Bungkus Rapi (Packing)
+
+Mini-game membungkus barang. v0.40: barang bisa diseret lagi (bug fix). Misi yang ditunda (Neng Shinta, Mas Fariz) selalu muncul sesuai daftar misi. Item baru: **Nasi bungkus**.
+
+## 10. Kalender
 
 ### Hari & Waktu
 
@@ -3023,12 +3140,12 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 ### Energi
 
 - Energi 100% di awal hari
-- Mancing: -5% energi per lemparan (tiap lemparan = 3 menit game)
+- Mancing: -5% energi per lemparan (tiap lemparan = 3 menit game, jam 6.0-20.0)
 - Petik buah: tanpa biaya energi
 - Jalan-jalan: -10% energi
 - Tidur: mengisi energi kembali
 
-## 10. Tips & Trik
+## 11. Tips & Trik
 
 ### Tips Pemula
 
@@ -3093,7 +3210,27 @@ Untuk pemain baru mulai di v0.39, dari hari pertama sampai kebiasaan harian.
 - **Program Bantuan Warung (Fariz)**: JANGAN bayar Rp1.000.000! Ini jebakan (tipu_fariz).
 - **Janji**: hanya hari libur warung. Event khusus hanya muncul di hari libur.
 
-### Tips Mini-Game
+### Tips Mini-Game (v0.40)
+- **OjekKampung**: ambil order sore-malam setelah warung tutup. Butuh motor (beli di Wishlist). Hujan: ongkos +25% tapi jalan licin. Hindari lubang, ayam, genangan, polisi tidur.
+- **Bungkus Rapi**: barang bisa diseret lagi (bug fix). Misi yang ditunda selalu muncul.
+- **Tas**: kini muat 10 barang sejenis per kotak (ikan, buah, barang grosir).
+- **Mancing**: bisa sampai pukul 20.00 dengan suasana senja.
+
+### Tips Save & Akun
+- Tautkan akun Google untuk simpanan aman di cloud (bonus Rp100.000).
+- Jangan hapus game untuk update, cukup tekan Update di toko.
+- Simpanan cadangan otomatis, tidak hilang walau tertutup paksa.
+- Pulihkan simpanan lama dari Load Save jika simpanan rusak.
+
+### Tips Pembayaran
+- Pembayaran yang belum lunas diingatkan.
+- Bayar pakai pulsa, e-wallet, atau kartu supaya langsung aktif.
+- "Tanpa Iklan" diperiksa ke toko dan ikut Pindah HP.
+
+### Tips Supporter
+- Dukung developer untuk dapat Lencana ★ Pendukung Awal dan nama emas di papan peringkat.
+- Pembeli Tanpa Iklan dapat Gelar ★ Warga Baik Hati.
+- Dukungan Rp100.000 dapat Gelar ★ Warga Peduli (platinum).
 
 - **Mancing**: lemparkan jauh untuk peluang ikan langka lebih tinggi. Iklan x2 menggandakan jumlah.
 - **Petik buah**: pilih pohon yang matang. Kelapa dari pohon kelapa, bukan dari mini-game.
@@ -3112,7 +3249,7 @@ Untuk pemain baru mulai di v0.39, dari hari pertama sampai kebiasaan harian.
 - Setelah dibayar, tercatat "Lunas ✓".
 - Kalau warganya pindah rumah, hutangnya hilang ("Pindah rumah, hilang").
 
-## 11. Papan Peringkat
+## 12. Papan Peringkat
 
 Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain — tidak perlu melakukan apa-apa agar masuk papan.
 
@@ -3124,9 +3261,120 @@ Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) 
 
 *Catatan: di dalam game papan hanya 2 versi (Sepanjang Masa dan Bulan Ini). Tab "Minggu Ini" adalah versi komunitas: saat ini server mengembalikan data yang sama dengan Bulan Ini untuk kueri mingguan, sehingga ketiganya menampilkan daftar yang sama.*
 
-## 12. Change Log
+**Supporter Badge (v0.40):**
+- **Lencana ★ Pendukung Awal**: nama emas di papan peringkat untuk semua yang sudah mendukung developer.
+- **Gelar ★ Warga Baik Hati**: untuk pembeli Tanpa Iklan dan dukungan besar (nama emas).
+- **Gelar ★ Warga Peduli**: nama platinum untuk dukungan Rp100.000.
+- Hadiah: ucapan terima kasih di genteng warung + gelar di papan peringkat.
+- Papan diperbarui tiap 30 menit. Jempol di atas 1.000 ditulis ringkas (1k).
 
-Riwayat pembaruan versi game yang didokumentasikan wiki ini. Daftar v0.39 bersumber dari teks resmi "What's New" di data game dan perbandingan file v0.38 vs v0.39 (13 November 2026).
+## 13. Save & Akun (Cloud)
+
+Fitur baru v0.40: simpanan warung bisa disimpan di cloud (akun Google) dan dipulihkan di HP baru.
+
+### Tautkan Akun Google
+- Buka Pengaturan > Akun & simpanan cloud
+- Tautkan akun Google (tidak wajib, game tetap bisa dimainkan tanpa akun)
+- Bonus Rp100.000 sekali per akun (masuk begitu membuka permainan)
+- Simpanan dikirim otomatis ke cloud tiap beberapa menit saat bermain, dan saat game ditutup
+
+### Pulihkan Simpanan Lama
+- Load Save > Pulihkan simpanan lama: kembalikan warung dari cadangan yang masih ada di HP
+- Slot-based: Slot %d, simpanan rusak bisa dipulihkan dari slot lain
+- Simpanan dari game versi lama tidak bisa dibuka (harus update game dulu)
+
+### Pindah HP
+- Buat kode di HP lama (Pengaturan > Pindah HP)
+- Ketik kode di HP baru dalam 7 hari
+- Data di HP lama tidak dihapus
+- Simpanan di HP lama tetap dicadangkan
+- "Tanpa Iklan" ikut pindah (diperiksa ke toko)
+
+### Tips
+- Jangan hapus game untuk update, cukup tekan Update di toko aplikasi
+- Simpanan aman dengan cadangan otomatis
+- Kalau simpanan rusak, coba slot lain di Load Save
+
+## 14. OjekKampung (Ride-Hailing)
+
+Fitur baru v0.40: mini-game mengantar penumpang/barang naik motor setelah warung tutup.
+
+### Syarat Main
+- Punya motor (beli di aplikasi Wishlist, bisa dicicil)
+- Warung sudah tutup (sore-malam)
+- Buka aplikasi OjekKampung di HP
+
+### Cara Main
+1. Ambil order dari aplikasi OjekKampung
+2. Antar penumpang/barang ke tujuan (Sawah Abah Karta, Terminal kecamatan, Puskesmas, Toko Haji Maman, Rumah Bu Ida, Rumah Kang Dadan, Warung Bu Enok, Apotek desa)
+3. Mini-game nyetir: ketuk atas/bawah untuk pindah lajur, tahan untuk rem pelan di polisi tidur, hindari lubang, ayam, genangan
+4. Ongkos + tip masuk ke uang warung
+
+### Reward
+- Ongkos Rp5.000-35.000 per antaran + tip
+- Hujan: ongkos +25%, tapi jalan licin
+- Energi: tiap order = sekali antar, ongkos langsung masuk
+
+### Barang Titipan (Delivery)
+Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — barang-barang yang diantar ke tujuan tertentu.
+
+### Cicilan Motor
+- Motor bisa dicicil (uang muka + cicilan bulanan)
+- Kalau telat bayar, matel (debt collector) datang dan motor bisa disita
+- Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi
+- Cicilan LUNAS: motor jadi milik sendiri, tidak ada lagi matel
+
+### Status
+- SIAP NARIK / OFFLINE
+- Order malam ini tinggal %d dari %d
+- Jam narik %s - %s
+
+## 15. Supporter Badge
+
+Fitur baru v0.40: badge khusus untuk supporter (pembeli Tanpa Iklan dan dukungan).
+
+### Badge
+- **Lencana ★ Pendukung Awal**: nama emas di papan peringkat untuk semua yang sudah mendukung
+- **Gelar ★ Warga Baik Hati**: untuk pembeli Tanpa Iklan dan dukungan besar
+- **Gelar ★ Warga Peduli**: nama platinum untuk dukungan Rp100.000
+
+### Hadiah
+- Ucapan terima kasih dari developer di genteng warungmu
+- Gelar di papan peringkat (emas/platinum)
+
+## 16. Change Log
+
+### v0.40 (15 November 2026)
+
+**Fitur baru**
+- **OjekKampung**: mini-game mengantar penumpang/barang naik motor setelah warung tutup. Ambil order di aplikasi OjekKampung, antar ke tujuan (Sawah Abah Karta, Terminal, Puskesmas, Toko Haji Maman, Rumah Bu Ida, dll.). Ongkos Rp5.000-35.000 per antaran + tip. Butuh motor sendiri (beli di Wishlist, bisa dicicil). Hujan: ongkos +25%, tapi jalan licin.
+- **Save & Akun**: tautkan akun Google, simpanan aman di cloud, cadangan otomatis, pulihkan simpanan lama dari HP. Bonus Rp100.000 sekali per akun.
+- **Pembayaran Google Play**: pembayaran dilacak (belum lunas, lunas, dibatalkan), reminder pembayaran yang belum lunas, metode: pulsa, e-wallet, kartu, QRIS, minimarket.
+- **Epilog "Tiga tahun kemudian..."**: Pak Misran menyerahkan warung ke Bu Eni, Agus jadi guru TIK SD, Neo sudah tua. Scene sinematik dengan musik pamit.
+- **Supporter Badge**: Lencana ★ Pendukung Awal (nama emas di papan peringkat), Gelar ★ Warga Baik Hati (pembeli Tanpa Iklan), Gelar ★ Warga Peduli (platinum untuk dukungan Rp100.000).
+- **Inventory 10 per kotak**: Tas kini muat 10 barang sejenis per kotak (ikan, buah, barang grosir).
+- **Bungkus Rapi**: barang bisa diseret lagi (bug fix). Misi yang ditunda selalu muncul sesuai daftar.
+- **Cicilan motor**: beli motor bisa dicicil. Matel (debt collector) datang kalau telat bayar, motor bisa disita.
+
+**Perbaikan (bug fix)**
+- Tertabrak saat uang menipis tidak lagi langsung membuat warung bangkrut.
+- Pak Misran tidak lagi macet di pagar atau depan pintu rumah.
+- Papan peringkat besar selalu bisa ditutup.
+- Token listrik dan barang di bawah kertas pesanan bisa diklik.
+- Jumatan bisa dihentikan dengan joystick, tidak tertabrak kendaraan.
+- Titik merah aplikasi HP hilang setelah dibuka. Misi Susu Sekolah dan cerita warga selalu muncul.
+- Daftar yang digeser tidak ikut memencet +5.
+- Roti & jamu titipan diantar lagi hari itu juga, kurir tidak macet lagi.
+- Papan peringkat diperbarui tiap 30 menit. Jempol di atas 1.000 ditulis ringkas (1k).
+- Kotak kode Pindah HP, kode promo, dan ganti nama selalu bisa diketik (keyboard muncul).
+- Warga Bank tidak lagi melebar keluar layar.
+- Daftar misi tidak menampilkan cerita yang tidak kamu pilih.
+
+**Lainnya**
+- Pancing bisa sampai pukul 20.00 (sebelumnya 18.30), dengan suasana senja.
+- Tampilan baru untuk Pengaturan, Dukung Kami, rak, misi, dan notifikasi.
+- NPC baru: Bu Eni (pengganti Pak Misran di warung), Raka (kasir baru), Kang Dedi.
+- Barang baru di OjekKampung: Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon.
 
 ### v0.39 (13 November 2026)
 
