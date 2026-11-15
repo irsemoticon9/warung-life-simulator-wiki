@@ -47,6 +47,7 @@
     "daftar-npc-pelanggan": "daftar-npc-pelanggan.html",
     "quest-level": "quest-level.html",
     "cerita-utama": "cerita-utama.html",
+    "epilog": "epilog.html",
     "quest-warga": "quest-warga.html",
     "daftar-kejadian-acak": "daftar-kejadian-acak.html",
     "daftar-harga": "daftar-harga.html",
@@ -61,31 +62,43 @@
     "beranda": (h) => /^Isi$/i.test(plain(h)),
     "daftar-npc-pelanggan": (h) => /^1\.\s*Daftar NPC/i.test(plain(h)),
     "quest-level": (h) => /^2\.\s*Quest Level/i.test(plain(h)),
-    "cerita-utama": (h) => /^3\.\s*Cerita Utama/i.test(plain(h)) || /^4\.\s*Epilog/i.test(plain(h)),
+    "cerita-utama": (h) => /^3\.\s*Cerita Utama/i.test(plain(h)),
+    "epilog": (h) => /^4\.\s*Epilog/i.test(plain(h)),
     "quest-warga": (h) => /^5\.\s*Quest Warga/i.test(plain(h)),
     "daftar-kejadian-acak": (h) => /^6\.\s*Daftar Kejadian/i.test(plain(h)),
     "daftar-harga": (h) => /^7\.\s*Daftar Harga/i.test(plain(h)),
     "daftar-upgrade": (h) => /^8\.\s*Daftar Upgrade/i.test(plain(h)),
-    "panduan-mini-game": (h) => /^9\.\s*Panduan Mini/i.test(plain(h)) || /^14\.\s*OjekKampung/i.test(plain(h)),
-    "kalender": (h) => /^10\.\s*Kalender/i.test(plain(h)) || /^13\.\s*Save & Akun/i.test(plain(h)),
+    "panduan-mini-game": (h) => /^9\.\s*Panduan Mini/i.test(plain(h)),
+    "kalender": (h) => /^10\.\s*Kalender/i.test(plain(h)),
     "tips-trik": (h) => /^11\.\s*Tips/i.test(plain(h)),
-    "papan-peringkat": (h) => /^12\.\s*Papan Peringkat/i.test(plain(h)) || /^15\.\s*Supporter Badge/i.test(plain(h)),
-    "change-log": (h) => /^16\.\s*Change Log/i.test(plain(h))
+    "papan-peringkat": (h) => /^12\.\s*Papan Peringkat/i.test(plain(h)),
+    "change-log": (h) => /^13\.\s*Change Log/i.test(plain(h))
   };
   const SLUG_TO_PAGE = {
     "isi": "index.html",
     "1-daftar-npc-pelanggan": "daftar-npc-pelanggan.html",
     "2-quest-level": "quest-level.html",
     "3-cerita-utama": "cerita-utama.html",
+    "4-epilog": "epilog.html",
     "4-quest-warga": "quest-warga.html",
+    "5-quest-warga": "quest-warga.html",
     "5-daftar-kejadian-acak": "daftar-kejadian-acak.html",
+    "6-daftar-kejadian-acak": "daftar-kejadian-acak.html",
     "6-daftar-harga": "daftar-harga.html",
+    "7-daftar-harga": "daftar-harga.html",
     "7-daftar-upgrade": "daftar-upgrade.html",
+    "8-daftar-upgrade": "daftar-upgrade.html",
     "8-panduan-mini-game": "panduan-mini-game.html",
+    "9-panduan-mini-game": "panduan-mini-game.html",
     "9-kalender": "kalender.html",
+    "10-kalender": "kalender.html",
     "10-tips-trik": "tips-trik.html",
+    "11-tips-trik": "tips-trik.html",
     "11-papan-peringkat": "leaderboard.html",
-    "12-change-log": "change-log.html"
+    "12-papan-peringkat": "leaderboard.html",
+    "12-papan-peringkat--supporter-badge": "leaderboard.html",
+    "12-change-log": "change-log.html",
+    "13-change-log": "change-log.html"
   };
   const currentPageKey = () => {
     if (window.GUIDE_PAGE) return window.GUIDE_PAGE;
@@ -124,6 +137,7 @@
       formatDialogues();
       formatPlaceholders();
       formatQuestAccordions();
+      formatChangelogAccordions();
       buildNavigation();
       bindAnchors();
       buildSearchIndex();
@@ -462,6 +476,45 @@
     });
   }
 
+  function formatChangelogAccordions() {
+    // Wrap each version (### v0.XX) in the Change Log section in a <details> element
+    const h2s = [...content.querySelectorAll("h2")];
+    const changelogH2 = h2s.find((h) => /^\d+\.\s*Change Log/i.test(plain(h)));
+    if (!changelogH2) return;
+    const h3s = [];
+    let n = changelogH2.nextElementSibling;
+    while (n && n.tagName !== "H2") {
+      if (n.tagName === "H3") h3s.push(n);
+      n = n.nextElementSibling;
+    }
+    h3s.forEach((h, idx) => {
+      const text = plain(h);
+      if (!/^v\d/i.test(text)) return;
+      const group = [h];
+      let m = h.nextElementSibling;
+      while (m && m.tagName !== "H2" && m.tagName !== "H3") {
+        group.push(m);
+        m = m.nextElementSibling;
+      }
+      const details = document.createElement("details");
+      details.className = "changelog-version";
+      if (idx === 0) details.open = true;
+      const summary = document.createElement("summary");
+      summary.className = "changelog-summary";
+      const h3 = document.createElement("h3");
+      h3.textContent = text;
+      summary.appendChild(h3);
+      details.appendChild(summary);
+      const body = document.createElement("div");
+      body.className = "changelog-body";
+      group.slice(1).forEach(el => body.appendChild(el));
+      details.appendChild(body);
+      const parent = h.parentElement;
+      parent.insertBefore(details, h);
+      h.remove();
+    });
+  }
+
   function buildNavigation() {
     const headings = [...content.querySelectorAll("h2")];
     headings.forEach((heading, index) => { heading.id = slugify(plain(heading)) || `section-${index}`; });
@@ -470,19 +523,15 @@
       { key: "daftar-npc-pelanggan", icon: "👤", label: "Daftar NPC & Pelanggan" },
       { key: "quest-level", icon: "🏆", label: "Quest Level" },
       { key: "cerita-utama", icon: "📖", label: "Cerita Utama" },
-      { key: "cerita-utama", icon: "🎬", label: "Epilog: Tiga Tahun Kemudian" },
+      { key: "epilog", icon: "🎬", label: "Epilog: Tiga Tahun Kemudian" },
       { key: "quest-warga", icon: "👥", label: "Quest Warga" },
       { key: "daftar-kejadian-acak", icon: "⚡", label: "Daftar Kejadian Acak" },
       { key: "daftar-harga", icon: "💰", label: "Daftar Harga" },
       { key: "daftar-upgrade", icon: "⚙️", label: "Daftar Upgrade" },
       { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
       { key: "kalender", icon: "📅", label: "Kalender" },
-      { key: "kalender", icon: "☁️", label: "Save & Akun (Cloud)" },
-      { key: "panduan-mini-game", icon: "🎮", label: "Panduan Mini-Game" },
-      { key: "panduan-mini-game", icon: "🏍️", label: "OjekKampung" },
       { key: "tips-trik", icon: "💡", label: "Tips & Trik" },
       { key: "papan-peringkat", icon: "🏅", label: "Papan Peringkat", sep: "PAPAN PERINGKAT" },
-      { key: "papan-peringkat", icon: "🏅", label: "Supporter Badge" },
       { key: "change-log", icon: "🗒️", label: "Change Log", sep: "LOG VERSI" }
     ];
     const cur = currentPageKey();
@@ -652,27 +701,41 @@
     const WIDGET = document.getElementById("papanWidget");
     if (!WIDGET) return;
 
-    const API_URL = "https://vfeihrxdwynivqcksxwl.supabase.co/rest/v1/rpc/ambil_papan";
+    const API_BASE = "https://vfeihrxdwynivqcksxwl.supabase.co/rest/v1/rpc/";
     const API_KEY = "sb_publishable_bGjm_-NNAqleprvQoE3dLA_IVYxzKmr";
 
     const TABS = [
-      { id: "semua", label: "Seluas Masa", note: "Kumulatif sejak warung pertama dibuka" },
-      { id: "bulan", label: "Bulan Ini", note: "Mulai dari nol setiap tanggal 1" },
-      { id: "minggu", label: "Minggu Ini", note: "Papan komunitas — saat ini data sama dengan Bulan Ini" }
+      { id: "semua", label: "Sepanjang Masa", note: "Kumulatif sejak warung pertama dibuka" },
+      { id: "minggu", label: "Mingguan", note: "Mulai dari nol lagi saat periode minggu berganti" },
+      { id: "bulan", label: "Bulanan", note: "Mulai dari nol lagi setiap tanggal 1" }
     ];
 
     const BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
     function fmtNum(n) { return (n||0).toLocaleString("id-ID"); }
 
-    async function fetchData(jenis) {
-      const r = await fetch(API_URL, {
+    async function rpc(fungsi, isi) {
+      const r = await fetch(API_BASE + fungsi, {
         method: "POST",
         headers: { "apikey": API_KEY, "Content-Type": "application/json" },
-        body: JSON.stringify({ p_jenis: jenis, p_id: "" })
+        body: JSON.stringify(isi)
       });
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
+    }
+
+    // ambil_papan2 memberi kolom jempol; ambil_papan dipakai kalau server lama.
+    function fetchData(jenis) {
+      return rpc("ambil_papan2", { p_jenis: jenis, p_id: "", p_hp: "" })
+        .catch(() => rpc("ambil_papan", { p_jenis: jenis, p_id: "" }));
+    }
+
+    // Dua daftar kode warung: pendukung (emas) dan Warga Peduli (platinum).
+    function fetchBadges() {
+      return rpc("ambil_warga_baik_hati", { p_id: "" }).then((d) => ({
+        emas: new Set(Array.isArray(d.kode) ? d.kode.map(String) : []),
+        platinum: new Set(Array.isArray(d.peduli) ? d.peduli.map(String) : [])
+      }));
     }
 
     function bulanLabel(bulan) {
@@ -681,18 +744,32 @@
       return BULAN[parseInt(parts[1], 10) - 1] + " " + parts[0];
     }
 
-    function buildTable(daftar) {
-      const thead = "<tr><th>#</th><th>Nama Warung</th><th>Pembeli</th><th>Bintang</th><th>Level</th></tr>";
+    function badgeFor(kode, badge) {
+      if (!badge || !kode) return null;
+      const k = String(kode);
+      if (badge.platinum.has(k)) return { kelas: "platinum", label: "★ Peduli", judul: "Warga Peduli (platinum)" };
+      if (badge.emas.has(k)) return { kelas: "gold", label: "★ Pendukung", judul: "Pendukung Awal / Warga Baik Hati (emas)" };
+      return null;
+    }
+
+    function buildTable(daftar, badge) {
+      const thead = "<tr><th>#</th><th>Nama Warung</th><th>Pembeli</th><th>Bintang</th><th>Level</th><th>Jempol</th></tr>";
       const tbody = daftar.map((row, i) => {
         const rank = i + 1;
-        const [name, total, , stars, level] = row;
+        const [name, total, kode, stars, level, , jempol] = row;
         const kelas = rank <= 3 ? ` class="rank-${rank}"` : "";
-        return `<tr><td${kelas}>${rank}</td><td>${escapeHtml(String(name || "—"))}</td><td class="num">${fmtNum(total)}</td><td>${Number(stars) || 0} ★</td><td>${Number(level) || 0}</td></tr>`;
+        const b = badgeFor(kode, badge);
+        const nama = `<span class="papan-name${b ? " " + b.kelas : ""}">${escapeHtml(String(name || "—"))}</span>`;
+        const chip = b ? ` <span class="badge-chip ${b.kelas}" title="${b.judul}">${b.label}</span>` : "";
+        const suka = jempol == null ? "—" : fmtNum(jempol);
+        return `<tr><td${kelas}>${rank}</td><td class="papan-cell-name">${nama}${chip}</td><td class="num">${fmtNum(total)}</td><td>${Number(stars) || 0} ★</td><td>${Number(level) || 0}</td><td class="num">${suka}</td></tr>`;
       }).join("");
-      return `<table class="leaderboard-table"><thead>${thead}</tbody>${tbody}</table>`;
+      const legend = '<div class="papan-legend"><span class="papan-name gold">emas</span> = pendukung (★ Pendukung Awal / ★ Warga Baik Hati) · <span class="papan-name platinum">platinum</span> = ★ Warga Peduli</div>';
+      return `<div class="leaderboard-table-wrap"><table class="leaderboard-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table></div>${legend}`;
     }
 
     const cache = {};
+    let badgeCache = null;
     let current = "semua";
 
     function loadTab(id, fresh) {
@@ -702,7 +779,10 @@
         ? fetchData(id).then((d) => { cache[id] = d; return d; })
             .catch((e) => { cache[id] = { error: e.message }; return cache[id]; })
         : Promise.resolve(cache[id]);
-      job.then((data) => {
+      const badgeJob = (badgeCache && !fresh)
+        ? Promise.resolve(badgeCache)
+        : fetchBadges().then((b) => { badgeCache = b; return b; }).catch(() => null);
+      Promise.all([job, badgeJob]).then(([data, badge]) => {
         if (current !== id) return;
         if (data.error) {
           body.innerHTML = `<div class="papan-error">Papan tidak bisa dimuat: ${escapeHtml(data.error)}.<br>Periksa koneksi internet, lalu <button class="papan-retry" type="button">muat ulang</button>.</div>`;
@@ -711,7 +791,7 @@
         }
         const totalWarung = data.jumlah_warung != null ? fmtNum(data.jumlah_warung) : "";
         const status = `Top 50 dari ${totalWarung} warung · ${bulanLabel(data.bulan)}`;
-        body.innerHTML = `<div class="papan-status muted">${status}</div>` + buildTable(data.daftar || []);
+        body.innerHTML = `<div class="papan-status muted">${status}</div>` + buildTable(data.daftar || [], badge);
       });
     }
 

@@ -42,6 +42,19 @@
 .papan-error { color: var(--reject); background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.6; }
 .papan-retry { margin-left: 6px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--wash); color: var(--text); font-size: 12px; cursor: pointer; }
 .papan-retry:hover { border-color: var(--accent); color: var(--accent); }
+.papan-cell-name { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.papan-name { font-weight: 600; }
+.papan-name.gold { color: var(--gold); }
+.papan-name.platinum { color: var(--blue); }
+.badge-chip { font-size: 10px; font-weight: 600; letter-spacing: .02em; padding: 1px 7px; border-radius: 20px; border: 1px solid currentColor; white-space: nowrap; line-height: 1.6; }
+.badge-chip.gold { color: var(--gold); background: var(--gold-dim, #d4a84a33); }
+.badge-chip.platinum { color: var(--blue); background: var(--blue-dim, #6a9fc933); }
+.papan-legend { margin: 8px 0 2px; font-size: 11.5px; line-height: 1.7; color: var(--muted); }
+@media (max-width: 700px) {
+  .leaderboard-table { font-size: 13px; }
+  .leaderboard-table th, .leaderboard-table td { padding: 8px 10px; }
+  .papan-legend { font-size: 11px; }
+}
 .outcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:17px 0 25px;align-items:start}
 .outcome-grid.single{grid-template-columns:minmax(0,1fr);max-width:640px}
 .outcome-card{min-width:0;padding:15px 15px 13px;border:1px solid var(--line);border-radius:11px;background:var(--panel2)}
@@ -110,6 +123,26 @@
 .quest-summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:10px}
 .quest-body{padding:2px 15px 12px;border-top:1px solid var(--hairline)}
 .quest-body > h4:first-child{margin-top:14px}
+/* Changelog: satu <details> per versi. Judul tetap terlihat, isi dibuka satu per satu. */
+.guide-content .changelog-version{margin:11px 0;border:1px solid var(--line);border-radius:11px;background:var(--card)}
+.guide-content .changelog-version[open]{border-color:var(--tile);background:var(--panel2)}
+.changelog-summary{display:flex;align-items:center;gap:10px;min-height:52px;padding:8px 15px 8px 12px;cursor:pointer;list-style:none}
+.changelog-summary::-webkit-details-marker{display:none}
+.changelog-summary::before{content:"›";flex:0 0 auto;width:18px;color:var(--accent);font-size:19px;line-height:1;transform:rotate(0deg);transition:transform .15s ease}
+.changelog-version[open] > .changelog-summary::before{transform:rotate(90deg)}
+.changelog-summary h3{margin:0;flex:1;min-width:0;font-size:16px;line-height:1.45;overflow-wrap:anywhere}
+.changelog-summary:hover{background:var(--wash);border-radius:10px}
+.changelog-summary:hover h3{color:var(--strong)}
+.changelog-summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:10px}
+.changelog-body{padding:2px 15px 12px;border-top:1px solid var(--hairline)}
+@media(max-width:700px){
+  .changelog-summary{padding:8px 11px;min-height:56px}
+  .changelog-summary h3{font-size:15px}
+  .changelog-body{padding:2px 11px 10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .changelog-summary::before{transition:none}
+}
 @media(max-width:700px){
   .quest-summary{padding:8px 11px;min-height:56px}
   .quest-summary h3{font-size:15px}

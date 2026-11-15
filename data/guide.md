@@ -3086,6 +3086,7 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 - Petik buah: 20 menit game, energi -0%, jam 6.0-18.0
 - Buah matang menunggu dipanen (tidak busuk)
 - Tas: ikan dan buah maksimal 5 per kotak (v0.39). **v0.40**: Tas kini muat **10 barang sejenis** per kotak (ikan, buah, dan barang grosir). Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
+---
 
 ### Mini-Game OjekKampung (Ride-Hailing)
 
@@ -3118,6 +3119,40 @@ Mini-game mengantar penumpang atau barang naik motor, tersedia setelah warung tu
 
 Mini-game membungkus barang. v0.40: barang bisa diseret lagi (bug fix). Misi yang ditunda (Neng Shinta, Mas Fariz) selalu muncul sesuai daftar misi. Item baru: **Nasi bungkus**.
 
+---### OjekKampung (Ride-Hailing)Fitur baru v0.40: mini-game mengantar penumpang/barang naik motor setelah warung tutup.
+
+### Syarat Main
+- Punya motor (beli di aplikasi Wishlist, bisa dicicil)
+- Warung sudah tutup (sore-malam)
+- Buka aplikasi OjekKampung di HP
+
+### Cara Main
+1. Ambil order dari aplikasi OjekKampung
+2. Antar penumpang/barang ke tujuan (Sawah Abah Karta, Terminal kecamatan, Puskesmas, Toko Haji Maman, Rumah Bu Ida, Rumah Kang Dadan, Warung Bu Enok, Apotek desa)
+3. Mini-game nyetir: ketuk atas/bawah untuk pindah lajur, tahan untuk rem pelan di polisi tidur, hindari lubang, ayam, genangan
+4. Ongkos + tip masuk ke uang warung
+
+### Reward
+- Ongkos Rp5.000-35.000 per antaran + tip
+- Hujan: ongkos +25%, tapi jalan licin
+- Energi: tiap order = sekali antar, ongkos langsung masuk
+
+### Barang Titipan (Delivery)
+Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — barang-barang yang diantar ke tujuan tertentu.
+
+### Cicilan Motor
+- Motor bisa dicicil (uang muka + cicilan bulanan)
+- Kalau telat bayar, matel (debt collector) datang dan motor bisa disita
+- Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi
+- Cicilan LUNAS: motor jadi milik sendiri, tidak ada lagi matel
+
+### Status
+- SIAP NARIK / OFFLINE
+- Order malam ini tinggal %d dari %d
+- Jam narik %s - %s
+
+---
+
 ## 10. Kalender
 
 ### Hari & Waktu
@@ -3149,7 +3184,7 @@ Mini-game membungkus barang. v0.40: barang bisa diseret lagi (bug fix). Misi yan
 
 ### Tips Pemula
 
-Untuk pemain baru mulai di v0.39, dari hari pertama sampai kebiasaan harian.
+Untuk pemain baru mulai di v0.40, dari hari pertama sampai kebiasaan harian.
 
 **Membuka warung (hari 1)**
 
@@ -3249,26 +3284,9 @@ Untuk pemain baru mulai di v0.39, dari hari pertama sampai kebiasaan harian.
 - Setelah dibayar, tercatat "Lunas ✓".
 - Kalau warganya pindah rumah, hutangnya hilang ("Pindah rumah, hilang").
 
-## 12. Papan Peringkat
+---
 
-Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain — tidak perlu melakukan apa-apa agar masuk papan.
-
-**Panel komunitas (live):**
-
-Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) — data yang sama dengan yang tampil di dalam game. Ada 3 versi tab: Sepanjang Masa, Minggu Ini, dan Bulan Ini.
-
-<div id="papanWidget"></div>
-
-*Catatan: di dalam game papan hanya 2 versi (Sepanjang Masa dan Bulan Ini). Tab "Minggu Ini" adalah versi komunitas: saat ini server mengembalikan data yang sama dengan Bulan Ini untuk kueri mingguan, sehingga ketiganya menampilkan daftar yang sama.*
-
-**Supporter Badge (v0.40):**
-- **Lencana ★ Pendukung Awal**: nama emas di papan peringkat untuk semua yang sudah mendukung developer.
-- **Gelar ★ Warga Baik Hati**: untuk pembeli Tanpa Iklan dan dukungan besar (nama emas).
-- **Gelar ★ Warga Peduli**: nama platinum untuk dukungan Rp100.000.
-- Hadiah: ucapan terima kasih di genteng warung + gelar di papan peringkat.
-- Papan diperbarui tiap 30 menit. Jempol di atas 1.000 ditulis ringkas (1k).
-
-## 13. Save & Akun (Cloud)
+### Save & Akun (Cloud)
 
 Fitur baru v0.40: simpanan warung bisa disimpan di cloud (akun Google) dan dipulihkan di HP baru.
 
@@ -3295,54 +3313,35 @@ Fitur baru v0.40: simpanan warung bisa disimpan di cloud (akun Google) dan dipul
 - Simpanan aman dengan cadangan otomatis
 - Kalau simpanan rusak, coba slot lain di Load Save
 
-## 14. OjekKampung (Ride-Hailing)
+---
 
-Fitur baru v0.40: mini-game mengantar penumpang/barang naik motor setelah warung tutup.
+## 12. Papan Peringkat & Supporter Badge
 
-### Syarat Main
-- Punya motor (beli di aplikasi Wishlist, bisa dicicil)
-- Warung sudah tutup (sore-malam)
-- Buka aplikasi OjekKampung di HP
+Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain — tidak perlu melakukan apa-apa agar masuk papan.
 
-### Cara Main
-1. Ambil order dari aplikasi OjekKampung
-2. Antar penumpang/barang ke tujuan (Sawah Abah Karta, Terminal kecamatan, Puskesmas, Toko Haji Maman, Rumah Bu Ida, Rumah Kang Dadan, Warung Bu Enok, Apotek desa)
-3. Mini-game nyetir: ketuk atas/bawah untuk pindah lajur, tahan untuk rem pelan di polisi tidur, hindari lubang, ayam, genangan
-4. Ongkos + tip masuk ke uang warung
+**Panel komunitas (live):**
 
-### Reward
-- Ongkos Rp5.000-35.000 per antaran + tip
-- Hujan: ongkos +25%, tapi jalan licin
-- Energi: tiap order = sekali antar, ongkos langsung masuk
+Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) — data yang sama dengan yang tampil di dalam game. Ada 3 tab: Sepanjang Masa, Mingguan, dan Bulanan, sama seperti di game.
 
-### Barang Titipan (Delivery)
-Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — barang-barang yang diantar ke tujuan tertentu.
+<div id="papanWidget"></div>
 
-### Cicilan Motor
-- Motor bisa dicicil (uang muka + cicilan bulanan)
-- Kalau telat bayar, matel (debt collector) datang dan motor bisa disita
-- Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi
-- Cicilan LUNAS: motor jadi milik sendiri, tidak ada lagi matel
+*Catatan: papan Sepanjang Masa menumpuk sejak warung pertama dibuka. Papan Mingguan dan Bulanan mulai dari nol lagi saat periodenya berganti, jadi peringkat di ketiga tab bisa berbeda.*
 
-### Status
-- SIAP NARIK / OFFLINE
-- Order malam ini tinggal %d dari %d
-- Jam narik %s - %s
+### Supporter Badge (v0.40)
 
-## 15. Supporter Badge
+Sejak v0.40 papan peringkat menandai warung milik supporter. Panel di atas ikut menampilkan tanda itu, dengan warna yang sama seperti di dalam game.
 
-Fitur baru v0.40: badge khusus untuk supporter (pembeli Tanpa Iklan dan dukungan).
+- **★ Pendukung Awal**: nama **emas** untuk siapa pun yang sudah mendukung developer.
+- **★ Warga Baik Hati**: pembeli Tanpa Iklan atau dukungan besar, nama tetap **emas**.
+- **★ Warga Peduli**: dukungan Rp100.000, nama **platinum**.
 
-### Badge
-- **Lencana ★ Pendukung Awal**: nama emas di papan peringkat untuk semua yang sudah mendukung
-- **Gelar ★ Warga Baik Hati**: untuk pembeli Tanpa Iklan dan dukungan besar
-- **Gelar ★ Warga Peduli**: nama platinum untuk dukungan Rp100.000
+Hadiah lain: ucapan terima kasih dari developer di genteng warungmu.
 
-### Hadiah
-- Ucapan terima kasih dari developer di genteng warungmu
-- Gelar di papan peringkat (emas/platinum)
+Papan di server diperbarui tiap 30 menit, dan angka jempol di atas 1.000 ditulis ringkas (1k) di dalam game.
 
-## 16. Change Log
+*Cara wiki tahu: server menyimpan dua daftar kode warung — satu untuk pendukung (emas), satu untuk Warga Peduli (platinum). Kode tiap warung di papan dicocokkan dengan daftar itu, jadi warnanya bukan tebakan.*
+
+## 13. Change Log
 
 ### v0.40 (15 November 2026)
 
