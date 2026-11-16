@@ -115,6 +115,17 @@ Saat melayani, ada dua batas waktu yang berjalan bersamaan. Lingkaran di atas ke
 - Upgrade yang menambah kesabaran: kipas +25% (semua situasi), bangku +25% (khusus yang mengantre, plus 1 slot antrean), TV warung +30% (khusus antre, plus 1 slot). Batas total efek kesabaran dari upgrade 85%.
 - Etalase kaca menambah 1 detik jendela respon, QRIS menambah 2 detik.
 
+### Pesanan Panjang & Nota Belanjaan
+
+Mulai **Level 2**, pembeli bisa membawa nota belanjaan panjang: 4-7 macam barang sekaligus. Notanya muncul di meja, dan kalau jumlah macamnya 5 ke atas, daftarnya dibagi dua kolom.
+
+- Peluang nota panjang: **4% + 1,5% per level di atas 2**, maksimal 10%. Tidak muncul kalau tingkat bantuan Casual lebih dari 0,3.
+- Jumlah macam: 4 (35%), 5 (30%), 6 (20%), 7 (15%).
+- Tiap macam biasanya 1 unit (85%), kadang 2 unit (15%).
+- Pesanan biasa: 2 macam (70%) atau 3 macam. Tiap barang 1 unit (65%), 2 unit (27%), atau 3 unit (8%).
+
+Nota panjang inilah yang membuat jendela respon bertambah 2,5 detik per jenis barang di Casual (1,6 detik di Hard), jadi makin lama macamnya, makin lama waktu yang kamu punya.
+
 ### Ulasan & Bintang
 
 Setelah dilayani, pembeli bisa menulis ulasan. Jenis ulasan ditentukan dari cara kamu melayani, bukan diundi bebas.
@@ -140,6 +151,25 @@ Urutan pengecekannya: kurang barang, lalu keluhan mahal, lalu cepat, lalu pesana
 - Ulasan bintang 5 hanya bertahan kalau fasilitas nyaman lengkap. Peluang mempertahankannya: 30% + 12% per fasilitas yang dimiliki (kipas, bangku, lampu, radio, QRIS), jadi 90% kalau kelimanya ada.
 - Sebaliknya, ulasan bagus bisa turun jadi bintang 3 kalau fasilitas kurang: tidak ada kipas (gerah), tidak ada bangku (mengantre berdiri), lampu redup saat malam, radio belum ada di level 5 ke atas, QRIS belum ada di level 6 ke atas, barang masih sedikit (level 2 ke bawah), atau warung masih terlalu sederhana (level 1).
 
+### Tingkat Keakraban Warga
+
+Tiap tipe warga menyimpan poin akrab tersendiri. Poin naik/turun dari cara kamu berinteraksi, dan menentukan seberapa sering warga itu mampir.
+
+| Poin | Tingkat |
+|---|---|
+| 0 | Baru kenal |
+| 15 | Kenal |
+| 35 | Tetangga akrab |
+| 60 | Langganan setia |
+| 85 | Sudah seperti keluarga |
+
+- Sapa warga +3, bantu kerja +8, bantu cerita +20, tolak cerita −8, layani +1, bikin kesal −2. Kasih makan Neo +12.
+- Kenaikan kecil (sapa, kerja, layani, kasih makan) maksimal **sekali per hari per tipe**. Menolong dan menolak cerita tidak kena batas itu.
+- Efek akrab: warga makin sering datang sampai **+60%** (1 + 0,6 × akrab/100).
+- **Langganan setia** (60+): peluang tip 20% dan ulasan bagus 25%.
+- **Sudah seperti keluarga** (85+): sesekali mengirim makanan ke warung — peluang 1/7 per hari, jeda minimal 5 hari, datang pukul 10.00-15.30, tidak saat libur atau Ramadan. Energi yang didapat +15 s.d. +25 tergantung warganya (mis. Nenek +20, Ibu Rumah Tangga +25, Giska +15).
+- Neo bisa dikasih makan setelah quest "Si Neo Hilang" selesai dengan cabang **tolong**, butuh stok makanan kucing di warung, dan 1 kali sehari.
+
 ## 2. Quest Level
 
 Progres dihitung sejak level itu dimulai (boleh lewat beberapa hari). Semua syarat lunas → hadiah + naik level.
@@ -148,6 +178,15 @@ Progres dihitung sejak level itu dimulai (boleh lewat beberapa hari). Semua syar
 - **upgrade wajib** = harus sudah membeli salah satu upgrade yang terbuka di level itu.
 - **bintang/reputasi** = BUKAN syarat level (reputasi hanya menambah keramaian).
 - Setelah Level 10 muncul Level 11 "Coming Soon".
+
+### Keringanan Target Casual
+
+Mode Casual tidak pernah meminta angka penuh selamanya. Ada dua keringanan otomatis (Hard tidak mendapat keduanya):
+
+- **Setelah misi utama selesai**: mulai hari ke-5 setelahnya, target tugas khusus turun **10% per hari**, sampai lantai **40%**. Syarat bintang juga turun 1 tiap 4 hari, sampai minimal 2 bintang.
+- **Level macet**: kalau sudah 45 hari di level yang sama, semua target inti (pelanggan, barang, omzet) dikali `1 − 0,02 × (hari_di_level − 45)`, lantai **50%**. Faktor ini juga dipakai saat menampilkan angka target di layar.
+
+Keringanan ini juga menggeser bias harga pasaran ke arah harga naik — lihat **8.9 Kondisi Pasaran**.
 
 ### Macam quest khusus (tugas kualitas)
 
@@ -2857,6 +2896,18 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 ---
 
 
+### Balas Budi Warga
+
+Warga yang pernah kamu tolong di quest (hasil `tolong`) bisa membalas budi. Yang dihitung sebagai penolong: NPC tipe itu, kecuali Fariz, Agus, dan Preman. Tiap bentuk balas budi maksimal **sekali per 14 hari**.
+
+- **Sewa kios menunggak**: pada minggu ke-2, penolong patungan **15% tunggakan per orang** (maksimal 100%, dibulatkan ke Rp1.000). Kalau lunas, hitungan minggu tunggakan direset; kalau belum, kamu dapat tambahan waktu seminggu.
+- **Preman nongkrong**: durasi kejadian dipotong **15% per penolong**, dengan batas bawah 40 menit.
+
+Jadi membantu warga bukan cuma menaikkan reputasi — efeknya nyata saat sewa menunggak atau ada preman.
+
+---
+
+
 ## 6. Daftar Kejadian Acak
 
 Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap siang diundi apakah ada satu kejadian (peluang 45% per hari). Kalau ada, satu kejadian dipilih dari kejadian yang memenuhi syarat hari itu (jam, tanggal, level), dan kolom Bobot Undian menentukan mana yang paling sering muncul: angka besar = lebih sering.
@@ -3115,7 +3166,11 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 **Grosir (Haji Maman)**
 
 - Kiosnya di pasar, di antara kios toples dan kios buah.
-- Harganya **acak setiap hari** — beda tiap hari, tanpa rumus tetap.
+- Harganya **acak setiap hari**, tapi ada rumus tetap:
+  - **45%** kemungkinan lebih murah: **85%-90%** dari harga modal Belanja Online.
+  - **55%** kemungkinan lebih mahal: **105%-120%** dari modal.
+  - Pembulatan: kelipatan Rp50 untuk harga di bawah Rp1.000, kelipatan Rp100 untuk Rp1.000 ke atas.
+- Barang yang sedang dapat promo harian tidak dijual di grosir.
 - Barang yang dibeli masuk ke **Tas** dulu, baru ditata ke rak warung.
 - Salah pencet bisa dibatalkan satu-satu lewat tombol **"Batal 1"** (v0.39): barang kembali ke Tas, uang dikembalikan, total belanja dikurangi.
 
@@ -3152,6 +3207,35 @@ Saat checkout di Belanja Online, barang bisa dikirim lewat tiga pilihan kurir. O
 - Kurir Instan didapat gratis kalau sudah punya Tanpa Iklan, atau dengan menonton 1 iklan. Selama masih aktif, pilihan kurir lain terkunci.
 - Patokan durasi kirim dari reputasi = 20 detik. Upgrade **Langganan kurir cepat** memotong waktu antar 30%, dan motor dari Wishlist membuat waktu kirim ×0,6.
 - Pilihan kurir tersimpan per hari. Kalau sudah memakai Reguler atau Cepat, belanja berikutnya di hari yang sama tetap memakai kurir itu tanpa ongkir tambahan.
+
+### 8.7 Saldo Layanan
+
+Barang bertipe **layanan** (e-wallet, paket data, token listrik) tidak memakai stok rak, tapi **saldo layanan**. Saldo awalnya **Rp50.000** dan bisa diisi lewat tombol **Isi +50.000** di Belanja Online, panel belanja, atau Warga Bank.
+
+- Kalau pembeli meminta layanan sementara saldo kurang, game otomatis mengisi Rp50.000 dari laci berulang sampai cukup — asal uang laci masih minimal Rp50.000 per pengisian.
+- Penjualan layanan memotong saldo, bukan jumlah barang di rak.
+- Kalau saldo tetap di bawah modal, barang layanan tidak bisa dijual dan pembeli akan bilang saldonya kurang.
+
+### 8.8 Barang Titipan Sales (Roti & Jamu)
+
+Selain dibeli sendiri, **roti** dan **jamu** datang sebagai titipan sales. Roti dititipkan Kang Dede, jamu Kang Oding. Barang ini tidak bisa dibeli lewat Belanja Online.
+
+- Kunjungan pertama hari ke-3 (jamu satu hari lebih lambat), setelah itu tiap 4-7 hari. Kalau stok habis, sales bisa dipanggil lagi hari itu juga.
+- Jumlah titip per kunjungan: **10** (Level 1-4), **20** (Level 5-7), **30** (Level 8 ke atas).
+- Roti basi setelah **7 hari** dan stoknya berkurang otomatis; jamu tidak basi.
+- Saat sales datang, kamu membayar barang yang sudah laku × modal: roti Rp3.000, jamu Rp3.500. Kalau uang tidak cukup, selisihnya jadi tunggakan.
+
+### 8.9 Kondisi Pasaran
+
+Harga pasaran (Lihat 8.5) tidak bergerak acak murni di Casual. Ada tiga kondisi:
+
+| Kondisi | Syarat | Efek |
+|---|---|---|
+| Susah | 25+ hari di level yang sama, atau bantuan > 0,3, atau (Level 3+ dan hari/level ≥ 35) | Barang yang harganya di bawah pasaran direset ke 100%. Barang terpilih naik 5%-20%. |
+| Normal | Tidak memenuhi syarat di atas | Perubahan 5%-20% acak. |
+| Lancar | Level 3+ dan (hari/level ≤ 12 atau uang ≥ Rp1.500.000) | 1-2 barang naik 5%-10%, sisanya turun 5%-15%. |
+
+Tiap minggu 3-5 barang berubah, kelipatan 5%, dan selisih lama menyusut separuh kalau tidak berubah lagi.
 
 ## 9. Daftar Upgrade
 
@@ -3287,6 +3371,15 @@ Mini-game mengantar penumpang atau barang naik motor, tersedia setelah warung tu
 - Punya motor (beli di Wishlist, bisa dicicil)
 - Warung sudah tutup (sore-malam)
 - Buka aplikasi OjekKampung di HP
+- Energi minimal 15 poin
+
+**Aturan & batas:**
+
+- Maksimal **5 order per malam**, dengan plafon **Rp75.000 per malam**. Yang ditampilkan sekaligus maksimal 3 order.
+- Tiap order memakan **30 menit** waktu game dan **10 poin energi**.
+- Ongkos per jarak: **Rp5.000-10.000**, **Rp12.000-20.000**, atau **Rp22.000-30.000**. Order "buru-buru" tambah Rp5.000; hujan ×1,25. Tip maksimal Rp5.000, plafon Rp35.000 per order.
+- Skor nyetir = 40% progres perjalanan + 60% kenyamanan. Ongkos ikut skor, minimum 50% dari nilai order.
+- Jam buka: mulai 07.00 saat hari libur, atau jam tutup warung (17.00; 19.00 saat Ramadan). Tutup pukul 22.00, kecuali Kamis pukul 21.30.
 
 **Cara main:**
 1. Ambil order dari aplikasi OjekKampung
@@ -3369,6 +3462,34 @@ Saat hujan:
 - Kejadian palak dan preman nongkrong tidak aktif saat hujan.
 - Di OjekKampung, ongkos +25%, tapi jalan licin — hindari lubang, ayam, genangan, dan polisi tidur.
 
+### Infak, Zakat & THR
+
+Semua transaksi ini lewat aplikasi **Warga Bank** di HP.
+
+- **Infak masjid**: Rp20.000 / Rp50.000 / Rp100.000, sekali sehari. Efeknya +1 ulasan bintang 5 dari Haji Doni.
+- **Zakat fitrah**: Rp45.000, bisa dibayar mulai hari ke-81 sampai hari ke-84 (Lebaran hari ke-85). Membayar lebih awal memberi +1 ulasan bintang 5 dari Haji Doni; kalau terlewat sampai hari Lebaran, muncul ulasan bintang 2.
+- **THR untuk Agus**: Rp100.000 / Rp200.000 / Rp300.000, sekali, hanya hari ke-78 s.d. 84. Kalau dikirim, Agus membantu warung lebih lama saat mudik (2 hari tambahan).
+
+### Tarawih
+
+Selama Ramadan, tarawih bisa diikuti pukul 19.30-21.00, **1 kali sehari**.
+
+- Waktu game maju 60 menit dan energi berkurang 4 poin.
+- Akrab Haji Doni dan Kang Fadil masing-masing +8.
+- Peluang 50% mendapat ulasan bintang 5 dari jamaah masjid.
+
+### Jajan di Pasar
+
+Nini Onah di pasar menjual makanan yang memulihkan energi. Tiap menu bisa dibeli **1 kali sehari**, tidak bisa dipesan kalau energi sudah ≥99%, dan diblokir sebelum Maghrib (18.00) saat Ramadan.
+
+| Menu | Harga | Energi | Waktu |
+|---|---|---|---|
+| Gorengan | Rp2.000 | +4 | 5 menit |
+| Teh manis hangat | Rp3.000 | +6 | 5 menit |
+| Kue lapis | Rp5.000 | +9 | 5 menit |
+| Lontong sayur | Rp7.500 | +12 | 10 menit |
+| Nasi pecel | Rp10.000 | +16 | 15 menit |
+
 ### Kerja Sampingan
 
 Selain berjualan, Pak Misran bisa mengambil kerja sampingan dari warga (ada tanda Rp hijau di atas kepala mereka). Tiap hari biasanya hanya muncul satu kerjaan pagi dan satu kerjaan malam, bergiliran, ditambah kerjaan khusus hari libur.
@@ -3399,6 +3520,10 @@ Selain berjualan, Pak Misran bisa mengambil kerja sampingan dari warga (ada tand
 - Uang laci yang minus saat tutup hari dihitung satu hari minus. **Tiga hari minus berturut-turut** (Casual) atau **satu hari minus** (Hard) membuat warung bangkrut.
 - Bangkrut berarti permainan berakhir dan slot itu diarsipkan; pemain memulai dari slot baru.
 - Sewa kios ditagih tiap Minggu (hari ke-7, 14, 21, dan seterusnya) pukul 18.00 ke Pak Haji Rasyid. Tunggakan dibawa ke minggu berikutnya tanpa denda. **Tiga minggu menunggak** membuat kios diambil kembali dan warung bangkrut.
+
+### Cicilan Sewa
+
+Lewat Warga Bank, sewa bisa dicicil **Rp25.000** atau **Rp50.000** sekali bayar. Uang cicilan dipakai untuk melunasi tunggakan lebih dulu; kalau tunggakan habis, hitungan minggu tunggakan direset. Sisanya baru dipakai untuk sewa minggu ini. Ada juga tombol bayar sekarang dan tunda pada saat tagihan datang.
 
 ### Kecelakaan & Sakit
 
@@ -3600,6 +3725,14 @@ Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) 
 <div id="papanWidget"></div>
 
 *Catatan: papan Sepanjang Masa menumpuk sejak warung pertama dibuka. Papan Mingguan dan Bulanan mulai dari nol lagi saat periodenya berganti, jadi peringkat di ketiga tab bisa berbeda.*
+
+### Jempol & Lapor Nama
+
+Di papan dalam game, kamu bisa memberi jempol ke warung lain. Batasnya **1 kali per warung per hari** dan maksimal **10 jempol per hari**, dengan syarat ID perangkat minimal 16 karakter. Tombol **⚑** dipakai untuk melaporkan nama warung yang tidak pantas; nama warung juga disaring dari kata terlarang, termasuk penyamarannya dengan angka atau simbol (mis. `0` untuk `o`, `@` untuk `a`).
+
+### Bagikan Capaian
+
+Tombol **Bagikan (+Rp100.000)** di kartu capaian memberi Rp100.000 sekali per simpanan. Setelah dipakai, tombolnya hilang. Mode latihan tidak mendapat hadiah ini.
 
 ### Supporter Badge (v0.40)
 
