@@ -3002,13 +3002,13 @@ Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (
 | Lampu LED terang | 2 | Rp495000 | Rp1000 |
 | Spanduk baru | 3 | Rp665000 | - |
 | Bangku tunggu | 3 | Rp750000 | - |
-| Radio | 5 | Rp995000 | Rp500 |
-| WiFi gratis | 10 | Rp885000 | Rp3000 |
 | Langganan kurir cepat | 4 | Rp830000 | - |
+| Radio | 5 | Rp995000 | Rp500 |
 | Pembayaran QRIS | 6 | Rp1165000 | Rp500 |
-| Genset | 8 | Rp1660000 | Rp1500 |
 | CCTV | 7 | Rp1990000 | Rp1000 |
+| Genset | 8 | Rp1660000 | Rp1500 |
 | TV warung | 9 | Rp2550000 | Rp2000 |
+| WiFi gratis | 10 | Rp885000 | Rp3000 |
 | Motor (Wishlist) | - | Cicilan | Rp5000/hari |
 
 
