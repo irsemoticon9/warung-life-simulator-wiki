@@ -95,6 +95,51 @@ Varian penampilan pembeli dan pejalan kaki. Mereka memakai model yang sama tapi 
 - **Nenek** (nenek_ungu): jilbab ungu - Nini Eha
 - **Nenek** (nenek_biru): jilbab biru - Nini Cucu
 
+### Kesabaran Pelanggan
+
+Saat melayani, ada dua batas waktu yang berjalan bersamaan. Lingkaran di atas kepala pembeli menunjukkan sisa kesabarannya.
+
+| Hal | Casual | Hard |
+|---|---|---|
+| Sabar menunggu di antrean | 16 detik | 8 detik |
+| Sabar saat pesanan disiapkan | 6,5 detik | 4 detik |
+| Tambahan per jenis barang (mulai barang ke-2) | +2,5 detik | +1,6 detik |
+| Maksimal orang dalam antrean | 4 | 5 |
+| Jeda kedatangan pembeli | 5-11 menit | 3-8 menit |
+| Peluang pesanan 2 jenis atau lebih | 35% | 60% |
+
+- Casual masih dapat keringanan di awal: level 1-2 dapat +4 detik sabar antre dan +2 detik sabar respon, level 3 dapat +2 dan +1 detik.
+- Tiap tambahan orang yang mengantre membuat kesabaran orang di belakangnya terkuras 25% lebih cepat.
+- Kalau lingkaran habis, pembeli pulang ("nggak jadi deh"). Pembeli batal tidak dihitung sebagai pelanggan yang dilayani, memutus hitungan beruntun, dan menggagalkan quest "sehari tanpa batal". Peluang dia menulis ulasan bintang 1: 55%.
+- Energi di bawah 30% membuat jendela respon jadi 15% lebih pendek.
+- Upgrade yang menambah kesabaran: kipas +25% (semua situasi), bangku +25% (khusus yang mengantre, plus 1 slot antrean), TV warung +30% (khusus antre, plus 1 slot). Batas total efek kesabaran dari upgrade 85%.
+- Etalase kaca menambah 1 detik jendela respon, QRIS menambah 2 detik.
+
+### Ulasan & Bintang
+
+Setelah dilayani, pembeli bisa menulis ulasan. Jenis ulasan ditentukan dari cara kamu melayani, bukan diundi bebas.
+
+| Kejadian | Bintang | Peluang ditulis |
+|---|---|---|
+| Dilayani di bawah separuh waktu sabar | 5 | 30% |
+| Pesanan lebih dari 1 jenis | 5 | 30% |
+| Semua barang dibeli di bawah harga pasaran | 5 | 25% |
+| Dilayani biasa | 4 | 20% |
+| Salah ambil barang | 3 | 35% |
+| Barang kurang atau habis | 2 | 50% |
+| Terpaksa beli walau mahal | 2 | 80% |
+| Pembeli batal atau kesal | 1 | 55% |
+| Barang kemahalan lalu batal | 1 | 90% |
+
+Urutan pengecekannya: kurang barang, lalu keluhan mahal, lalu cepat, lalu pesanan banyak, lalu harga murah, sisanya ulasan biasa.
+
+- Radio menambah 50% peluang ulasan bagus (bintang 4-5).
+- Bintang warung = rata-rata **80 ulasan terakhir**. Supaya warung baru tidak langsung bintang 1, game menambahkan 10 "ulasan bayangan" bintang 3 yang bobotnya makin kecil seiring jumlah ulasan asli.
+- Reputasi = (bintang rata-rata − 1) × 25, skala 0-100. Ambang bintang: 2★ mulai 25, 3★ mulai 50, 4★ mulai 75, 5★ mulai 90.
+- Efek bintang ke keramaian: 3★ jeda pembeli ×0,95, 4★ ×0,9, 5★ ×0,85 (makin tinggi makin ramai). Bintang tidak dipakai sebagai syarat naik level.
+- Ulasan bintang 5 hanya bertahan kalau fasilitas nyaman lengkap. Peluang mempertahankannya: 30% + 12% per fasilitas yang dimiliki (kipas, bangku, lampu, radio, QRIS), jadi 90% kalau kelimanya ada.
+- Sebaliknya, ulasan bagus bisa turun jadi bintang 3 kalau fasilitas kurang: tidak ada kipas (gerah), tidak ada bangku (mengantre berdiri), lampu redup saat malam, radio belum ada di level 5 ke atas, QRIS belum ada di level 6 ke atas, barang masih sedikit (level 2 ke bawah), atau warung masih terlalu sederhana (level 1).
+
 ## 2. Quest Level
 
 Progres dihitung sejak level itu dimulai (boleh lewat beberapa hari). Semua syarat lunas → hadiah + naik level.
@@ -141,7 +186,7 @@ Lewat batas → denda dan dialog terlambat.
 **Barang yang sudah terbuka di hari pertama:** mi goreng, mi rebus, telur, biskuit, air mineral, sachet, ciki, permen
 
 **Sewa kios** (kepada Pak Haji Rasyid), per level: Rp250000 → Rp300000 → Rp375000 → Rp450000 → Rp550000 → Rp650000 → Rp750000 → Rp800000 → Rp850000 → Rp900000
-(Sewa aktual = dasar + keringanan 15% omzet + 50% upah kerja sampingan, maksimal per_minggu di atas. Denda keterlambatan bab: 10%.)
+(Sewa Casual tidak langsung memakai angka per level: dasar dihitung dari 15% omzet seminggu (paling rendah Rp50.000, paling tinggi dasar per level), ditambah separuh upah kerja sampingan 7 hari terakhir, lalu dibatasi angka per level di atas. Ditagih tiap Minggu pukul 18.00. Menunggak tidak kena denda, tapi tunggakan menumpuk; tiga minggu menunggak = kios diambil kembali.)
 
 ### Bab 1 - Uang Pendaftaran
 
@@ -367,6 +412,53 @@ Pak Misran menutup warung dan menyerahkannya ke Bu Eni. Agus (anak Pak Misran) j
 - Neo masih menoleh ke arah jalan, seolah menunggu angkot itu kembali
 
 ### Musik & Animasi
+- Musik: musik_pamit.mp3
+- Animasi: lengan_peluk (peluk), lengan_salim (salim)
+
+### Naskah Lengkap Epilog (`sinema_pamit`)
+
+- **Syarat muncul:** Setelah tamat (semua level selesai), epilog otomatis muncul
+- **Tipe:** Cinema (sinematik), tidak ada pilihan jawaban, hanya menonton
+
+#### Tahap 1 - Warung · Pak Misran (pukul 07.0–22.0)
+
+  *Pagi itu, Pak Misran menutup pintu rumahnya untuk terakhir kalinya.*
+  **Pak Misran:** Rumah ini Bapak titip ya, Gus. Jendelanya dibuka tiap pagi, biar tidak lembap.
+  **Agus:** Iya, Pak. Aku rawat baik-baik. Kan aku yang tinggal di sini sekarang.
+  **Pak Misran:** Guru TIK SD kampung... Bapak masih tidak percaya, Gus.
+  **Agus:** Ayo, Pak. Bu Eni sudah menunggu di warung.
+
+  *Pak Misran berhenti di depan warung. Lama ia memandangi rak-rak yang sudah kosong, yang ia jaga bertahun-tahun.*
+  **Pak Misran:** Dulu Bapak mulai dari satu rak mi instan... sekarang giliran Bu Eni yang mengisi lagi.
+  **Bu Eni:** Insya Allah saya jaga baik-baik, Pak. Kang Dedi titip salam, masih istirahat di rumah.
+  **Pak Misran:** Bilang sama Dedi, cepat sehat. Nanti kita ngopi lagi di bangku itu.
+
+  **Raka:** Pak Misran, nanti Raka yang jaga kasir!
+  **Pak Misran:** Wah, kasir baru. Kembaliannya jangan salah, ya.
+
+  *Neo sudah tua. Ia tidak lagi berlari menyambut, hanya menoleh pelan.*
+  **Pak Misran:** Neo... Bapak pergi dulu, ya. Jaga warung sama Bu Eni.
+
+  **Agus:** Pak... jangan lupa kontrol ke dokter. Nanti aku telepon tiap malam.
+  **Pak Misran:** Kamu juga, Gus. Ngajar yang sabar. Anak-anak kampung ini butuh guru kayak kamu.
+
+  *Agus memeluk bapaknya erat-erat. Tidak ada yang bicara untuk beberapa saat.*
+  *Agus mencium tangan bapaknya lama sekali, seperti waktu kecil dulu setiap berangkat sekolah.*
+  **Pak Misran:** Sudah, sudah... nanti Bapak ikut nangis.
+
+  **Pak Misran:** Angkotnya sudah datang. Assalamualaikum, semuanya.
+  **Warga:** Waalaikumsalam, Pak. Hati-hati di jalan.
+
+  *Angkot itu membawa Pak Misran ke terminal, lalu ke kota.*
+  *Di depan warung, Neo masih menoleh ke arah jalan, seolah menunggu angkot itu kembali.*
+
+  **Pop-up "Epilog"**
+  - Tiga tahun kemudian...
+  - Warung Bu Eni
+  - Neo sudah tua
+
+**HASIL:**
+- Tidak ada reward (epilog naratif)
 - Musik: musik_pamit.mp3
 - Animasi: lengan_peluk (peluk), lengan_salim (salim)
 
@@ -2107,7 +2199,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.26 Freezer Es Krim (`freezer_es krim`)
+### 4.26 Freezer Es Krim (`freezer_es_krim`)
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
 #### Tahap 1 - Warung · Kang Dadan (pukul 10.0–17.0)
@@ -2764,58 +2856,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
----
-
-### 4.35 Epilog: Tiga Tahun Kemudian (`sinema_pamit`)
-
-- **Syarat muncul:** Setelah tamat (semua level selesai), epilog otomatis muncul
-- **Tipe:** Cinema (sinematik), tidak ada pilihan jawaban, hanya menonton
-
-#### Tahap 1 - Warung · Pak Misran (pukul 07.0–22.0)
-
-  *Pagi itu, Pak Misran menutup pintu rumahnya untuk terakhir kalinya.*
-  **Pak Misran:** Rumah ini Bapak titip ya, Gus. Jendelanya dibuka tiap pagi, biar tidak lembap.
-  **Agus:** Iya, Pak. Aku rawat baik-baik. Kan aku yang tinggal di sini sekarang.
-  **Pak Misran:** Guru TIK SD kampung... Bapak masih tidak percaya, Gus.
-  **Agus:** Ayo, Pak. Bu Eni sudah menunggu di warung.
-
-  *Pak Misran berhenti di depan warung. Lama ia memandangi rak-rak yang sudah kosong, yang ia jaga bertahun-tahun.*
-  **Pak Misran:** Dulu Bapak mulai dari satu rak mi instan... sekarang giliran Bu Eni yang mengisi lagi.
-  **Bu Eni:** Insya Allah saya jaga baik-baik, Pak. Kang Dedi titip salam, masih istirahat di rumah.
-  **Pak Misran:** Bilang sama Dedi, cepat sehat. Nanti kita ngopi lagi di bangku itu.
-
-  **Raka:** Pak Misran, nanti Raka yang jaga kasir!
-  **Pak Misran:** Wah, kasir baru. Kembaliannya jangan salah, ya.
-
-  *Neo sudah tua. Ia tidak lagi berlari menyambut, hanya menoleh pelan.*
-  **Pak Misran:** Neo... Bapak pergi dulu, ya. Jaga warung sama Bu Eni.
-
-  **Agus:** Pak... jangan lupa kontrol ke dokter. Nanti aku telepon tiap malam.
-  **Pak Misran:** Kamu juga, Gus. Ngajar yang sabar. Anak-anak kampung ini butuh guru kayak kamu.
-
-  *Agus memeluk bapaknya erat-erat. Tidak ada yang bicara untuk beberapa saat.*
-  *Agus mencium tangan bapaknya lama sekali, seperti waktu kecil dulu setiap berangkat sekolah.*
-  **Pak Misran:** Sudah, sudah... nanti Bapak ikut nangis.
-
-  **Pak Misran:** Angkotnya sudah datang. Assalamualaikum, semuanya.
-  **Warga:** Waalaikumsalam, Pak. Hati-hati di jalan.
-
-  *Angkot itu membawa Pak Misran ke terminal, lalu ke kota.*
-  *Di depan warung, Neo masih menoleh ke arah jalan, seolah menunggu angkot itu kembali.*
-
-  **Pop-up "Epilog"**
-  - Tiga tahun kemudian...
-  - Warung Bu Eni
-  - Neo sudah tua
-
-**HASIL:**
-- Tidak ada reward (epilog naratif)
-- Musik: musik_pamit.mp3
-- Animasi: lengan_peluk (peluk), lengan_salim (salim)
-
----
-
-
 
 ## 6. Daftar Kejadian Acak
 
@@ -2823,18 +2863,26 @@ Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap
 
 | Kejadian | Mulai Hari | Bobot Undian | Dampak | Cara Mengatasi |
 |---|---|---|---|---|
-| Listrik padam | Hari 1 | 2 | Minuman tidak laris | Beli genset |
-| Rombongan datang | Hari 1 | 2.5 | Lebih ramai, air mineral/teh/ciki laris | - |
-| Palak preman | Hari 1 | 1.5 | Setoran Rp10.000-20.000 | Beli CCTV |
-| Borongan | Hari 1 | 2.5 | Pesanan 2-3 jenis, 3-8 unit, reputasi +2 | - |
-| Gajian (tanggal muda) | Hari 1 | 4 | Pelanggan datang lebih sering, belanja lebih banyak | - |
-| Arisan | Hari 1 | 2 | Pesanan 2-4 jenis, 3-6 unit, tip Rp5.000-15.000, reputasi +1 | - |
-| Preman nongkrong | Hari 1 | - | Sangat sepi, 3-4 menit | Beli CCTV |
+| Listrik padam | Hari 2 | 2 | Minuman tidak laris | Beli genset |
+| Rombongan datang | Hari 2 | 2.5 | Lebih ramai, air mineral/teh/ciki laris | - |
+| Palak preman | Hari 2 | 1.5 | Setoran Rp10.000-20.000 | Beli CCTV |
+| Borongan | Hari 2 | 2.5 | Pesanan 2-3 jenis, 3-8 unit, reputasi +2 | - |
+| Gajian (tanggal muda) | Hari 2 | 4 | Pelanggan datang lebih sering, belanja lebih banyak | - |
+| Arisan | Hari 2 | 2 | Pesanan 2-4 jenis, 3-6 unit, tip Rp5.000-15.000, reputasi +1 | - |
+| Preman nongkrong | Hari 2 | - | Sangat sepi, 3-4 menit | Beli CCTV |
 | Pencurian | 5 | - | Kehilangan barang (maks Rp40.000) | Beli CCTV |
 | Uang palsu | 8 | - | Ketahuan saat tutup, hanya uang tunai | Beli QRIS |
 | Tikus | 6 | - | Makan barang (beras, gula, kerupuk, rengginang, biskuit, roti) | Neo minimal Tetangga akrab |
 
 **Catatan undian:** Gajian paling sering muncul (bobot 4), palak preman paling jarang (bobot 1.5). Kejadian bertanda "-" (preman nongkrong, pencurian, uang palsu, tikus) tidak ikut undian bobot; mereka dicek terpisah tiap hari dengan peluang sendiri: pencurian 8%, tikus 7%, uang palsu 5%.
+
+**Angka pelengkap:**
+
+- Palak preman: bobot turun jadi 0,45 kalau punya CCTV (×0,3). Setoran Rp10.000 mulai hari 1, Rp15.000 mulai hari 4, Rp20.000 mulai hari 6.
+- Pencurian: dengan CCTV turun dari 8% jadi 2% per hari (×0,25). Paling banyak 2 jenis, 3 unit, nilai maksimal Rp40.000.
+- Uang palsu: hanya dicek kalau uang tunai hari itu minimal Rp50.000. Dengan QRIS turun dari 5% jadi 3,5% (×0,7). Yang hilang Rp20.000, atau Rp50.000 kalau uang tunai hari itu Rp150.000 ke atas (peluang 50%).
+- Tikus: kalau Neo sudah akrab minimal Tetangga, turun dari 7% jadi 1,4% per hari (×0,2). Paling banyak 2 jenis, 2 unit.
+- Jam mulai kejadian siang: listrik padam 09.00-15.00, rombongan 09.00-12.00, palak 10.00-16.00, borongan 09.00-15.00, gajian 09.00-09.30, arisan 16.00-17.00. Kalau jatuh Jumat jam 11.00-13.00, digeser 2 jam.
 
 ### Detail kejadian:
 
@@ -2948,7 +2996,7 @@ Catatan kuning di kamar Pak Misran. Isinya kolom Nama, Jumlah, Tgl, dan Keterang
 
 Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jual = harga jual ke pelanggan.
 
-### 6.1 Harga Barang
+### 8.1 Harga Barang
 
 
 | Nama Barang | Modal | Jual | Keuntungan | Peluang |
@@ -2968,6 +3016,7 @@ Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jua
 | Kopi susu botol | Rp4500 | Rp6500 | Rp2000 | 4 |
 | Minuman soda kaleng | Rp5000 | Rp7000 | Rp2000 | 4 |
 | Minuman energi | Rp5000 | Rp7000 | Rp2000 | 4 |
+| Minuman sachet | Rp1000 | Rp1500 | Rp500 | 6 |
 | Kerupuk | Rp500 | Rp1000 | Rp500 | 7 |
 | Sayuran (cabai, bawang, tomat) | Rp4000 | Rp5000 | Rp1000 | 5 |
 | Obat warung | Rp2500 | Rp3500 | Rp1000 | 3 |
@@ -3021,7 +3070,7 @@ Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jua
 - Jamu kunyit asam: jam 6-9
 - Jamu kunyit asam: jam 15-18
 
-### 6.2 Harga Ikan
+### 8.2 Harga Ikan
 
 Ikan hasil mini-game memancing di area sawah. Disimpan di Tas dan dijual di Pasar. Harga per ekor.
 
@@ -3039,7 +3088,7 @@ Catatan: makin kecil angka = makin langka. Ikan dewa adalah legendaris: peluang 
 
 
 
-### 6.3 Harga Buah
+### 8.3 Harga Buah
 Buah hasil mini-game petik buah di area sawah. Disimpan di Tas dan dijual di Pasar. Harga per buah.
 
 | Buah | Harga jual (Rp) | Kemungkinan muncul | Keterangan |
@@ -3052,13 +3101,13 @@ Buah hasil mini-game petik buah di area sawah. Disimpan di Tas dan dijual di Pas
 
 Catatan: makin kecil angka = makin langka. Kelapa tidak muncul acak di mini-game petik; didapat dari pohon kelapa yang tumbuh di area sawah.
 
-### 6.4 Harga Beli: Belanja Online vs Grosir
+### 8.4 Harga Beli: Belanja Online vs Grosir
 
 Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan **Grosir** (kios Haji Maman di pasar). Harga keduanya berubah setiap hari, tapi mekanismenya berbeda.
 
 **Belanja Online**
 
-- Harga dasarnya = harga beli (kolom Modal di 6.1).
+- Harga dasarnya = harga beli (kolom Modal di 8.1).
 - Setiap pagi, 1-3 barang kebagian **promo harian** dengan diskon acak **10%, 15%, atau 20%**. Diumumkan lewat chat "Sales Grosir" (mis. *Promo khusus hari ini: beras 15%, telur 10%*).
 - Barang **khas agen** — barang yang terbuka karena cerita warga **ditolak** (mis. Susu Sekolah setelah menolak "Ucup Ingin Sekolah") — harganya **10% lebih mahal** dari harga dasar.
 - Harga akhir dibulatkan ke kelipatan Rp100.
@@ -3076,6 +3125,20 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 - Di aplikasi Belanja Online, diskon promo yang sedang aktif selalu terlihat (label "PROMO -x%").
 - Barang khas agen selalu minimal 10% di atas harga belinya.
 - Semua harga dihitung di dalam game, jadi tidak butuh internet; internet hanya untuk cek lisensi, cek versi, kode redeem, papan online, dan pengiriman data.
+
+### 8.5 Atur Harga Jual
+
+Harga jual tiap barang bisa diubah sendiri lewat aplikasi **Harga Jual** di HP, atau tombol **− / +** di panel belanja stok. Kolom Jual di tabel 8.1 adalah harga disarankan, bukan harga mati.
+
+- Langkah perubahan Rp100 untuk barang di bawah Rp10.000, dan Rp500 untuk barang Rp10.000 ke atas.
+- Batas bawah: harga modal + Rp100 (tidak bisa jual rugi), kecuali harga pasaran sedang di bawah itu, maka batas bawahnya ikut pasaran.
+- Batas atas: 150% dari harga disarankan.
+- Angka berhenti tepat di harga disarankan dan harga pasaran, jadi tidak ada harga yang "nyangkut" di antaranya.
+- Di atas pasaran: untung per barang lebih besar, tapi pembeli mulai mengeluh. Peluang mengeluh naik dari 0% (harga = pasaran) sampai 90% (harga 150% pasaran). Dari yang mengeluh, separuhnya tetap membeli (ulasan bintang 2), separuhnya batal dan menulis ulasan bintang 1.
+- Di bawah pasaran: untung lebih kecil, tapi warung lebih ramai dan pembeli lebih sabar. Efeknya dihitung dari rata-rata selisih semua barang: maksimal 20% lebih murah = sekitar 30% lebih ramai dan 20% lebih sabar.
+- Harga pasaran mulai dilaporkan di **Level 2** lewat chat "Info Harga Pasaran" tiap Senin. Nilainya bergerak 80%-125% dari harga disarankan, 3-5 barang berubah tiap minggu, dan selisihnya menyusut separuh tiap minggu kalau tidak berubah lagi.
+- Kalau harga terlalu mahal, pembeli bisa mengeluh lewat pop-up dan game menawarkan langsung membuka aplikasi Harga Jual di barang yang dimaksud.
+
 ## 9. Daftar Upgrade
 
 
@@ -3115,15 +3178,20 @@ Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (
 
 - **Motor** (Wishlist, cicilan): Motor untuk narik ojek (OjekKampung). Beli di aplikasi Wishlist, bisa dicicil (uang muka + cicilan bulanan). Matel (debt collector) datang kalau telat bayar, motor bisa disita. Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi.
 
+**Isi aplikasi Wishlist:**
+
+| Barang | Terbuka | Harga | Cara bayar |
+|---|---|---|---|
+| HP baru | Level 1 | Rp6.000.000 | Tunai |
+| Motor | Level 3 | Rp12.000.000 | Tunai atau cicilan |
+| Rumah baru | Level 6 | Rp18.000.000 | Tunai |
+
+- Motor dicicil: uang muka Rp2.000.000, sisanya Rp10.000.000 dibagi 10 angsuran Rp1.000.000, jatuh tempo tiap 30 hari.
+- Telat bayar angsuran: matel datang, motor ditarik, dan uang cicilan yang sudah dibayar hangus. Motor harus dibeli atau dicicil ulang.
+- Punya motor membuat kurir mengantar barang 40% lebih cepat (waktu kirim ×0,6), selain membuka OjekKampung.
+- Rumah baru membuat semua pengurasan energi berkurang 15%.
+
 Catatan: efek total upgrade maksimal +50% keramaian dan +85% kesabaran.
-
----
-
----
-
-*Dibuat dari data game v0.40 (versionCode 44), 34 quest warga + epilog, 10 bab cerita, 10 level, 37 barang, 12 upgrade, fitur baru: OjekKampung, Save & Akun, Pembayaran, Epilog, Supporter Badge.
-
-
 
 ## 10. Panduan Mini-Game
 
@@ -3172,6 +3240,29 @@ Kelapa tidak muncul acak; didapat dari pohon kelapa yang tumbuh di area sawah.
 - Petik buah: 20 menit game, energi -0%, jam 6.0-18.0
 - Buah matang menunggu dipanen (tidak busuk)
 - Tas: ikan dan buah maksimal 5 per kotak (v0.39). **v0.40**: Tas kini muat **10 barang sejenis** per kotak (ikan, buah, dan barang grosir). Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
+
+### Mini-Game Kerja Sampingan
+
+Tiap kerja sampingan punya mini-game sendiri, durasi 20 detik. Skor dibanding target menentukan upah: 90% ke atas dapat upah penuh, makin rendah makin turun sampai separuh.
+
+| Kerjaan | Cara main | Target |
+|---|---|---|
+| Panen padi (Abah Karta) | Geser jari di atas padi **kuning** untuk menebas. Padi hijau jangan ikut ditebas. | 34 |
+| Bikin rengginang (Nenek Sumi) | Yang **matang** ke tampah, yang **setengah matang** digoreng lagi di wajan lalu diangkat sebelum gosong, yang **gosong** dibuang ke ember. | 12 |
+| Angkut material (Mang Ujang) | Ketuk untuk menjatuhkan sak semen. Minimal separuh sak harus menapak; tumpukan terlalu miring bisa ambruk. | 10 |
+| Bersih-bersih masjid (Kang Fadil) | Tahan dan gosok tiap noda di sajadah dengan sikat sampai bersih. | 18 |
+
+Empat kerjaan lain (antar pesanan, packing, sembako, nasi kotak) memakai mini-game mencocokkan:
+
+| Kerjaan | Cara main | Target |
+|---|---|---|
+| Antar pesanan (Kang Asep) | Baca nama di kresek, klik rumah tujuannya. | 15 |
+| Packing (Mba Giska) | Pilih kardus yang pas: kecil, sedang, atau besar sesuai barangnya. | 14 |
+| Bagi sembako (Pak RT) | Lihat kartu warga, klik namanya di daftar. | 13 |
+| Nasi kotak (Haji Doni) | Baca daftar isi kotak, klik lauk yang diminta. | 15 |
+
+Kalau bermain sebagai Bu Eni setelah epilog, tiga kerjaan memakai versi lain: angkut jadi "masak sarapan tukang", antar jadi "siapkan pesanan", dan bersih masjid pakai sajadah saf perempuan.
+
 ---
 
 ### Mini-Game OjekKampung (Ride-Hailing)
@@ -3205,37 +3296,29 @@ Mini-game mengantar penumpang atau barang naik motor, tersedia setelah warung tu
 
 Mini-game membungkus barang. v0.40: barang bisa diseret lagi (bug fix). Misi yang ditunda (Neng Shinta, Mas Fariz) selalu muncul sesuai daftar misi. Item baru: **Nasi bungkus**.
 
----### OjekKampung (Ride-Hailing)Fitur baru v0.40: mini-game mengantar penumpang/barang naik motor setelah warung tutup.
+### Mini-Game Tip Pelanggan
 
-### Syarat Main
-- Punya motor (beli di aplikasi Wishlist, bisa dicicil)
-- Warung sudah tutup (sore-malam)
-- Buka aplikasi OjekKampung di HP
+Sekali sehari, kira-kira antara pukul 09.00 dan 16.30, muncul pembeli khusus yang menawarkan tip. Tawarannya keluar saat pembeli itu sampai di kasir, jadi warung harus sedang buka dan belum lewat pukul 17.00.
 
-### Cara Main
-1. Ambil order dari aplikasi OjekKampung
-2. Antar penumpang/barang ke tujuan (Sawah Abah Karta, Terminal kecamatan, Puskesmas, Toko Haji Maman, Rumah Bu Ida, Rumah Kang Dadan, Warung Bu Enok, Apotek desa)
-3. Mini-game nyetir: ketuk atas/bawah untuk pindah lajur, tahan untuk rem pelan di polisi tidur, hindari lubang, ayam, genangan
-4. Ongkos + tip masuk ke uang warung
+Jenis mini-game-nya diundi per hari, satu jenis per hari. Tip dihitung dari hasil mini-game: maksimal Rp6.000 untuk hitung kembalian dan tebak langganan, Rp5.000 untuk bungkus rapi. Hasil di bawah 30% tidak dapat tip; di atas itu nilainya dibulatkan ke Rp500 terdekat.
 
-### Reward
-- Ongkos Rp5.000-35.000 per antaran + tip
-- Hujan: ongkos +25%, tapi jalan licin
-- Energi: tiap order = sekali antar, ongkos langsung masuk
+| Mini-game | Waktu | Target | Cara main |
+|---|---|---|---|
+| Hitung kembalian | 24 detik | 7 | Klik uang di laci sampai isi baki sama dengan kembalian, pakai lembar sesedikit mungkin. Isi laci terbatas. |
+| Bungkus rapi | 22 detik | 18 | Seret belanjaan ke kardus: yang berat di sekat bawah, yang mudah pecah di sekat atas. Salah tempat skor −1. Tiap sekat muat 3 barang; kardus penuh diganti baru. |
+| Tebak langganan | 34 detik | 14 | Hafalkan barang yang biasa dibeli tipe pembeli itu, lalu klik barang yang sama di rak. Jumlah barang yang harus diingat bertambah tiap ronde. |
 
-### Barang Titipan (Delivery)
-Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — barang-barang yang diantar ke tujuan tertentu.
+### Mini-Game Cek QRIS
 
-### Cicilan Motor
-- Motor bisa dicicil (uang muka + cicilan bulanan)
-- Kalau telat bayar, matel (debt collector) datang dan motor bisa disita
-- Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi
-- Cicilan LUNAS: motor jadi milik sendiri, tidak ada lagi matel
+Setelah punya upgrade QRIS (level 6), pelanggan bisa minta mini-game "Cek QRIS" saat membayar. Maksimal 3 kali sehari, muncul sekitar pukul 10.00, 12.10, dan 14.20, hanya saat warung buka dan belum lewat pukul 17.00. Pembeli yang dapat mini-game ini bukan pembeli yang sama dengan pembawa tip.
 
-### Status
-- SIAP NARIK / OFFLINE
-- Order malam ini tinggal %d dari %d
-- Jam narik %s - %s
+Cara mainnya: seret HP pembeli ke kode QRIS, lalu putuskan **TERIMA** atau **TOLAK**. Terima hanya kalau notifikasinya berhasil, nominalnya pas, nama warungnya benar, dan buktinya bukan palsu. Selain itu tolak. Durasi 39 detik dengan target 7, tip maksimal Rp6.000.
+
+### Catatan OjekKampung
+
+- Cicilan lunas: motor jadi milik sendiri, matel berhenti menagih.
+- Status di aplikasi: SIAP NARIK atau OFFLINE, sisa order malam ini, dan jam narik.
+
 
 ---
 
@@ -3258,13 +3341,49 @@ Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — ba
 - **Sore**: 15.00-18.00 (ramai, pulang sekolah/kerja)
 - **Malam**: 18.00-22.00 (sepi, kecuali event khusus)
 
+### Kerja Sampingan
+
+Selain berjualan, Pak Misran bisa mengambil kerja sampingan dari warga (ada tanda Rp hijau di atas kepala mereka). Tiap hari biasanya hanya muncul satu kerjaan pagi dan satu kerjaan malam, bergiliran, ditambah kerjaan khusus hari libur.
+
+| Kerjaan | Pemberi | Jam | Durasi | Upah |
+|---|---|---|---|---|
+| Bantu panen | Abah Karta (sawah) | 07.00-09.00 | 75 menit | Dasar |
+| Bikin rengginang | Nenek Sumi | 07.00-09.00 | 75 menit | Dasar |
+| Angkut material | Mang Ujang | 07.00-09.00 | 75 menit | Dasar |
+| Antar pesanan | Kang Asep | 19.00-21.30 | 90 menit | Dasar |
+| Bersih-bersih masjid | Kang Fadil | 19.00-21.30 | 90 menit | Dasar |
+| Packing pesanan | Mba Giska | 19.00-21.30 | 90 menit | Dasar |
+| Bagi sembako | Pak RT (Senin) | 10.00-14.00 | 180 menit | Dasar × 1,5 |
+| Nasi kotak Jumat | Haji Doni (Jumat) | 13.00-16.00 | 120 menit | Dasar × 1,25 |
+
+- Upah dasar tergantung level warung: **Rp35.000** (level 1-3), **Rp40.000** (level 4-6), **Rp50.000** (level 7-10). Upah bersamaan pengali kerjaan, lalu dibulatkan ke ribuan.
+- Bantu panen baru muncul setelah cerita beras Abah Karta selesai, dan bikin rengginang setelah surat Nenek Sumi. Kalau syaratnya belum selesai, kerjaan itu tidak ada di daftar.
+- Menguras 10 poin energi dan butuh energi minimal 15 poin. Waktu game ikut maju sesuai durasi kerjaan.
+- Hasil mini-game menentukan upah: skor 90% ke atas dapat upah penuh, lalu turun sampai separuh kalau skornya rendah.
+- Dua kerjaan pertama tiap hari gratis. Kerjaan ketiga dan seterusnya harus menonton iklan dulu; kalau sudah punya Tanpa Iklan, syarat ini hilang. Sesudah kerja, ada pilihan menonton iklan lagi untuk menambah upah sebesar upah kerjaan itu (total dua kali).
+- Tiap kerjaan menambah keakraban +8 dengan pemberi kerjanya.
+- Di malam Kamis, kerjaan malam berhenti pukul 20.30. Selama Ramadan, kerjaan malam pindah ke 21.00-22.00 dan tidak ada kerjaan malam di malam Kamis.
+
+### Biaya Harian & Bangkrut
+
+- Saat menutup hari, biaya harian dipotong otomatis: **Rp10.000** (Casual) atau **Rp20.000** (Hard), ditambah biaya harian tiap upgrade yang dimiliki (lihat bagian 9).
+- Kalau Pak Misran sakit, biaya harian hari itu tidak dipotong.
+- Uang laci yang minus saat tutup hari dihitung satu hari minus. **Tiga hari minus berturut-turut** (Casual) atau **satu hari minus** (Hard) membuat warung bangkrut.
+- Bangkrut berarti permainan berakhir dan slot itu diarsipkan; pemain memulai dari slot baru.
+- Sewa kios ditagih tiap Minggu (hari ke-7, 14, 21, dan seterusnya) pukul 18.00 ke Pak Haji Rasyid. Tunggakan dibawa ke minggu berikutnya tanpa denda. **Tiga minggu menunggak** membuat kios diambil kembali dan warung bangkrut.
+
 ### Energi
 
-- Energi 100% di awal hari
-- Mancing: -5% energi per lemparan (tiap lemparan = 3 menit game, jam 6.0-20.0)
-- Petik buah: tanpa biaya energi
-- Jalan-jalan: -10% energi
-- Tidur: mengisi energi kembali
+- Energi mulai 100% tiap hari. Berjalan biasa tidak memakai energi; berlari memakai 0,5% per detik.
+- Energi juga turun sendiri seiring waktu: sekitar 0,047% per menit sebelum pukul 21.00, dan 0,119% per menit sesudahnya. Ramai atau sepinya warung tidak berpengaruh.
+- Mancing: −5% per lemparan (tiap lemparan = 3 menit game). Petik buah: tanpa biaya energi. Kerja sampingan: −10%.
+- **Ngopi**: +50%, 1 kali sehari, butuh stok sachet / kopi susu / minuman energi, dan memakan 10 menit. Harus jeda 2 jam sebelum istirahat lagi.
+- **Tonton iklan**: energi langsung penuh, 1 kali sehari.
+- Di bawah 30%: lelah. Jalan 25% lebih pelan dan jendela melayani 15% lebih pendek.
+- Di bawah 20%: tidak bisa berlari dan tidak bisa membuka warung.
+- 0%: pingsan. Warga membawanya pulang, bayar mantri maksimal Rp20.000, dan besok bangun pukul 10.00.
+- **Tidur**: energi penuh lagi. Jam bangun tergantung jam tidur: sebelum 22.00 bangun 07.00, sebelum 24.00 bangun 08.00, sebelum 01.00 bangun 09.00, lebih dari itu bangun 10.00.
+- Rumah baru dari Wishlist membuat semua pengurasan energi 15% lebih kecil.
 
 ## 12. Tips & Trik
 
@@ -3331,7 +3450,7 @@ Tips dari komunitas, dikumpulkan dari [posting Threads](https://www.threads.com/
 - **Reputasi**: bantu warga untuk meningkatkan reputasi dan mendapat ulasan bintang 5.
 - **Iklan**: aktifkan iklan untuk mendapat bonus (x2 ikan, dll). Mode pengembang bisa dimatikan dengan kode khusus.
 - **Pindah HP**: progress bisa dipindah ke HP baru lewat kode transfer. Pembelian "Tanpa Iklan" ikut pindah (diverifikasi ke toko). Kalau belum ikut, buka game sekali di HP lama (versi terbaru, dengan internet) lalu buat kode lagi, atau tekan "Pulihkan Pembelian" kalau memakai akun Google yang sama.
-- **Hemat energi**: jangan mancing/petik setiap hari, selang-seling dengan jalan-jalan.
+- **Hemat energi**: jangan mancing tiap hari (tiap lempar −5%); petik buah tidak memakai energi, jadi aman diulang.
 
 ### Tips Omzet
 
