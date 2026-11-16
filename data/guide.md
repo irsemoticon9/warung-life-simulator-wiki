@@ -3222,6 +3222,22 @@ Untuk pemain baru mulai di v0.40, dari hari pertama sampai kebiasaan harian.
 
 ---
 
+### Tips dari Pemain Leaderboard
+
+Tips dari komunitas, dikumpulkan dari [posting Threads](https://www.threads.com/@khaillatunissa_abqariah/post/Dfw_dfbI9f_) oleh @khaillatunissa_abqariah. Ini pengalaman main dari pemain, bukan aturan resmi dari developer.
+
+1. Jangan pelit kasih hutang.
+2. Kalau tidak dibayar, ikhlasin saja.
+3. Tonton iklan agar dapat uang lebih banyak; kalau bisa, beli versi Tanpa Iklan.
+4. Ikuti semua quest harian.
+5. Ajak ngobrol semua warga, termasuk Neo.
+6. Saat libur dagang, cek setiap tempat untuk menyelesaikan quest cerita.
+7. Siapkan stok belanjaan sebelum buka warung.
+8. Tolong warga yang meminta bantuan, karena berpengaruh pada reputasi warung.
+9. Promosikan tokomu setiap 2 hari sekali agar semakin banyak yang datang membeli.
+
+---
+
 ### Tips Umum
 
 - **Fokus upgrade**: beli etalase (level 1) dan kipas (level 2) dulu untuk meningkatkan pelanggan.

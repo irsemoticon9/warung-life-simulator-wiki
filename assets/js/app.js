@@ -137,6 +137,7 @@
       formatDialogues();
       formatPlaceholders();
       formatQuestAccordions();
+      formatPlayerTipsAccordions();
       formatChangelogAccordions();
       buildNavigation();
       bindAnchors();
@@ -473,6 +474,42 @@
       const parent = h.parentElement;
       parent.insertBefore(details, h);
       h.remove();
+    });
+  }
+
+  function formatPlayerTipsAccordions() {
+    const headings = [...content.querySelectorAll("h3")];
+    headings.forEach((h) => {
+      const text = plain(h);
+      const isPlayerTips = /^Tips dari Pemain Leaderboard/i.test(text);
+      if (!isPlayerTips) return;
+
+      // Collect all sibling nodes after this h3 until next h2/h3 or <hr> separator
+      const group = [];
+      let n = h.nextElementSibling;
+      while (n && n.tagName !== "H2" && n.tagName !== "H3" && n.tagName !== "HR") {
+        group.push(n);
+        n = n.nextElementSibling;
+      }
+      if (group.length === 0) return;
+
+      // Wrap in the same model as Cerita Utama (Bab X): heading inside summary
+      const details = document.createElement("details");
+      details.className = "quest player-tips";
+      const summary = document.createElement("summary");
+      summary.className = "quest-summary";
+      const h3 = document.createElement("h3");
+      h3.textContent = "Leaderboard #3";
+      summary.appendChild(h3);
+      details.appendChild(summary);
+      const body = document.createElement("div");
+      body.className = "quest-body";
+      group.forEach(el => body.appendChild(el));
+      details.appendChild(body);
+
+      // Insert after the h3 (h3 stays visible as section title)
+      const parent = h.parentElement;
+      parent.insertBefore(details, h.nextElementSibling);
     });
   }
 
