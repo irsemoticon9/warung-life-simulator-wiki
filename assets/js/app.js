@@ -833,7 +833,7 @@
       const badgeJob = (badgeCache && !fresh)
         ? Promise.resolve(badgeCache)
         : fetchBadges().then((b) => { badgeCache = b; return b; }).catch(() => null);
-      Promise.all([job, badgeJob]).then(([data, badge]) => {
+      return Promise.all([job, badgeJob]).then(([data, badge]) => {
         if (current !== id) return;
         if (data.error) {
           body.innerHTML = `<div class="papan-error">Papan tidak bisa dimuat: ${escapeHtml(data.error)}.<br>Periksa koneksi internet, lalu <button class="papan-retry" type="button">muat ulang</button>.</div>`;
@@ -846,17 +846,28 @@
       });
     }
 
-    WIDGET.innerHTML = `<div class="papan-tabs" role="tablist">${TABS.map((t) => `<button class="papan-tab${t.id === current ? " active" : ""}" data-tab="${t.id}" role="tab" type="button">${t.label}</button>`).join("")}</div><div class="papan-note muted">${TABS.find((t) => t.id === current).note}</div><div class="papan-body"></div>`;
+    WIDGET.innerHTML = `<div class="papan-head"><div class="papan-tabs" role="tablist">${TABS.map((t) => `<button class="papan-tab${t.id === current ? " active" : ""}" data-tab="${t.id}" role="tab" type="button">${t.label}</button>`).join("")}</div><button class="papan-refresh" id="papanRefresh" type="button" title="Ambil data papan terbaru">↻ Segarkan</button></div><div class="papan-note muted">${TABS.find((t) => t.id === current).note}</div><div class="papan-body"></div>`;
 
     const buttons = [...WIDGET.querySelectorAll(".papan-tab")];
     const note = WIDGET.querySelector(".papan-note");
     const body = WIDGET.querySelector(".papan-body");
+    const refreshBtn = WIDGET.querySelector("#papanRefresh");
 
     buttons.forEach((b) => b.addEventListener("click", () => {
       current = b.dataset.tab;
       note.textContent = TABS.find((t) => t.id === current).note;
       loadTab(current);
     }));
+
+    refreshBtn.addEventListener("click", () => {
+      if (refreshBtn.disabled) return;
+      refreshBtn.disabled = true;
+      refreshBtn.textContent = "Memuat…";
+      loadTab(current, true).finally(() => {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "↻ Segarkan";
+      });
+    });
 
     loadTab(current);
   }
