@@ -2858,7 +2858,93 @@ Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap
 
 **Tikus:** Mulai hari 6. Malam hari, ketahuan saat buka. Jarang kalau Neo minimal Tetangga akrab. Makan beras, gula, kerupuk, rengginang, biskuit, roti.
 
-## 7. Daftar Harga
+## 7. Karakter Kasbon (Hutang)
+
+Pembeli bisa berutang di kasir. Utangnya dicatat di Buku Hutang, lalu ditagih kalau lewat janji. Bagian ini merangkum cara kerja sistem kasbon dan siapa saja yang bisa minta utang, disusun dari analisis data game v0.40.
+
+### Kapan pembeli minta ngutang
+
+Kasbon tidak muncul karena uang pembeli kurang. Undiannya acak setiap kali kamu menekan Layani: game memutuskan apakah pembeli ini "dompetnya ketinggalan", lalu kamu pilih Kasih atau Tolak.
+
+Syarat agar permintaan kasbon bisa muncul:
+
+- Sudah hari ke-2 atau lebih. Hari pertama tidak ada kasbon.
+- Bukan mode latihan, dan tutorial sudah selesai.
+- Maksimal 2 permintaan kasbon per hari.
+- Maksimal 4 utang aktif sekaligus, dan hanya 1 utang per tipe warga.
+- Peluang 10% per pembeli. Kalau ini permintaan pertama hari itu dan sudah lewat jam 12.00, peluangnya naik jadi 35%.
+- Hanya 8 tipe pembeli yang bisa minta kasbon (tabel di bawah). Tipe lain tidak pernah minta utang di kasir.
+
+Kalau kamu kasih, barang tetap keluar dari rak dan tercatat terjual, tapi uangnya tidak masuk kas. Nilainya dicatat sebagai utang sebesar total belanjaannya.
+
+### Karakter yang bisa kasbon
+
+| Tipe pembeli | Warga bernama | Varian tanpa nama |
+|---|---|---|
+| kantoran | Pak Rudi | Pak Hendra, Kang Yayan, Pak Engkus, Kang Dede, Kang Oding |
+| ojek | Kang Asep | - |
+| ibu_rumah_tangga | Bu Ida, Bu Eni | Bu Imas, Ceu Iis, Bu Enok |
+| nenek | Nenek Sumi | Nini Onah, Nini Eha, Nini Cucu |
+| tukang | Mang Ujang | - |
+| petani | Abah Karta | - |
+| giska | Mba Giska | - |
+| pak_rt | Pak RT | - |
+
+Yang menentukan bukan nama, tapi tipe pembeli. Varian pakaian mewarisi sifat tipe asalnya, jadi Bu Imas atau Nini Onah bisa ikut minta kasbon. Tipe di luar tabel (pelajar, siswi, anak, santri, kurir, haji) tidak pernah minta utang di kasir. Kang Dadan hanya berutang lewat quest cerita, bukan di kasir.
+
+### Yang tidak mengembalikan
+
+Tidak ada karakter yang selalu kabur. Peluang gagal bayar diundi per utang, bukan per nama.
+
+- 10% utang langsung ditandai "susah bayar" begitu kamu memberikannya. Warga ini tidak datang pada hari janji.
+- Kalau tidak ditagih sampai lewat 3 hari dari hari janji, statusnya otomatis jadi "Diikhlaskan" dan uangmu hangus.
+- Penagihan dilakukan lewat Buku Hutang, sekali sehari per utang. Peluang berhasil: Halus 45%, Tegas 80%. Tiap percobaan menambah 15%, dan tagihan ketiga pasti berhasil.
+- Kasus paling parah: pembeli tanpa nama dengan utang Rp50000 ke atas. Saat kamu tagih pertama kali, ada 50% peluang dia "pindah rumah" dan utangnya hilang permanen, tidak bisa ditagih lagi. Warga bernama tidak bisa pindah rumah.
+
+### Yang mengembalikan
+
+Mayoritas bayar sendiri tanpa perlu ditagih.
+
+- 90% utang dibayar pada hari janji, yaitu 1-2 hari setelah kasbon dan digeser ke hari buka berikutnya kalau warung libur. Dia datang ke warung antara jam 10.00 dan 15.30.
+- Kalau telat lalu datang setelah ditagih, ada tiga pilihan: lunasi penuh (akrab -2), cicil separuh (akrab +2, sisa tetap di buku), atau ikhlaskan (akrab +6 dan dapat ulasan bintang 5).
+- Semua utang dari quest warga dijamin lunas, tidak pernah kena undian 10% gagal bayar. Daftar questnya ada di bagian 5. Quest Warga.
+
+| Quest | Karakter | Jumlah | Jatuh tempo |
+|---|---|---|---|
+| Kasbon Bu Ida | Bu Ida | Rp60000 | 14 hari |
+| Motor Kang Asep Mogok | Kang Asep | Rp120000 | 3 hari |
+| Istri Kang Dadan Melahirkan | Kang Dadan | Rp150000 | 5 hari |
+| Perkakas Mang Ujang | Mang Ujang | Rp100000 | 4 hari |
+| Hama Wereng di Sawah | Abah Karta | Rp200000 | 6 hari |
+| Dimas Masuk SMK | Dimas | Rp75000 | 7 hari |
+
+### Buku Hutang
+
+Catatan kuning di kamar Pak Misran. Isinya kolom Nama, Jumlah, Tgl, dan Keterangan.
+
+- Janji bayar 12 Nov: belum jatuh tempo.
+- Mau datang bayar: sudah janji datang setelah ditagih.
+- Telat 3 hari!: lewat janji dan belum ditagih.
+- Lunas 13 Nov: sudah dibayar penuh.
+- Diikhlaskan: utang dihapus, uang tidak kembali.
+- Pindah rumah, hilang: pembeli tanpa nama kabur, utang hangus permanen.
+
+### Efek ke hubungan
+
+- Kasih kasbon: akrab +4 dan dapat ulasan bintang 5.
+- Tolak kasbon: akrab -6, dan tipe pembeli itu 65% lebih jarang datang selama 7 hari.
+- Tagih tegas: akrab -3 untuk warga bernama, dan 30% peluang dapat ulasan jelek ("ditagih kayak debt collector").
+- Lunasi penuh setelah ditagih: akrab -2. Cicil: +2. Ikhlaskan: +6.
+
+### Tips kasbon
+
+- Kasbon bagus untuk menarik pelanggan, bukan untuk menambal kas. Uang keluar dulu, baru kembali 1-2 hari kemudian.
+- Jangan biarkan 4 slot utang aktif penuh. Selama penuh, permintaan kasbon lain otomatis tidak muncul.
+- Pembeli tanpa nama dengan belanja Rp50000 ke atas adalah risiko terbesar. Kalau mau aman, tolak yang nominalnya besar.
+- Tagih di hari telat pertama, jangan menunggu. Tagihan ketiga pasti berhasil, dan gaya tegas paling cepat.
+- Warga bernama tidak bisa "pindah rumah", jadi utang mereka selalu bisa dikejar sampai lunas.
+
+## 8. Daftar Harga
 
 Daftar harga jual semua barang, ikan, dan buah di Pasar. Modal = harga beli, Jual = harga jual ke pelanggan.
 
@@ -2990,7 +3076,7 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 - Di aplikasi Belanja Online, diskon promo yang sedang aktif selalu terlihat (label "PROMO -x%").
 - Barang khas agen selalu minimal 10% di atas harga belinya.
 - Semua harga dihitung di dalam game, jadi tidak butuh internet; internet hanya untuk cek lisensi, cek versi, kode redeem, papan online, dan pengiriman data.
-## 8. Daftar Upgrade
+## 9. Daftar Upgrade
 
 
 Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (sekali beli, permanen).
@@ -3039,7 +3125,7 @@ Catatan: efek total upgrade maksimal +50% keramaian dan +85% kesabaran.
 
 
 
-## 9. Panduan Mini-Game
+## 10. Panduan Mini-Game
 
 ### Mini-Game Mancing (Ikan)
 
@@ -3153,7 +3239,7 @@ Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — ba
 
 ---
 
-## 10. Kalender
+## 11. Kalender
 
 ### Hari & Waktu
 
@@ -3180,7 +3266,7 @@ Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — ba
 - Jalan-jalan: -10% energi
 - Tidur: mengisi energi kembali
 
-## 11. Tips & Trik
+## 12. Tips & Trik
 
 ### Tips Pemula
 
@@ -3331,7 +3417,7 @@ Fitur baru v0.40: simpanan warung bisa disimpan di cloud (akun Google) dan dipul
 
 ---
 
-## 12. Papan Peringkat & Supporter Badge
+## 13. Papan Peringkat & Supporter Badge
 
 Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain — tidak perlu melakukan apa-apa agar masuk papan.
 
@@ -3357,7 +3443,7 @@ Papan di server diperbarui tiap 30 menit, dan angka jempol di atas 1.000 ditulis
 
 *Cara wiki tahu: server menyimpan dua daftar kode warung — satu untuk pendukung (emas), satu untuk Warga Peduli (platinum). Kode tiap warung di papan dicocokkan dengan daftar itu, jadi warnanya bukan tebakan.*
 
-## 13. Change Log
+## 14. Change Log
 
 ### v0.40 (15 November 2026)
 
@@ -3416,4 +3502,4 @@ Papan di server diperbarui tiap 30 menit, dan angka jempol di atas 1.000 ditulis
 
 ### v0.38 (versi dasar wiki ini)
 
-Wiki ini pertama kali ditulis untuk versi 0.38, jadi bagian 1 sampai 10 di atas menggambarkan kondisi game saat v0.38 — lengkap dengan pembaruan v0.39 yang disebut di halaman ini. Riwayat perubahan lengkap v0.38 terhadap versi sebelumnya tidak bisa direkonstruksi dari file yang tersedia, karena build v0.37 tidak tersedia untuk dibandingkan.
+Wiki ini pertama kali ditulis untuk versi 0.38, jadi sebagian besar bagian di atas menggambarkan kondisi game saat v0.38 — lengkap dengan pembaruan v0.39 dan v0.40 yang disebut di halaman ini. Riwayat perubahan lengkap v0.38 terhadap versi sebelumnya tidak bisa direkonstruksi dari file yang tersedia, karena build v0.37 tidak tersedia untuk dibandingkan.
