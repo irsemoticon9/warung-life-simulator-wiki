@@ -894,6 +894,137 @@
     crumb.textContent = labels[cur] || cur;
   }
 
+  function initInstallUI() {
+    const SEEN_KEY = "warungwiki-install-seen";
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const shell = document.querySelector(".app-shell");
+    let deferredPrompt = null;
+    let dialog = null;
+    let lastTrigger = null;
 
+    function seen() {
+      try { return localStorage.getItem("warungwiki-install-seen") === "1"; }
+      catch (_) { return false; }
+    }
+    function markSeen() {
+      try { localStorage.setItem("warungwiki-install-seen", "1"); } catch (_) {}
+    }
+
+    function onKeydown(e) {
+      if (e.key === "Escape") closeDialog();
+    }
+
+    function closeDialog() {
+      if (!dialog) return;
+      markSeen();
+      dialog.remove();
+      dialog = null;
+      if (shell) shell.inert = false;
+      document.removeEventListener("keydown", onKeydown);
+      if (lastTrigger && lastTrigger.isConnected) lastTrigger.focus();
+      lastTrigger = null;
+    }
+
+    function dialogHtml() {
+      if (isIOS) {
+        return `
+          <h2 id="installDialogTitle">Pasang wiki di iPhone</h2>
+          <p>Buka panduan ini seperti aplikasi dari layar utama.</p>
+          <ol class="install-steps">
+            <li>Tekan tombol <strong>Share</strong> (kotak dengan panah ke atas).</li>
+            <li>Pilih <strong>Add to Home Screen</strong>.</li>
+            <li>Tekan <strong>Add</strong>.</li>
+          </ol>
+          <p class="install-hint">Setelah itu ikon wiki muncul di layar utama.</p>
+          <div class="install-dialog-actions">
+            <button class="install-dismiss" type="button">Nanti</button>
+            <button class="install-primary" type="button">Mengerti</button>
+          </div>`;
+      }
+      return `
+        <h2 id="installDialogTitle">Pasang wiki ini?</h2>
+        <p>Buka panduan seperti aplikasi dari layar utama, juga saat tanpa internet.</p>
+        <div class="install-dialog-actions">
+          <button class="install-dismiss" type="button">Nanti</button>
+          <button class="install-primary" type="button">Pasang</button>
+        </div>`;
+    }
+
+    function openDialog(trigger) {
+      if (dialog) return;
+      lastTrigger = trigger || null;
+      const overlay = document.createElement("div");
+      overlay.className = "install-overlay";
+      overlay.innerHTML = `<div class="install-dialog" role="dialog" aria-modal="true" aria-labelledby="installDialogTitle"><button class="install-close" type="button" aria-label="Tutup">×</button>${dialogHtml()}</div>`;
+      const box = overlay.firstElementChild;
+      document.body.appendChild(overlay);
+      dialog = overlay;
+      if (shell) shell.inert = true;
+
+      overlay.addEventListener("click", (e) => { if (e.target === overlay) closeDialog(); });
+      box.querySelector(".install-close").addEventListener("click", closeDialog);
+      box.querySelector(".install-dismiss").addEventListener("click", closeDialog);
+      box.querySelector(".install-primary").addEventListener("click", async () => {
+        if (!isIOS && deferredPrompt) {
+          try { await deferredPrompt.prompt(); } catch (_) {}
+          deferredPrompt = null;
+        }
+        closeDialog();
+      });
+      document.addEventListener("keydown", onKeydown);
+      const firstButton = box.querySelector("button");
+      if (firstButton) firstButton.focus();
+    }
+
+    const actions = document.querySelector(".top-actions");
+    if (!actions || (document.documentElement.isConnected === false)) return;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "install-button";
+    button.id = "installButton";
+    button.hidden = true;
+    button.setAttribute("aria-label", isIOS ? "Unduh wiki — lihat cara pasang" : "Install wiki");
+    button.innerHTML = `<span class="install-icon" aria-hidden="true">↓</span><span class="install-button-label">${isIOS ? "Unduh wiki" : "Install wiki"}</span>`;
+    actions.appendChild(button);
+
+    function showButton() {
+      if (!button.hidden) return;
+      button.hidden = false;
+      if (!seen()) {
+        setTimeout(() => openDialog(button), 500);
+      }
+    }
+
+    if (isIOS) {
+      showButton();
+      button.addEventListener("click", () => openDialog(button));
+    } else {
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        showButton();
+      });
+      button.addEventListener("click", async () => {
+        if (!deferredPrompt) return;
+        const promptEvent = deferredPrompt;
+        deferredPrompt = null;
+        try { await promptEvent.prompt(); } catch (_) {}
+      });
+      window.addEventListener("appinstalled", () => {
+        deferredPrompt = null;
+        button.hidden = true;
+        markSeen();
+        closeDialog();
+      });
+    }
+
+    if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+  }
+
+  initInstallUI();
   init();
 })();
