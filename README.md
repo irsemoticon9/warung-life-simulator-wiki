@@ -29,10 +29,31 @@ Lalu buka http://localhost:8000.
 7. Tunggu proses deployment selesai. GitHub akan memberikan URL website, biasanya:
    `https://USERNAME.github.io/warung-life-wiki/`
 
+## Wiki sebagai PWA
+
+Wiki ini sekarang adalah PWA (progressive web app): bisa dipasang dari layar utama HP dan dibaca tanpa internet setelah kunjungan pertama.
+
+- **Android / Chrome desktop:** pengunjung baru melihat pop-up sekali, lalu ada tombol **Install wiki** di bilah atas. Tombol itu memanggil prompt pemasangan browser. Setelah terpasang, tombolnya hilang.
+- **iPhone / iPad (Safari):** Safari tidak punya prompt install otomatis. Tombol **Unduh wiki** tetap tersedia di bilah atas dan membuka instruksi: tekan **Share** (kotak dengan panah ke atas) → pilih **Add to Home Screen** → tekan **Add**. Ikon wiki lalu muncul di layar utama.
+- Pop-up first-visit hanya muncul sekali per browser. Pilihan disimpan di `localStorage` dengan kunci `warungwiki-install-seen`. Menutup pop-up juga menandainya sudah dilihat.
+- Semua 17 halaman, `data/guide.md`, CSS/JS, gambar, font, dan library Markdown disimpan di cache service worker. Halaman dan panduan tetap bisa dibuka offline. Widget papan peringkat tetap memerlukan internet karena datanya berasal dari server eksternal.
+
+### Berkas PWA yang ditambahkan
+
+- `manifest.json` — nama aplikasi, warna tema, `start_url`, dan daftar ikon.
+- `sw.js` — service worker dengan precache berversi dan strategi network-first untuk navigasi.
+- `assets/img/icons/` — ikon 192×192, 512×512, maskable 512×512, dan apple-touch-icon 180×180.
+- `assets/vendor/` — salinan lokal `marked.min.js` dan `purify.min.js` (menggantikan jsDelivr CDN).
+- `assets/fonts/` + `assets/css/fonts.css` — salinan lokal font DM Sans dan Space Grotesk (menggantikan Google Fonts).
+
+### Aturan penting saat mengubah konten
+
+Setiap kali mengubah file HTML, CSS, JS, gambar, font, atau `data/guide.md`, **naikkan nilai `WIKI_CACHE_VERSION` di `sw.js`**. Tanpa itu, pengunjung yang sudah pernah membuka wiki akan terus melihat versi lama dari cache. Format yang dipakai: `warung-wiki-v1.2-YYYYMMDD`.
+
 ## Catatan
 - Tidak membutuhkan backend, database, build tools, atau server berbayar.
 - Panduan lengkap tersimpan di `data/guide.md`.
-- Renderer Markdown dan sanitasi HTML dimuat dari jsDelivr CDN. Saat pertama membuka website diperlukan koneksi internet.
+- Renderer Markdown, sanitasi HTML, dan font disimpan lokal di dalam repo, sehingga tidak bergantung pada CDN.
 - Logo dan gambar warung memakai `assets/img/warung-life-logo.png` (logo, favicon) dan `assets/img/warung-life-hero.png` (hero).
 - Tema gelap/terang otomatis mengikuti sistem; tombol tema di bilah atas untuk ganti manual (pilihan disimpan di browser).
 - Navigasi menggunakan halaman terpisah per bagian: `quest-level.html`, `cerita-utama.html`, `quest-warga.html`, `daftar-barang.html`, `daftar-upgrade.html`. Beranda di `index.html`.
