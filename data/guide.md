@@ -1,4 +1,4 @@
-# Warung Life Simulator Wiki - Fanmade (v1.0)
+# Warung Life Simulator Wiki - Fanmade (v1.2)
 > Sebuah Wiki Fanmade untuk Warung Life Simulator.
 > Panduan ini dibuat dengan bantuan AI. Segala Informasi Bertujuan untuk Membuat Game Menjadi Lebih Informatif. Selalu Support Neo Paw Studio selaku Developer.
 
@@ -233,14 +233,14 @@ Catatan: angka omzet yang tampil di game = target x faktor_macet(), dibulatkan k
 
 Pak Misran mengirim uang untuk Agus (anak, kuliah di kota) dan keperluan rumah tangga.
 Membayar bab level sama = ikut jadi syarat naik level itu.
-Lewat batas → denda dan dialog terlambat.
+Lewat batas → batas diperpanjang **3 hari** dan target naik **10%**, paling banyak **2 kali**; lalu muncul dialog terlambat.
 
 **Barang yang sudah terbuka di hari pertama:** mi goreng, mi rebus, telur, biskuit, air mineral, sachet, ciki, permen
 
-**Sewa kios** (kepada Pak Haji Rasyid), per level: Rp250.000 → Rp300.000 → Rp375.000 → Rp450.000 → Rp550.000 → Rp650.000 → Rp750.000 → Rp800.000 → Rp850.000 → Rp900.000
-(Sewa Casual tidak langsung memakai angka per level: dasar dihitung dari 15% omzet seminggu (paling rendah Rp50.000, paling tinggi dasar per level), ditambah separuh upah kerja sampingan 7 hari terakhir, lalu dibatasi angka per level di atas. Ditagih tiap Minggu pukul 18.00. Menunggak tidak kena denda, tapi tunggakan menumpuk; tiga minggu menunggak = kios diambil kembali.)
+**Sewa kios** (kepada Pak Haji Rasyid), per level: **Rp100.000** (level 1-2), **Rp200.000** (level 3-4), **Rp300.000** (level 5-6), **Rp400.000** (level 7-8), **Rp500.000** (level 9-10).
+(Mulai v1.2 sewa **tetap** dan lebih ringan, sama untuk Casual dan Hard: tidak lagi dihitung dari 15% omzet atau upah kerja sampingan. Sewa hanya naik di Level 3, 5, 7, dan 9, dan Pak Haji Rasyid memberi tahu alasannya. Ditagih tiap Minggu pukul 18.00. Menunggak tidak kena denda, tapi tunggakan menumpuk; tiga minggu menunggak = kios diambil kembali.)
 
-Mulai v1.0, tagihan sewa datang dengan pesan "sewa minggu ini dinaikkan" plus alasan dari Pak Haji Rasyid (alasannya berganti-ganti). Cara menghitungnya sendiri tetap sama seperti di atas, dan besar sewa tetap dikunci di awal minggu. Kalau tagihan hari itu sudah dibayar, tombol bayar/tunda tidak muncul lagi dan cicilan berikutnya langsung dihitung untuk minggu depan — tidak ada tagihan dobel.
+Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis memakai saldo QRIS** kalau uang di laci kurang, jadi kios tidak diambil padahal uangnya cukup. Kalau tagihan hari itu sudah dibayar, tombol bayar/tunda tidak muncul lagi dan cicilan berikutnya langsung dihitung untuk minggu depan - tidak ada tagihan dobel.
 
 ### Bab 1 - Uang Pendaftaran
 
@@ -400,9 +400,11 @@ Mulai v1.0, tagihan sewa datang dengan pesan "sewa minggu ini dinaikkan" plus al
 ### Bab 10 - Kios Milik Sendiri
 
 - **Keperluan:** pembelian kios dari Pak Haji Rasyid
-- **Target:** Rp24.000.000
+- **Target:** Rp30.000.000 (mulai v1.2; sebelumnya Rp24.000.000)
 - **Batas:** 45 hari
 - **Level terkait:** 10
+
+Catatan v1.2: keringanan harga kios tidak lagi turun terlalu jauh - tiap kali lewat batas, target hanya dipotong 25% dari kekurangan (dibulatkan ke Rp5.000) dan **paling banyak Rp1.800.000** (6% dari Rp30.000.000). Harga tidak pernah turun di bawah **Rp12.000.000** (40% harga awal). Batas waktu diperpanjang **3 hari** setiap kali.
 
 **Dialog awal bab:**
 
@@ -450,7 +452,7 @@ Mulai v1.0, sesudah kios dibeli dari Pak Haji Rasyid, aturan jam berubah total:
 - **Tutup bebas sampai pukul 24.00**, dan boleh tutup kapan saja sebelum itu (tidak ada lagi batas sore).
 - Khusus **malam Jumat (Kamis)**: kalau ikut ronda, wajib tutup pukul **22.00**.
 - Janji ketemu warga tetap muncul di hari Jumat (maksimal 3), walau warung sedang buka — tinggal temui mereka di tempat dan jam yang disebut.
-- Jam narik OjekKampung ikut bergeser mengikuti jam wajib tutup yang baru, jadi setelah kios milik narik praktis hanya bisa di hari Jumat (mulai 07.00).
+- Mulai v1.2, sesudah kios dibeli, **ojek bisa narik lagi pukul 17.00-23.30**, dan khusus **hari Jumat** bisa narik dari pagi sampai malam.
 
 ## 4. Epilog: Tiga Tahun Kemudian
 
@@ -1151,7 +1153,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
    - aksi: `tunda`
 
   **Pak Misran:** Saya hitung uang warung dulu ya, Bu. Nanti saya ke sini lagi.
-  **Bu Ida:** Iya, Pak. Saya di lapak sampai pasar tutup, jam sembilan malam. *(Catatan: dalam versi ini pasar tutup 19.00 sesuai kode game; dialog asli menyebut 9 malam.)*
+  **Bu Ida:** Iya, Pak. Saya di lapak sampai pasar tutup, jam sembilan malam.
 
 **HASIL - BANTU (tolong):**
 
@@ -2987,7 +2989,7 @@ Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap
 
 ## 7. Karakter Kasbon (Hutang)
 
-Pembeli bisa berutang di kasir. Utangnya dicatat di Buku Hutang, lalu ditagih kalau lewat janji. Bagian ini merangkum cara kerja sistem kasbon dan siapa saja yang bisa minta utang, disusun dari analisis data game v0.40.
+Pembeli bisa berutang di kasir. Utangnya dicatat di Buku Hutang, lalu ditagih kalau lewat janji. Bagian ini merangkum cara kerja sistem kasbon dan siapa saja yang bisa minta utang, disusun dari analisis data game v0.40 dan diperbarui untuk v1.2.
 
 ### Kapan pembeli minta ngutang
 
@@ -3002,6 +3004,7 @@ Syarat agar permintaan kasbon bisa muncul:
 - Peluang 10% per pembeli. Kalau ini permintaan pertama hari itu dan sudah lewat jam 12.00, peluangnya naik jadi 35%.
 - Hanya 8 tipe pembeli yang bisa minta kasbon (tabel di bawah). Tipe lain tidak pernah minta utang di kasir.
 - Mulai v1.0, pembeli yang datang membawa tawaran tip (bertanda bintang) tidak minta kasbon.
+- Mulai v1.2, **utang paling sedikit Rp10.000** (warga tidak lagi ngutang receh), dan utang baru bisa **dicicil kalau Rp20.000 ke atas**.
 
 Kalau kamu kasih, barang tetap keluar dari rak dan tercatat terjual, tapi uangnya tidak masuk kas. Nilainya dicatat sebagai utang sebesar total belanjaannya.
 
@@ -3156,15 +3159,15 @@ Ikan hasil mini-game memancing di area sawah. Disimpan di Tas dan dijual di Pasa
 
 | Ikan | Harga jual (Rp) | Kemungkinan muncul | Jendela ketuk (detik) | Keterangan |
 |---|---|---|---|---|
-| Ikan wader | 500 | 35 | 0,8 | Biasa |
-| Ikan mujair | 1500 | 25 | 0,75 | Biasa |
-| Ikan nila | 2000 | 20 | 0,7 | Biasa |
-| Ikan lele | 3000 | 12 | 0,6 | Biasa |
-| Ikan gabus | 5000 | 6 | 0,5 | Langka |
-| Ikan baung | 10000 | 2 | 0,42 | Langka |
-| Ikan dewa | 100000 | 0,5% (legendaris) | 0,3 | Legendaris |
+| Ikan wader | 500 | 55 | 0,8 | Biasa |
+| Ikan mujair | 1500 | 27 | 0,75 | Biasa |
+| Ikan nila | 2000 | 12,5 | 0,7 | Biasa |
+| Ikan lele | 3000 | 4 | 0,6 | Biasa |
+| Ikan gabus | 5000 | 1,2 | 0,5 | Langka |
+| Ikan baung | 10000 | 0,3 | 0,42 | Langka |
+| Ikan dewa | 100000 | 0,6% (legendaris) | 0,3 | Legendaris |
 
-Catatan: makin kecil angka = makin langka. Ikan dewa adalah legendaris: peluang 0,5% per ikan yang menyambar, diundi terpisah, tidak ikut bonus lemparan jauh dan tidak ikut digandakan iklan x2. Jendela = detik untuk mengetuk saat pelampung tenggelam (ikan langka lebih gesit).
+Catatan: makin kecil angka = makin langka. Mulai v1.2 **ikan mahal jauh lebih langka** (mis. lele dari 12% jadi 4%, gabus dari 6% jadi 1,2%, baung dari 2% jadi 0,3%). Ikan dewa adalah legendaris: peluang 0,6% per ikan yang menyambar, diundi terpisah, tidak ikut bonus lemparan jauh dan tidak ikut digandakan iklan x2. Jendela = detik untuk mengetuk saat pelampung tenggelam (ikan langka lebih gesit).
 
 
 
@@ -3193,6 +3196,8 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 - Harga akhir dibulatkan ke kelipatan Rp100.
 - Mulai v1.0, daftar barang di aplikasi diurutkan dari **stok paling sedikit** (stok di rak + kiriman yang sedang jalan), jadi barang yang hampir habis muncul paling atas.
 - Peringatan **stok menipis** muncul kalau stok barang (termasuk kiriman) tinggal **5 atau kurang** (sebelumnya 2).
+- Mulai v1.2, stok tiap barang paling banyak **100**. Stok lama yang lebih dari 100 tetap aman dan bisa dijual.
+- Aplikasi punya filter **Stok di bawah 5** dan **Diskon**; keduanya bisa dipakai bersamaan. Tampilan juga lebih lega, jadi lebih banyak barang terlihat sekaligus. Saldo QRIS tampil di layar belanja.
 
 **Grosir (Haji Maman)**
 
@@ -3218,9 +3223,10 @@ Harga jual tiap barang bisa diubah sendiri lewat aplikasi **Harga Jual** di HP, 
 
 - Langkah perubahan Rp100 untuk barang di bawah Rp10.000, dan Rp500 untuk barang Rp10.000 ke atas.
 - Batas bawah: harga modal + Rp100 (tidak bisa jual rugi), kecuali harga pasaran sedang di bawah itu, maka batas bawahnya ikut pasaran.
-- Batas atas: 150% dari harga disarankan.
+- Batas atas: **130%** dari harga disarankan (dibulatkan ke langkah harga), atau minimal harga pasaran kalau pasaran sedang lebih tinggi.
 - Angka berhenti tepat di harga disarankan dan harga pasaran, jadi tidak ada harga yang "nyangkut" di antaranya.
-- Di atas pasaran: untung per barang lebih besar, tapi pembeli mulai mengeluh. Peluang mengeluh naik dari 0% (harga = pasaran) sampai 90% (harga 150% pasaran). Dari yang mengeluh, separuhnya tetap membeli (ulasan bintang 2), separuhnya batal dan menulis ulasan bintang 1.
+- Mulai v1.2, harga jual yang terlalu mahal **lebih sering ditolak pembeli**.
+- Di atas pasaran: untung per barang lebih besar, tapi pembeli mulai mengeluh. Peluang mengeluh naik dari 0% (harga = pasaran) sampai 90% di batas atas 130%. Dari yang mengeluh, separuhnya tetap membeli (ulasan bintang 2), separuhnya batal dan menulis ulasan bintang 1.
 - Di bawah pasaran: untung lebih kecil, tapi warung lebih ramai dan pembeli lebih sabar. Efeknya dihitung dari rata-rata selisih semua barang: maksimal 20% lebih murah = sekitar 30% lebih ramai dan 20% lebih sabar.
 - Harga pasaran mulai dilaporkan di **Level 2** lewat chat "Info Harga Pasaran" tiap Senin. Nilainya bergerak 80%-125% dari harga disarankan, 3-5 barang berubah tiap minggu, dan selisihnya menyusut separuh tiap minggu kalau tidak berubah lagi.
 - Kalau harga terlalu mahal, pembeli bisa mengeluh lewat pop-up dan game menawarkan langsung membuka aplikasi Harga Jual di barang yang dimaksud.
@@ -3238,6 +3244,8 @@ Saat checkout di Belanja Online, barang bisa dikirim lewat tiga pilihan kurir. O
 - Kurir Instan didapat gratis kalau sudah punya Tanpa Iklan, atau dengan menonton 1 iklan. Selama masih aktif, pilihan kurir lain terkunci.
 - Patokan durasi kirim dari reputasi = 20 detik. Upgrade **Langganan kurir cepat** memotong waktu antar 30%, dan motor dari Wishlist membuat waktu kirim ×0,6.
 - Pilihan kurir tersimpan per hari. Kalau sudah memakai Reguler atau Cepat, belanja berikutnya di hari yang sama tetap memakai kurir itu tanpa ongkir tambahan.
+- Reputasi tinggi dan upgrade kurir juga mempercepat antaran.
+- **Stok minimum buka warung**: tiap barang yang sudah terbuka harus punya minimal **2 stok** (kecuali gas dan galon titipan pangkalan, yang baru boleh dijual setelah izin agen keluar). Barang yang masih dikirim kurir belum dihitung. Di Belanja Online ada tombol **Lengkapi stok** untuk membeli semua kekurangan sekaligus.
 
 ### 8.7 Saldo Layanan
 
@@ -3281,39 +3289,39 @@ Mulai v1.0, saldo bisa ditarik ke laci **sebagian**, tidak harus semuanya:
 ## 9. Daftar Upgrade
 
 
-Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (sekali beli, permanen).
+Daftar upgrade warung. Level = level tugas yang dibutuhkan. Harga = harga beli (sekali beli, permanen). **Mulai v1.2, semua harga upgrade naik 25% kecuali Etalase kaca.**
 
 | Nama | Level | Harga | Biaya/hari |
 |---|---|---|---|
 | Etalase kaca | 1 | Rp425.000 | - |
-| Kipas angin | 2 | Rp415.000 | Rp1.000 |
-| Lampu LED terang | 2 | Rp495.000 | Rp1.000 |
-| Spanduk baru | 3 | Rp665.000 | - |
-| Bangku tunggu | 3 | Rp750.000 | - |
-| Langganan kurir cepat | 4 | Rp830.000 | - |
-| Radio | 5 | Rp995.000 | Rp500 |
-| Pembayaran QRIS | 6 | Rp1.165.000 | Rp500 |
-| CCTV | 7 | Rp1.990.000 | Rp1.000 |
-| Genset | 8 | Rp1.660.000 | Rp1.500 |
-| TV warung | 9 | Rp2.550.000 | Rp2.000 |
-| WiFi gratis | 10 | Rp885.000 | Rp3.000 |
+| Kipas angin | 2 | Rp520.000 | Rp1.000 |
+| Lampu LED terang | 2 | Rp620.000 | Rp1.000 |
+| Spanduk baru | 3 | Rp830.000 | - |
+| Bangku tunggu | 3 | Rp940.000 | - |
+| Langganan kurir cepat | 4 | Rp1.040.000 | - |
+| Radio | 5 | Rp1.245.000 | Rp500 |
+| Pembayaran QRIS | 6 | Rp1.455.000 | Rp500 |
+| CCTV | 7 | Rp2.490.000 | Rp1.000 |
+| Genset | 8 | Rp2.075.000 | Rp1.500 |
+| TV warung | 9 | Rp3.190.000 | Rp2.000 |
+| WiFi gratis | 10 | Rp1.105.000 | Rp3.000 |
 | Motor (Wishlist) | - | Cicilan | Rp5.000/hari |
 
 
 **Detail tiap upgrade:**
 
 - **Etalase kaca** (level 1, Rp425.000): Etalase kaca berisi jajanan di depan Pak Misran. Wajib dibeli di hari pertama (modal awal sudah termasuk). Waktu melayani +1 detik, 5% lebih sering memesan beberapa barang. Pembeli 6% lebih ramai.
-- **Kipas angin** (level 2, Rp415.000 + biaya harian Rp1.000): Warung jadi sejuk. Semua pelanggan 25% lebih sabar, dan tidak ada lagi keluhan "gerah" di ulasan. Pembeli 6% lebih ramai. Listrik +Rp1.000/hari.
-- **Lampu LED terang** (level 2, Rp495.000 + biaya harian Rp1.000): Warung terang benderang, menarik pembeli sore dan malam. Pembeli 5% lebih ramai sepanjang hari (mulai pukul 15.00 +20% lagi), dan tidak ada lagi keluhan "lampu redup" di ulasan. Listrik +Rp1.000/hari.
-- **Spanduk baru** (level 3, Rp665.000): Spanduk mencolok di bawah papan nama warung. Sepanjang hari pembeli 8% lebih ramai.
-- **Bangku tunggu** (level 3, Rp750.000): Bangku untuk pelanggan yang menunggu giliran. Antrean bisa lebih panjang (+1 orang) dan pelanggan yang mengantre 25% lebih sabar. Tidak ada lagi keluhan "ngantre sambil berdiri" di ulasan. Pembeli 5% lebih ramai.
-- **Radio** (level 5, Rp995.000 + biaya harian Rp500): Lagu dangdut menemani pelanggan. Pelanggan yang puas 50% lebih sering menulis ulasan bagus. Tidak ada lagi keluhan "warungnya sepi" di ulasan. Pembeli 4% lebih ramai. Listrik +Rp500/hari.
-- **WiFi gratis** (level 10, Rp885.000 + biaya harian Rp3.000): Router WiFi untuk pembeli. Anak muda dan tukang ojek senang mampir sambil online: sepanjang hari pembeli 6% lebih ramai. Internet +Rp3.000/hari.
-- **Langganan kurir cepat** (level 4, Rp830.000): Supplier memakai kurir langganan: waktu antar kurir reguler dan cepat 30% lebih singkat. Pembeli 3% lebih ramai.
-- **Pembayaran QRIS** (level 6, Rp1.165.000 + biaya harian Rp500): Sekitar 1 dari 3 pelanggan bayar pakai scan QR, uangnya masuk saldo digital (tarik ke laci lewat Warga Bank; sejak v1.0 bisa sebagian — lihat 8.10). Waktu melayani +2 detik, peluang tip +10%, tidak ada lagi keluhan "belum bisa QRIS" di ulasan. Pembeli 2% lebih ramai. Biaya layanan QRIS Rp500/hari.
-- **Genset** (level 8, Rp1.660.000 + biaya harian Rp1.500): Listrik cadangan. Saat mati listrik, warung tetap terang dan kulkas tetap dingin. Pembeli 2% lebih ramai. Bensin & perawatan Rp1.500/hari.
-- **CCTV** (level 7, Rp1.990.000 + biaya harian Rp1.000): Kamera pengawas. Kejadian buruk (pencurian, palak) jauh berkurang. Pembeli 1% lebih ramai. Listrik +Rp1.000/hari.
-- **TV warung** (level 9, Rp2.550.000 + biaya harian Rp2.000): TV tabung di atas meja kecil: pembeli betah menunggu sambil menonton. Kesabaran saat antre +30% dan antrean boleh 1 orang lebih panjang. Listrik +Rp2.000/hari.
+- **Kipas angin** (level 2, Rp520.000 + biaya harian Rp1.000): Warung jadi sejuk. Semua pelanggan 25% lebih sabar, dan tidak ada lagi keluhan "gerah" di ulasan. Pembeli 6% lebih ramai. Listrik +Rp1.000/hari.
+- **Lampu LED terang** (level 2, Rp620.000 + biaya harian Rp1.000): Warung terang benderang, menarik pembeli sore dan malam. Pembeli 5% lebih ramai sepanjang hari (mulai pukul 15.00 +20% lagi), dan tidak ada lagi keluhan "lampu redup" di ulasan. Listrik +Rp1.000/hari.
+- **Spanduk baru** (level 3, Rp830.000): Spanduk mencolok di bawah papan nama warung. Sepanjang hari pembeli 8% lebih ramai.
+- **Bangku tunggu** (level 3, Rp940.000): Bangku untuk pelanggan yang menunggu giliran. Antrean bisa lebih panjang (+1 orang) dan pelanggan yang mengantre 25% lebih sabar. Tidak ada lagi keluhan "ngantre sambil berdiri" di ulasan. Pembeli 5% lebih ramai.
+- **Radio** (level 5, Rp1.245.000 + biaya harian Rp500): Lagu dangdut menemani pelanggan. Pelanggan yang puas 50% lebih sering menulis ulasan bagus. Tidak ada lagi keluhan "warungnya sepi" di ulasan. Pembeli 4% lebih ramai. Listrik +Rp500/hari.
+- **WiFi gratis** (level 10, Rp1.105.000 + biaya harian Rp3.000): Router WiFi untuk pembeli. Anak muda dan tukang ojek senang mampir sambil online: sepanjang hari pembeli 6% lebih ramai. Internet +Rp3.000/hari.
+- **Langganan kurir cepat** (level 4, Rp1.040.000): Supplier memakai kurir langganan: waktu antar kurir reguler dan cepat 30% lebih singkat. Pembeli 3% lebih ramai.
+- **Pembayaran QRIS** (level 6, Rp1.455.000 + biaya harian Rp500): Sekitar 1 dari 3 pelanggan bayar pakai scan QR, uangnya masuk saldo digital (tarik ke laci lewat Warga Bank; sejak v1.0 bisa sebagian - lihat 8.10). Waktu melayani +2 detik, peluang tip +10%, tidak ada lagi keluhan "belum bisa QRIS" di ulasan. Pembeli 2% lebih ramai. Biaya layanan QRIS Rp500/hari.
+- **Genset** (level 8, Rp2.075.000 + biaya harian Rp1.500): Listrik cadangan. Saat mati listrik, warung tetap terang dan kulkas tetap dingin. Pembeli 2% lebih ramai. Bensin & perawatan Rp1.500/hari.
+- **CCTV** (level 7, Rp2.490.000 + biaya harian Rp1.000): Kamera pengawas. Kejadian buruk (pencurian, palak) jauh berkurang. Pembeli 1% lebih ramai. Listrik +Rp1.000/hari.
+- **TV warung** (level 9, Rp3.190.000 + biaya harian Rp2.000): TV tabung di atas meja kecil: pembeli betah menunggu sambil menonton. Kesabaran saat antre +30% dan antrean boleh 1 orang lebih panjang. Listrik +Rp2.000/hari.
 
 - **Motor** (Wishlist, cicilan): Motor untuk narik ojek (OjekKampung). Beli di aplikasi Wishlist, bisa dicicil (uang muka + cicilan bulanan). Matel (debt collector) datang kalau telat bayar, motor bisa disita. Kalau motor disita, OjekKampung tidak bisa dipakai sampai beli/cicil motor lagi.
 
@@ -3418,11 +3426,12 @@ Mini-game mengantar penumpang atau barang naik motor, tersedia setelah warung tu
 
 **Aturan & batas:**
 
-- Maksimal **5 order per malam**. Plafon penghasilan per malam mulai v1.0 **acak antara Rp50.000 dan Rp100.000** per hari (kelipatan Rp5.000, cenderung di batas bawah; sebelumnya tetap Rp75.000). Kalau plafon tercapai, muncul pesan "Order malam ini sudah sepi". Yang ditampilkan sekaligus maksimal 3 order.
+- Mulai v1.2 **tidak ada lagi batas 5 order per malam**: semua order hari itu bisa diambil sampai habis, dan **hari Jumat order dua kali lebih banyak**. Plafon penghasilan per malam tetap **acak antara Rp50.000 dan Rp100.000** per hari (kelipatan Rp5.000, cenderung di batas bawah). Kalau plafon tercapai, muncul pesan "Order malam ini sudah sepi". Yang ditampilkan sekaligus maksimal 3 order.
+- Tarif di kartu order adalah **uang yang kamu terima** (bukan lagi sebelum potongan).
 - Tiap order memakan **30 menit** waktu game dan **10 poin energi**.
 - Ongkos per jarak: **Rp5.000-10.000**, **Rp12.000-20.000**, atau **Rp22.000-30.000**. Order "buru-buru" tambah Rp5.000; hujan ×1,25. Tip maksimal Rp5.000, plafon Rp35.000 per order.
 - Skor nyetir = 40% progres perjalanan + 60% kenyamanan. Ongkos ikut skor, minimum 50% dari nilai order.
-- Jam buka: mulai 07.00 saat hari libur (Jumat), atau jam tutup warung (17.00; 19.00 saat Ramadan). Tutup pukul 22.00, kecuali Kamis pukul 21.30. Setelah kios milik, jam wajib tutup bergeser ke 24.00 (22.00 saat ronda Kamis), sehingga narik praktis hanya bisa di hari Jumat mulai 07.00.
+- Jam buka: mulai 07.00 saat hari libur (Jumat), atau jam tutup warung (17.00; 19.00 saat Ramadan). Tutup pukul 22.00, kecuali Kamis pukul 21.30. Mulai v1.2, sesudah kios dibeli ojek bisa narik lagi **17.00-23.30**, dan khusus **Jumat bisa dari pagi sampai malam**.
 
 **Cara main:**
 1. Ambil order dari aplikasi OjekKampung
@@ -3452,7 +3461,7 @@ Sekali sehari, kira-kira antara pukul 09.00 dan 16.30, muncul pembeli khusus yan
 
 Jenis mini-game-nya diundi per hari, satu jenis per hari. Tip dihitung dari hasil mini-game: maksimal Rp6.000 untuk hitung kembalian dan tebak langganan, Rp5.000 untuk bungkus rapi. Hasil di bawah 30% tidak dapat tip; di atas itu nilainya dibulatkan ke Rp500 terdekat.
 
-Mulai v1.0, plafon tip juga mengikuti **total belanja pembeli**: dibulatkan ke bawah ke kelipatan Rp500 (minimal Rp1.000), tanpa melewati plafon mini-game di atas. Jadi pembeli dengan belanja besar bisa memberi tip lebih besar. Pembeli pembawa tip juga membawa pesanan yang lebih besar dari biasanya, dan tidak akan minta kasbon.
+Mulai v1.0, plafon tip juga mengikuti **total belanja pembeli**: dibulatkan ke bawah ke kelipatan Rp500 (minimal Rp1.000), tanpa melewati plafon mini-game di atas. Sejak v1.2, tip **tidak pernah lebih besar dari total belanjaannya** (misalnya pembeli permen tidak mungkin memberi tip Rp5.000). Pembeli pembawa tip juga membawa pesanan yang lebih besar dari biasanya, dan tidak akan minta kasbon.
 
 | Mini-game | Waktu | Target | Cara main |
 |---|---|---|---|
@@ -3462,7 +3471,7 @@ Mulai v1.0, plafon tip juga mengikuti **total belanja pembeli**: dibulatkan ke b
 
 ### Mini-Game Cek QRIS
 
-Setelah punya upgrade QRIS (level 6), pelanggan bisa minta mini-game "Cek QRIS" saat membayar. Maksimal 3 kali sehari, muncul sekitar pukul 10.00, 12.10, dan 14.20, hanya saat warung buka dan belum lewat pukul 17.00. Pembeli yang dapat mini-game ini bukan pembeli yang sama dengan pembawa tip.
+Setelah punya upgrade QRIS (level 6), pelanggan bisa minta mini-game "Cek QRIS" saat membayar. Mulai v1.2 mini-game ini muncul **paling banyak sekali sehari** (sebelumnya 3 kali), supaya jualan tidak sering terpotong. Muncul pagi-siang hanya saat warung buka dan belum lewat pukul 17.00. Pembeli yang dapat mini-game ini bukan pembeli yang sama dengan pembawa tip.
 
 Cara mainnya: seret HP pembeli ke kode QRIS, lalu putuskan **TERIMA** atau **TOLAK**. Terima hanya kalau notifikasinya berhasil, nominalnya pas, nama warungnya benar, dan buktinya bukan palsu. Selain itu tolak. Durasi 39 detik dengan target **4** (v1.0; sebelumnya 7), tip maksimal Rp6.000.
 
@@ -3496,10 +3505,13 @@ Mulai v1.0 lebih mudah dibaca: HP pembeli **diperbesar 1,45×** saat mengambil k
 - **Hari sekolah**: Senin-Sabtu (bukan Minggu)
 - **Jam buka warung**: buka 09.00, tutup 17.00 (5 sore); selama Ramadan boleh sampai 19.00 (7 sore). Setelah kios milik (v1.0): buka kapan saja dan tutup bebas sampai 24.00, khusus Kamis ikut ronda wajib tutup 22.00.
 - **Hari libur warung**: mulai v1.0 hanya **Jumat** (sebelumnya Senin dan Jumat). Pagi Jumat bebas jalan keliling kampung, sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus (janji ketemu warga) hanya muncul di hari libur warung, maksimal **3 janji** per libur. Setelah kios milik, warung tidak libur lagi — Jumat pun boleh buka, tapi janji warga tetap muncul.
-- **Pasar (lapak Bu Ida)**: buka 06.00-19.00, **libur Selasa & Kamis**. Ikan dan buah dari Tas bisa dijual ke Bu Ida hanya saat pasar buka. Angkot ke pasar Rp2.000, jalan 05.00-21.00.
+- **Pasar (lapak Bu Ida)**: buka **06.00-21.00** (juga saat Ramadan), **libur Selasa & Kamis**. Ikan dan buah dari Tas bisa dijual ke Bu Ida hanya saat pasar buka. Angkot dari pos ronda Rp2.000 sekali jalan, ±30 menit, jalan 05.00-21.00.
 - **Malam**: pukul 21.00 boleh pulang tidur (hari berganti); sesudah 21.00 energi turun lebih cepat. Ronda malam Jumat (malam Kamis) kumpul di pos ronda mulai 21.00.
 - **Ramadan**: selama Ramadan, beberapa event tidak muncul; warung boleh buka sampai 19.00, buka puasa sekali sehari sesudah Maghrib (18.00), tarawih 19.30-21.00.
 - **Gajian (tanggal muda)**: tanggal 25 s.d. 3 (hari gajian pabrik). Warung lebih ramai.
+- **Warung baru masih sepi**: keramaian hari pertama cuma **40%**, naik **6% per hari**, penuh di **hari ke-11**.
+- **Jam ramai**: 09.00-10.00 dan 15.30-17.00. **Jam sepi**: 13.00-15.30.
+- **Kecepatan waktu** di Pengaturan: **Lambat 1,04 / Normal 1,52 / Cepat 2,4** menit game per detik nyata. Jam buka 09.00-17.00 = 480 menit game, jadi sekitar **7,7 / 5,3 / 3,3 menit nyata**. Waktu (dan semua orang) berhenti saat HP atau jendela lain terbuka.
 
 ### Musim
 
@@ -3521,6 +3533,47 @@ Saat hujan:
 - Preman dan Fariz tidak keluar saat hujan, jadi quest yang melibatkan mereka menunggu. Warga lain tetap muncul.
 - Kejadian palak dan preman nongkrong tidak aktif saat hujan.
 - Di OjekKampung, ongkos +25%, tapi jalan licin — hindari lubang, ayam, genangan, dan polisi tidur.
+
+### Kalender Hadiah (v1.2)
+
+Aplikasi **Hadiah** di HP menampilkan kalender absen 30 hari. Bisa dibuka kapan saja, termasuk saat warung tutup. Absen **sekali per hari nyata** (tanggal WIB), dan baru terbuka setelah tutorial selesai.
+
+| Hari | Hadiah |
+|---|---|
+| Hari biasa | Rp15.000 |
+| 4 | Rp100.000 |
+| 8 | Rp150.000 |
+| 12 | Rp200.000 |
+| 16 | Rp250.000 |
+| 20 | Rp300.000 |
+| 24 | Rp350.000 |
+| 26 | Tanpa Iklan 1 hari (jadi Rp100.000 kalau sudah punya) |
+| 28 | Rp400.000 |
+| 30 | Baju **Kaos & sarung** (jadi Rp500.000 kalau sudah punya) |
+
+- Butuh internet: tanggal diambil dari jam server (header HTTP), jadi jam HP yang dimajukan tidak menipu.
+- Hari yang terlewat **tidak mengulang** kalender (tidak bisa dikejar besoknya).
+- Sesudah hari ke-30, besoknya kalender mulai lagi dari hari 1 (siklus baru).
+
+### Banjir (v1.2)
+
+Sesekali datang saat **hujan seharian**. Tanda-tandanya muncul lewat chat warga dan ramalan cuaca ("waspada banjir siang hari").
+
+Syarat & jadwal:
+
+- Baru bisa mulai **hari ke-10**.
+- Jarak minimal **14 hari** dari banjir terakhir.
+- Peluang **40%** pada hari hujan yang memenuhi syarat di atas.
+- Air naik acak antara pukul **10.00-13.00**, jalan sudah ditutup **20 menit sebelum** air naik.
+- Air surut pukul **17.00**.
+- Banjir hanya jadi kalau Pak Misran **sedang di warung** saat air mulai naik. Kalau tidak di warung, hari itu banjir batal.
+
+Saat banjir:
+
+- Tidak ada pembeli dan kendaraan.
+- Pak Misran **tidak bisa keluar warung**, tidak bisa jalan-jalan keliling kampung, dan tidak bisa berangkat kerja sampingan.
+- Kurir/supplier tidak datang, jadi stok tidak bisa diisi selama air masih tinggi.
+- Ada tombol **Lewati sampai air surut** yang mempercepat waktu sampai pukul 17.00.
 
 ### Infak, Zakat & THR
 
@@ -3583,7 +3636,7 @@ Selain berjualan, Pak Misran bisa mengambil kerja sampingan dari warga (ada tand
 
 ### Cicilan Sewa
 
-Lewat Warga Bank, sewa bisa dicicil **Rp25.000** atau **Rp50.000** sekali bayar. Uang cicilan dipakai untuk melunasi tunggakan lebih dulu; kalau tunggakan habis, hitungan minggu tunggakan direset. Sisanya baru dipakai untuk sewa minggu ini. Ada juga tombol bayar sekarang dan tunda pada saat tagihan datang.
+Lewat Warga Bank, sewa bisa dicicil **Rp25.000** atau **Rp50.000** sekali bayar. Uang cicilan dipakai untuk melunasi tunggakan lebih dulu; kalau tunggakan habis, hitungan minggu tunggakan direset. Sisanya baru dipakai untuk sewa minggu ini. Ada juga tombol bayar sekarang dan tunda pada saat tagihan datang. Mulai v1.2, kalau uang di laci kurang, pembayaran sewa **otomatis memakai saldo QRIS** lebih dulu.
 
 ### Kecelakaan & Sakit
 
@@ -3627,7 +3680,7 @@ Untuk pemain baru mulai di v1.0, dari hari pertama sampai kebiasaan harian.
 
 **Sewa kios**
 
-- Sewa ke Pak Haji Rasyid tiap Minggu malam: Rp250.000 di level 1, naik tiap level. Sisakan uangnya dari omzet.
+- Sewa ke Pak Haji Rasyid tiap Minggu malam: **Rp100.000 di level 1-2**, naik Rp100.000 tiap 2 level sampai **Rp500.000 di level 9-10** (mulai v1.2 sewa tetap, tidak ikut omzet). Sisakan uangnya dari omzet.
 
 **Kebiasaan harian**
 
@@ -3686,11 +3739,11 @@ Iklan dipakai di beberapa tempat. Kalau sudah punya **Tanpa Iklan**, semua aksi 
 | Kerja sampingan, setelah selesai | 1 iklan pilihan | Upah berlipat (total 2×) |
 | Kurir Instan | 1 iklan | Gratis 2 hari: hari ini dan besok |
 | Upgrade | Maksimal 6 iklan per upgrade, tidak untuk etalase | Diskon 10% per iklan |
-| Promosi warung | Bisa tiap 2 hari | Pembeli +50% selama 2 hari |
+| Promosi warung | Bisa tiap 2 hari (jeda 2 hari) | Pembeli **+20%** selama 2 hari |
 | Hasil mini-game | 1 iklan di layar hasil | Hasil tangkapan ×2 |
 | Ganti nama warung | Gratis untuk pertama kali, setelah itu iklan | Nama warung berubah |
 
-Catatan upgrade: diskon 10% per iklan bertumpuk sampai batas 6 iklan. Diskon naik jadi 30% setelah 30 hari di satu level, dan 40% saat level sudah macet.
+Catatan upgrade: diskon 10% per iklan bertumpuk sampai batas 6 iklan. Diskon naik jadi 30% setelah 30 hari di satu level, dan 40% saat level sudah macet. Mulai v1.2, potongan harga upgrade dari iklan dibatasi **paling banyak 60%**.
 
 ### Tips Omzet
 
@@ -3754,6 +3807,19 @@ Catatan upgrade: diskon 10% per iklan bertumpuk sampai batas 6 iklan. Diskon nai
 
 Sejak v0.40 simpanan warung bisa disimpan di cloud (akun Google) dan dipulihkan di HP baru. Di v1.0 fiturnya diperluas: akun Apple/Google di iPhone, proteksi simpanan yang lebih maju, dan menu utama yang lebih jelas.
 
+### Kode Warung & Cadangan Otomatis (v1.2)
+
+- Warung **otomatis dicadangkan ke server tanpa perlu login**. Kodenya ada di **menu jeda** (ketuk untuk menyalin), formatnya `W-xxxx-xxxx`.
+- Ganti HP atau game terhapus? Tekan **MULAI > Pulihkan warung lama**, lalu ketik kodenya.
+- Butuh internet saat memeriksa dan memulihkan kode. Kalau kode salah, muncul "Kode warung tidak ditemukan".
+- **Satu kode milik satu HP.** Kalau kode itu dipakai memulihkan warung di HP lain, warung di HP ini jadi terpisah dan mendapat Kode Warung baru. Supaya tidak bingung, main di satu HP saja.
+- Simpanan dari **versi game lebih baru** tidak bisa dibuka versi lama: update game dulu, kodenya tetap berlaku.
+- Kalau data cadangan rusak, gunakan form **Bantuan**.
+- Warung **tersimpan otomatis selama bermain**, jadi jualan tidak hilang kalau game tiba-tiba tertutup atau HP mati.
+- Kalau akun Google di HP ikut mencadangkan, hapus lalu pasang lagi game di HP yang sama akan memunculkan **"Warungmu ditemukan!"**.
+- Main di dua HP lebih aman: game menanyakan dulu simpanan mana yang mau dipakai. Kode Pindah HP tidak hangus kalau gagal dipakai.
+- Ada peringatan kalau simpanan cloud **lebih lama** dari warung di HP ini, supaya warung tidak tertimpa tanpa sengaja (lihat Proteksi Simpanan Cloud).
+
 ### Tautkan Akun Google
 - Buka Pengaturan > Akun & simpanan cloud
 - Tautkan akun Google (tidak wajib, game tetap bisa dimainkan tanpa akun)
@@ -3810,6 +3876,25 @@ Aplikasi baru di HP: **Kalkulator**. Berguna untuk menghitung kembalian, total b
 - **Kurir yang macet** otomatis diterima setelah 12 detik, jadi kiriman tidak tertahan lama.
 - Keluhan "kemahalan" bisa dimatikan sehari (lihat bagian Ulasan & Bintang).
 
+### Kemudahan Lain v1.2
+
+- **Lemari baju** di kamar: dekati lemari, lalu ketuk **Lemari baju**. Isinya terbagi **Baju bawaan**, **Hadiah tester**, dan **Segera hadir**. Pilih baju lalu ketuk **Pakai**; yang sedang dipakai bertanda **Dipakai**. Saat ini **Kaos & sarung** sudah bisa dipakai, baju lain menyusul.
+- **Pak Misran nyangkut** saat jalan-jalan? Menu jeda > Pengaturan > **"Pak Misran nyangkut? Pindahkan"**.
+- **Semua tombol yang mengeluarkan uang** bertanya dulu (**Batal / Ya, bayar**), jadi uang tidak hilang karena kepencet.
+- **Pengaturan suara terpisah**: Musik, Efek Suara, dan Suara Sekitar.
+- **Isi Tas bisa dibuang**: pilih barangnya, tentukan jumlahnya, lalu ketuk **Buang**.
+- **Mini-game bisa dijeda** dengan tombol **Jeda**.
+- **Tampilan emas** untuk pop up, naik level, hasil misi, dan menu utama. Ikon aplikasi di HP tampil baru: lebih cerah, mengilap, berbayang.
+- **Saldo QRIS** tampil di layar warung dan layar utama HP.
+- **Belanja Online** lebih lega; panel Stok dengan daftar panjang tidak lagi terpotong di layar HP.
+- **Barang pesanan sesudah warung tutup**, atau dari HP saat jalan-jalan, tetap diantar kurir.
+- **Motor cicilan** tidak langsung disita kalau matel belum sempat menagih karena hujan atau Pak Misran sakit.
+- **Ikan dan buah** yang sudah didapat tetap masuk Tas walau game tertutup di tengah mini-game.
+- Cerita **Takjil Masjid** dan **Agus Pulang** tetap bisa diselesaikan walau tanggalnya sudah lewat; kalau uang belum cukup, selalu ada pilihan **Nanti dulu**.
+- **Misi di panel kiri bisa diketuk** untuk melihat lokasi warga: gambar tempatnya, hari, jam, dan apakah orangnya bisa ditemui sekarang.
+- **Panel Misi** tidak lagi menutupi Belanja Online, warga tidak membeli dagangannya sendiri, dan tanda "!" tidak muncul di tempat kosong.
+- Game tidak lagi keluar sendiri di beberapa HP (Infinix Note 40 Pro 5G, Redmi Note 14 5G, POCO M7 Pro 5G) dan saat berpindah tempat.
+
 ---
 
 ## 13. Papan Peringkat & Supporter Badge
@@ -3823,6 +3908,39 @@ Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) 
 <div id="papanWidget"></div>
 
 *Catatan: papan Sepanjang Masa menumpuk sejak warung pertama dibuka. Papan Mingguan dan Bulanan mulai dari nol lagi saat periodenya berganti, jadi peringkat di ketiga tab bisa berbeda.*
+
+### Foto Profil (v1.2)
+
+Pilih foto tokoh untuk warungmu. Fotonya tampil di **papan peringkat** dan **Adu Laris**.
+
+Pilihan yang tersedia: **Pak Misran, Agus, Pak RT, Mba Giska, Pak Rudi, Dimas, Neng Shinta, Bu Ida, Nenek Sumi, Ucup, Kang Asep, Abah Karta, Mang Ujang, Kang Fadil, Kang Hasan, dan Kang Dadan**.
+
+### ADU LARIS (v1.2)
+
+Duel jualan **1 menit** melawan warung lain, berlangsung di depan warung **sesudah warung tutup**. Ada **papan Adu Laris mingguan**, dan **mode Latihan** yang bisa dimainkan kapan saja.
+
+- Duel resmi hanya sesudah warung tutup; kalau sudah terlalu malam, harus besok lagi.
+- Batas **5 kali sehari**; sesudah habis, ada hitungan waktu sampai terbuka lagi.
+- Butuh energi minimal **15**.
+- Lawan memakai nama warung kampung (mis. Warung Barokah, Toko Sumber Rejeki, Kios Mang Dadang).
+- Hasil duel: **menang / kalah / seri**, plus hitungan **beruntun** dan **trofi**.
+
+Cara main & skor:
+
+- Satu duel **60 detik**, berisi **40 pembeli** dengan pola borongan **kecil, kecil, sedang, sedang, besar**.
+- Tiap barang dihargai **Rp6.500**, jadi satu pesanan bernilai jumlah barang × Rp6.500 (toleransi ±5%).
+- Kerjakan pesanan sebelum kesabaran pembeli habis: kesabaran mulai **13 detik** dan menyusut sampai **8 detik** di akhir duel. Pesanan **borong/besar** dapat +6 detik, dan tiap barang di atas 2 menambah +0,8 detik.
+- Pelanggan yang dilayani cepat memberi **tip Rp100 per detik sisa kesabaran**.
+- Beruntun **3 kali** menaikkan nilai pesanan ×1,1; beruntun **6 kali** jadi ×1,2. Pesanan yang gagal mereset beruntun.
+- Skor akhir = total omzet. **Menang** kalau omzetmu lebih besar dari lawan; omzet di atas **Rp1.250.000** dianggap tidak wajar dan tidak masuk papan.
+- Trofi: **+3** menang, **+1** seri, **0** kalah. Beruntun hanya naik saat menang.
+- Kekuatan lawan mengikuti level warungmu (±1 level) plus beruntunmu, dengan kecenderungan jago 25%-92%.
+
+### Papan Juara Kerja Sampingan (v1.2)
+
+Tiap kerja sampingan punya **papan juara mingguan** yang tampil saat kamu diajak kerja. Isinya peringkat, **skor**, dan **waktu (detik)**. Kalau belum ada yang main, muncul "Belum ada juara minggu ini. Jadilah yang pertama!".
+
+Mini-game **tidak lagi berhenti di 2x target**, jadi skormu bisa setinggi-tingginya. Catatan: bonus "capai 2x target" tetap memberi uang tambahan dan mengakhiri permainan lebih cepat kalau diinginkan. Skor yang dikirim diperiksa dulu sebelum masuk papan.
 
 ### Jempol & Lapor Nama
 
@@ -3847,6 +3965,78 @@ Papan di server diperbarui tiap 30 menit, dan angka jempol di atas 1.000 ditulis
 *Cara wiki tahu: server menyimpan dua daftar kode warung — satu untuk pendukung (emas), satu untuk Warga Peduli (platinum). Kode tiap warung di papan dicocokkan dengan daftar itu, jadi warnanya bukan tebakan.*
 
 ## 14. Change Log
+
+### Ringkasan Fitur & Perubahan v1.2
+
+**Fitur baru**
+- **Kalender Hadiah**: absen harian Rp15.000, hadiah besar tiap 4 hari sampai Rp400.000, baju Kaos & sarung di hari ke-30.
+- **Kode Warung**: cadangan otomatis tanpa login; pulihkan lewat MULAI > Pulihkan warung lama.
+- **ADU LARIS**: duel jualan 1 menit, papan mingguan, dan mode Latihan.
+- **Foto profil**, **Papan Juara** kerja sampingan, **Lemari baju** di kamar.
+- **Banjir** saat hujan seharian, lengkap dengan tombol Lewati sampai surut.
+- **Filter Belanja Online** (Stok di bawah 5 dan Diskon), **buang isi Tas**, **Jeda mini-game**, **pengaturan suara terpisah**, dan **tampilan emas**.
+
+**Ekonomi & keseimbangan**
+- Harga upgrade naik **25%** (Etalase kaca tetap); kios Rp30 juta; sewa tetap Rp100.000-Rp500.000 dan hanya naik di Level 3, 5, 7, 9.
+- Stok tiap barang maksimal **100**; utang minimal **Rp10.000** (cicil mulai Rp20.000).
+- Ikan mahal jauh lebih langka; tip tidak melebihi total belanja.
+- Cek QRIS **sekali sehari**; ojek Jumat dua kali lebih banyak; potongan upgrade maksimal **60%**.
+
+### v1.2 (build 49, November 2026)
+
+Diverifikasi dari APK `com.neopawstudio.warunglife` versionName **1.2**, versionCode **49**. APK ditandatangani skema v2+v3.
+
+*Catatan sumber:* `yang_baru.gd` (`CATATAN`) memisahkan sebagian perubahan di bawah ke rilis **v1.1** — sewa tetap Rp100.000-Rp500.000, harga upgrade +25%, kios Rp30 juta, stok maksimal 100, kasbon minimal Rp10.000, ikan langka, Cek QRIS sekali sehari, tanggal emas, suara terpisah, jeda mini-game, filter/Buang Tas, ojek malam 17.00-23.30, dan plafon keringanan 60%. Wiki menggabungkannya di entri v1.2 karena build yang terpasang adalah 49.
+
+**Fitur baru**
+- **Kalender Hadiah**: absen sekali sehari dapat Rp15.000. Setiap 4 hari hadiah besar sampai Rp400.000, dan baju **Kaos & sarung** di hari ke-30. Bisa dibuka kapan saja lewat aplikasi **Hadiah** di HP.
+- **Kode Warung**: warung otomatis dicadangkan ke server tanpa login. Kodenya ada di menu jeda (ketuk untuk menyalin). Ganti HP atau game terhapus? Tekan **MULAI > Pulihkan warung lama**, lalu ketik kodenya.
+- **Cadangan otomatis**: warung tersimpan selama bermain, jadi jualan tidak hilang kalau game tiba-tiba tertutup atau HP mati. Simpanan cloud juga tidak lagi tertinggal diam-diam.
+- **Cadangan akun Google HP**: kalau game dihapus lalu dipasang lagi di HP yang sama, game langsung menawarkan **"Warungmu ditemukan!"**.
+- **ADU LARIS**: duel jualan 1 menit melawan warung lain di depan warung, sesudah warung tutup. Ada papan Adu Laris mingguan dan mode **Latihan** yang bisa dimainkan kapan saja.
+- **Foto profil**: pilih foto tokoh untuk warungmu. Fotonya tampil di papan peringkat dan Adu Laris.
+- **Papan Juara mingguan** untuk tiap kerja sampingan, tampil saat diajak kerja. Mini-game tidak lagi berhenti di 2x target, jadi skor bisa setinggi-tingginya.
+- **Banjir**: sesekali datang saat hujan seharian. Tidak ada pembeli dan kendaraan, Pak Misran tidak bisa keluar warung, dan ada tombol **Lewati sampai air surut** pukul 17.00.
+- **Lemari baju** di kamar: dekati lemari, lalu ketuk **Lemari baju**. Tester uji coba sudah bisa memakai Kaos & sarung; baju lain menyusul.
+- **Buang isi Tas**: pilih barangnya, tentukan jumlahnya, lalu ketuk **Buang**.
+- **Filter Belanja Online**: **Stok di bawah 5** dan **Diskon**, bisa dipakai bersamaan.
+- **Pengaturan suara terpisah**: Musik, Efek Suara, dan Suara Sekitar.
+- **Jeda mini-game** lewat tombol Jeda.
+- **Tampilan emas** untuk pop up, naik level, hasil misi, dan menu utama; ikon aplikasi HP baru lebih cerah dan berbayang.
+- **Tombol konfirmasi uang**: semua tombol yang mengeluarkan uang bertanya dulu (Batal / Ya, bayar).
+- **"Pak Misran nyangkut? Pindahkan"** di menu jeda > Pengaturan.
+
+**Perubahan & keseimbangan**
+- **Harga perlengkapan warung naik 25%** (Etalase kaca tetap). Harga beli kios dari Pak Haji Rasyid menjadi **Rp30 juta**.
+- **Sewa kios tetap dan lebih ringan**: Rp100.000 sampai Rp500.000. Sewa hanya naik di **Level 3, 5, 7, dan 9**, dan Pak Haji Rasyid memberi tahu alasannya. Kerja sampingan tidak lagi membuat sewa naik.
+- **Stok tiap barang paling banyak 100**. Stok lama di atas 100 tetap aman dan bisa dijual.
+- **Kasbon**: utang paling sedikit **Rp10.000**; baru bisa dicicil kalau **Rp20.000** ke atas.
+- **Ikan mahal jauh lebih langka**, dan harga jual yang terlalu mahal lebih sering ditolak pembeli.
+- **Tip** tidak lagi lebih besar dari total belanja pembeli.
+- **Cek QRIS** muncul **sekali sehari** (sebelumnya 3 kali).
+- **OjekKampung**: tarif di kartu order adalah uang yang diterima; order hari itu bisa diambil sampai habis; **Jumat order dua kali lebih banyak**; aplikasi berwarna biru.
+- Sesudah kios dibeli, **ojek bisa narik lagi 17.00-23.30**; hari Jumat bisa dari pagi sampai malam.
+- Harga kios tidak lagi turun terlalu jauh: keringanannya pelan dan **paling banyak 60%**.
+- Potongan harga upgrade dari iklan **paling banyak 60%**.
+- **Bayar sewa otomatis memakai saldo QRIS** kalau uang di laci kurang.
+- **Belanja Online lebih lega**; saldo QRIS tampil di layar warung dan layar utama HP.
+- **Motor cicilan** tidak langsung disita kalau matel belum sempat menagih karena hujan atau Pak Misran sakit.
+- **Ikan dan buah** yang sudah didapat tetap masuk Tas walau game tertutup di tengah mini-game.
+- Misi di panel kiri bisa diketuk untuk melihat lokasi warga, hari, jam, dan apakah bisa ditemui sekarang.
+- Cerita **Takjil Masjid** dan **Agus Pulang** tetap bisa diselesaikan walau tanggalnya lewat; selalu ada pilihan **Nanti dulu** kalau uang belum cukup.
+- **Menu lebih jelas**: MULAI hanya untuk pemain baru, sesudah itu cukup LANJUTKAN. Main baru di slot lain lewat Load Save (slot kosong).
+
+**Perbaikan**
+- Barang yang dipesan sesudah warung tutup, atau dari HP saat jalan-jalan, tetap diantar kurir.
+- Tanpa Iklan lebih andal: bayar QRIS atau transfer saat game tertutup tetap aktif sendiri. Tautkan akun Google tidak macet lagi.
+- Game tidak lagi keluar sendiri di beberapa HP (Infinix Note 40 Pro 5G, Redmi Note 14 5G, POCO M7 Pro 5G) dan saat berpindah tempat.
+- Panel Misi tidak lagi menutupi Belanja Online; warga tidak membeli dagangannya sendiri; tanda "!" tidak muncul di tempat kosong.
+- Panel Stok dengan daftar panjang tidak lagi terpotong di layar HP.
+- Mini-game sekarang bisa dijeda.
+- Penumpang ojek duduk membonceng dengan benar, termasuk Mang Ujang dan Abah Karta.
+- Ajakan bagi sembako Pak RT tidak lagi bilang warung libur kalau kios sudah milik sendiri.
+- Simpanan cloud yang lebih lama memberi peringatan supaya warung tidak tertimpa tanpa sengaja.
+- Perbaikan kecil teks dan tampilan lainnya.
 
 ### v1.0 (build 45, November 2026)
 

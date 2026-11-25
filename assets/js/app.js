@@ -537,7 +537,8 @@
       if (n.tagName === "H3") h3s.push(n);
       n = n.nextElementSibling;
     }
-    h3s.forEach((h, idx) => {
+    let first = true;
+    h3s.forEach((h) => {
       const text = plain(h);
       if (!/^v\d/i.test(text)) return;
       const group = [h];
@@ -548,7 +549,7 @@
       }
       const details = document.createElement("details");
       details.className = "changelog-version";
-      if (idx === 0) details.open = true;
+      if (first) { details.open = true; first = false; }
       const summary = document.createElement("summary");
       summary.className = "changelog-summary";
       const h3 = document.createElement("h3");
