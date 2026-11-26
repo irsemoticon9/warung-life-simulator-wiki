@@ -21,7 +21,7 @@ test("render fun fact memuat redaksi yang sesuai sumber", () => {
   assert.ok(fact);
   for (const needle of [
     "nama ayah Mba Giska (istri kreator)",
-    "dibuat meniru ayahnya",
+    "dibuat meniru ayah kreator (namanya sengaja disamarkan)",
     "tinggal di Cianjur sejak kreator masih kuliah",
     "Usaha beliau ada, tapi bukan warung",
     "mengadopsi pengalaman kuliah kreator"
@@ -29,6 +29,7 @@ test("render fun fact memuat redaksi yang sesuai sumber", () => {
     assert.ok(fact.includes(needle), `hilang: ${needle}`);
   }
   assert.doesNotMatch(fact, /nama asli|bapak gue bernama/i);
+  assert.doesNotMatch(fact, /dibuat meniru ayahnya/);
 });
 
 test("render fun fact menautkan dua sumber Threads yang bisa dicek", () => {
