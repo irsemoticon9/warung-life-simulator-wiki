@@ -35,7 +35,7 @@ Sisipkan satu blok kutipan Markdown setelah paragraf terakhir pembuka Cerita Uta
 
 ```
 > **💡 Fun Fact — di balik nama Pak Misran**
-> "Misran" adalah nama ayah Mba Giska (istri kreator). Sifat Pak Misran di game dibuat meniru ayahnya, yang tinggal di Cianjur sejak kreator masih kuliah. Usaha beliau ada, tapi bukan warung. Cerita WLS juga mengadopsi pengalaman kuliah kreator—katanya, kalau dulu dia tidak menyebalkan, game ini mungkin tidak dibuat.
+> "Misran" adalah nama ayah Mba Giska (istri kreator). Sifat Pak Misran di game dibuat meniru ayah kreator (namanya sengaja disamarkan), yang tinggal di Cianjur sejak kreator masih kuliah. Usaha beliau ada, tapi bukan warung. Cerita WLS juga mengadopsi pengalaman kuliah kreator—katanya, kalau dulu dia tidak menyebalkan, game ini mungkin tidak dibuat.
 >
 > Sumber: [@agushermawann di Threads](https://www.threads.com/@agushermawann/post/DgMYHlaj6b2) ([tautan share](https://www.threads.com/share/BAdRpDvjsf)).
 ```
