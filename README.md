@@ -46,9 +46,13 @@ Wiki ini sekarang adalah PWA (progressive web app): bisa dipasang dari layar uta
 - `assets/vendor/` — salinan lokal `marked.min.js` dan `purify.min.js` (menggantikan jsDelivr CDN).
 - `assets/fonts/` + `assets/css/fonts.css` — salinan lokal font DM Sans dan Space Grotesk (menggantikan Google Fonts).
 
+### Preview saat tautan dibagikan
+
+`assets/img/og-preview.png` adalah gambar 1200×630 berisi logo, judul wiki, dan tagline. Tag **Open Graph** dan Twitter Card disuntikkan ke `<head>` ketujuh belas halaman, sehingga Threads, WhatsApp, Facebook, X, dan Discord menampilkan judul, deskripsi, serta gambar yang sama saat tautan ditempel. URL gambar dan `og:url` memakai alamat absolut GitHub Pages; satu gambar dipakai untuk semua halaman. Preview di Threads hanya bisa dipastikan dengan membagikan tautan dari akun sendiri.
+
 ### Aturan penting saat mengubah konten
 
-Setiap kali mengubah file HTML, CSS, JS, gambar, font, atau `data/guide.md`, **naikkan nilai `WIKI_CACHE_VERSION` di `sw.js`**. Tanpa itu, pengunjung yang sudah pernah membuka wiki akan terus melihat versi lama dari cache. Format yang dipakai: `warung-wiki-v1.2-YYYYMMDD`.
+Setiap kali mengubah file HTML, CSS, JS, gambar, font, atau `data/guide.md`, **naikkan nilai `WIKI_CACHE_VERSION` di `sw.js`**. Tanpa itu, pengunjung yang sudah pernah membuka wiki akan terus melihat versi lama dari cache. Format yang dipakai saat ini: `warung-wiki-v1.3-20261126` (naikkan nomor versi atau tanggalnya setiap ada perubahan).
 
 ## Catatan
 - Tidak membutuhkan backend, database, build tools, atau server berbayar.

@@ -1,6 +1,6 @@
 // Warung Life Wiki service worker.
 // Naikkan WIKI_CACHE_VERSION setiap kali HTML, CSS, JS, gambar, font, atau data/guide.md berubah.
-const WIKI_CACHE_VERSION = "warung-wiki-v1.2-20261126";
+const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261126";
 
 const PRECACHE = [
   "./",
@@ -27,6 +27,7 @@ const PRECACHE = [
   "./assets/img/favicon.png",
   "./assets/img/warung-life-hero.png",
   "./assets/img/warung-life-logo.png",
+  "./assets/img/og-preview.png",
   "./assets/img/icons/apple-touch-icon-180.png",
   "./assets/img/icons/icon-192.png",
   "./assets/img/icons/icon-512.png",
