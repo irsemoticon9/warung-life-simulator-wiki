@@ -8,7 +8,7 @@ const require = createRequire(import.meta.url);
 const { marked } = require("../assets/vendor/marked.min.js");
 const guide = readFileSync(fileURLToPath(new URL("../data/guide.md", import.meta.url)), "utf8");
 const html = marked.parse(guide);
-const fact = html.match(/<blockquote>\s*<p><strong>💡 Fun Fact — di balik nama Pak Misran<\/strong>[\s\S]*?<\/blockquote>/)?.[0];
+const fact = html.match(/<blockquote>\s*<p><strong>Fun Fact: di balik nama Pak Misran<\/strong>[\s\S]*?<\/blockquote>/)?.[0];
 const bab1 = html.indexOf("Bab 1 - Uang Pendaftaran");
 
 test("fun fact tampil di hasil render Cerita Utama sebelum Bab 1", () => {

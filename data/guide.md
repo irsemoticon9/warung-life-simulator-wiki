@@ -149,8 +149,8 @@ Urutan pengecekannya: kurang barang, lalu keluhan mahal, lalu cepat, lalu pesana
 
 - Radio menambah 50% peluang ulasan bagus (bintang 4-5).
 - Bintang warung = rata-rata **80 ulasan terakhir**. Supaya warung baru tidak langsung bintang 1, game menambahkan 10 "ulasan bayangan" bintang 3 yang bobotnya makin kecil seiring jumlah ulasan asli.
-- Reputasi = (bintang rata-rata − 1) × 25, skala 0-100. Ambang bintang: 2★ mulai 25, 3★ mulai 50, 4★ mulai 75, 5★ mulai 90.
-- Efek bintang ke keramaian: 3★ jeda pembeli ×0,95, 4★ ×0,9, 5★ ×0,85 (makin tinggi makin ramai). Bintang tidak dipakai sebagai syarat naik level.
+- Reputasi dihitung dari rata-rata bintang ulasan dengan skala 0-100. Bintang 2 mulai dari 25 poin, bintang 3 dari 50, bintang 4 dari 75, dan bintang 5 dari 90.
+- Bintang membuat pembeli datang lebih cepat: 3★ sekitar 5% lebih cepat, 4★ 10% lebih cepat, dan 5★ 15% lebih cepat. Bintang tidak dipakai sebagai syarat naik level.
 - Ulasan bintang 5 hanya bertahan kalau fasilitas nyaman lengkap. Peluang mempertahankannya: 30% + 12% per fasilitas yang dimiliki (kipas, bangku, lampu, radio, QRIS), jadi 90% kalau kelimanya ada.
 - Sebaliknya, ulasan bagus bisa turun jadi bintang 3 kalau fasilitas kurang: tidak ada kipas (gerah), tidak ada bangku (mengantre berdiri), lampu redup saat malam, radio belum ada di level 5 ke atas, QRIS belum ada di level 6 ke atas, barang masih sedikit (level 2 ke bawah), atau warung masih terlalu sederhana (level 1).
 
@@ -170,8 +170,8 @@ Tiap tipe warga menyimpan poin akrab tersendiri. Poin naik/turun dari cara kamu 
 - Kenaikan kecil (sapa, kerja, layani, kasih makan) maksimal **sekali per hari per tipe**. Menolong dan menolak cerita tidak kena batas itu.
 - Efek akrab: warga makin sering datang sampai **+60%** (1 + 0,6 × akrab/100).
 - **Langganan setia** (60+): peluang tip 20% dan ulasan bagus 25%.
-- **Sudah seperti keluarga** (85+): sesekali mengirim makanan ke warung — peluang 1/7 per hari, jeda minimal 5 hari, datang pukul 10.00-15.30, tidak saat libur atau Ramadan. Energi yang didapat +15 s.d. +25 tergantung warganya (mis. Nenek +20, Ibu Rumah Tangga +25, Giska +15).
-- Neo bisa dikasih makan setelah quest "Si Neo Hilang" selesai dengan cabang **tolong**, butuh stok makanan kucing di warung, dan 1 kali sehari.
+- **Sudah seperti keluarga** (85+): sesekali mengirim makanan ke warung, peluang 1/7 per hari, jeda minimal 5 hari, datang pukul 10.00-15.30, tidak saat libur atau Ramadan. Energi yang didapat +15 s.d. +25 tergantung warganya (mis. Nenek +20, Ibu Rumah Tangga +25, Giska +15).
+- Neo bisa dikasih makan setelah quest "Si Neo Hilang" selesai dengan pilihan membantu, butuh stok makanan kucing di warung, dan 1 kali sehari.
 
 ### Warga Membalas Sapaan
 
@@ -197,19 +197,14 @@ Progres dihitung sejak level itu dimulai (boleh lewat beberapa hari). Semua syar
 Mode Casual tidak pernah meminta angka penuh selamanya. Ada dua keringanan otomatis (Hard tidak mendapat keduanya):
 
 - **Setelah misi utama selesai**: mulai hari ke-5 setelahnya, target tugas khusus turun **10% per hari**, sampai lantai **40%**. Syarat bintang juga turun 1 tiap 4 hari, sampai minimal 2 bintang.
-- **Level macet**: kalau sudah 45 hari di level yang sama, semua target inti (pelanggan, barang, omzet) dikali `1 − 0,02 × (hari_di_level − 45)`, lantai **50%**. Faktor ini juga dipakai saat menampilkan angka target di layar.
+- **Level macet**: kalau sudah 45 hari di level yang sama, semua target inti (pelanggan, barang, omzet) turun 2% per hari sejak hari ke-45, paling rendah **50%** dari target awal. Angka target di layar ikut menyesuaikan.
 
-Keringanan ini juga menggeser bias harga pasaran ke arah harga naik — lihat **8.9 Kondisi Pasaran**.
+Keringanan ini juga menggeser bias harga pasaran ke arah harga naik, lihat **8.9 Kondisi Pasaran**.
 
 ### Macam quest khusus (tugas kualitas)
 
-| jenis | Teks di game | Arti |
-|---|---|---|
-| `beruntun` | "Layani N pelanggan beruntun" | N pelanggan berturut-turut, tidak ada yang batal |
-| `multi` | "N pesanan campuran" | N pesanan berisi 2 jenis barang atau lebih |
-| `laba_hari` | "Laba Rp N sehari" | Laba minimal N dalam satu hari |
-| `minuman` | "Jual N minuman" | Total minuman terjual |
-| `hari_sempurna` | "Sehari tanpa batal (min. N)" | Tutup hari tanpa pelanggan batal, minimal N dilayani |
+| Teks di game | Arti |
+|---|---|
 
 ### Tabel quest level (lengkap)
 
@@ -242,8 +237,8 @@ Lewat batas → batas diperpanjang **3 hari** dan target naik **10%**, paling ba
 
 Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis memakai saldo QRIS** kalau uang di laci kurang, jadi kios tidak diambil padahal uangnya cukup. Kalau tagihan hari itu sudah dibayar, tombol bayar/tunda tidak muncul lagi dan cicilan berikutnya langsung dihitung untuk minggu depan - tidak ada tagihan dobel.
 
-> **💡 Fun Fact — di balik nama Pak Misran**
-> "Misran" adalah nama ayah Mba Giska (istri kreator). Sifat Pak Misran di game dibuat meniru ayah kreator (namanya sengaja disamarkan), yang tinggal di Cianjur sejak kreator masih kuliah. Usaha beliau ada, tapi bukan warung. Cerita WLS juga mengadopsi pengalaman kuliah kreator—katanya, kalau dulu dia tidak menyebalkan, game ini mungkin tidak dibuat.
+> **Fun Fact: di balik nama Pak Misran**
+> "Misran" adalah nama ayah Mba Giska (istri kreator). Sifat Pak Misran di game dibuat meniru ayah kreator (namanya sengaja disamarkan), yang tinggal di Cianjur sejak kreator masih kuliah. Usaha beliau ada, tapi bukan warung. Cerita WLS juga mengadopsi pengalaman kuliah kreator. Katanya, kalau dulu dia tidak menyebalkan, game ini mungkin tidak dibuat.
 >
 > Sumber: [@agushermawann di Threads](https://www.threads.com/@agushermawann/post/DgMYHlaj6b2) ([tautan share](https://www.threads.com/share/BAdRpDvjsf)).
 
@@ -262,9 +257,9 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
   *Hari itu HP Pak Misran berbunyi. Pesan dari Agus.*
   **Agus:** Pak! Aku keterima kuliah di kota, masuk semester ini!
   **Pak Misran:** Alhamdulillah, Gus! Bapak ikut senang.
-  **Agus:** Tapi uang pendaftarannya harus dibayar sebelum daftar ulang, Pak. Butuh {target}. Ibu nggak punya uang segitu.
+  **Agus:** Tapi uang pendaftarannya harus dibayar sebelum daftar ulang, Pak. Butuh Rp150.000. Ibu nggak punya uang segitu.
   **Pak Misran:** Tenang, Gus. Bapak kumpulkan dulu dari warung, nanti Bapak kirim.
-  **Agus:** Paling lambat tanggal {batas} ya, Pak. Makasih, Pak.
+  **Agus:** Paling lambat 12 hari lagi ya, Pak. Makasih, Pak.
   *Modal Pak Misran Rp630.000: Rp500.000 untuk etalase kaca, sisanya Rp130.000 untuk stok. Pangkalan sudah menitipkan 2 tabung gas dan 3 galon di rak, tapi izin penyalur gas dan agen air galon belum keluar, jadi belum boleh dijual. Rak lainnya masih kosong. Klik HP, lalu buka Belanja Online untuk membeli mie goreng, mie rebus, telur, biskuit, air mineral, kopi sachet, ciki, dan permen (minimal 2 masing-masing) sebelum membuka warung.*
   *Sewa kios dibayar setiap Minggu malam. Kumpulkan uang dari berjualan, lalu kirim untuk Agus lewat HP, aplikasi Wasap. Kiriman untuk Agus adalah misi utama, jadi dahulukan. Misi utama juga salah satu tugas Level Warung: selesaikan semua tugasnya untuk naik level.*
 
@@ -281,8 +276,8 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
 **Dialog awal bab:**
 
   **Agus:** Pak, minggu depan sudah mulai ospek.
-  **Agus:** Aku perlu beli buku dan perlengkapan. Kira-kira {target}, Pak.
-  **Pak Misran:** Iya, Gus. Bapak usahakan sebelum tanggal {batas}.
+  **Agus:** Aku perlu beli buku dan perlengkapan. Kira-kira Rp350.000, Pak.
+  **Pak Misran:** Iya, Gus. Bapak usahakan sebelum 16 hari lagi.
 
 **Setelah naik level:** *Sales minuman dari kota melihat warungmu makin ramai dan mulai menitipkan barang.*
 
@@ -298,8 +293,8 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
   *Pagi itu Pak Misran menemukan bekas air menetes dari atap, tepat di atas rak dagangan.*
   **Kontak:** Assalamualaikum, Pak Misran. Maaf, saya dengar atap kios bocor ya?
   **Pak Misran:** Waalaikumsalam, Pak Haji. Iya, Pak, di atas rak. Untung barangnya sempat Bapak pindahkan.
-  **Kontak:** Atapnya memang sudah tua. Biaya perbaikannya kita bagi dua: separuhnya saya yang tanggung, Bapak cukup {target}.
-  **Pak Misran:** Baik, Pak Haji. Bapak usahakan sebelum tanggal {batas}.
+  **Kontak:** Atapnya memang sudah tua. Biaya perbaikannya kita bagi dua: separuhnya saya yang tanggung, Bapak cukup Rp500.000.
+  **Pak Misran:** Baik, Pak Haji. Bapak usahakan sebelum 14 hari lagi.
 
 **Setelah naik level:** *Atap kios sudah diperbaiki. Pelanggan makin betah berlama-lama di warung.*
 
@@ -316,7 +311,7 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
   *HP Pak Misran berbunyi lagi. Suara Agus terdengar lemah.*
   **Agus:** Pak... aku dirawat di klinik. Kata dokter kena tifus. Ibu yang jagain aku.
   **Pak Misran:** Ya Allah, Gus! Kamu istirahat saja. Biayanya biar Bapak yang pikir.
-  **Agus:** Butuh {target}, Pak. Maaf ya, ngerepotin Bapak terus.
+  **Agus:** Butuh Rp650.000, Pak. Maaf ya, ngerepotin Bapak terus.
   **Pak Misran:** Jangan bilang begitu. Kamu cepat sembuh, itu yang paling penting.
 
 **Setelah naik level:** *Berkat ajaran Agus, warungmu sekarang melayani top-up e-wallet dan paket data (isi saldonya lewat Belanja Online).*
@@ -333,8 +328,8 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
 
   **Agus:** Pak, tugas kuliah banyak yang harus diketik. Ke warnet terus jadi mahal.
   **Agus:** Ada teman yang jual laptop bekas, masih bagus. Harganya Rp1.600.000. Aku sudah nabung Rp600.000 dari kerja paruh waktu di kafe, Pak.
-  **Agus:** Kurangnya {target}. Bapak bisa bantu?
-  **Pak Misran:** Hebat kamu sudah mau nabung sendiri, Gus. Bapak kirim sebelum tanggal {batas}. Rawat baik-baik laptopnya.
+  **Agus:** Kurangnya Rp1.000.000. Bapak bisa bantu?
+  **Pak Misran:** Hebat kamu sudah mau nabung sendiri, Gus. Bapak kirim sebelum 26 hari lagi. Rawat baik-baik laptopnya.
 
 **Setelah naik level:** *Agen sembako melihat warungmu ramai dan mulai memasok barang baru.*
 
@@ -348,8 +343,8 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
 **Dialog awal bab:**
 
   **Kontak:** Assalamualaikum, Pak Misran. Saung di tepi sawah atapnya sudah rusak, padahal sering dipakai warga berteduh dan anak-anak mengaji.
-  **Kontak:** Warga mau patungan. Karena warung Bapak sekarang paling ramai, kami berharap Bapak berkenan menyumbang {target}.
-  **Pak Misran:** Insyaallah, Pak RT. Itu juga buat kita semua. Bapak usahakan sebelum tanggal {batas}.
+  **Kontak:** Warga mau patungan. Karena warung Bapak sekarang paling ramai, kami berharap Bapak berkenan menyumbang Rp1.200.000.
+  **Pak Misran:** Insyaallah, Pak RT. Itu juga buat kita semua. Bapak usahakan sebelum 20 hari lagi.
 
 **Setelah naik level:** *Warga makin menghargai Pak Misran. Namanya disebut-sebut di pengajian.*
 
@@ -362,8 +357,8 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
 
 **Dialog awal bab:**
 
-  **Agus:** Pak, ini yang terakhir buat semester ini. Uang semesternya Rp2.000.000, tapi aku dapat keringanan dari kampus. Jadi tinggal {target}.
-  **Agus:** Batasnya tanggal {batas}, Pak.
+  **Agus:** Pak, ini yang terakhir buat semester ini. Uang semesternya Rp2.000.000, tapi aku dapat keringanan dari kampus. Jadi tinggal Rp1.500.000.
+  **Agus:** Batasnya 24 hari lagi, Pak.
   **Pak Misran:** Bapak sudah siapkan dari jauh hari, Gus. Tinggal sedikit lagi.
 
 ### Bab 8 - Gaji Pertama Agus
@@ -376,11 +371,11 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
 **Dialog awal bab:**
 
   **Agus:** Pak! Aku diangkat jadi pegawai tetap di kafe, gaji pertamaku sudah cair. Alhamdulillah.
-  **Agus:** Aku kirim {target} buat Bapak ya. Jangan ditolak, Pak.
+  **Agus:** Aku kirim Rp2.000.000 buat Bapak ya. Jangan ditolak, Pak.
   **Pak Misran:** Gus, itu hasil kerjamu sendiri. Simpan saja buat kamu.
   **Agus:** Sudah kupisahkan buat diriku, Pak. Selama ini Bapak yang kirim buat aku. Sekarang gantian, sedikit saja.
   **Pak Misran:** Ya Allah... terima kasih, Nak.
-  *Uang {target} dari Agus masuk ke laci Pak Misran.*
+  *Uang Rp2.000.000 dari Agus masuk ke laci Pak Misran.*
 
 **Setelah naik level:** *Kabar gaji pertama Agus membuat Pak Misran makin semangat mengurus warung.*
 
@@ -397,8 +392,8 @@ Mulai v1.2, besar sewa tetap dikunci di awal minggu dan **pembayaran otomatis me
   **Agus:** Pak, kata Pak RT Bapak sering kelihatan pucat. Bapak sudah periksa ke klinik?
   **Pak Misran:** Cuma capek biasa, Gus. Nanti juga sembuh sendiri.
   **Agus:** Aku nggak mau Bapak sakit sendirian, Pak. Aku sudah daftarkan Bapak cek kesehatan lengkap di Klinik Sehat.
-  **Agus:** Biayanya {target}. Tolong dibayar ya, Pak. Ini permintaan Agus.
-  **Pak Misran:** Iya, Gus. Bapak ikuti kata anak sendiri. Bapak bayar sebelum tanggal {batas}.
+  **Agus:** Biayanya Rp1.500.000. Tolong dibayar ya, Pak. Ini permintaan Agus.
+  **Pak Misran:** Iya, Gus. Bapak ikuti kata anak sendiri. Bapak bayar sebelum 21 hari lagi.
 
 **Setelah naik level:** *Pak Misran lebih sehat dan segar. Warung pun makin lancar diurus.*
 
@@ -415,9 +410,9 @@ Catatan v1.2: keringanan harga kios tidak lagi turun terlalu jauh - tiap kali le
 
   *Hari itu Pak Haji Rasyid menelepon membawa kabar yang tidak biasa.*
   **Kontak:** Pak Misran, saya sudah tua dan ingin membagi harta untuk anak cucu. Kios ini mau saya jual, tapi saya ingin Bapak yang memilikinya.
-  **Kontak:** Harganya {target}, dibayar sekaligus. Untuk Bapak, saya sudah beri potongan.
+  **Kontak:** Harganya Rp30.000.000, dibayar sekaligus. Untuk Bapak, saya sudah beri potongan.
   **Pak Misran:** Pak Haji... Bapak sangat ingin kios ini jadi milik sendiri. Bapak akan kumpulkan uangnya.
-  **Kontak:** Saya tunggu sampai tanggal {batas}, Pak. Warung ini sudah seperti anak saya sendiri.
+  **Kontak:** Saya tunggu sampai 45 hari lagi, Pak. Warung ini sudah seperti anak saya sendiri.
   **Agus:** Pak! Aku dengar dari Pak Haji. Semangat ya, Pak. Aku bantu doa dari kota.
 
 
@@ -425,7 +420,7 @@ Catatan v1.2: keringanan harga kios tidak lagi turun terlalu jauh - tiap kali le
 
   **Agus:** Pak... batasnya sudah lewat. Aku sudah minta keringanan, tapi kena denda.
   **Pak Misran:** Maafkan Bapak, Gus. Kasih Bapak waktu sedikit lagi.
-  *Batas diperpanjang sampai tanggal {batas}. Target {kebutuhan} sekarang {target}.*
+  *Batas diperpanjang 3 hari. Target diturunkan 25% dari kekurangan, paling banyak Rp1.800.000.*
 
 **Dialog penutup (bab terakhir lunas):**
 
@@ -452,12 +447,12 @@ Catatan v1.2: keringanan harga kios tidak lagi turun terlalu jauh - tiap kali le
 
 Mulai v1.0, sesudah kios dibeli dari Pak Haji Rasyid, aturan jam berubah total:
 
-- **Tidak ada hari libur lagi** — Jumat pun warung boleh buka.
+- **Tidak ada hari libur lagi**: Jumat pun warung boleh buka.
 - **Buka kapan saja**: tidak perlu menunggu pukul 09.00, warung bisa dibuka sejak tengah malam.
 - **Tutup bebas sampai pukul 24.00**, dan boleh tutup kapan saja sebelum itu (tidak ada lagi batas sore).
 - **Buka lagi sesudah ditutup** (v1.3): kios milik sendiri yang sudah ditutup boleh dibuka kembali hari itu, sampai pukul 24.00 (Kamis ronda 22.00).
 - Khusus **malam Jumat (Kamis)**: kalau ikut ronda, wajib tutup pukul **22.00**.
-- Janji ketemu warga tetap muncul di hari Jumat (maksimal 3), walau warung sedang buka — tinggal temui mereka di tempat dan jam yang disebut.
+- Janji ketemu warga tetap muncul di hari Jumat (maksimal 3), walau warung sedang buka; tinggal temui mereka di tempat dan jam yang disebut.
 - Mulai v1.2, sesudah kios dibeli, **ojek bisa narik lagi pukul 17.00-23.30**, dan khusus **hari Jumat** bisa narik dari pagi sampai malam.
 
 ## 4. Epilog: Tiga Tahun Kemudian
@@ -486,12 +481,12 @@ Pak Misran menutup warung dan menyerahkannya ke Bu Eni. Agus (anak Pak Misran) j
 - Musik: musik_pamit.mp3
 - Animasi: lengan_peluk (peluk), lengan_salim (salim)
 
-### Naskah Lengkap Epilog (`sinema_pamit`)
+### Naskah Lengkap Epilog
 
 - **Syarat muncul:** Setelah tamat (semua level selesai), epilog otomatis muncul
 - **Tipe:** Cinema (sinematik), tidak ada pilihan jawaban, hanya menonton
 
-#### Tahap 1 - Warung · Pak Misran (pukul 07.00–22.00)
+#### Tahap 1 - Warung · Pak Misran (pukul 07.00-22.00)
 
   *Pagi itu, Pak Misran menutup pintu rumahnya untuk terakhir kalinya.*
   **Pak Misran:** Rumah ini Bapak titip ya, Gus. Jendelanya dibuka tiap pagi, biar tidak lembap.
@@ -536,23 +531,23 @@ Pak Misran menutup warung dan menyerahkannya ke Bu Eni. Agus (anak Pak Misran) j
 
 ## 5. Quest Warga
 
-Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di lokasi tertentu pada jam tertentu, mulai hari tertentu. Pemain mendekat lalu menekan "Sapa" untuk memulai cerita. Setiap cerita punya beberapa tahap yang bisa pindah area atau tokoh. Pilihan jawaban: tolong (membantu), tolak (menolak), lanjut (ke tahap berikut), ulang (jawaban salah), tunda (nanti saja). Hasil cerita bisa menambah reputasi, membuka barang baru, atau mengubah frekuensi pelanggan datang. Reputasi di sini = skor warung: menambah keramaian pelanggan (tidak menentukan level selanjutnya).
+Cerita warga muncul di tempat dan jam tertentu, bukan kejadian acak saat berjalan-jalan. Pemain mendekat lalu menekan "Sapa" untuk memulai cerita. Setiap cerita punya beberapa tahap yang bisa pindah area atau tokoh. Setiap pilihan berujung pada satu dari lima hasil: membantu, menolak, lanjut ke tahap berikut, mengulang karena jawaban salah, atau menunda sampai nanti. Hasil cerita bisa menambah reputasi, membuka barang baru, atau mengubah frekuensi pelanggan datang. Reputasi adalah skor warung yang menambah keramaian pelanggan; nilainya tidak menentukan level berikutnya.
 
-**Lembar nama tokoh:** `` · `agus` · `agusdatang` · `bapak (narasi)` · `anak` · `siswi` · `pelajar` · `nenek` · `petani` · `santri_putih` · `santri_hitam` · `giska` · `tukang` · `kantoran` · `kurir` · `ojek` · `ibu_rumah_tangga` · `pak_rt` · `haji_doni` · `fariz` · `kucing` · `juragan`
+**Nama di depan dialog** adalah tokoh yang sedang bicara. Narasi ditulis miring tanpa nama.
 
 *Penjelasan pendek:*
 - **JANJI** = event khusus hari libur warung; maks 3 janji per libur (v1.0; sebelumnya 2). Sejak v1.0 hari libur warung hanya Jumat.
 - **HARI SEKOLAH** = tidak muncul hari Minggu.
 - **bukan_ramadan** = tidak muncul selama Ramadan (beberapa event tidak muncul di Ramadan).
-- Setiap event punya beberapa `tahap` (lokasi/tim). Dekat → tekan **Sapa**.
-- Pilihan: **tolong** (membantu) / **tolak** (tolak).
+- Setiap event punya beberapa tahap (lokasi/tim). Dekat → tekan **Sapa**.
+- Pilihan: membantu atau menolak.
 - Setelah cerita selesai muncul **obrolan** (percakapan warga).
 
-### 4.1 Ucup Ingin Sekolah (`ucup_sekolah`)
+### 4.1 Ucup Ingin Sekolah
 
-- **Syarat muncul:** Level ≥ 1 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung) · **hasil menentukan hadiah selanjutnya:** **tolong** → **Ucup Juara Kelas**, **tolak** → **Susu Sekolah** · *Catatan: jalur tolong akan membuka susu kotak langsung tanpa perlu menyelesaikan misi Susu Sekolah.*
+- **Syarat muncul:** Level ≥ 1 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung) · **hasil menentukan hadiah selanjutnya:** **membantu** membuka **Ucup Juara Kelas**, **menolak** membuka **Susu Sekolah** · *Catatan: jalur membantu langsung membuka susu kotak tanpa perlu menyelesaikan misi Susu Sekolah.*
 
-#### Tahap 1 - SD · Ucup (pukul 08.00–13.00)
+#### Tahap 1 - SD · Ucup (pukul 08.00-13.00)
 
   **Ucup:** Hhh... enak ya jadi mereka. Masih bisa sekolah...
   **Pak Misran:** Lho, Ucup? Kok sendirian di lapangan? Jam segini kamu nggak masuk kelas?
@@ -569,7 +564,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bantu biaya sekolah Ucup (Rp200.000)"**
-   - biaya Rp200.000 → aksi: `tolong`
 
   **Pak Misran:** Cup, besok kamu sekolah lagi, ya. Uang sekolah, seragam, sama bukunya biar Bapak yang urus.
   **Ucup:** Beneran, Pak?! Ucup... Ucup boleh sekolah lagi?
@@ -578,23 +572,21 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Kabar kebaikan Pak Misran cepat menyebar ke seluruh kampung.*
 
 2. **"Maaf, belum bisa membantu"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Cup... Bapak sendiri lagi pas-pasan. Uang warung juga buat kuliah Agus.
   **Ucup:** Nggak apa-apa, Pak... Ucup ngerti, kok.
   *Ucup tersenyum kecil, lalu kembali menatap ke arah kelas.*
 
 3. **"Nanti Bapak pikirkan dulu"**
-   - aksi: `tunda`
 
   **Pak Misran:** Cup, Bapak pikirkan dulu, ya. Nanti Bapak cari kamu lagi di sini.
   **Ucup:** Iya, Pak. Ucup biasanya di sini sampai siang.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- bintang: 1
-- barang terbuka: buku tulis
-- pelanggan: Ucup x1.3, Nenek Sumi x1.3
+- Ulasan bintang 5: +1
+- Barang baru terbuka: buku tulis
+- Pelanggan: Ucup 1,3x lebih sering, Nenek Sumi 1,3x lebih sering
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -606,7 +598,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Ucup x0.4
+- Pelanggan: Ucup 0,4x lebih sering
 
   **Pop-up "Ucup Kecewa"**
 
@@ -623,17 +615,17 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Seragam baru Ucup wangi, Pak. Kata Nenek harus dijaga baik-baik. / **Pak Misran:** Betul kata Nenek. Rajin belajarnya, ya.
 - **Warga:** Pak Misran, terima kasih sudah menolong cucu saya. Semoga Allah membalas berlipat-lipat. / **Pak Misran:** Aamiin, Nek. Ucup anak baik, sayang kalau tidak sekolah.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Siang, Pak... Ucup lagi bantu Nenek jualan rengginang. / **Pak Misran:** Yang semangat, Cup. Semoga laris, ya.
 - **Warga:** Pak, kalau sudah besar Ucup mau kerja, biar bisa sekolah lagi. / **Pak Misran:** Aamiin. Jangan putus harapan, Cup.
 
 ---
 
-### 4.2 Beras Abah Karta (`beras_abah_karta`)
+### 4.2 Beras Abah Karta
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 1
-#### Tahap 1 - Sawah · Abah Karta (pukul 07.00–17.00)
+#### Tahap 1 - Sawah · Abah Karta (pukul 07.00-17.00)
 
   **Abah Karta:** Aduh, Pak Misran... pusing saya. Panen tahun ini bagus, berasnya banyak.
   **Pak Misran:** Lho, panen bagus kok malah pusing, Abah?
@@ -646,25 +638,22 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bantu, biar saya temui Pak RT"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Tenang, Abah. Biar saya yang bicara ke Pak RT. Biasanya beliau ada di pos ronda.
   **Abah Karta:** Alhamdulillah... Hatur nuhun, Pak Misran!
   *Temui Pak RT di depan pos ronda (area Rumah Warga), lalu kembali ke Abah Karta.*
 
 2. **"Maaf, saya sedang sibuk"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Abah, warung saya lagi repot. Coba minta tolong orang lain dulu, ya.
   **Abah Karta:** Oh... iya, Pak. Nggak apa-apa.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Nanti saya pikirkan dulu ya, Abah.
   **Abah Karta:** Mangga, Pak. Saya di sawah sampai sore.
 
-#### Tahap 2 - Rumah Warga · Pak RT (pukul 07.00–21.00)
+#### Tahap 2 - Rumah Warga · Pak RT (pukul 07.00-21.00)
 
   **Pak RT:** Eh, Pak Misran. Tumben mampir ke pos ronda. Ada perlu apa?
   **Pak Misran:** Begini, Pak RT. Abah Karta mau titip jual beras hasil panennya di warung saya.
@@ -676,34 +665,31 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Dicampur beras murah biar untung banyak"**
-   - aksi: `ulang`
 
   **Pak RT:** Waduh, itu namanya curang, Pak Misran. Coba dipikir lagi.
 
 2. **"Ditimbang pas dan harganya wajar"**
-   - aksi: `lanjut`
 
   **Pak RT:** Nah, betul! Timbangannya jujur, harganya wajar. Warga senang, Abah Karta juga untung.
   **Pak RT:** Ini surat keterangannya, Pak. Sampaikan salam saya ke Abah Karta.
   *Kembali ke sawah dan temui Abah Karta.*
 
 3. **"Dijual semahal mungkin"**
-   - aksi: `ulang`
 
   **Pak RT:** Kalau kemahalan, kasihan warga, Pak. Coba dipikir lagi.
 
-#### Tahap 3 - Sawah · Abah Karta (pukul 07.00–17.00)
+#### Tahap 3 - Sawah · Abah Karta (pukul 07.00-17.00)
 
   **Pak Misran:** Abah, ini surat dari Pak RT. Beras Abah boleh dijual di warung saya.
   **Abah Karta:** Masyaallah! Terima kasih, Pak Misran. Mulai besok beras saya antar ke warung, harganya bersahabat.
   **Abah Karta:** Lima karung pertama gratis buat Bapak. Anggap saja tanda terima kasih.
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- barang terbuka: beras
+- Reputasi: +3
+- Barang baru terbuka: beras
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -715,7 +701,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- reputasi: -4
+- Reputasi: -4
 
   **Pop-up "Abah Karta Kecewa"**
 
@@ -731,16 +717,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Pak Misran! Beras saya laku keras di warung Bapak. Alhamdulillah. / **Pak Misran:** Alhamdulillah, Abah. Berasnya memang pulen.
 - **Warga:** Kemarin Pak RT nanya, beras saya masih ada? Katanya enak. / **Pak Misran:** Wah, mantap, Abah. Nanti saya siapkan buat beliau.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Pak... saya akhirnya jual ke tengkulak. Ya sudah, rezekinya segitu. / **Pak Misran:** Semoga panen berikutnya lebih baik, Abah.
 
 ---
 
-### 4.3 Persiapan Pengajian (`pengajian_haji_doni`)
+### 4.3 Persiapan Pengajian
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 2
-#### Tahap 1 - Masjid · Haji Doni (pukul 07.00–17.00)
+#### Tahap 1 - Masjid · Haji Doni (pukul 07.00-17.00)
 
   **Haji Doni:** Assalamualaikum, Pak Misran. Kebetulan sekali Bapak lewat.
   **Pak Misran:** Waalaikumsalam, Haji Doni. Kelihatannya sibuk sekali?
@@ -753,26 +739,23 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bantu Haji Doni (1 jam)"**
-   - aksi: `tolong`
 
   **Pak Misran:** Tentu, Haji Doni. Bapak duduk saja, biar saya yang kerjakan.
 
 2. **"Maaf, saya sedang ada perlu"**
-   - aksi: `tolak`
 
   **Pak Misran:** Aduh, maaf, Haji Doni. Saya sedang ada perlu.
   **Haji Doni:** Tidak apa-apa, Pak Misran. Semoga dagangannya laris. Nanti datang ke pengajian, ya.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Nanti saya ke sini lagi ya, Haji Doni.
   **Haji Doni:** Baik, saya di sini sampai sore.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- barang terbuka: sayur
+- Reputasi: +3
+- Barang baru terbuka: sayur
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -798,17 +781,17 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Pak Misran, jamaah memuji tempat wudhunya bersih sekali. Terima kasih, ya. / **Pak Misran:** Sama-sama, Haji Doni. Senang bisa membantu.
 - **Warga:** Sayuran dari kebun istri saya laku di warung Bapak? Alhamdulillah. / **Pak Misran:** Laku, Haji Doni. Ibu-ibu senang, masih segar katanya.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Pengajian kemarin alhamdulillah lancar. Lain kali ikut, ya, Pak Misran. / **Pak Misran:** Insyaallah, Haji Doni.
 - **Warga:** Jangan lupa sholat berjamaah, Pak Misran. Warung boleh ramai, masjid juga harus ramai. / **Pak Misran:** Siap, Haji Doni. Insyaallah.
 
 ---
 
-### 4.4 Surat untuk Emak (`surat_kang_hasan`)
+### 4.4 Surat untuk Emak
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 2
-#### Tahap 1 - Pesantren · Kang Hasan (pukul 15.00–21.00)
+#### Tahap 1 - Pesantren · Kang Hasan (pukul 15.00-21.00)
 
   *Kang Hasan berdiri sendirian di halaman pesantren, menggenggam selembar surat yang sudah lusuh.*
   **Pak Misran:** Assalamualaikum, Kang Hasan. Kok melamun sendirian?
@@ -823,27 +806,24 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bawakan obat & temani mereka (Rp20.000)"**
-   - biaya Rp20.000 → aksi: `tolong`
 
   **Pak Misran:** Tunggu sebentar ya, Kang. Bapak ambilkan obat di warung.
 
 2. **"Doakan, lalu pamit"**
-   - aksi: `tolak`
 
   **Pak Misran:** Sabar ya, Kang. Bapak doakan Kang Fadil cepat sembuh dan hafalanmu lancar.
   **Kang Hasan:** Aamiin. Terima kasih, Pak Misran.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Kang, Bapak ke warung dulu sebentar, ya.
   **Kang Hasan:** Iya, Pak. Saya di sini sampai Isya.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- barang terbuka: obat
-- pelanggan: Kang Fadil x1.5, Kang Hasan x1.5
+- Reputasi: +3
+- Barang baru terbuka: obat
+- Pelanggan: Kang Fadil 1,5x lebih sering, Kang Hasan 1,5x lebih sering
 
   **Pop-up "Hati yang Tersentuh"**
 
@@ -870,16 +850,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Pak, nanti kalau saya khatam, Bapak datang ke wisudanya, ya. Bapak kan sudah seperti orang tua saya. / **Pak Misran:** Insyaallah, Kang. Bapak pasti datang.
 - **Warga:** Pak, saya sudah sehat. Obat dari Bapak manjur sekali. / **Pak Misran:** Alhamdulillah, Kang Fadil. Jaga kesehatan, ya.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Pak, Kang Fadil sudah sembuh. Kemarin dibantu ustadz. / **Pak Misran:** Alhamdulillah. Maaf ya, Kang, kemarin Bapak belum bisa banyak membantu.
 
 ---
 
-### 4.5 Layangan Dimas (`layangan_dimas`)
+### 4.5 Layangan Dimas
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 3 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Sawah · Dimas (pukul 14.00–18.00)
+#### Tahap 1 - Sawah · Dimas (pukul 14.00-18.00)
 
   *Dimas berdiri di pematang sawah sambil menatap ke atas pohon kelapa. Benang layangan menjuntai dari pelepahnya.*
   **Pak Misran:** Lho, Dimas? Kok bengong di sini?
@@ -893,26 +873,23 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Ambilkan pakai galah bambu (30 menit)"**
-   - aksi: `tolong`
 
   **Pak Misran:** Sabar, Dim. Di saung biasanya ada galah bambu. Bapak coba, ya.
 
 2. **"Jangan dipanjat, berbahaya"**
-   - aksi: `tolak`
 
   **Pak Misran:** Dim, pohonnya tinggi, jangan dipanjat, ya. Bahaya. Minta tolong Abah Karta nanti sore saja.
   **Dimas:** Iya, Pak... (menunduk)
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Bapak ke warung dulu, ya. Nanti Bapak lewat sini lagi.
   **Dimas:** Iya, Pak. Saya tunggu di sini.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
-- pelanggan: Dimas x1.5, Neng Shinta x1.3
+- Reputasi: +2
+- Pelanggan: Dimas 1,5x lebih sering, Neng Shinta 1,3x lebih sering
 
   **Pop-up "Layangan Kembali Terbang"**
 
@@ -937,16 +914,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Pak Misran! Layangan Kakek juara dua, lho. Pialanya saya taruh di samping foto Kakek. / **Pak Misran:** Masyaallah, hebat, Dim. Kakekmu pasti bangga.
 - **Warga:** Pak, ajarin bikin layangan dong. Kata Ibu, dulu Bapak jago main layangan. / **Pak Misran:** Wah, itu sudah lama sekali. Boleh, nanti hari Minggu.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Pak, layangan saya akhirnya diambilkan Abah Karta. Sobek sedikit, tapi masih bisa terbang. / **Pak Misran:** Syukurlah, Dim. Hati-hati mainnya, ya.
 
 ---
 
-### 4.6 Si Neo Hilang (`kucing_bu_ida`)
+### 4.6 Si Neo Hilang
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 4
-#### Tahap 1 - Rumah Warga · Mba Giska (pukul 08.00–18.00)
+#### Tahap 1 - Rumah Warga · Mba Giska (pukul 08.00-18.00)
 
   **Mba Giska:** Pak Misran, ya? Maaf ganggu, Pak... lihat kucing putih krem nggak? Bulunya lebat, namanya Neo.
   **Mba Giska:** Saya bawa dia dari kota waktu pindah ke Cianjur. Di kota dia nggak pernah keluar rumah, jadi belum kenal jalan di kampung.
@@ -960,34 +937,31 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Saya bantu cari di sekitar masjid"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Biar saya cari, Mba. Kebetulan saya sering lewat masjid.
   **Mba Giska:** Beneran, Pak? Makasih banyak, Pak Misran!
   *Cari si Neo di area Masjid. Tanyakan pada Mang Ujang yang sedang bekerja di sana.*
 
 2. **"Maaf, saya sedang sibuk"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Mba, saya sedang sibuk. Coba diumumkan di grup RT, ya. Warga sini baik-baik, pasti ada yang bantu.
   **Mba Giska:** Iya, Pak... nanti saya coba.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Nanti kalau lewat masjid saya lihat-lihat, ya, Mba.
   **Mba Giska:** Iya, Pak. Saya di sini terus nungguin Neo.
 
-#### Tahap 2 - Masjid · Mang Ujang (pukul 07.00–18.00)
+#### Tahap 2 - Masjid · Mang Ujang (pukul 07.00-18.00)
 
   **Pak Misran:** Mang Ujang, lihat kucing putih krem yang bulunya lebat, nggak?
   **Mang Ujang:** Oh, kucing putih yang bulunya lebat itu? Ada, Pak! Dari kemarin ngumpet di dekat sini, nggak mau pergi.
   **Mang Ujang:** Kakinya kayaknya keseleo. Sudah saya kasih ikan asin sedikit, kasihan. Itu dia, Pak, di dekat bedug!
   *Cari si Neo di dekat bedug masjid (ada tanda merah di atasnya).*
 
-*(aksi otomatis tahap ini: `lanjut`)*
+*(tahap ini otomatis lanjut ke tahap berikutnya)*
 
-#### Tahap 3 - Masjid · Si Neo (pukul 07.00–18.00)
+#### Tahap 3 - Masjid · Si Neo (pukul 07.00-18.00)
 
   *Si Neo meringkuk, kaki depannya diangkat sedikit. Ia mengeong pelan melihat Pak Misran.*
 
@@ -997,31 +971,29 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bawa Neo pelan-pelan dan antar pulang"**
-   - aksi: `lanjut`
 
   *Pak Misran berjongkok dan mengelus kepalanya. Si Neo mengeong pelan, lalu mau digendong.*
   **Pak Misran:** Ayo pulang, Neo. Mba Giska sudah nungguin kamu.
   *Antar si Neo ke Mba Giska di area Rumah Warga.*
 
 2. **"Tarik ekornya biar cepat ikut"**
-   - aksi: `ulang`
 
   *Si Neo mendesis dan mundur. Kakinya sedang sakit, jangan dipaksa.*
 
-#### Tahap 4 - Rumah Warga · Mba Giska (pukul 07.00–21.00)
+#### Tahap 4 - Rumah Warga · Mba Giska (pukul 07.00-21.00)
 
   **Mba Giska:** NEO! Ya ampun, Neo! (memeluk kucingnya)
   **Pak Misran:** Ketemu di masjid, Mba. Kakinya keseleo sedikit, dikompres air hangat saja.
   **Mba Giska:** Di kota, tetangga sebelah saja nggak saling kenal, Pak. Di sini saya belum lama, tapi sudah ditolong begini...
   **Mba Giska:** Makasih banyak, Pak Misran. Mulai sekarang saya belanja di warung Bapak terus, ya!
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
-- barang terbuka: makanan kucing
-- pelanggan: Mba Giska x1.6
+- Reputasi: +2
+- Barang baru terbuka: makanan kucing
+- Pelanggan: Mba Giska 1,6x lebih sering
 
   **Pop-up "Si Neo Pulang!"**
 
@@ -1049,16 +1021,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Ternyata tinggal di kampung enak juga, Pak. Pagi-pagi udaranya segar, nggak kayak di kota. / **Pak Misran:** Betah-betah di sini, Mba Giska.
 - **Warga:** Pak, kucing putih kemarin sudah pulang, ya? Bedugnya jadi sepi, hehe. / **Pak Misran:** Sudah, Mang. Makasih sudah dikasih makan.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Pak, si Neo akhirnya pulang sendiri, kakinya pincang. Alhamdulillah masih ketemu. / **Pak Misran:** Syukurlah, Mba. Maaf kemarin saya belum sempat bantu.
 
 ---
 
-### 4.7 Hadiah Lomba HUT Sekolah (`lomba_shinta`)
+### 4.7 Hadiah Lomba HUT Sekolah
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 3 · HARI SEKOLAH (bukan Minggu) · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - SD · Neng Shinta (pukul 13.00–17.00)
+#### Tahap 1 - SD · Neng Shinta (pukul 13.00-17.00)
 
   **Neng Shinta:** Pak Misran! Kebetulan banget. Saya Shinta, yang suka beli pulsa di warung Bapak.
   **Pak Misran:** Oh, Neng Shinta. Lagi apa di SD? Bukannya sudah SMP?
@@ -1072,28 +1044,25 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Jadi sponsor lomba (Rp100.000)"**
-   - biaya Rp100.000 → aksi: `tolong`
 
   **Pak Misran:** Boleh, Neng. Belikan buku tulis, pensil, sama piala kecil buat juaranya. Yang kalah juga kasih permen, ya.
   **Neng Shinta:** Yeay! Makasih, Pak Misran! Adik-adik pasti senang banget.
   *Neng Shinta bergegas memberi kabar ke Bu Guru. Nama warung Pak Misran akan dipasang di spanduk lomba.*
 
 2. **"Maaf, belum bisa membantu"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Neng. Uang warung lagi dipakai buat kuliah Agus.
   **Neng Shinta:** Nggak apa-apa, Pak. Nanti saya coba tanya ke toko yang lain.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Bapak pikirkan dulu ya, Neng.
   **Neng Shinta:** Iya, Pak. Saya di sini tiap pulang sekolah sampai sore.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- pelanggan: Ucup x1.3, Neng Shinta x1.4, Dimas x1.2
+- Reputasi: +3
+- Pelanggan: Ucup 1,3x lebih sering, Neng Shinta 1,4x lebih sering, Dimas 1,2x lebih sering
 
   **Pop-up "Warung Jadi Sponsor!"**
 
@@ -1119,16 +1088,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Bu Guru titip salam, Pak. Katanya tahun depan minta tolong jadi sponsor lagi, hehe. / **Pak Misran:** Insyaallah, Neng. Kalau rezekinya ada.
 - **Warga:** Pak Misran! Aku menang balap karung, hadiahnya buku tulis dari warung Bapak! / **Pak Misran:** Wah, hebat! Dipakai buat belajar, ya.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Lombanya jadi juga, Pak. Hadiahnya patungan guru-guru. / **Pak Misran:** Syukurlah, Neng.
 
 ---
 
-### 4.8 Kasbon Bu Ida (`kasbon_bu_ida`)
+### 4.8 Kasbon Bu Ida
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 6 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Pasar · Bu Ida (pukul 08.00–19.00, selama pasar buka)
+#### Tahap 1 - Pasar · Bu Ida (pukul 08.00-19.00, selama pasar buka)
 
   *Bu Ida duduk di lapaknya. Keranjang buahnya masih setengah penuh.*
   **Bu Ida:** Eh, Pak Misran... Pasar lagi sepi, Pak. Buah saya banyak yang nggak laku.
@@ -1143,29 +1112,26 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Berikan kasbon (Rp60.000)"**
-   - biaya Rp60.000 → aksi: `tolong`
 
   **Pak Misran:** Ambil saja di warung, Bu. Bayarnya nanti kalau sudah ada, saya catat di Buku Hutang.
   **Bu Ida:** Ya Allah... hatur nuhun pisan, Pak Misran. Saya nggak akan lupa.
   *Bu Ida bercerita ke ibu-ibu pengajian tentang kebaikan Pak Misran. Kasbonnya dicatat di Buku Hutang.*
 
 2. **"Maaf, warung belum bisa kasbon"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Bu. Warung saya juga lagi pas-pasan, belum bisa kasbon.
   **Bu Ida:** Iya, Pak, saya ngerti... Nanti saya coba tanya ke saudara.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Saya hitung uang warung dulu ya, Bu. Nanti saya ke sini lagi.
   **Bu Ida:** Iya, Pak. Saya di lapak sampai pasar tutup, jam sembilan malam.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- pelanggan: Bu Ida x1.4, Abah Karta x1.2
-- hutang: Bu Ida Rp60.000 (dikembalikan 14 hari lagi)
+- Reputasi: +3
+- Pelanggan: Bu Ida 1,4x lebih sering, Abah Karta 1,2x lebih sering
+- Utang: Bu Ida Rp60.000 (dikembalikan 14 hari lagi)
 
   **Pop-up "Kasbon yang Berkah"**
 
@@ -1191,16 +1157,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Pak Misran, suami saya sudah dapat kerja borongan. Alhamdulillah, kasbonnya sudah lunas, ya, Pak. / **Pak Misran:** Alhamdulillah, Bu. Semoga panen berikutnya bagus.
 - **Warga:** Anak-anak saya lulus ujian semua, Pak. Hatur nuhun, berkat beras dari warung Bapak. / **Pak Misran:** Masyaallah, ikut senang, Bu Ida.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Panen kemarin memang berat, Pak. Tapi alhamdulillah ada saudara yang bantu. / **Pak Misran:** Syukurlah, Bu. Semoga panen berikutnya lebih baik.
 
 ---
 
-### 4.9 Surat dari Cucu (`surat_nenek_sumi`)
+### 4.9 Surat dari Cucu
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 5 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Rumah Warga · Nenek Sumi (pukul 09.00–17.00)
+#### Tahap 1 - Rumah Warga · Nenek Sumi (pukul 09.00-17.00)
 
   *Nenek Sumi berdiri di depan rumahnya, memegang amplop putih dekat sekali ke wajahnya.*
   **Nenek Sumi:** Nak Misran... sini sebentar. Ini surat dari cucu Nenek, si Rara, yang kuliah di Jakarta.
@@ -1212,7 +1178,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bacakan suratnya"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Boleh, Nek. Sini saya bacakan pelan-pelan.
   *"Assalamualaikum, Nenek sayang. Rara sehat di Jakarta. Kuliah keperawatan Rara lancar, nilai Rara bagus semua."*
@@ -1222,12 +1187,11 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Nenek Sumi:** Nak Misran... Nenek pengin dengar suaranya. Sudah setahun Nenek nggak dengar suara Rara.
 
 2. **"Nanti saja, Nek"**
-   - aksi: `tunda`
 
   **Pak Misran:** Nanti saya mampir lagi ya, Nek. Saya ke warung dulu.
   **Nenek Sumi:** Iya, Nak. Nenek di sini saja.
 
-#### Tahap 2 - Rumah Warga · Nenek Sumi (pukul 07.00–21.00)
+#### Tahap 2 - Rumah Warga · Nenek Sumi (pukul 07.00-21.00)
 
   **Pak Misran:** Nek, di surat ada nomor HP Rara. Bagaimana kalau kita telepon pakai HP saya? Bisa lihat wajahnya juga.
   **Nenek Sumi:** Bisa begitu, Nak? Nenek nggak ngerti HP...
@@ -1238,7 +1202,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Video call Rara (pulsa Rp5.000)"**
-   - biaya Rp5.000 → aksi: `tolong`
 
   *Tut... tut... Wajah seorang gadis berjilbab biru muncul di layar HP.*
   *"Nenek?! Ya Allah, Nenek! Rara kangen banget, Nek!"*
@@ -1247,16 +1210,15 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Nenek Sumi:** Nak Misran, terima kasih. Hari ini Nenek bahagia sekali. Nanti Nenek bikinkan rengginang buat warungmu.
 
 2. **"Ajak Nenek menulis surat balasan"**
-   - aksi: `tolak`
 
   **Pak Misran:** Kalau begitu kita tulis surat balasan saja, Nek. Nenek yang bicara, saya yang menulis.
   **Nenek Sumi:** Iya, Nak. Bilang ke Rara, Nenek sehat, Nenek bangga...
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- barang terbuka: rengginang
-- pelanggan: Nenek Sumi x1.5
+- Reputasi: +3
+- Barang baru terbuka: rengginang
+- Pelanggan: Nenek Sumi 1,5x lebih sering
 
   **Pop-up "Rindu yang Terobati"**
 
@@ -1268,7 +1230,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- reputasi: 1
+- Reputasi: +1
 
   **Pop-up "Surat Balasan"**
 
@@ -1283,19 +1245,19 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 - **Warga:** Nak Misran, kemarin Rara telepon lagi lewat HP tetangga. Katanya salam buat Pak Misran. / **Pak Misran:** Waalaikumsalam. Alhamdulillah, Nek.
 - **Warga:** Rengginangnya sudah Nenek jemur. Nanti Nenek titip di warung, ya. / **Pak Misran:** Siap, Nek. Pasti laris.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Rara sudah balas surat Nenek, Nak. Nanti tolong bacakan lagi, ya. / **Pak Misran:** Tentu, Nek. Kapan saja.
 
 ---
 
-### 4.10 Program Bantuan Warung (`tipu_fariz`)
+### 4.10 Program Bantuan Warung
 
 - **Syarat muncul:** Level ≥ 6 · Hari ≥ 10 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Warung · Mas Fariz (pukul 10.00–16.00)
+#### Tahap 1 - Warung · Mas Fariz (pukul 10.00-16.00)
 
   *Seorang pemuda berkaus hitam dan bercelana pendek menghampiri Pak Misran di depan warung. Senyumnya ramah, ponselnya tidak lepas dari tangan.*
-  **Mas Fariz:** Assalamualaikum, Pak. Dengan Pak Misran, pemilik Warung {warung}? Perkenalkan, saya Fariz dari Bandung, petugas lapangan Program Warung Mitra Sejahtera.
+  **Mas Fariz:** Assalamualaikum, Pak. Dengan Pak Misran, pemilik warung ini? Perkenalkan, saya Fariz dari Bandung, petugas lapangan Program Warung Mitra Sejahtera.
   **Mas Fariz:** Ini program bantuan untuk warung kecil dari distributor minuman, kerja sama dengan kecamatan. Warung yang terpilih dapat dana bantuan Rp1.000.000, plus spanduk gratis.
   **Pak Misran:** Satu juta? Kok bisa warung saya yang terpilih, Mas?
   **Mas Fariz:** Datanya dari pendataan UMKM bulan lalu, Pak. Ini kartu petugas saya, ini surat tugasnya, ada cap kecamatan.
@@ -1310,14 +1272,12 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Ikut program (bayar Rp150.000)"**
-   - biaya Rp150.000 · hanya kalau uang ≥ Rp150.000 → aksi: `lanjut`
 
   **Pak Misran:** Ya sudah, Mas. Ini Rp150.000. Rezeki jangan ditolak.
   **Mas Fariz:** Siap, Pak! Paketnya diantar kurir besok pagi, dananya cair sore ini. Selamat ya, Pak Misran!
   *Mas Fariz mencatat sesuatu di ponselnya, berpamitan, lalu bergegas berjalan ke arah rumah warga.*
 
 2. **"Uang saya kurang, Mas (bayar Rp100.000)"**
-   - biaya Rp100.000 · hanya kalau uang < Rp150.000 → aksi: `lanjut`
 
   **Pak Misran:** Mas, uang di laci saya nggak sampai Rp150.000. Gimana, ya?
   **Mas Fariz:** Waduh, Pak... Ya sudah, khusus Bapak Rp100.000 saja. Sisanya nanti dipotong dari dana bantuannya.
@@ -1326,19 +1286,17 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Mas Fariz cepat-cepat memasukkan uangnya ke saku, berpamitan, lalu bergegas berjalan ke arah rumah warga.*
 
 3. **"Tanya Pak RT dulu"**
-   - aksi: `tolong`
 
   **Pak Misran:** Sebentar ya, Mas. Saya telepon Pak RT dulu.
   **Mas Fariz:** Eh... nggak usah repot, Pak. Nanti kuotanya keburu habis, lho.
   *Mas Fariz mendadak gelisah. Sebelum telepon tersambung, ia pamit buru-buru, katanya ada janji di kampung lain.*
 
 4. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Saya pikir-pikir dulu ya, Mas.
   **Mas Fariz:** Jangan kelamaan, Pak. Kuotanya hari ini saja. Saya masih di sekitar sini sampai sore.
 
-#### Tahap 2 - Rumah Warga · Pak RT (pukul 16.00–22.00)
+#### Tahap 2 - Rumah Warga · Pak RT (pukul 16.00-22.00)
 
   *Uang yang dijanjikan tidak pernah masuk. Nomor Mas Fariz juga sudah tidak aktif.*
   **Pak RT:** Pak Misran! Ada pemuda dari kota ngaku petugas program bantuan warung, ya?
@@ -1353,15 +1311,14 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Ikhlaskan, jadikan pelajaran"**
-   - aksi: `tolak`
 
   **Pak Misran:** Jadi pelajaran buat saya, Pak RT. Tolong dikabari ke warga, ya.
   **Pak RT:** Pasti, Pak. Yang sabar, ya.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
-- pesan WA: Pak RT: "Warga, hati-hati! Ada pemuda ngaku petugas "Program Warung Mitra Sejahtera", minta bayar Rp150.000 dulu supaya dapat bantuan Rp1.000.000. Itu PENIPUAN. Alhamdulillah Pak Misran nggak ketipu. Bantuan resmi nggak pernah minta bayar duluan."
+- Reputasi: +2
+- Pesan WA: Pak RT: "Warga, hati-hati! Ada pemuda ngaku petugas "Program Warung Mitra Sejahtera", minta bayar Rp150.000 dulu supaya dapat bantuan Rp1.000.000. Itu PENIPUAN. Alhamdulillah Pak Misran nggak ketipu. Bantuan resmi nggak pernah minta bayar duluan."
 
   **Pop-up "Lolos dari Penipuan"**
 
@@ -1373,7 +1330,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pesan WA: Pak RT: "Warga, hati-hati! Ada pemuda ngaku petugas "Program Warung Mitra Sejahtera", minta bayar Rp150.000 dulu supaya dapat bantuan Rp1.000.000. Itu PENIPUAN, sudah ada korban di kampung kita. Bantuan resmi nggak pernah minta bayar duluan."
+- Pesan WA: Pak RT: "Warga, hati-hati! Ada pemuda ngaku petugas "Program Warung Mitra Sejahtera", minta bayar Rp150.000 dulu supaya dapat bantuan Rp1.000.000. Itu PENIPUAN, sudah ada korban di kampung kita. Bantuan resmi nggak pernah minta bayar duluan."
 
   **Pop-up "Kena Tipu!"**
 
@@ -1385,10 +1342,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.11 Snack Rapat Pak Rudi (`snack_rapat_rudi`)
+### 4.11 Snack Rapat Pak Rudi
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 4 · bukan Ramadan
-#### Tahap 1 - Warung · Pak Rudi (pukul 07.00–10.00)
+#### Tahap 1 - Warung · Pak Rudi (pukul 07.00-10.00)
 
   **Pak Rudi:** Pak Misran! Untung ketemu. Saya lagi pusing, Pak.
   **Pak Misran:** Kenapa, Pak Rudi? Pagi-pagi sudah kusut begitu mukanya.
@@ -1402,38 +1359,35 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Sanggup, saya siapkan (modal Rp150.000)"**
-   - biaya Rp150.000 → aksi: `lanjut`
 
   **Pak Misran:** Insyaallah sanggup, Pak Rudi. Saya siapkan sekarang.
   **Pak Rudi:** Alhamdulillah! Antar ke depan masjid, ya, Pak. Saya tunggu di sana.
   *Pak Misran berbelanja dan mengemas 30 kotak snack. Antar ke Pak Rudi di depan masjid.*
 
 2. **"Maaf, modalnya belum ada"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Pak Rudi. Uang warung lagi pas-pasan, nggak berani keluar modal segitu.
   **Pak Rudi:** Oh, iya, nggak apa-apa, Pak. Saya cari ke toko kue di kota saja.
 
 3. **"Nanti saya kabari"**
-   - aksi: `tunda`
 
   **Pak Rudi:** Jangan lama-lama, Pak. Saya di sini sampai jam sepuluh.
 
-#### Tahap 2 - Masjid · Pak Rudi (pukul 07.00–21.00)
+#### Tahap 2 - Masjid · Pak Rudi (pukul 07.00-21.00)
 
   **Pak Misran:** Pak Rudi, ini 30 kotak snack-nya.
   **Pak Rudi:** Masyaallah, rapi sekali, Pak! Orang dinas pasti senang. Ini Rp250.000, sesuai janji.
   **Pak Rudi:** Nanti kalau kantor ada acara lagi, saya pesan ke Bapak saja. Teman-teman kantor juga saya suruh mampir ke warung.
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
-- uang: 250000
-- ramai: 0.03
-- barang terbuka: soda
-- pelanggan: Pak Rudi x1.4
+- Reputasi: +2
+- Uang masuk: Rp250.000
+- Keramaian warung: +3%
+- Barang baru terbuka: soda
+- Pelanggan: Pak Rudi 1,4x lebih sering
 
   **Pop-up "Pesanan Lunas!"**
 
@@ -1447,7 +1401,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Pak Rudi x0.7
+- Pelanggan: Pak Rudi 0,7x lebih sering
 
   **Pop-up "Cerita Selesai"**
 
@@ -1461,16 +1415,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 - **Warga:** Pak Misran, orang dinas kemarin nanya snack-nya beli di mana. Saya bilang warung Bapak! / **Pak Misran:** Alhamdulillah, makasih promosinya, Pak Rudi.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Rapat kemarin lancar, Pak. Snack-nya beli di kota, mahal juga ternyata. / **Pak Misran:** Syukurlah lancar, Pak Rudi.
 
 ---
 
-### 4.12 Motor Kang Asep Mogok (`motor_kang_asep`)
+### 4.12 Motor Kang Asep Mogok
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 5
-#### Tahap 1 - SD · Kang Asep (pukul 15.00–20.00)
+#### Tahap 1 - SD · Kang Asep (pukul 15.00-20.00)
 
   **Kang Asep:** Aduh, aduh... Motor saya mogok lagi, sekarang saya tinggal di bengkel. Rantainya putus, kampas remnya juga habis.
   **Pak Misran:** Kenapa, Kang Asep? Motornya rewel?
@@ -1483,7 +1437,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Pinjami Rp120.000"**
-   - biaya Rp120.000 → aksi: `tolong`
 
   **Pak Misran:** Pakai ini dulu, Kang. Benerin motornya, biar bisa narik lagi.
   **Kang Asep:** Ya Allah, Pak Misran... Hatur nuhun pisan! Tiga hari lagi saya kembalikan, saya antar ke warung.
@@ -1491,21 +1444,19 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Pinjaman Kang Asep dicatat di Buku Hutang.*
 
 2. **"Maaf, belum bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Kang. Uang saya juga lagi dipakai buat stok warung.
   **Kang Asep:** Iya, Pak, nggak apa-apa... Nanti saya cari pinjaman lain.
 
 3. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Kang Asep:** Iya, Pak. Saya masih di sini nunggu anak-anak pulang les.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- ramai: 0.02
-- pelanggan: Kang Asep x1.5
-- hutang: Kang Asep Rp120.000 (dikembalikan 3 hari lagi)
+- Keramaian warung: +2%
+- Pelanggan: Kang Asep 1,5x lebih sering
+- Utang: Kang Asep Rp120.000 (dikembalikan 3 hari lagi)
 
   **Pop-up "Kang Asep Narik Lagi"**
 
@@ -1517,7 +1468,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Kang Asep x0.7
+- Pelanggan: Kang Asep 0,7x lebih sering
 
   **Pop-up "Cerita Selesai"**
 
@@ -1531,16 +1482,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 - **Warga:** Pak Misran, motor saya sekarang ngebut! Penumpang saya ajak mampir terus ke warung, hehe. / **Pak Misran:** Alhamdulillah, Kang. Hati-hati bawa motornya.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Bunga pinjaman rentenir itu mencekik, Pak... Ya sudah, dijalani saja. / **Pak Misran:** Yang sabar, Kang. Semoga cepat lunas.
 
 ---
 
-### 4.13 Istri Kang Dadan Melahirkan (`istri_kang_dadan`)
+### 4.13 Istri Kang Dadan Melahirkan
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 7
-#### Tahap 1 - Warung · Kang Dadan (pukul 17.00–21.00)
+#### Tahap 1 - Warung · Kang Dadan (pukul 17.00-21.00)
 
   **Kang Dadan:** Pak Misran... maaf ganggu. Boleh bicara sebentar?
   **Pak Misran:** Boleh, Kang Dadan. Kok kelihatan gelisah?
@@ -1553,7 +1504,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Pinjami Rp150.000"**
-   - biaya Rp150.000 → aksi: `tolong`
 
   **Pak Misran:** Ini, Kang. Cepat ke bidan, jangan sampai istrimu menunggu.
   **Kang Dadan:** Ya Allah, Pak... Hatur nuhun! Lima hari lagi saya kembalikan.
@@ -1561,17 +1511,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Pinjaman Kang Dadan dicatat di Buku Hutang.*
 
 2. **"Maaf, tidak bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Kang Dadan. Uang saya lagi habis buat sewa kios.
   **Kang Dadan:** Iya, Pak... Saya coba pinjam ke bos saja.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 1
-- kurir: 0.8
-- hutang: Kang Dadan Rp150.000 (dikembalikan 5 hari lagi)
-- pesan WA: Kang Dadan: "(pesan suara) Pak Misran, anak saya sudah lahir, laki-laki, sehat. Alhamdulillah. Hatur nuhun pisan bantuannya, Pak."
+- Reputasi: +1
+- Kurir: 20% lebih cepat datang
+- Utang: Kang Dadan Rp150.000 (dikembalikan 5 hari lagi)
+- Pesan WA: Kang Dadan: "(pesan suara) Pak Misran, anak saya sudah lahir, laki-laki, sehat. Alhamdulillah. Hatur nuhun pisan bantuannya, Pak."
 
   **Pop-up "Bayi Kang Dadan Lahir!"**
 
@@ -1583,7 +1532,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- kurir: 1.15
+- Kurir: 15% lebih lambat datang
 
   **Pop-up "Cerita Selesai"**
 
@@ -1597,16 +1546,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 - **Warga:** Pak Misran! Anak saya sudah bisa senyum. Namanya saya kasih Misbah, mirip nama Bapak, hehe. / **Pak Misran:** Masyaallah, semoga jadi anak saleh, Kang.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Anak saya sudah lahir, Pak. Utang ke bos dipotong dari gaji tiap minggu. / **Pak Misran:** Selamat, Kang Dadan. Semoga sehat semua.
 
 ---
 
-### 4.14 Perkakas Mang Ujang (`alat_mang_ujang`)
+### 4.14 Perkakas Mang Ujang
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 8
-#### Tahap 1 - Masjid · Mang Ujang (pukul 07.00–12.00)
+#### Tahap 1 - Masjid · Mang Ujang (pukul 07.00-12.00)
 
   **Mang Ujang:** Astagfirullah... Semua perkakas saya hilang, Pak Misran. Gergaji, bor, palu, semua diambil maling semalam.
   **Pak Misran:** Ya Allah, Mang Ujang! Terus kerjaannya bagaimana?
@@ -1619,7 +1568,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bantu Rp200.000"**
-   - biaya Rp200.000 → aksi: `tolong`
 
   **Pak Misran:** Ini, Mang. Beli perkakasnya, jangan sampai borongannya lepas.
   **Mang Ujang:** Pak Misran... saya cuma bisa ganti Rp100.000 minggu ini. Sisanya saya bayar pakai tenaga, ya?
@@ -1627,22 +1575,20 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Rp100.000 dicatat di Buku Hutang.*
 
 2. **"Maaf, tidak bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Mang. Saya juga lagi nabung buat Agus.
   **Mang Ujang:** Iya, Pak. Saya pinjam alat ke saudara saja, semoga dikasih.
 
 3. **"Nanti saya pikirkan"**
-   - aksi: `tunda`
 
   **Mang Ujang:** Saya di masjid sampai Zuhur, Pak. Bantu bersih-bersih, daripada nganggur.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- ramai: 0.02
-- pelanggan: Mang Ujang x1.5
-- hutang: Mang Ujang Rp100.000 (dikembalikan 4 hari lagi)
+- Reputasi: +3
+- Keramaian warung: +2%
+- Pelanggan: Mang Ujang 1,5x lebih sering
+- Utang: Mang Ujang Rp100.000 (dikembalikan 4 hari lagi)
 
   **Pop-up "Borongan Selamat"**
 
@@ -1655,7 +1601,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Mang Ujang x0.7
+- Pelanggan: Mang Ujang 0,7x lebih sering
 
   **Pop-up "Cerita Selesai"**
 
@@ -1669,16 +1615,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 - **Warga:** Rumah Pak Kades hampir beres, Pak. Kuli-kuli saya betah ngopi di warung Bapak. / **Pak Misran:** Alhamdulillah, Mang. Semoga borongannya nambah terus.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Sekarang saya jadi kuli harian dulu, Pak. Pelan-pelan nabung beli alat. / **Pak Misran:** Semangat, Mang Ujang.
 
 ---
 
-### 4.15 Kitab Kang Fadil (`kitab_kang_fadil`)
+### 4.15 Kitab Kang Fadil
 
 - **Syarat muncul:** Level ≥ 2 · Hari ≥ 6
-#### Tahap 1 - Pesantren · Kang Fadil (pukul 07.00–12.00)
+#### Tahap 1 - Pesantren · Kang Fadil (pukul 07.00-12.00)
 
   **Kang Fadil:** Assalamualaikum, Pak Misran...
   **Pak Misran:** Waalaikumsalam, Kang Fadil. Kok kelihatan bingung?
@@ -1691,28 +1637,25 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Belikan kitab (Rp80.000)"**
-   - biaya Rp80.000 → aksi: `tolong`
 
   **Pak Misran:** Ini, Kang. Beli kitab yang baru. Belajar yang sungguh-sungguh, ya.
   **Kang Fadil:** Jazakallah khair, Pak Misran! Insyaallah saya doakan warung Bapak berkah.
   **Kang Fadil:** Nanti teman-teman asrama saya ajak jajan di warung Bapak.
 
 2. **"Pakai kitab teman dulu, ya"**
-   - aksi: `tolak`
 
   **Pak Misran:** Coba pinjam kitab teman dulu, Kang. Bapak lagi belum ada.
   **Kang Fadil:** Iya, Pak. Nanti saya salin dari kitab Kang Hasan.
 
 3. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Kang Fadil:** Iya, Pak. Saya di sini sampai Zuhur, murojaah hafalan.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- ramai: 0.02
-- pelanggan: Kang Fadil x1.4, Kang Hasan x1.2
+- Reputasi: +3
+- Keramaian warung: +2%
+- Pelanggan: Kang Fadil 1,4x lebih sering, Kang Hasan 1,2x lebih sering
 
   **Pop-up "Lulus Ujian Hafalan"**
 
@@ -1724,7 +1667,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Kang Fadil x0.75
+- Pelanggan: Kang Fadil 0,75x lebih sering
 
   **Pop-up "Cerita Selesai"**
 
@@ -1738,16 +1681,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 - **Warga:** Pak Misran, alhamdulillah hafalan saya lulus! Kitabnya saya jaga baik-baik. / **Pak Misran:** Masyaallah, selamat, Kang Fadil!
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Ujian kemarin lumayan, Pak. Salinan kitab saya tulisannya berantakan, hehe. / **Pak Misran:** Yang penting hafalannya, Kang.
 
 ---
 
-### 4.16 Lampu Kedip Zebra Cross (`lampu_zebra_pak_rt`)
+### 4.16 Lampu Kedip Zebra Cross
 
 - **Syarat muncul:** Level ≥ 6 · Hari ≥ 9
-#### Tahap 1 - Rumah Warga · Pak RT (pukul 16.00–21.00)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 16.00-21.00)
 
   **Pak RT:** Pak Misran, pas sekali. Saya lagi keliling minta sumbangan warga.
   **Pak RT:** Motor sering ngebut di zebra cross depan warung. Sudah beberapa kali warga hampir keserempet.
@@ -1760,28 +1703,25 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Sumbang Rp150.000"**
-   - biaya Rp150.000 → aksi: `tolong`
 
   **Pak Misran:** Biar saya tutup kekurangannya, Pak RT. Supaya cepat dipasang.
   **Pak RT:** Masyaallah! Hatur nuhun, Pak Misran. Minggu ini langsung kami pasang.
 
 2. **"Maaf, belum bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Pak RT. Bulan ini saya lagi berat, sewa kios naik.
   **Pak RT:** Iya, nggak apa-apa, Pak. Kami tunggu sumbangan warga lain dulu.
 
 3. **"Nanti saya pikirkan"**
-   - aksi: `tunda`
 
   **Pak RT:** Boleh, Pak. Saya di pos ronda sampai malam.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- ramai: 0.03
-- zebra_aman: 0.5
-- pesan WA: Pak RT: "Alhamdulillah, lampu kedip dan rambu di kedua ujung jalan kampung sudah terpasang. Terima kasih Pak Misran yang menutup kekurangan biayanya."
+- Reputasi: +3
+- Keramaian warung: +3%
+- Menyeberang: risiko kecelakaan turun 50%
+- Pesan WA: Pak RT: "Alhamdulillah, lampu kedip dan rambu di kedua ujung jalan kampung sudah terpasang. Terima kasih Pak Misran yang menutup kekurangan biayanya."
 
   **Pop-up "Zebra Cross Terang"**
 
@@ -1806,16 +1746,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 - **Warga:** Sejak ada lampu kedip dan rambu, motor jadi pelan-pelan lewat depan warung, Pak. Alhamdulillah. / **Pak Misran:** Alhamdulillah, Pak RT. Anak-anak juga aman nyeberang.
 
-*Cabang tolak:*
+*Cabang menolak:*
 
 - **Warga:** Sumbangan lampu kedip masih kurang, Pak. Sabar dulu, ya. / **Pak Misran:** Semoga cepat terkumpul, Pak RT.
 
 ---
 
-### 4.17 Izin Agen Air Galon (`izin_depot_galon`)
+### 4.17 Izin Agen Air Galon
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 1
-#### Tahap 1 - Rumah Warga · Pak RT (pukul 08.00–21.00)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 08.00-21.00)
 
   **Pak RT:** Pak Misran! Kebetulan. Tadi orang depot air isi ulang mampir ke pos ronda, nanyain warung Bapak.
   **Pak Misran:** Oh, soal galon titipan itu, Pak RT? Sudah lama nangkring di rak, tapi belum boleh saya jual.
@@ -1828,20 +1768,18 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Urus suratnya (Rp75.000)"**
-   - biaya Rp75.000 → aksi: `tolong`
 
   **Pak Misran:** Bismillah, tolong diurus, Pak RT. Ini uangnya.
   **Pak RT:** Siap! Sore ini saya antar suratnya ke depot. Mulai besok galon di warung Bapak sudah resmi boleh dijual.
 
 2. **"Nanti dulu, uangnya belum cukup"**
-   - aksi: `tunda`
 
   **Pak RT:** Iya, Pak. Kapan saja Bapak siap, saya di pos ronda.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 1
-- barang terbuka: galon
+- Reputasi: +1
+- Barang baru terbuka: galon
 
   **Pop-up "Resmi Jadi Agen Galon!"**
 
@@ -1852,10 +1790,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.18 Pangkalan Gas Resmi (`pangkalan_gas`)
+### 4.18 Pangkalan Gas Resmi
 
 - **Syarat muncul:** Level ≥ 4 · Hari ≥ 1
-#### Tahap 1 - SD · Kang Asep (pukul 15.00–20.00)
+#### Tahap 1 - SD · Kang Asep (pukul 15.00-20.00)
 
   **Kang Asep:** Pak Misran! Saya baru dari agen LPG di kecamatan, saudara saya kerja di sana.
   **Kang Asep:** Katanya mereka cari pangkalan baru di kampung ini. Warung Bapak kan sudah ada tabung titipan, tinggal izinnya.
@@ -1868,21 +1806,19 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bayar jaminan (Rp200.000)"**
-   - biaya Rp200.000 → aksi: `tolong`
 
   **Pak Misran:** Ini, Kang. Tolong sampaikan ke agennya, ya.
   **Kang Asep:** Siap, Pak! Besok tanda pangkalannya sudah bisa dipasang. Ibu-ibu nggak perlu jauh-jauh lagi beli gas.
 
 2. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Kang Asep:** Iya, Pak. Saya mangkal di sini tiap sore, nunggu anak-anak pulang les.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
-- ramai: 0.02
-- barang terbuka: lpg
+- Reputasi: +2
+- Keramaian warung: +2%
+- Barang baru terbuka: lpg
 
   **Pop-up "Pangkalan LPG Resmi!"**
 
@@ -1894,10 +1830,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.19 Pesanan Arisan Ibu-Ibu (`arisan_bu_ida`)
+### 4.19 Pesanan Arisan Ibu-Ibu
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Pasar · Bu Ida (pukul 08.00–19.00, selama pasar buka)
+#### Tahap 1 - Pasar · Bu Ida (pukul 08.00-19.00, selama pasar buka)
 
   **Bu Ida:** Eh, Pak Misran, mampir ke pasar juga? Ibu-ibu arisan mau masak besar buat syukuran kampung sebentar lagi.
   **Bu Ida:** Kami perlu gula pasir sama teh celup yang banyak. Di lapak saya cuma ada buah. Kalau beli di grosir Haji Maman, ibu-ibu repot bolak-balik naik angkot.
@@ -1910,22 +1846,20 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Sediakan (modal Rp150.000)"**
-   - biaya Rp150.000 → aksi: `tolong`
 
   **Pak Misran:** Siap, Bu Ida. Besok pagi gula dan teh celupnya sudah ada di warung.
   **Bu Ida:** Alhamdulillah! Ini uang borongannya Rp220.000, Pak. Sisanya nanti ibu-ibu belanja sendiri-sendiri.
 
 2. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Bu Ida:** Iya, Pak. Tapi jangan lama-lama, syukurannya sebentar lagi.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- uang: 220000
-- ramai: 0.02
-- barang terbuka: gula, kopi bubuk
-- pelanggan: Bu Ida x1.3
+- Uang masuk: Rp220.000
+- Keramaian warung: +2%
+- Barang baru terbuka: gula, kopi bubuk
+- Pelanggan: Bu Ida 1,3x lebih sering
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -1943,12 +1877,12 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.20 Ucup Juara Kelas (`ucup_juara`)
+### 4.20 Ucup Juara Kelas
 
-- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · bukan Ramadan · **JANJI** (hanya hari libur warung) · **setelah** quest "Ucup Ingin Sekolah" selesai dengan hasil **tolong**
+- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · HARI SEKOLAH (bukan Minggu) · bukan Ramadan · **JANJI** (hanya hari libur warung) · **setelah** quest "Ucup Ingin Sekolah" selesai dengan hasil **membantu**
 
 > **Pernyataan developer** (Neo Paw Studio, [Threads](https://www.threads.com/@neopawstudio/post/Dfv_ejDk2Nj)): kalau Ucup dibantu di "Ucup Ingin Sekolah", cerita inilah yang muncul sebagai gantinya, dan cerita ini yang membuka susu kotak. Sebaliknya, Susu Sekolah baru bisa muncul kalau Ucup tidak dibantu.
-#### Tahap 1 - SD · Ucup (pukul 08.00–13.00)
+#### Tahap 1 - SD · Ucup (pukul 08.00-13.00)
 
   **Ucup:** Pak Misran! Pak Misran! Ucup ranking satu di kelas!
   **Pak Misran:** Masyaallah, Cup! Hebat sekali kamu!
@@ -1961,27 +1895,24 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Traktir susu kotak satu kelas (Rp90.000)"**
-   - biaya Rp90.000 → aksi: `tolong`
 
   **Pak Misran:** Nanti Bapak antar susu kotak buat satu kelas. Anggap hadiah juara dari Bapak.
   **Ucup:** Beneran, Pak?! Ucup mau bilang ke teman-teman, ini dari Pak Misran!
 
 2. **"Belikan kue kecil saja (Rp40.000)"**
-   - biaya Rp40.000 → aksi: `tolong`
 
   **Pak Misran:** Bapak belikan kue kecil buat dibagi, ya. Uang Bapak lagi pas-pasan.
   **Ucup:** Nggak apa-apa, Pak! Makasih banyak! Nanti Ucup bilang ke Bu Guru.
 
 3. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Ucup:** Iya, Pak. Ucup di sini sampai pulang sekolah.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- barang terbuka: susu kotak
-- pelanggan: Ucup x1.3, Neng Shinta x1.2, Dimas x1.2
+- Reputasi: +3
+- Barang baru terbuka: susu kotak
+- Pelanggan: Ucup 1,3x lebih sering, Neng Shinta 1,2x lebih sering, Dimas 1,2x lebih sering
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -1999,26 +1930,26 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.21 Susu Sekolah (`susu_sd`)
+### 4.21 Susu Sekolah
 
-- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · hari sekolah (bukan Minggu) · bukan bulan Ramadan (hari 55–84) · hanya hari libur warung (sejak v1.0 hanya Jumat), dan itu pun hanya kalau ada janji untuk hari itu · setelah menolak "Ucup Ingin Sekolah" · setelah quest "Hadiah Lomba HUT Sekolah" selesai. Tempat: SD, pukul 13.00–17.00.
+- **Syarat muncul:** Level ≥ 5 · Hari ≥ 1 · hari sekolah (bukan Minggu) · bukan bulan Ramadan (hari 55-84) · hanya hari libur warung (sejak v1.0 hanya Jumat), dan itu pun hanya kalau ada janji untuk hari itu · setelah menolak "Ucup Ingin Sekolah" · setelah quest "Hadiah Lomba HUT Sekolah" selesai. Tempat: SD, pukul 13.00-17.00.
 
 > **Pernyataan developer** (Neo Paw Studio lewat Threads). Semua syarat ini harus terpenuhi:
 > 1. Warung sudah Level 5 atau lebih.
 > 2. Waktu cerita "Ucup Ingin Sekolah", pemain harus memilih "tidak membantu Ucup".
 > 3. Kalau Ucup dibantu, Susu Sekolah memang tidak akan pernah muncul.
-> 4. Sebagai gantinya muncul cerita "Ucup Juara Kelas" (Ucup di SD, jam 08–13), dan cerita itu yang membuka susu kotak.
+> 4. Sebagai gantinya muncul cerita "Ucup Juara Kelas" (Ucup di SD, jam 08-13), dan cerita itu yang membuka susu kotak.
 > 5. Cerita "Hadiah Lomba HUT Sekolah" (Neng Shinta) sudah selesai.
-> 6. Bukan hari Minggu dan bukan bulan Ramadan (hari 55–84).
+> 6. Bukan hari Minggu dan bukan bulan Ramadan (hari 55-84).
 > 7. Di hari libur (Senin/Jumat), Neng Shinta hanya datang kalau memang ada janji untuk hari itu.
 >
-> Tempatnya di SD, jam 13.00–17.00. Misi yang tidak tercentang di daftar HP itu konsekuensi dari pilihan yang diambil, bukan bug yang perlu dikejar. Untuk sementara biarkan tidak tercentang; developer akan memperbaiki agar hilang dari list.
+> Tempatnya di SD, jam 13.00-17.00. Misi yang tidak tercentang di daftar HP itu konsekuensi dari pilihan yang diambil, bukan bug yang perlu dikejar. Untuk sementara biarkan tidak tercentang; developer akan memperbaiki agar hilang dari list.
 >
 > Sumber: [@neopawstudio di Threads](https://www.threads.com/@neopawstudio/post/Dfv_ejDk2Nj)
 
 *Catatan v1.0: hari libur warung kini hanya Jumat, jadi poin 7 di atas berlaku untuk hari Jumat.*
 
-#### Tahap 1 - SD · Neng Shinta (pukul 13.00–17.00)
+#### Tahap 1 - SD · Neng Shinta (pukul 13.00-17.00)
 
   **Neng Shinta:** Pak Misran! Bu Guru lagi cari warung yang bisa sediakan susu kotak buat adik-adik SD.
   **Neng Shinta:** Stok pertamanya sekitar Rp90.000, Pak. Nanti anak-anak bisa beli sendiri sebelum sekolah.
@@ -2029,21 +1960,19 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Sediakan (Rp90.000)"**
-   - biaya Rp90.000 → aksi: `tolong`
 
   **Pak Misran:** Boleh, Neng. Bilang ke Bu Guru, susu kotaknya saya sediakan.
   **Neng Shinta:** Makasih, Pak! Adik-adik pasti senang.
 
 2. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Neng Shinta:** Iya, Pak. Saya di sini tiap pulang sekolah.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- barang terbuka: susu kotak
-- pelanggan: Ucup x1.3, Neng Shinta x1.2, Dimas x1.2
+- Reputasi: +3
+- Barang baru terbuka: susu kotak
+- Pelanggan: Ucup 1,3x lebih sering, Neng Shinta 1,2x lebih sering, Dimas 1,2x lebih sering
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -2055,10 +1984,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.22 Hama Wereng di Sawah (`panen_abah`)
+### 4.22 Hama Wereng di Sawah
 
 - **Syarat muncul:** Level ≥ 3 · Hari ≥ 1
-#### Tahap 1 - Sawah · Abah Karta (pukul 07.00–17.00)
+#### Tahap 1 - Sawah · Abah Karta (pukul 07.00-17.00)
 
   **Abah Karta:** Aduh, Pak Misran... Lihat ini, padinya kena wereng. Batangnya mulai kuning.
   **Pak Misran:** Astagfirullah, Abah. Masih bisa diselamatkan?
@@ -2071,23 +2000,21 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bantu beli obat hama (Rp150.000)"**
-   - biaya Rp150.000 → aksi: `tolong`
 
   **Pak Misran:** Ayo, Abah. Kita beli sekarang, sekalian saya bantu semprot.
   *Pak Misran membantu Abah Karta menyemprot sawah sampai siang.*
   **Abah Karta:** Hatur nuhun, Pak. Nanti kalau panen, uangnya Abah ganti, ditambah beras sekarung buat Bapak.
 
 2. **"Maaf, belum bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Abah. Uang warung lagi dipakai buat Agus.
   **Abah Karta:** Iya, Pak... Abah coba pinjam ke kelompok tani saja.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- pelanggan: Abah Karta x1.4
-- hutang: Abah Karta Rp200.000 (dikembalikan 6 hari lagi)
+- Reputasi: +3
+- Pelanggan: Abah Karta 1,4x lebih sering
+- Utang: Abah Karta Rp200.000 (dikembalikan 6 hari lagi)
 
   **Pop-up "Sawah Selamat"**
 
@@ -2099,7 +2026,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Abah Karta x0.7
+- Pelanggan: Abah Karta 0,7x lebih sering
 
   **Pop-up "Cerita Selesai"**
 
@@ -2115,10 +2042,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.23 Laundry Mba Giska (`laundry_giska`)
+### 4.23 Laundry Mba Giska
 
 - **Syarat muncul:** Level ≥ 6 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Rumah Warga · Mba Giska (pukul 09.00–18.00)
+#### Tahap 1 - Rumah Warga · Mba Giska (pukul 09.00-18.00)
 
   **Mba Giska:** Pak Misran! Saya mau buka usaha laundry kiloan di rumah. Banyak santri sama pekerja yang butuh.
   **Mba Giska:** Saya butuh sabun dan deterjen rutin tiap minggu. Bapak mau jadi pemasok saya?
@@ -2131,22 +2058,20 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Jadi pemasok (modal Rp120.000)"**
-   - biaya Rp120.000 → aksi: `tolong`
 
   **Pak Misran:** Siap, Mba. Besok sabun dan deterjennya sudah ada.
   **Mba Giska:** Deal! Ini Rp170.000 buat pesanan pertama. Nanti pelanggan laundry saya suruh belanja ke warung Bapak juga.
 
 2. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Mba Giska:** Oke, Pak. Saya masih beres-beres mesin cucinya kok.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- uang: 170000
-- ramai: 0.02
-- barang terbuka: sabun, deterjen
-- pelanggan: Mba Giska x1.3, Kang Fadil x1.1, Kang Hasan x1.1
+- Uang masuk: Rp170.000
+- Keramaian warung: +2%
+- Barang baru terbuka: sabun, deterjen
+- Pelanggan: Mba Giska 1,3x lebih sering, Kang Fadil 1,1x lebih sering, Kang Hasan 1,1x lebih sering
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -2164,10 +2089,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.24 Loket Token Listrik (`token_pak_rt`)
+### 4.24 Loket Token Listrik
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1
-#### Tahap 1 - Rumah Warga · Pak RT (pukul 16.00–21.00)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 16.00-21.00)
 
   **Pak RT:** Pak Misran, semalam rumah Nenek Sumi gelap. Token listriknya habis, konter terdekat sudah tutup.
   **Pak RT:** Warga minta saya cari warung yang bisa jual token listrik. Warung Bapak kan sudah ada konter pulsa.
@@ -2180,22 +2105,20 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Daftar loket (Rp100.000)"**
-   - biaya Rp100.000 → aksi: `tolong`
 
   **Pak Misran:** Saya daftar hari ini, Pak RT. Mulai besok warga bisa beli token di warung.
   **Pak RT:** Alhamdulillah. Saya umumkan di grup RT.
 
 2. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Pak RT:** Boleh, Pak. Saya di pos ronda tiap sore.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
-- ramai: 0.02
-- barang terbuka: token listrik
-- pesan WA: Pak RT: "Bapak-Ibu, sekarang beli token listrik bisa di warung Pak Misran. Nggak usah jauh-jauh ke kecamatan lagi."
+- Reputasi: +2
+- Keramaian warung: +2%
+- Barang baru terbuka: token listrik
+- Pesan WA: Pak RT: "Bapak-Ibu, sekarang beli token listrik bisa di warung Pak Misran. Nggak usah jauh-jauh ke kecamatan lagi."
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -2207,10 +2130,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.25 Dimas Masuk SMK (`dimas_smk`)
+### 4.25 Dimas Masuk SMK
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Sawah · Dimas (pukul 14.00–18.00)
+#### Tahap 1 - Sawah · Dimas (pukul 14.00-18.00)
 
   **Dimas:** Pak Misran... Dimas keterima di SMK jurusan mesin.
   **Pak Misran:** Wah, selamat, Dim! Kok mukanya sedih?
@@ -2223,28 +2146,25 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Bantu (Rp150.000)"**
-   - biaya Rp150.000 → aksi: `tolong`
 
   **Pak Misran:** Ini, Dim. Sekolah yang benar. Soal cicilan, separuh saja cukup.
   **Dimas:** Makasih, Pak! Dimas janji, minggu depan cicilannya Dimas antar ke warung!
 
 2. **"Maaf, belum bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Maaf, Dim. Bapak juga lagi butuh buat Agus.
   **Dimas:** Iya, Pak. Dimas coba minta keringanan ke sekolah.
 
 3. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Dimas:** Iya, Pak. Dimas di sini sampai sore.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- ramai: 0.01
-- pelanggan: Dimas x1.4, Neng Shinta x1.1
-- hutang: Dimas Rp75.000 (dikembalikan 7 hari lagi)
+- Reputasi: +3
+- Keramaian warung: +1%
+- Pelanggan: Dimas 1,4x lebih sering, Neng Shinta 1,1x lebih sering
+- Utang: Dimas Rp75.000 (dikembalikan 7 hari lagi)
 
   **Pop-up "Dimas Bisa Sekolah"**
 
@@ -2256,7 +2176,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- pelanggan: Dimas x0.75
+- Pelanggan: Dimas 0,75x lebih sering
 
   **Pop-up "Cerita Selesai"**
 
@@ -2272,10 +2192,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.26 Freezer Es Krim (`freezer_es_krim`)
+### 4.26 Freezer Es Krim
 
 - **Syarat muncul:** Level ≥ 7 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Warung · Kang Dadan (pukul 10.00–17.00)
+#### Tahap 1 - Warung · Kang Dadan (pukul 10.00-17.00)
 
   **Kang Dadan:** Pak Misran, kantor saya sekarang juga distributor es krim. Mereka cari warung buat titip freezer.
   **Kang Dadan:** Saya langsung rekomendasikan warung Bapak. Warung paling ramai di kampung ini.
@@ -2288,21 +2208,19 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Pasang freezer (Rp250.000)"**
-   - biaya Rp250.000 → aksi: `tolong`
 
   **Pak Misran:** Ayo, Kang. Pasang di samping kulkas saja.
   **Kang Dadan:** Siap! Besok freezer sama es krimnya saya antar sekalian.
 
 2. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Kang Dadan:** Iya, Pak. Tawarannya masih berlaku kok.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- ramai: 0.03
-- barang terbuka: es krim
-- pelanggan: Ucup x1.2, Neng Shinta x1.15, Dimas x1.15
+- Keramaian warung: +3%
+- Barang baru terbuka: es krim
+- Pelanggan: Ucup 1,2x lebih sering, Neng Shinta 1,15x lebih sering, Dimas 1,15x lebih sering
 
   **Pop-up "Barang Baru Terbuka!"**
 
@@ -2314,10 +2232,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.27 Umrah untuk Ibunda (`umrah_haji_doni`)
+### 4.27 Umrah untuk Ibunda
 
 - **Syarat muncul:** Level ≥ 9 · Hari ≥ 1
-#### Tahap 1 - Masjid · Haji Doni (pukul 07.00–17.00)
+#### Tahap 1 - Masjid · Haji Doni (pukul 07.00-17.00)
 
   **Haji Doni:** Pak Misran, ibu saya sudah sepuh. Dari dulu beliau ingin sekali umrah sebelum ajal.
   **Haji Doni:** Tabungan saya hampir cukup, tapi kurang sedikit. Jamaah masjid sepakat patungan.
@@ -2329,28 +2247,25 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Ikut patungan (Rp300.000)"**
-   - biaya Rp300.000 → aksi: `tolong`
 
   **Pak Misran:** Ini dari saya, Haji Doni. Semoga ibunda sehat dan lancar ibadahnya.
   **Haji Doni:** Masyaallah... Jazakallah khair, Pak Misran. Nama Bapak saya titipkan dalam doa di Tanah Suci.
 
 2. **"Ikut patungan (Rp100.000)"**
-   - biaya Rp100.000 → aksi: `tolong`
 
   **Pak Misran:** Maaf cuma segini, Haji Doni. Semoga berkah.
   **Haji Doni:** Berapa pun sangat berarti, Pak Misran. Terima kasih.
 
 3. **"Doakan saja"**
-   - aksi: `tolak`
 
   **Pak Misran:** Saya doakan dari sini, Haji Doni. Semoga lancar semuanya.
   **Haji Doni:** Aamiin. Terima kasih, Pak.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 4
-- ramai: 0.03
-- pesan WA: Pak RT: "Alhamdulillah, patungan umrah ibunda Pak Haji Doni sudah terkumpul. Terima kasih jamaah, termasuk Pak Misran."
+- Reputasi: +4
+- Keramaian warung: +3%
+- Pesan WA: Pak RT: "Alhamdulillah, patungan umrah ibunda Pak Haji Doni sudah terkumpul. Terima kasih jamaah, termasuk Pak Misran."
 
   **Pop-up "Berangkat ke Tanah Suci"**
 
@@ -2370,10 +2285,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.28 Agus Pulang (`agus_mudik`)
+### 4.28 Agus Pulang
 
 - **Syarat muncul:** Hari ≥ 85 · Hari ≤ 85
-#### Tahap 1 - Warung · Agus (pukul 07.00–22.00)
+#### Tahap 1 - Warung · Agus (pukul 07.00-22.00)
 
   *Hari Raya Idulfitri. Takbir masih terdengar dari masjid. Seorang pemuda dengan ransel besar berjalan pelan ke depan warung.*
   **Pak Misran:** Mohon maaf lahir batin, Mas. Warung lagi libur Lebaran, tapi kalau ada yang perlu, Bapak carikan.
@@ -2395,14 +2310,13 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Ayo masuk, Gus"**
-   - aksi: `tolong`
 
   **Pak Misran:** Ayo masuk, Gus. Bapak buatkan kopi. Ceritakan semua soal kuliahmu.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- agus_bantu: 4
+- Reputasi: +3
+- Agus membantu: 4 hari
 
   **Pop-up "Agus Pulang"**
 
@@ -2413,10 +2327,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.29 Takjil Masjid (`takjil_masjid`)
+### 4.29 Takjil Masjid
 
 - **Syarat muncul:** Level ≥ 1 · Hari ≥ 56 · Hari ≤ 84 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Masjid · Haji Doni (pukul 09.00–17.00)
+#### Tahap 1 - Masjid · Haji Doni (pukul 09.00-17.00)
 
   **Haji Doni:** Assalamualaikum, Pak Misran. Setiap sore selama Ramadan, masjid menyiapkan takjil gratis untuk jamaah dan musafir yang lewat.
   **Haji Doni:** Kas masjid sedang menipis. Kalau warung Bapak berkenan menyumbang teh botol dan kurma untuk buka bersama, insyaallah berkah.
@@ -2428,28 +2342,25 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Sumbang (Rp100.000)"**
-   - biaya Rp100.000 → aksi: `tolong`
 
   **Pak Misran:** Insyaallah, Haji Doni. Nanti sore Bapak antar ke masjid.
   **Haji Doni:** Jazakallah khair, Pak Misran. Nanti saya umumkan, takjilnya dari warung Bapak.
 
 2. **"Maaf, belum bisa"**
-   - aksi: `tolak`
 
   **Pak Misran:** Mohon maaf, Haji Doni, warung sedang seret. Semoga ada rezeki lain.
   **Haji Doni:** Tidak apa-apa, Pak. Doakan saja kas masjid cukup.
 
 3. **"Nanti dulu"**
-   - aksi: `tunda`
 
   **Haji Doni:** Iya, Pak. Kabari saya kalau sudah siap.
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
-- ramai: 0.02
-- pelanggan: Kang Fadil x1.3, Kang Hasan x1.3, Nenek Sumi x1.2
-- pesan WA: Haji Doni: "Bapak-Ibu, takjil buka bersama di masjid Ramadan ini disumbang warung Pak Misran. Jazakallah khair!"
+- Reputasi: +3
+- Keramaian warung: +2%
+- Pelanggan: Kang Fadil 1,3x lebih sering, Kang Hasan 1,3x lebih sering, Nenek Sumi 1,2x lebih sering
+- Pesan WA: Haji Doni: "Bapak-Ibu, takjil buka bersama di masjid Ramadan ini disumbang warung Pak Misran. Jazakallah khair!"
 
   **Pop-up "Takjil Masjid"**
 
@@ -2475,10 +2386,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.30 Abah Karta Tersesat (`abah_tersesat`)
+### 4.30 Abah Karta Tersesat
 
 - **Syarat muncul:** Level ≥ 5 · Hari ≥ 1
-#### Tahap 1 - Masjid · Abah Karta (pukul 16.00–21.00)
+#### Tahap 1 - Masjid · Abah Karta (pukul 16.00-21.00)
 
   *Abah Karta berdiri sendirian di depan masjid. Sarungnya terbalik, matanya terus menatap pintu masjid.*
   **Abah Karta:** Eh, Misran... Abah lagi nungguin Ambu. Katanya sebentar lagi beres ngaji.
@@ -2491,7 +2402,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Temani Abah dan ajak pulang pelan-pelan"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Abah, anginnya mulai dingin. Kita tunggu Ambu di rumah saja, yuk. Saya antar.
   **Abah Karta:** Iya, ya... Ambu mah pasti pulang sendiri. Dia hafal jalan.
@@ -2499,18 +2409,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Ceritakan kejadian ini kepada Pak RT di pos ronda (area Rumah Warga).*
 
 2. **""Abah, Ambu kan sudah meninggal""**
-   - aksi: `ulang`
 
   **Abah Karta:** Meninggal...? (Abah terdiam lama, lalu menangis seperti baru pertama kali mendengarnya.)
   **Pak Misran:** (Sepertinya bukan begini caranya. Abah butuh ditemani, bukan diingatkan.)
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Abah, saya ke warung dulu sebentar, ya.
   **Abah Karta:** Iya, Misran. Abah di sini saja, nungguin Ambu.
 
-#### Tahap 2 - Rumah Warga · Pak RT (pukul 07.00–21.00)
+#### Tahap 2 - Rumah Warga · Pak RT (pukul 07.00-21.00)
 
   **Pak Misran:** Pak RT, tadi saya ketemu Abah Karta di masjid. Beliau nungguin Ambu...
   **Pak RT:** Astaghfirullah. Sudah dua kali minggu ini, Pak. Kemarin Bu Ida menemukan Abah di jembatan sawah waktu pulang dari pasar.
@@ -2524,17 +2432,15 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Saya ikut, pagi biar saya"**
-   - aksi: `lanjut`
 
   **Pak RT:** Alhamdulillah. Coba tengok Abah di sawah, ya. Biasanya beliau ada di sawah.
   *Tengok Abah Karta di sawah.*
 
 2. **"Saya sibuk di warung, Pak"**
-   - aksi: `tolak`
 
   **Pak RT:** Ya sudah, Pak. Biar saya cari warga lain.
 
-#### Tahap 3 - Sawah · Abah Karta (pukul 07.00–21.00)
+#### Tahap 3 - Sawah · Abah Karta (pukul 07.00-21.00)
 
   **Abah Karta:** Pak Misran! Sini, sini. Abah dengar dari Pak RT... Abah bikin repot, ya?
   **Pak Misran:** Nggak repot, Abah. Saya senang nemenin Abah ngobrol.
@@ -2544,11 +2450,11 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Abah Karta:** Iya... Ambu memang begitu. Hatur nuhun, Pak Misran. Sudah mau jadi teman orang tua ini.
   *Mulai hari itu warga bergiliran menengok Abah Karta. Abah tidak pernah lagi tersesat sendirian.*
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
+- Reputasi: +2
 
   **Pop-up "Abah Tidak Sendirian"**
 
@@ -2575,10 +2481,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.31 Rahasia Pak Rudi (`rahasia_rudi`)
+### 4.31 Rahasia Pak Rudi
 
 - **Syarat muncul:** Level ≥ 8 · Hari ≥ 1 · bukan Ramadan · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Masjid · Pak Rudi (pukul 10.00–15.00)
+#### Tahap 1 - Masjid · Pak Rudi (pukul 10.00-15.00)
 
   *Pak Rudi berdiri di depan masjid dengan kemeja kantor dan tas kerjanya. Matanya kosong.*
   **Pak Rudi:** Eh... Pak Misran. Saya... lagi istirahat.
@@ -2592,7 +2498,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Dengarkan Pak Rudi"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Malu kenapa, Pak? Bapak nggak mencuri, nggak menipu. Perusahaannya yang tutup.
   **Pak Rudi:** Anak saya mau masuk SMP, Pak. Istri saya pikir semuanya baik-baik saja...
@@ -2601,18 +2506,16 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Tanyakan lowongan kerja kepada Kang Asep di depan SD.*
 
 2. **"Pura-pura tidak tahu"**
-   - aksi: `tolak`
 
   **Pak Misran:** Oh, begitu. Ya sudah, saya duluan, Pak Rudi.
   *Pak Rudi menunduk. Ia kembali menatap pintu masjid sendirian.*
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Pak Misran:** Pak Rudi, nanti saya ke sini lagi, ya.
   **Pak Rudi:** Iya, Pak... saya di sini sampai sore.
 
-#### Tahap 2 - SD · Kang Asep (pukul 07.00–21.00)
+#### Tahap 2 - SD · Kang Asep (pukul 07.00-21.00)
 
   **Pak Misran:** Kang Asep, kenal yang lagi cari pegawai? Untuk teman saya. Orangnya jujur dan rajin.
   **Kang Asep:** Hmm... Oh! Koperasi sekolah SD ini lagi cari bendahara, Pak. Kemarin kepala sekolahnya nanya ke saya.
@@ -2621,9 +2524,9 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Kang Asep:** Suruh datang ke sini besok pagi, Pak. Bilang saja dari Kang Asep.
   *Kabari Pak Rudi. Ia sedang di depan warung.*
 
-*(aksi otomatis tahap ini: `lanjut`)*
+*(tahap ini otomatis lanjut ke tahap berikutnya)*
 
-#### Tahap 3 - Warung · Pak Rudi (pukul 07.00–21.00)
+#### Tahap 3 - Warung · Pak Rudi (pukul 07.00-21.00)
 
   **Pak Rudi:** Pak Misran! Saya... akhirnya cerita ke istri.
   **Pak Rudi:** Saya kira dia bakal marah. Ternyata dia cuma memeluk saya dan bilang, "Kenapa nggak dari dulu, Pak?"
@@ -2632,11 +2535,11 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Pak Rudi:** Saya sempat merasa jadi orang paling gagal di kampung ini.
   **Pak Misran:** Di kampung ini nggak ada yang jatuh sendirian, Pak Rudi.
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
+- Reputasi: +2
 
   **Pop-up "Pak Rudi Bangkit"**
 
@@ -2663,10 +2566,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.32 Wali Wisuda Kang Fadil (`wisuda_fadil`)
+### 4.32 Wali Wisuda Kang Fadil
 
 - **Syarat muncul:** Level ≥ 8 · Hari ≥ 1 · **JANJI** (hanya hari libur warung)
-#### Tahap 1 - Pesantren · Kang Fadil (pukul 08.00–17.00)
+#### Tahap 1 - Pesantren · Kang Fadil (pukul 08.00-17.00)
 
   **Kang Fadil:** Pak Misran! Alhamdulillah, saya sudah khatam hafalan 30 juz.
   **Pak Misran:** MasyaAllah, Kang Fadil! Bapak ikut bangga.
@@ -2680,23 +2583,20 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Dengan senang hati, Kang"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Dengan senang hati, Kang. Anggap saja Bapak ini bapakmu di sini.
   **Kang Fadil:** Hatur nuhun, Pak... (matanya berkaca-kaca)
   *Pak Misran tidak punya baju koko yang pantas. Coba pinjam ke Haji Doni di masjid.*
 
 2. **"Maaf, saya tidak bisa"**
-   - aksi: `tolak`
 
   **Kang Fadil:** Iya, Pak, saya mengerti. Nanti saya naik panggung sendiri saja.
 
 3. **"Nanti saya kabari"**
-   - aksi: `tunda`
 
   **Kang Fadil:** Iya, Pak. Wisudanya masih beberapa hari lagi.
 
-#### Tahap 2 - Masjid · Haji Doni (pukul 07.00–21.00)
+#### Tahap 2 - Masjid · Haji Doni (pukul 07.00-21.00)
 
   **Pak Misran:** Haji Doni, saya mau jadi wali wisuda Kang Fadil. Boleh pinjam baju koko yang pantas?
   **Haji Doni:** Wali wisuda tahfiz? MasyaAllah, itu kehormatan besar, Pak Misran.
@@ -2705,11 +2605,11 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Pak Misran:** Insyaallah saya jaga baik-baik, Haji Doni.
   *Datang ke pesantren untuk menemani Kang Fadil di hari wisuda.*
 
-*(aksi otomatis tahap ini: `lanjut`)*
+*(tahap ini otomatis lanjut ke tahap berikutnya)*
 
-#### Tahap 3 - Pesantren · Kang Fadil (pukul 07.00–21.00)
+#### Tahap 3 - Pesantren · Kang Fadil (pukul 07.00-21.00)
 
-*Mulai v1.0: selama tahap ini (hari wisuda), Pak Misran memakai baju koko putih — sesuai yang disebut Kang Fadil di dialog.*
+*Mulai v1.0: selama tahap ini (hari wisuda), Pak Misran memakai baju koko putih, sesuai yang disebut Kang Fadil di dialog.*
 
   *Wisuda baru saja selesai di aula pesantren. Pak Misran tadi mendampingi Kang Fadil naik panggung. Surat Ar-Rahman dilantunkannya tanpa sekali pun tersendat.*
   **Kang Hasan:** Fadil, tadi merdu sekali! Pak Misran sampai menahan air mata.
@@ -2719,11 +2619,11 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Pak Misran:** (Pak Misran teringat Agus. Suatu hari nanti, ia juga ingin berdiri di samping anaknya seperti ini.)
   **Kang Fadil:** Hatur nuhun, Pak. Hari ini saya nggak merasa sendirian.
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 3
+- Reputasi: +3
 
   **Pop-up "Wali Wisuda"**
 
@@ -2749,10 +2649,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ---
 
-### 4.33 Rahasia Kang Dadan (`dadan_membaca`)
+### 4.33 Rahasia Kang Dadan
 
 - **Syarat muncul:** Level ≥ 9 · Hari ≥ 1
-#### Tahap 1 - Warung · Kang Dadan (pukul 16.00–21.00)
+#### Tahap 1 - Warung · Kang Dadan (pukul 16.00-21.00)
 
   *Kang Dadan berdiri di depan warung, menatap layar HP lama sekali.*
   **Kang Dadan:** Pak Misran... boleh minta tolong bacakan ini? Mata saya... eh, HP saya buram.
@@ -2766,7 +2666,6 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Saya ajari tiap malam di warung"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Belajar membaca nggak ada kata terlambat, Kang. Tiap malam sesudah warung tutup, kita belajar di sini.
   **Kang Dadan:** Beneran, Pak? Saya kira Bapak bakal ketawa...
@@ -2774,16 +2673,14 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Pinjam buku belajar membaca ke Neng Shinta di SD.*
 
 2. **"Coba minta tolong teman kantor"**
-   - aksi: `tolak`
 
   **Kang Dadan:** Iya, Pak... nanti saya coba.
 
 3. **"Nanti saja"**
-   - aksi: `tunda`
 
   **Kang Dadan:** Iya, Pak. Tolong jangan bilang siapa-siapa, ya.
 
-#### Tahap 2 - SD · Neng Shinta (pukul 07.00–21.00)
+#### Tahap 2 - SD · Neng Shinta (pukul 07.00-21.00)
 
   **Pak Misran:** Neng Shinta, masih punya buku belajar membaca waktu SD dulu?
   **Neng Shinta:** Masih, Pak! Buku "Ini Budi" sama buku latihan menulis huruf. Buat siapa, Pak?
@@ -2791,9 +2688,9 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Neng Shinta:** Siap, Pak! Saya selipkan juga kartu huruf buatan saya. Bilang ke temannya: semangat!
   *Temui Kang Dadan di depan warung.*
 
-*(aksi otomatis tahap ini: `lanjut`)*
+*(tahap ini otomatis lanjut ke tahap berikutnya)*
 
-#### Tahap 3 - Warung · Kang Dadan (pukul 07.00–21.00)
+#### Tahap 3 - Warung · Kang Dadan (pukul 07.00-21.00)
 
   *Sejak itu Kang Dadan rajin belajar huruf demi huruf sesudah warung tutup. Hari ini ia ingin menunjukkan hasilnya.*
   **Kang Dadan:** Pak... coba dengar. "I-ni Bu-di. I-ni i-bu Bu-di."
@@ -2804,11 +2701,11 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   **Pak Misran:** Nanti kalau Misbah sudah besar, Kang Dadan yang bacakan dongeng sebelum tidur, ya.
   **Kang Dadan:** (tertawa sambil mengusap mata) Insyaallah, Pak. Insyaallah.
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 2
+- Reputasi: +2
 
   **Pop-up "Kang Dadan Bisa Membaca"**
 
@@ -2835,10 +2732,10 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 
 
-### 4.34 Kampung Kita (`kampung_kita`)
+### 4.34 Kampung Kita
 
 - **Syarat muncul:** Level ≥ 10 · Hari ≥ 1
-#### Tahap 1 - Rumah Warga · Pak RT (pukul 08.00–20.00)
+#### Tahap 1 - Rumah Warga · Pak RT (pukul 08.00-20.00)
 
   *Pak RT memegang selembar surat berkop kecamatan. Wajahnya pucat.*
   **Pak RT:** Pak Misran, ini surat dari kecamatan. Ada rencana jalan tol baru, dan jalurnya lewat kampung kita.
@@ -2854,36 +2751,33 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 **Pilihan jawaban:**
 
 1. **"Saya temui semuanya, Pak RT"**
-   - aksi: `lanjut`
 
   **Pak Misran:** Saya temui semuanya, Pak RT. Warung tutup sebentar pun nggak apa-apa.
   **Pak RT:** Bawa lembar tanda tangan ini. Semoga Allah memudahkan.
   *Temui setiap warga bertanda "!" di seluruh kampung (Rumah Warga, Warung, Masjid, Sawah, SD, Pesantren, dan Bu Ida di Pasar) dan minta tanda tangan mereka.*
 
 2. **"Saya tidak mau ikut campur"**
-   - aksi: `tolak`
 
   **Pak RT:** ...Begitu, ya, Pak. Baiklah, biar saya dan warga lain yang berkeliling.
 
 3. **"Beri saya waktu berpikir"**
-   - aksi: `tunda`
 
   **Pak RT:** Jangan terlalu lama, Pak. Batas waktunya tidak panjang.
 
-#### Tahap 2 - ? · ? (pukul 07.00–21.00)
+#### Tahap 2 - ? · ? (pukul 07.00-21.00)
 
-*(aksi otomatis tahap ini: `lanjut`)*
+*(tahap ini otomatis lanjut ke tahap berikutnya)*
 
-#### Tahap 3 - Rumah Warga · Pak RT (pukul 07.00–21.00)
+#### Tahap 3 - Rumah Warga · Pak RT (pukul 07.00-21.00)
 
   **Pak RT:** Lengkap, Pak? ...Semuanya?
   **Pak Misran:** Semuanya, Pak RT. Sampai Ucup ikut menggambar.
   **Pak RT:** (membalik lembar demi lembar) Ya Allah... Musyawarahnya di masjid. Bapak harus ikut bicara di sana.
   *Datang ke musyawarah di masjid.*
 
-*(aksi otomatis tahap ini: `lanjut`)*
+*(tahap ini otomatis lanjut ke tahap berikutnya)*
 
-#### Tahap 4 - Masjid · Haji Doni (pukul 07.00–21.00)
+#### Tahap 4 - Masjid · Haji Doni (pukul 07.00-21.00)
 
   *Warga berkumpul di halaman masjid. Dua petugas kecamatan menunggu di serambi.*
   **Haji Doni:** Bapak-bapak dari kecamatan, ini tanda tangan seluruh warga asli. Tidak ada satu pun yang menolak.
@@ -2896,12 +2790,12 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
   *Tidak lama kemudian, surat dari kecamatan datang: jalur tol dipindahkan ke lahan kosong di utara kampung.*
   **Pak RT:** (lewat telepon) Pak Misran! Kita berhasil! Kampung kita tetap berdiri!
 
-*(aksi otomatis tahap ini: `tolong`)*
+*(tahap ini otomatis dianggap membantu)*
 
-**HASIL - BANTU (tolong):**
+**HASIL - BANTU:**
 
-- reputasi: 5
-- pesan WA: Pak RT: "Bapak-Ibu, alhamdulillah! Kecamatan resmi memindahkan jalur tol ke utara. Terima kasih seluruh warga, terutama Pak Misran yang mengetuk pintu kita satu per satu."
+- Reputasi: +5
+- Pesan WA: Pak RT: "Bapak-Ibu, alhamdulillah! Kecamatan resmi memindahkan jalur tol ke utara. Terima kasih seluruh warga, terutama Pak Misran yang mengetuk pintu kita satu per satu."
 
   **Pop-up "Kampung Kita Tetap Berdiri"**
 
@@ -2912,7 +2806,7 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 **HASIL - TOLAK:**
 
-- reputasi: -2
+- Reputasi: -2
 
   **Pop-up "Cerita Selesai"**
 
@@ -2934,12 +2828,12 @@ Cerita warga adalah event non-acak di mode jalan-jalan. Warga cerita berdiri di 
 
 ### Balas Budi Warga
 
-Warga yang pernah kamu tolong di quest (hasil `tolong`) bisa membalas budi. Yang dihitung sebagai penolong: NPC tipe itu, kecuali Fariz, Agus, dan Preman. Tiap bentuk balas budi maksimal **sekali per 14 hari**, kecuali patungan sewa yang punya aturan sendiri (lihat di bawah).
+Warga yang pernah kamu bantu di quest bisa membalas budi. Yang dihitung sebagai penolong: NPC tipe itu, kecuali Fariz, Agus, dan Preman. Tiap bentuk balas budi maksimal **sekali per 14 hari**, kecuali patungan sewa yang punya aturan sendiri (lihat di bawah).
 
 - **Sewa kios menunggak**: pada minggu ke-2, penolong patungan **15% tunggakan per orang** (maksimal **50%**, dibulatkan ke Rp1.000). Mulai v1.0 bantuan ini dibatasi: maksimal **2 kali seumur simpanan** dan jarak antar bantuan minimal **60 hari**. Kalau jatahnya habis, warga tidak bisa patungan sewa lagi. Kalau lunas, hitungan minggu tunggakan direset; kalau belum, kamu dapat tambahan waktu seminggu.
 - **Preman nongkrong**: durasi kejadian dipotong **15% per penolong**, dengan batas bawah 40 menit.
 
-Jadi membantu warga bukan cuma menaikkan reputasi — efeknya nyata saat sewa menunggak atau ada preman.
+Jadi membantu warga menaikkan reputasi, dan efeknya terasa saat sewa menunggak atau ada preman.
 
 ---
 
@@ -2977,7 +2871,7 @@ Kejadian-kejadian yang bisa terjadi secara acak di warung. Mulai hari ke-2, tiap
 
 **Rombongan datang:** Bapak-bapak kerja bakti. Bolak-balik mampir beli minum dan camilan. Siapkan air mineral dan kopi!
 
-**Palak preman:** Preman memalak. Setoran Rp10.000 (hari 1), Rp15.000 (hari 4), Rp20.000 (hari 6). Jika tolak, reputasi -1. CCTV mengurangi kejadian.
+**Palak preman:** Preman memalak. Setoran Rp10.000 (hari 1), Rp15.000 (hari 4), Rp20.000 (hari 6). Kalau menolak, reputasi -1. CCTV mengurangi kejadian.
 
 **Borongan:** Pesanan borongan (air mineral, teh botol, kopi susu, soda, ciki, biskuit, permen, mie goreng, mie rebus). 2-3 jenis, 3-8 unit. Reputasi +2.
 
@@ -3198,7 +3092,7 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 
 - Harga dasarnya = harga beli (kolom Modal di 8.1).
 - Setiap pagi, 1-3 barang kebagian **promo harian** dengan diskon acak **10%, 15%, atau 20%**. Diumumkan lewat chat "Sales Grosir" (mis. *Promo khusus hari ini: beras 15%, telur 10%*).
-- Barang **khas agen** — barang yang terbuka karena cerita warga **ditolak** (mis. Susu Sekolah setelah menolak "Ucup Ingin Sekolah") — harganya **10% lebih mahal** dari harga dasar.
+- Barang **khas agen**, yaitu barang yang terbuka karena cerita warga **ditolak** (mis. Susu Sekolah setelah menolak "Ucup Ingin Sekolah") harganya **10% lebih mahal** dari harga dasar.
 - Harga akhir dibulatkan ke kelipatan Rp100.
 - Mulai v1.0, daftar barang di aplikasi diurutkan dari **stok paling sedikit** (stok di rak + kiriman yang sedang jalan), jadi barang yang hampir habis muncul paling atas.
 - Peringatan **stok menipis** muncul kalau stok barang (termasuk kiriman) tinggal **5 atau kurang** (sebelumnya 2).
@@ -3208,7 +3102,7 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 **Grosir (Haji Maman)**
 
 - Kiosnya di pasar, di antara kios toples dan kios buah.
-- Harganya **acak setiap hari**, tapi ada rumus tetap:
+- Harganya **acak setiap hari**, tapi ada patokan tetap:
   - **45%** kemungkinan lebih murah: **85%-90%** dari harga modal Belanja Online.
   - **55%** kemungkinan lebih mahal: **105%-120%** dari modal.
   - Pembulatan: kelipatan Rp50 untuk harga di bawah Rp1.000, kelipatan Rp100 untuk Rp1.000 ke atas.
@@ -3218,7 +3112,7 @@ Dua cara mengisi stok warung: **Belanja Online** (aplikasi HP, lewat agen) dan *
 
 **Perbedaan utamanya**
 
-- Tidak ada selisih harga tetap di antara dua kanal — keduanya berubah tiap hari.
+- Tidak ada selisih harga tetap di antara dua kanal. Keduanya berubah tiap hari.
 - Di aplikasi Belanja Online, diskon promo yang sedang aktif selalu terlihat (label "PROMO -x%").
 - Barang khas agen selalu minimal 10% di atas harga belinya.
 - Semua harga dihitung di dalam game, jadi tidak butuh internet; internet hanya untuk cek lisensi, cek versi, kode redeem, papan online, dan pengiriman data.
@@ -3257,7 +3151,7 @@ Saat checkout di Belanja Online, barang bisa dikirim lewat tiga pilihan kurir. O
 
 Barang bertipe **layanan** (e-wallet, paket data, token listrik) tidak memakai stok rak, tapi **saldo layanan**. Saldo awalnya **Rp50.000** dan bisa diisi lewat tombol **Isi +50.000** di Belanja Online, panel belanja, atau Warga Bank.
 
-- Kalau pembeli meminta layanan sementara saldo kurang, game otomatis mengisi Rp50.000 dari laci berulang sampai cukup — asal uang laci masih minimal Rp50.000 per pengisian.
+- Kalau pembeli meminta layanan sementara saldo kurang, game otomatis mengisi Rp50.000 dari laci berulang sampai cukup, asal uang laci masih minimal Rp50.000 per pengisian.
 - Penjualan layanan memotong saldo, bukan jumlah barang di rak.
 - Kalau saldo tetap di bawah modal, barang layanan tidak bisa dijual dan pembeli akan bilang saldonya kurang.
 
@@ -3350,7 +3244,7 @@ Catatan: efek total upgrade maksimal +50% keramaian dan +85% kesabaran.
 
 ### Mini-Game Mancing (Ikan)
 
-Lokasi: area sawah. Setiap lemparan memakai 3% energi (v1.0; sebelumnya 5%; tiap lemparan = 3 menit game), tanpa batas waktu — bisa berhenti kapan saja. Rata-rata sekali mancing menghasilkan sekitar Rp10.000. Jam mancing: 06.00-20.00 (dengan suasana senja).
+Lokasi: area sawah. Setiap lemparan memakai 3% energi (v1.0; sebelumnya 5%; tiap lemparan = 3 menit game), tanpa batas waktu, jadi bisa berhenti kapan saja. Rata-rata sekali mancing menghasilkan sekitar Rp10.000. Jam mancing: 06.00-20.00 (dengan suasana senja).
 
 Cara main:
 1. Lemparkan joran ke air
@@ -3405,7 +3299,7 @@ Tiap kerja sampingan punya mini-game sendiri, durasi 20 detik. Skor dibanding ta
 | Angkut material (Mang Ujang) | Ketuk untuk menjatuhkan sak semen. Minimal separuh sak harus menapak; tumpukan terlalu miring bisa ambruk. | 10 |
 | Bersih-bersih masjid (Kang Fadil) | Tahan dan gosok tiap noda di sajadah dengan sikat sampai bersih. | 18 |
 
-Mulai v1.0, padi hijau di mini-game panen perlahan **menguning** (sekitar 3-6 detik), dan selalu dijamin ada **minimal 8 rumpun kuning** — tidak mungkin lagi semuanya hijau.
+Mulai v1.0, padi hijau di mini-game panen perlahan **menguning** (sekitar 3-6 detik), dan selalu dijamin ada **minimal 8 rumpun kuning**, jadi tidak mungkin lagi semuanya hijau.
 
 Empat kerjaan lain (antar pesanan, packing, sembako, nasi kotak) memakai mini-game mencocokkan:
 
@@ -3450,7 +3344,7 @@ Mini-game mengantar penumpang atau barang naik motor, tersedia setelah warung tu
 - Hujan: ongkos +25%, tapi jalan licin
 - Energi: tiap order = sekali antar, ongkos langsung masuk
 
-**Barang titipan (delivery):** Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon — barang-barang yang diantar ke tujuan tertentu (Rumah Kang Dadan, Warung Bu Enok, Apotek desa, Rumah Bu Ida, dll.)
+**Barang titipan (delivery):** Nasi bungkus, Galon air, Paket online, Kue pesanan, Telur 2 kg, Gas melon, yaitu barang-barang yang diantar ke tujuan tertentu (Rumah Kang Dadan, Warung Bu Enok, Apotek desa, Rumah Bu Ida, dll.)
 
 **Cicilan motor:**
 - Motor bisa dicicil (uang muka + cicilan bulanan)
@@ -3488,15 +3382,15 @@ Mulai v1.0 lebih mudah dibaca: HP pembeli **diperbesar 1,45×** saat mengambil k
 - Cicilan lunas: motor jadi milik sendiri, matel berhenti menagih.
 - Status di aplikasi: SIAP NARIK atau OFFLINE, sisa order malam ini, dan jam narik.
 
-**Perubahan v1.0 — rintangan di jalan:**
+**Perubahan v1.0: rintangan di jalan**
 
 - Komposisi rintangan: **polisi tidur 22%**, **koin 12%**, **lubang 28%**, **kendaraan lawan 38%**. Hewan (ayam/kucing), batu, bola, dan genangan dihapus.
 - Lubang lebih sering mengincar: 55% muncul dekat posisi pemain, dan separuh rintangan lubang/kendaraan membawa **lubang kedua** di lajur seberang.
-- Polisi tidur punya celah lebih lebar, dan 70% dicarikan celah yang tidak tepat di posisi pemain — lebih adil, tapi tetap harus rem.
+- Polisi tidur punya celah lebih lebar, dan 70% dicarikan celah yang tidak tepat di posisi pemain, lebih adil, tapi tetap harus rem.
 - Kendaraan lawan (mobil, motor, angkot, pikap) hadir dengan warna berbeda-beda; motor lebih sering muncul, dan motor dari depan kadang berpindah lajur vertikal.
 - Kecepatan jalan naik bertahap sampai **+30%** di akhir perjalanan (sebelumnya +22%); order "buru-buru" tetap lebih cepat.
 
-**Perubahan v1.0 — tampilan:**
+**Perubahan v1.0: tampilan**
 
 - Penumpang dan barang titipan sekarang **terlihat di motor**: penumpang duduk (warga perempuan duduk menyamping), barang berupa kardus.
 - Roda berputar, kendaraan warna-warni, dan **sisa jarak** ditulis dalam meter/kilometer.
@@ -3510,7 +3404,7 @@ Mulai v1.0 lebih mudah dibaca: HP pembeli **diperbesar 1,45×** saat mengambil k
 
 - **Hari sekolah**: Senin-Sabtu (bukan Minggu)
 - **Jam buka warung**: buka 09.00, tutup 17.00 (5 sore); selama Ramadan boleh sampai 19.00 (7 sore). Setelah kios milik (v1.0): buka kapan saja dan tutup bebas sampai 24.00, khusus Kamis ikut ronda wajib tutup 22.00.
-- **Hari libur warung**: mulai v1.0 hanya **Jumat** (sebelumnya Senin dan Jumat). Pagi Jumat bebas jalan keliling kampung, sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus (janji ketemu warga) hanya muncul di hari libur warung, maksimal **3 janji** per libur. Setelah kios milik, warung tidak libur lagi — Jumat pun boleh buka, tapi janji warga tetap muncul.
+- **Hari libur warung**: mulai v1.0 hanya **Jumat** (sebelumnya Senin dan Jumat). Pagi Jumat bebas jalan keliling kampung, sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus (janji ketemu warga) hanya muncul di hari libur warung, maksimal **3 janji** per libur. Setelah kios milik, warung tidak libur lagi; Jumat pun boleh buka, tapi janji warga tetap muncul.
 - **Pasar (lapak Bu Ida)**: buka **05.00-21.00** (juga saat Ramadan; sejak v1.3 ikut jam bangun Pak Misran), **libur Selasa & Kamis**. Ikan dan buah dari Tas bisa dijual ke Bu Ida hanya saat pasar buka. Angkot dari pos ronda Rp2.000 sekali jalan, ±30 menit, jalan 05.00-21.00.
 - **Malam**: pukul 21.00 boleh pulang tidur (hari berganti); sesudah 21.00 energi turun lebih cepat. Ronda malam Jumat (malam Kamis) kumpul di pos ronda mulai 21.00.
 - **Ramadan**: selama Ramadan, beberapa event tidak muncul; warung boleh buka sampai 19.00, buka puasa sekali sehari sesudah Maghrib (18.00), tarawih 19.30-21.00.
@@ -3547,7 +3441,7 @@ Saat hujan:
 - Tidak ada keluhan "gerah", jadi kipas tidak diperlukan untuk menghindari ulasan itu.
 - Preman dan Fariz tidak keluar saat hujan, jadi quest yang melibatkan mereka menunggu. Warga lain tetap muncul.
 - Kejadian palak dan preman nongkrong tidak aktif saat hujan.
-- Di OjekKampung, ongkos +25%, tapi jalan licin — hindari lubang, ayam, genangan, dan polisi tidur.
+- Di OjekKampung, ongkos +25%, tapi jalan licin, hindari lubang, ayam, genangan, dan polisi tidur.
 
 ### Kalender Hadiah (v1.2)
 
@@ -3667,7 +3561,7 @@ Pak Misran bisa tertabrak saat menyeberang. Kali pertama, warga patungan **Rp100
 - Energi juga turun sendiri seiring waktu: sekitar 0,039% per menit sebelum pukul 21.00, dan 0,099% per menit sesudahnya (v1.0 lebih hemat ±17%; sebelumnya 0,047% dan 0,119%). Ramai atau sepinya warung tidak berpengaruh. **Sejak v1.3 energi tidak berkurang sebelum pukul 07.00**, jadi waktu 05.00-07.00 gratis.
 - Mancing: −3% per lemparan (v1.0; sebelumnya −5%; tiap lemparan = 3 menit game). Petik buah: tanpa biaya energi. Kerja sampingan: −10%.
 - **Ngopi**: +30% (v1.0; sebelumnya +50%), 1 kali sehari, butuh stok sachet / kopi susu / minuman energi, dan memakan 10 menit. Harus jeda 2 jam sebelum istirahat lagi.
-- **Makan mi rebus** (baru di v1.0): +30%, 1 kali sehari, butuh stok mi rebus, dan memakan 20 menit. Terpisah dari ngopi — keduanya bisa dipakai di hari yang sama.
+- **Makan mi rebus** (baru di v1.0): +30%, 1 kali sehari, butuh stok mi rebus, dan memakan 20 menit. Terpisah dari ngopi, jadi keduanya bisa dipakai di hari yang sama.
 - Saat Ramadan, ngopi dan makan mi rebus diganti opsi **buka puasa** (sekali sehari, sesudah Maghrib 18.00). Semua isi energi ditolak kalau energi sudah ≥99%.
 - **Tonton iklan**: energi langsung penuh, 1 kali sehari.
 - Di bawah 30%: lelah. Jalan 25% lebih pelan dan jendela melayani 15% lebih pendek.
@@ -3728,7 +3622,7 @@ Untuk pemain baru mulai di v1.0, dari hari pertama sampai kebiasaan harian.
 **Sering dilupakan**
 
 - Buka tab jalan-jalan tiap hari. Cerita warga non-acak muncul di lokasi dan jam tertentu; membantu warga menaikkan reputasi dan membuka barang baru.
-- Baca dialog warga sebelum memilih. Tolong dan tolak membuka jalur berbeda, contoh: menolak "Ucup Ingin Sekolah" membuka jalur Susu Sekolah (setelah "Hadiah Lomba HUT Sekolah" selesai).
+- Baca dialog warga sebelum memilih. Membantu dan menolak membuka jalur berbeda, contoh: menolak "Ucup Ingin Sekolah" membuka jalur Susu Sekolah (setelah "Hadiah Lomba HUT Sekolah" selesai).
 - CCTV memangkas pencurian (peluang 8% per hari turun jadi 2%) dan mengurangi palak preman. Untuk tikus, yang membantu adalah hubungan dengan Neo (kucing Bu Ida) di aplikasi HP: minimal "Tetangga akrab". CCTV tidak banyak menolong untuk tikus.
 
 ---
@@ -3784,8 +3678,8 @@ Catatan upgrade: diskon 10% per iklan bertumpuk sampai batas 6 iklan. Diskon nai
 
 ### Tips Quest Warga
 
-- **Baca dialog dengan teliti**: pilihan tolong/tolak menentukan quest selanjutnya.
-- **Ucup Ingin Sekolah**: tolong → Ucup Juara Kelas; tolak → Susu Sekolah (muncul setelah "Hadiah Lomba HUT Sekolah" selesai).
+- **Baca dialog dengan teliti**: pilihan membantu atau menolak menentukan quest selanjutnya.
+- **Ucup Ingin Sekolah**: membantu membuka Ucup Juara Kelas; menolak membuka Susu Sekolah (muncul setelah "Hadiah Lomba HUT Sekolah" selesai).
 - **Program Bantuan Warung (Fariz)**: JANGAN bayar Rp1.000.000! Ini jebakan (tipu_fariz).
 - **Janji**: hanya hari libur warung. Event khusus hanya muncul di hari libur.
 
@@ -3794,12 +3688,12 @@ Catatan upgrade: diskon 10% per iklan bertumpuk sampai batas 6 iklan. Diskon nai
 - **Bungkus Rapi**: barang bisa diseret lagi (bug fix). Misi yang ditunda selalu muncul.
 - **Tas**: kini muat 10 barang sejenis per kotak (ikan, buah, barang grosir).
 - **Mancing**: bisa sampai pukul 20.00 dengan suasana senja; energi per lempar turun jadi 3%.
-- **Cek QRIS**: cukup 4 pembayaran, HP pembeli diperbesar saat mengambil keputusan — baca nominal, nama warung, dan notifikasi sebelum TERIMA.
+- **Cek QRIS**: cukup 4 pembayaran, HP pembeli diperbesar saat mengambil keputusan. Baca nominal, nama warung, dan notifikasi sebelum TERIMA.
 - **Panen padi**: padi hijau akan menguning sendiri; tunggu sebentar, selalu ada minimal 8 rumpun kuning.
 
 ### Tips Save & Akun
 - Tautkan akun Google untuk simpanan aman di cloud (bonus Rp100.000). Di iPhone bisa juga Masuk dengan Apple.
-- Cloud tidak akan menimpa simpanan di HP yang lebih maju — ada kartu perbandingan sebelum memilih.
+- Cloud tidak akan menimpa simpanan di HP yang lebih maju. Ada kartu perbandingan sebelum memilih.
 - Jangan hapus game untuk update, cukup tekan Update di toko.
 - Simpanan cadangan otomatis, tidak hilang walau tertutup paksa.
 - Pulihkan simpanan lama dari Load Save jika simpanan rusak.
@@ -3824,7 +3718,7 @@ Catatan upgrade: diskon 10% per iklan bertumpuk sampai batas 6 iklan. Diskon nai
 
 ### Buku Hutang
 
-- Kalau warga belanja kasbon atau meminjam, jumlahnya dicatat di Buku Hutang — tampil seperti buku catatan asli dengan tulisan tangan tinta warna.
+- Kalau warga belanja kasbon atau meminjam, jumlahnya dicatat di Buku Hutang, yang tampil seperti buku catatan asli dengan tulisan tangan tinta warna.
 - Setiap hutang punya tanggal jatuh tempo (misalnya "dikembalikan 14 hari lagi").
 - Kalau lewat jatuh tempo, muncul tanda "Telat X hari!".
 - Tekan "Tagih!" untuk menagih pembayaran.
@@ -3868,7 +3762,7 @@ Sejak v0.40 simpanan warung bisa disimpan di cloud (akun Google) dan dipulihkan 
 ### Proteksi Simpanan Cloud (v1.0)
 
 - Cloud tidak otomatis menimpa simpanan di HP yang **lebih maju**. Simpanan HP dianggap lebih maju kalau levelnya lebih tinggi, atau (level sama) harinya lebih jauh.
-- Kalau simpanan cloud ternyata lebih tua dari yang di HP (level lebih rendah, atau hari tertinggal lebih dari 3), game menahan pengiriman dan menampilkan **kartu perbandingan**: dua kotak berisi nama warung, level, hari, dan uang — yang lebih jauh ditandai **★ Lebih jauh**. Pemain yang memilih mau pakai simpanan cloud atau simpanan HP.
+- Kalau simpanan cloud ternyata lebih tua dari yang di HP (level lebih rendah, atau hari tertinggal lebih dari 3), game menahan pengiriman dan menampilkan **kartu perbandingan**: dua kotak berisi nama warung, level, hari, dan uang. Yang lebih jauh ditandai **★ Lebih jauh**. Pemain yang memilih mau pakai simpanan cloud atau simpanan HP.
 - Tujuannya supaya progres yang sudah jauh tidak hilang tertimpa simpanan lama.
 
 ### Menu Utama & Slot (v1.0)
@@ -3902,7 +3796,7 @@ Aplikasi baru di HP: **Kalkulator**. Berguna untuk menghitung kembalian, total b
 ### Kemudahan Lain v1.0
 
 - **Peringkat di HP** langsung membuka papan lebar (tidak perlu langkah tambahan).
-- **Nota pesanan** tidak lagi bergetar/bergeser saat disentuh — posisinya dikunci supaya barang di bawahnya tetap bisa diklik.
+- **Nota pesanan** tidak lagi bergetar/bergeser saat disentuh. Posisinya dikunci supaya barang di bawahnya tetap bisa diklik.
 - **Kurir yang macet** otomatis diterima setelah 12 detik, jadi kiriman tidak tertahan lama.
 - Keluhan "kemahalan" bisa dimatikan sehari (lihat bagian Ulasan & Bintang).
 
@@ -3942,11 +3836,11 @@ Aplikasi baru di HP: **Kalkulator**. Berguna untuk menghitung kembalian, total b
 
 ## 13. Papan Peringkat & Supporter Badge
 
-Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain — tidak perlu melakukan apa-apa agar masuk papan. Mulai v1.0, membuka Peringkat di HP langsung menampilkan papan lebar.
+Papan peringkat ("Peringkat Warung") ada di aplikasi smartphone dalam game, menampilkan top 50 warung dengan pembeli terbanyak. Data dikirim otomatis dari HP kamu beberapa kali setiap menit saat bermain, jadi tidak perlu melakukan apa-apa agar masuk papan. Mulai v1.0, membuka Peringkat di HP langsung menampilkan papan lebar.
 
 **Panel komunitas (live):**
 
-Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) — data yang sama dengan yang tampil di dalam game. Ada 3 tab: Sepanjang Masa, Mingguan, dan Bulanan, sama seperti di game.
+Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase), data yang sama dengan yang tampil di dalam game. Ada 3 tab: Sepanjang Masa, Mingguan, dan Bulanan, sama seperti di game.
 
 <div id="papanWidget"></div>
 
@@ -4013,7 +3907,7 @@ Hadiah lain: ucapan terima kasih dari developer di genteng warungmu.
 
 Papan di server diperbarui tiap 30 menit, dan angka jempol di atas 1.000 ditulis ringkas (1k) di dalam game.
 
-*Cara wiki tahu: server menyimpan dua daftar kode warung — satu untuk pendukung (emas), satu untuk Warga Peduli (platinum). Kode tiap warung di papan dicocokkan dengan daftar itu, jadi warnanya bukan tebakan.*
+*Cara wiki tahu: server menyimpan dua daftar kode warung: satu untuk pendukung (emas), satu untuk Warga Peduli (platinum). Kode tiap warung di papan dicocokkan dengan daftar itu, jadi warnanya bukan tebakan.*
 
 ## 14. Change Log
 
@@ -4077,7 +3971,7 @@ Diverifikasi dari APK `com.neopawstudio.warunglife` versionName **1.3**, version
 
 Diverifikasi dari APK `com.neopawstudio.warunglife` versionName **1.2**, versionCode **49**. APK ditandatangani skema v2+v3.
 
-*Catatan sumber:* `yang_baru.gd` (`CATATAN`) memisahkan sebagian perubahan di bawah ke rilis **v1.1** — sewa tetap Rp100.000-Rp500.000, harga upgrade +25%, kios Rp30 juta, stok maksimal 100, kasbon minimal Rp10.000, ikan langka, Cek QRIS sekali sehari, tanggal emas, suara terpisah, jeda mini-game, filter/Buang Tas, ojek malam 17.00-23.30, dan plafon keringanan 60%. Wiki menggabungkannya di entri v1.2 karena build yang terpasang adalah 49.
+*Catatan sumber:* `yang_baru.gd` (`CATATAN`) memisahkan sebagian perubahan di bawah ke rilis **v1.1**: sewa tetap Rp100.000-Rp500.000, harga upgrade +25%, kios Rp30 juta, stok maksimal 100, kasbon minimal Rp10.000, ikan langka, Cek QRIS sekali sehari, tanggal emas, suara terpisah, jeda mini-game, filter/Buang Tas, ojek malam 17.00-23.30, dan plafon keringanan 60%. Wiki menggabungkannya di entri v1.2 karena build yang terpasang adalah 49.
 
 **Fitur baru**
 - **Kalender Hadiah**: absen sekali sehari dapat Rp15.000. Setiap 4 hari hadiah besar sampai Rp400.000, dan baju **Kaos & sarung** di hari ke-30. Bisa dibuka kapan saja lewat aplikasi **Hadiah** di HP.
@@ -4131,7 +4025,7 @@ Diverifikasi dari APK `com.neopawstudio.warunglife` versionName **1.2**, version
 
 ### v1.0 (build 45, November 2026)
 
-Rilis publik pertama — game keluar dari masa uji coba. Progres pemain lama **tidak direset**.
+Rilis publik pertama, game keluar dari masa uji coba. Progres pemain lama **tidak direset**.
 
 **Fitur baru**
 - **Menu lebih jelas**: MULAI hanya untuk pemain baru, sesudah itu cukup LANJUTKAN. Main baru di slot lain lewat Load Save (slot kosong "+ Main baru di sini"). Slot rusak punya dialog pemulihan sendiri.
@@ -4205,7 +4099,7 @@ Rilis publik pertama — game keluar dari masa uji coba. Progres pemain lama **t
 - **Jumatan dipoles**: jalan otomatis bisa dihentikan dengan joystick, Pak Misran tidak lagi ketabrak kendaraan, dan Jumatan tidak lagi muncul di hari Minggu. Sholat mulai begitu sampai di depan masjid (sebelum 13.00).
 - **Pindah HP**: progres bisa dipindah ke HP baru lewat kode transfer. Pembelian "Tanpa Iklan" diperiksa langsung ke toko dan ikut pindah. Kalau belum ikut, buka game sekali di HP lama (versi terbaru, dengan internet) lalu buat kode lagi, atau tekan "Pulihkan Pembelian" kalau memakai akun Google yang sama.
 - **Buku Hutang dirombak**: tampil seperti buku catatan asli dengan tulisan tangan tinta warna. Tiap hutang punya tanggal jatuh tempo, tanda "Telat X hari!", tombol "Tagih!", tanda "Lunas ✓", dan hutang hangus kalau warganya pindah rumah ("Pindah rumah, hilang").
-- **Grosir "Batal 1"**: belanja grosir di Haji Maman salah pencet? Tekan "Batal 1" — barang kembali ke Tas, uang dikembalikan, total belanja grosir dikurangi.
+- **Grosir "Batal 1"**: belanja grosir di Haji Maman salah pencet? Tekan "Batal 1": barang kembali ke Tas, uang dikembalikan, total belanja grosir dikurangi.
 - **Tas terbatas**: ikan dan buah maksimal 5 per kotak. Kalau Tas penuh, ikan lebihan dilepas kembali ke sungai dan buah yang tidak muat tidak terambil. Jual ke Bu Ida di Pasar perlu diketuk dua kali supaya tidak terjual tanpa sengaja.
 - **Misi Susu Sekolah**: sekarang baru muncul setelah quest "Hadiah Lomba HUT Sekolah" selesai.
 
@@ -4222,4 +4116,4 @@ Rilis publik pertama — game keluar dari masa uji coba. Progres pemain lama **t
 
 ### v0.38 (versi dasar wiki ini)
 
-Wiki ini pertama kali ditulis untuk versi 0.38, jadi sebagian besar bagian di atas menggambarkan kondisi game saat v0.38 — lengkap dengan pembaruan v0.39, v0.40, dan v1.0 yang disebut di halaman ini. Riwayat perubahan lengkap v0.38 terhadap versi sebelumnya tidak bisa direkonstruksi dari file yang tersedia, karena build v0.37 tidak tersedia untuk dibandingkan.
+Wiki ini pertama kali ditulis untuk versi 0.38, jadi sebagian besar bagian di atas menggambarkan kondisi game saat v0.38, lengkap dengan pembaruan v0.39, v0.40, dan v1.0 yang disebut di halaman ini. Riwayat perubahan lengkap v0.38 terhadap versi sebelumnya tidak bisa direkonstruksi dari file yang tersedia, karena build v0.37 tidak tersedia untuk dibandingkan.
