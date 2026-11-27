@@ -24,13 +24,13 @@ test("og-preview.png berukuran 1200x630 PNG", () => {
 
 test("service worker memuat gambar preview dengan versi cache baru", () => {
   const sw = readFileSync(join(root, "sw.js"), "utf8");
-  assert.ok(sw.includes('const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261127";'));
+  assert.ok(sw.includes('const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261127b";'));
   assert.ok(sw.includes('"./assets/img/og-preview.png"'));
   assert.ok(sw.includes('key.startsWith("warung-wiki-")'));
 });
 
 const escapeHtml = (s) => s.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-const imageUrl = baseUrl + "assets/img/og-preview.png";
+const imageUrl = baseUrl + "assets/img/og-preview.png?v=131";
 
 test("setiap halaman punya tag Open Graph dan Twitter Card yang absolut", () => {
   for (const page of pages) {
