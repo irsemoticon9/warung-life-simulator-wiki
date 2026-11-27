@@ -1,6 +1,6 @@
 // Warung Life Wiki service worker.
 // Naikkan WIKI_CACHE_VERSION setiap kali HTML, CSS, JS, gambar, font, atau data/guide.md berubah.
-const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261126";
+const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261127";
 
 const PRECACHE = [
   "./",

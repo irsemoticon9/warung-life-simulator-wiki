@@ -1,6 +1,6 @@
-# Warung Life Wiki - v1.2
+# Warung Life Wiki - v1.3
 
-Website wiki statis untuk panduan Warung Life Simulator v1.2. Dibuat dengan HTML, CSS, dan JavaScript; siap dipublikasikan menggunakan GitHub Pages.
+Website wiki statis untuk panduan Warung Life Simulator v1.3. Dibuat dengan HTML, CSS, dan JavaScript; siap dipublikasikan menggunakan GitHub Pages.
 
 ## Isi
 - Quest Level (10 level)

@@ -1,4 +1,4 @@
-# Warung Life Simulator Wiki - Fanmade (v1.2)
+# Warung Life Simulator Wiki - Fanmade (v1.3)
 > Sebuah Wiki Fanmade untuk Warung Life Simulator.
 > Panduan ini dibuat dengan bantuan AI. Segala Informasi Bertujuan untuk Membuat Game Menjadi Lebih Informatif. Selalu Support Neo Paw Studio selaku Developer.
 
@@ -455,6 +455,7 @@ Mulai v1.0, sesudah kios dibeli dari Pak Haji Rasyid, aturan jam berubah total:
 - **Tidak ada hari libur lagi** — Jumat pun warung boleh buka.
 - **Buka kapan saja**: tidak perlu menunggu pukul 09.00, warung bisa dibuka sejak tengah malam.
 - **Tutup bebas sampai pukul 24.00**, dan boleh tutup kapan saja sebelum itu (tidak ada lagi batas sore).
+- **Buka lagi sesudah ditutup** (v1.3): kios milik sendiri yang sudah ditutup boleh dibuka kembali hari itu, sampai pukul 24.00 (Kamis ronda 22.00).
 - Khusus **malam Jumat (Kamis)**: kalau ikut ronda, wajib tutup pukul **22.00**.
 - Janji ketemu warga tetap muncul di hari Jumat (maksimal 3), walau warung sedang buka — tinggal temui mereka di tempat dan jam yang disebut.
 - Mulai v1.2, sesudah kios dibeli, **ojek bisa narik lagi pukul 17.00-23.30**, dan khusus **hari Jumat** bisa narik dari pagi sampai malam.
@@ -3510,7 +3511,7 @@ Mulai v1.0 lebih mudah dibaca: HP pembeli **diperbesar 1,45×** saat mengambil k
 - **Hari sekolah**: Senin-Sabtu (bukan Minggu)
 - **Jam buka warung**: buka 09.00, tutup 17.00 (5 sore); selama Ramadan boleh sampai 19.00 (7 sore). Setelah kios milik (v1.0): buka kapan saja dan tutup bebas sampai 24.00, khusus Kamis ikut ronda wajib tutup 22.00.
 - **Hari libur warung**: mulai v1.0 hanya **Jumat** (sebelumnya Senin dan Jumat). Pagi Jumat bebas jalan keliling kampung, sekitar jam 12.30 Pak Misran jalan sendiri ke Masjid Al-Ikhlas untuk Jumatan (jalan otomatisnya bisa dihentikan dengan joystick). Event khusus (janji ketemu warga) hanya muncul di hari libur warung, maksimal **3 janji** per libur. Setelah kios milik, warung tidak libur lagi — Jumat pun boleh buka, tapi janji warga tetap muncul.
-- **Pasar (lapak Bu Ida)**: buka **06.00-21.00** (juga saat Ramadan), **libur Selasa & Kamis**. Ikan dan buah dari Tas bisa dijual ke Bu Ida hanya saat pasar buka. Angkot dari pos ronda Rp2.000 sekali jalan, ±30 menit, jalan 05.00-21.00.
+- **Pasar (lapak Bu Ida)**: buka **05.00-21.00** (juga saat Ramadan; sejak v1.3 ikut jam bangun Pak Misran), **libur Selasa & Kamis**. Ikan dan buah dari Tas bisa dijual ke Bu Ida hanya saat pasar buka. Angkot dari pos ronda Rp2.000 sekali jalan, ±30 menit, jalan 05.00-21.00.
 - **Malam**: pukul 21.00 boleh pulang tidur (hari berganti); sesudah 21.00 energi turun lebih cepat. Ronda malam Jumat (malam Kamis) kumpul di pos ronda mulai 21.00.
 - **Ramadan**: selama Ramadan, beberapa event tidak muncul; warung boleh buka sampai 19.00, buka puasa sekali sehari sesudah Maghrib (18.00), tarawih 19.30-21.00.
 - **Gajian (tanggal muda)**: tanggal 25 s.d. 3 (hari gajian pabrik). Warung lebih ramai.
@@ -3518,9 +3519,18 @@ Mulai v1.0 lebih mudah dibaca: HP pembeli **diperbesar 1,45×** saat mengambil k
 - **Jam ramai**: 09.00-10.00 dan 15.30-17.00. **Jam sepi**: 13.00-15.30.
 - **Kecepatan waktu** di Pengaturan: **Lambat 1,04 / Normal 1,52 / Cepat 2,4** menit game per detik nyata. Jam buka 09.00-17.00 = 480 menit game, jadi sekitar **7,7 / 5,3 / 3,3 menit nyata**. Waktu (dan semua orang) berhenti saat HP atau jendela lain terbuka.
 
+### Motor ke Pasar (v1.3)
+
+Kalau sudah punya motor sendiri (Wishlist, terbuka Level 3), dekati motor yang diparkir di **samping warung** lalu pilih **Naik motor ke Pasar**.
+
+- **Gratis** dan lebih cepat: **±15 menit** perjalanan (angkot Rp2.000, ±30 menit).
+- Motor diparkir di **depan lapak Bu Ida** selama belanja; pilih **Naik motor pulang** untuk kembali ke warung.
+- Kalau motor ketinggalan, ada warga yang membawanya pulang ke samping warung.
+- Pasar tetap buka 05.00-21.00 dan libur Selasa & Kamis.
+
 ### Musim
 
-- **Pagi**: 06.00-10.00 (pelanggan sedikit, tenang)
+- **Pagi**: 05.00-10.00 (pelanggan sedikit, tenang). Sejak v1.3 Pak Misran bangun 05.00 dan energi baru berkurang 07.00, jadi 05.00-07.00 waktu bebas tanpa biaya energi.
 - **Siang**: 10.00-15.00 (ramai)
 - **Sore**: 15.00-18.00 (ramai, pulang sekolah/kerja)
 - **Malam**: 18.00-22.00 (sepi, kecuali event khusus)
@@ -3654,7 +3664,7 @@ Pak Misran bisa tertabrak saat menyeberang. Kali pertama, warga patungan **Rp100
 ### Energi
 
 - Energi mulai 100% tiap hari. Berjalan biasa tidak memakai energi; berlari memakai 0,42% per detik (v1.0; sebelumnya 0,5%).
-- Energi juga turun sendiri seiring waktu: sekitar 0,039% per menit sebelum pukul 21.00, dan 0,099% per menit sesudahnya (v1.0 lebih hemat ±17%; sebelumnya 0,047% dan 0,119%). Ramai atau sepinya warung tidak berpengaruh.
+- Energi juga turun sendiri seiring waktu: sekitar 0,039% per menit sebelum pukul 21.00, dan 0,099% per menit sesudahnya (v1.0 lebih hemat ±17%; sebelumnya 0,047% dan 0,119%). Ramai atau sepinya warung tidak berpengaruh. **Sejak v1.3 energi tidak berkurang sebelum pukul 07.00**, jadi waktu 05.00-07.00 gratis.
 - Mancing: −3% per lemparan (v1.0; sebelumnya −5%; tiap lemparan = 3 menit game). Petik buah: tanpa biaya energi. Kerja sampingan: −10%.
 - **Ngopi**: +30% (v1.0; sebelumnya +50%), 1 kali sehari, butuh stok sachet / kopi susu / minuman energi, dan memakan 10 menit. Harus jeda 2 jam sebelum istirahat lagi.
 - **Makan mi rebus** (baru di v1.0): +30%, 1 kali sehari, butuh stok mi rebus, dan memakan 20 menit. Terpisah dari ngopi — keduanya bisa dipakai di hari yang sama.
@@ -3663,8 +3673,23 @@ Pak Misran bisa tertabrak saat menyeberang. Kali pertama, warga patungan **Rp100
 - Di bawah 30%: lelah. Jalan 25% lebih pelan dan jendela melayani 15% lebih pendek.
 - Di bawah 20%: tidak bisa berlari dan tidak bisa membuka warung.
 - 0%: pingsan. Warga membawanya pulang, bayar mantri maksimal Rp20.000, dan besok bangun pukul 10.00.
-- **Tidur**: energi penuh lagi. Jam bangun tergantung jam tidur: sebelum 22.00 bangun 07.00, sebelum 24.00 bangun 08.00, sebelum 01.00 bangun 09.00, lebih dari itu bangun 10.00.
+- **Tidur**: energi penuh lagi. Jam bangun tergantung jam tidur: sebelum 22.00 bangun **05.00**, sebelum 24.00 bangun **06.00**, sebelum 01.00 bangun **07.00**, lebih dari itu bangun **08.00** (v1.3; sebelumnya 07.00/08.00/09.00/10.00).
 - Rumah baru dari Wishlist membuat semua pengurasan energi 15% lebih kecil.
+
+### Sholat Tahajud & Doa Malam Ini (v1.3)
+
+Seminggu sekali (hari dipilih acak), Pak Misran bangun pukul **03.00**, sholat tahajud di sajadah kamar, lalu membuka menu **Doa Malam Ini**. Energi berkurang **5 poin**. Pilih **satu doa**; efeknya berlaku mulai hari berikutnya.
+
+| Doa | Efek |
+|---|---|
+| Semoga warung ramai pembeli besok | Pembeli lebih ramai di hari buka berikutnya |
+| Semoga 3 hari ini tidak ada yang berhutang dulu | 3 hari tidak ada warga yang minta berhutang |
+| Semoga dijauhkan dari musibah 3 hari ini | 3 hari kejadian buruk lebih jarang |
+| Semoga diringankan bayar sewa kios | Sewa kios berikutnya **setengah harga** (sekali; tidak tersedia kalau kios sudah milik sendiri) |
+| Semoga makin akrab dengan warga besok | Semua warga akrab penuh di hari buka berikutnya (sekali) |
+| Semoga warga yang berhutang segera membayar | Warga yang berhutang datang membayar di hari buka berikutnya (hanya muncul kalau ada hutang) |
+| Semoga badan sehat dan kuat besok | Energi berkurang lebih lambat seharian besok (×0,75) |
+| Semoga negeri ini baik-baik saja | Sama seperti doa musibah, plus doa untuk negeri |
 
 ## 12. Tips & Trik
 
@@ -3692,7 +3717,7 @@ Untuk pemain baru mulai di v1.0, dari hari pertama sampai kebiasaan harian.
 - Cek chat "Sales Grosir" tiap pagi: 1-3 barang kebagian promo 10-20%. Isi stok pas promo, hemat modal.
 - Bandingkan dua kanal belanja (Belanja Online dan kios grosir Haji Maman). Harga keduanya berubah tiap hari, tidak ada yang selalu lebih murah; beli yang lebih murah hari itu.
 - Isi ulang yang laris: mie goreng, mie rebus, air mineral, ciki, biskuit, telur (peluang tinggi, modal murah).
-- Sesuaikan stok dengan jam laris: kopi, susu, jamu di pagi hari (jam 6-9); air mineral dan teh di siang hari (jam 11-16); soda di sore-malam (jam 16-21).
+- Sesuaikan stok dengan jam laris: kopi, susu, jamu di pagi hari (jam 5-9); air mineral dan teh di siang hari (jam 11-16); soda di sore-malam (jam 16-21).
 
 **Hindari dulu**
 
@@ -3900,6 +3925,19 @@ Aplikasi baru di HP: **Kalkulator**. Berguna untuk menghitung kembalian, total b
 - **Panel Misi** tidak lagi menutupi Belanja Online, warga tidak membeli dagangannya sendiri, dan tanda "!" tidak muncul di tempat kosong.
 - Game tidak lagi keluar sendiri di beberapa HP (Infinix Note 40 Pro 5G, Redmi Note 14 5G, POCO M7 Pro 5G) dan saat berpindah tempat.
 
+### Kemudahan Lain v1.3
+
+- **Pagi lebih panjang**: Pak Misran bangun **05.00**, Pasar buka **05.00**, dan energi baru berkurang **07.00**. Waktu 05.00-07.00 bisa dipakai ke pasar, keliling kampung, atau kerja sampingan tanpa biaya energi.
+- **Sholat tahajud & Doa Malam Ini**: seminggu sekali Pak Misran bangun pukul 03.00 dan memilih satu doa (lihat bagian Kalender).
+- **Motor ke Pasar**: gratis, ±15 menit, motor diparkir di depan lapak Bu Ida dan bisa dinaiki pulang.
+- **Titipan roti dan jamu** yang habis diantar sales lebih cepat, jadi pembeli tidak menunggu lama.
+- **Obrolan baru** dari tetangga dan **Grup Warga RT 05**.
+- **Adu Laris** tampil baru: duel melawan pemain asli, bisa kapan saja, **10 kali sehari**.
+- **Kios milik sendiri bisa dibuka lagi** sesudah ditutup, sampai pukul 24.00.
+- **Papan Peringkat lebih adil**: warung dengan data tidak wajar atau hasil suntik uang dikeluarkan; Kode Warung dan Kode Pindah HP tampil tersamar.
+- **Tanpa Iklan dan Dukung Kami** lebih jarang gagal. Kalau pembayaran ditolak Google Play, game menyarankan mencoba metode pembayaran lain.
+- **Kalender Hadiah** tidak terkunci lagi; layar hitam sesudah menonton iklan dan game yang keluar sendiri di beberapa HP diperbaiki.
+
 ---
 
 ## 13. Papan Peringkat & Supporter Badge
@@ -3914,21 +3952,29 @@ Panel di bawah menampilkan papan **langsung dari server resmi game** (Supabase) 
 
 *Catatan: papan Sepanjang Masa menumpuk sejak warung pertama dibuka. Papan Mingguan dan Bulanan mulai dari nol lagi saat periodenya berganti, jadi peringkat di ketiga tab bisa berbeda.*
 
+### Papan Lebih Adil (v1.3)
+
+- Warung dengan **data tidak wajar** (misalnya uang bertambah tanpa penjualan) atau hasil **jasa suntik uang** dikeluarkan dari Papan Peringkat.
+- Warung yang dikeluarkan tidak bisa ikut duel resmi Adu Laris; mode **Latihan** tetap boleh.
+- **Kode Warung** dan **Kode Pindah HP** kini tampil **tersamar** di layar, jadi aman saat live atau saat layar dibagikan.
+
 ### Foto Profil (v1.2)
 
 Pilih foto tokoh untuk warungmu. Fotonya tampil di **papan peringkat** dan **Adu Laris**.
 
 Pilihan yang tersedia: **Pak Misran, Agus, Pak RT, Mba Giska, Pak Rudi, Dimas, Neng Shinta, Bu Ida, Nenek Sumi, Ucup, Kang Asep, Abah Karta, Mang Ujang, Kang Fadil, Kang Hasan, dan Kang Dadan**.
 
-### ADU LARIS (v1.2)
+### ADU LARIS (v1.3)
 
-Duel jualan **1 menit** melawan warung lain, berlangsung di depan warung **sesudah warung tutup**. Ada **papan Adu Laris mingguan**, dan **mode Latihan** yang bisa dimainkan kapan saja.
+Duel jualan **1 menit** melawan warung **pemain asli**. Lawan diambil dari cuplikan Papan Peringkat; kalau tidak ada lawan online, game memakai warung bot. Sejak v1.3 Adu Laris bisa dimainkan **kapan saja**, tidak harus sesudah warung tutup. Ada **papan Adu Laris mingguan**, dan **mode Latihan** yang bisa dimainkan kapan saja.
 
-- Duel resmi hanya sesudah warung tutup; kalau sudah terlalu malam, harus besok lagi.
-- Batas **5 kali sehari**; sesudah habis, ada hitungan waktu sampai terbuka lagi.
+- Duel resmi boleh dimainkan selama bukan tutorial/latihan dan belum pukul **23.30**.
+- Batas **10 kali sehari** (v1.3; sebelumnya 5). Sesudah habis, ada hitungan waktu sampai terbuka lagi.
 - Butuh energi minimal **15**.
-- Lawan memakai nama warung kampung (mis. Warung Barokah, Toko Sumber Rejeki, Kios Mang Dadang).
+- Lawan bot memakai nama warung kampung (mis. Warung Barokah, Toko Sumber Rejeki, Kios Mang Dadang).
 - Hasil duel: **menang / kalah / seri**, plus hitungan **beruntun** dan **trofi**.
+- **Musim Adu Laris 1.3** mereset trofi, menang, kalah, seri, dan beruntun dari musim sebelumnya.
+- Warung yang dikeluarkan dari Papan Peringkat karena data tidak wajar tidak bisa ikut duel resmi; mode Latihan tetap boleh.
 
 Cara main & skor:
 
@@ -3970,6 +4016,46 @@ Papan di server diperbarui tiap 30 menit, dan angka jempol di atas 1.000 ditulis
 *Cara wiki tahu: server menyimpan dua daftar kode warung — satu untuk pendukung (emas), satu untuk Warga Peduli (platinum). Kode tiap warung di papan dicocokkan dengan daftar itu, jadi warnanya bukan tebakan.*
 
 ## 14. Change Log
+
+### Ringkasan Fitur & Perubahan v1.3
+
+**Fitur baru**
+- **Pagi lebih panjang**: Pak Misran bangun 05.00, Pasar buka 05.00, energi baru berkurang 07.00.
+- **Sholat tahajud** seminggu sekali pukul 03.00, lalu pilih satu **Doa Malam Ini**.
+- **Motor ke Pasar**: gratis, ±15 menit, motor diparkir di depan lapak Bu Ida.
+- **Obrolan baru** tetangga dan **Grup Warga RT 05**; titipan roti/jamu diantar lebih cepat.
+
+**Perubahan & keseimbangan**
+- **Adu Laris** melawan pemain asli, bisa kapan saja, **10 kali sehari**, musim 1.3 mereset trofi.
+- **Kios milik sendiri bisa dibuka lagi** sesudah ditutup sampai 24.00.
+- **Papan Peringkat lebih adil**: data tidak wajar / suntik uang dikeluarkan; kode Warung & Pindah HP tersamar.
+
+**Perbaikan**
+- Tanpa Iklan dan Dukung Kami lebih andal; saran metode bayar lain kalau ditolak Google Play.
+- Kalender Hadiah tidak terkunci, layar hitam sesudah iklan, dan crash di beberapa HP.
+
+### v1.3 (build 52, November 2026)
+
+Diverifikasi dari APK `com.neopawstudio.warunglife` versionName **1.3**, versionCode **52**, terpasang 27 November 2026. Changelog diambil dari `yang_baru.gd` (`CATATAN["1.3"]`) dan dicek silang dengan `game_state.gd`, `jelajah.gd`, `adu_laris.gd`, `papan_online.gd`, serta data `peta.json`/`warga.json`.
+
+**Fitur baru**
+- **Pagi lebih panjang**: Pak Misran bangun **05.00**, Pasar ikut buka **05.00**, dan energi baru mulai berkurang **07.00**. Pagi bisa dipakai ke pasar, keliling kampung, atau kerja sampingan.
+- **Sholat tahajud**: seminggu sekali Pak Misran bangun pukul **03.00**, sholat di sajadah kamar, lalu memilih satu doa di menu **Doa Malam Ini**.
+- **Motor ke Pasar**: naik motor dari samping warung, **gratis, ±15 menit**. Motor diparkir di depan lapak Bu Ida dan bisa dinaiki pulang.
+- **Titipan roti dan jamu** yang habis diantar sales lebih cepat.
+- **Obrolan lucu baru** dari tetangga dan **Grup Warga RT 05**.
+
+**Lebih baik**
+- **Adu Laris** tampil baru bergaya duel melawan **pemain asli**, bisa dimainkan **kapan saja**, **10 kali sehari**.
+- **Kios milik sendiri** bisa dibuka lagi sesudah ditutup, sampai pukul **24.00**.
+- **Papan Peringkat lebih adil**: warung dengan data tidak wajar atau hasil **jasa suntik uang** dikeluarkan dari papan.
+- **Kode Warung** dan **Kode Pindah HP** tampil **tersamar**, aman saat live.
+
+**Perbaikan**
+- Tombol **Tanpa Iklan** dan **Dukung Kami** lebih jarang gagal. Kalau pembayaran ditolak Google Play, game menyarankan mencoba metode pembayaran lain.
+- **Kalender Hadiah** tidak terkunci lagi.
+- **Layar hitam** sesudah menonton iklan diperbaiki.
+- Perbaikan game yang keluar sendiri di beberapa HP.
 
 ### Ringkasan Fitur & Perubahan v1.2
 

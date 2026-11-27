@@ -1,7 +1,7 @@
 {
   "name": "Warung Life Simulator Wiki",
   "short_name": "Warung Wiki",
-  "description": "Panduan lengkap Warung Life Simulator v1.2, bisa dipasang di layar utama dan dibaca offline.",
+  "description": "Panduan lengkap Warung Life Simulator v1.3, bisa dipasang di layar utama dan dibaca offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
