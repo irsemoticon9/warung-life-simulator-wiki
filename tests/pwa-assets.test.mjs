@@ -50,6 +50,13 @@ test("tidak ada halaman yang memuat CDN atau Google Fonts", () => {
   }
 });
 
+test("accordion Change Log menggabungkan Ringkasan ke blok versi", () => {
+  const js = readFileSync(join(root, "assets/js/app.js"), "utf8");
+  assert.ok(js.includes("/^Ringkasan\\b/i.test(text)"), "deteksi Ringkasan hilang");
+  assert.ok(js.includes("collectUntil(intro, h)"), "isi Ringkasan tidak digabung");
+  assert.ok(js.includes("parent.insertBefore(details, intro || h)"), "blok versi tidak dipasang di posisi Ringkasan");
+});
+
 test("semua URL aset bersifat relatif", () => {
   for (const page of pages) {
     const html = readFileSync(join(root, page), "utf8");

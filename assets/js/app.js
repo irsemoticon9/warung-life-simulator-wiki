@@ -537,16 +537,24 @@
       if (n.tagName === "H3") h3s.push(n);
       n = n.nextElementSibling;
     }
-    let first = true;
-    h3s.forEach((h) => {
-      const text = plain(h);
-      if (!/^v\d/i.test(text)) return;
-      const group = [h];
-      let m = h.nextElementSibling;
-      while (m && m.tagName !== "H2" && m.tagName !== "H3") {
-        group.push(m);
+    const collectUntil = (start, stop) => {
+      const out = [];
+      let m = start.nextElementSibling;
+      while (m && m !== stop && m.tagName !== "H2" && m.tagName !== "H3") {
+        out.push(m);
         m = m.nextElementSibling;
       }
+      return out;
+    };
+    let first = true;
+    let intro = null;
+    h3s.forEach((h) => {
+      const text = plain(h);
+      // "Ringkasan Fitur & Perubahan vX" intro merges into that version's accordion.
+      if (/^Ringkasan\b/i.test(text)) { intro = h; return; }
+      if (!/^v\d/i.test(text)) return;
+      const bodyEls = intro ? collectUntil(intro, h) : [];
+      bodyEls.push(...collectUntil(h, null));
       const details = document.createElement("details");
       details.className = "changelog-version";
       if (first) { details.open = true; first = false; }
@@ -558,10 +566,12 @@
       details.appendChild(summary);
       const body = document.createElement("div");
       body.className = "changelog-body";
-      group.slice(1).forEach(el => body.appendChild(el));
+      bodyEls.forEach(el => body.appendChild(el));
       details.appendChild(body);
       const parent = h.parentElement;
-      parent.insertBefore(details, h);
+      parent.insertBefore(details, intro || h);
+      if (intro) intro.remove();
+      intro = null;
       h.remove();
     });
   }
