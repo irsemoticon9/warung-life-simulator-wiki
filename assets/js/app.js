@@ -59,6 +59,23 @@
     "papan-peringkat": "leaderboard.html",
     "change-log": "change-log.html"
   };
+  const PAGE_TITLES = {
+    "beranda": "Warung Life Simulator Wiki: Panduan v1.3",
+    "daftar-npc-pelanggan": "Warung Life Simulator Wiki: Daftar NPC & Pelanggan v1.3",
+    "quest-level": "Warung Life Simulator Wiki: Quest Level v1.3",
+    "cerita-utama": "Warung Life Simulator Wiki: Cerita Utama v1.3",
+    "epilog": "Warung Life Simulator Wiki: Epilog v1.3",
+    "quest-warga": "Warung Life Simulator Wiki: Quest Warga v1.3",
+    "daftar-kejadian-acak": "Warung Life Simulator Wiki: Daftar Kejadian Acak v1.3",
+    "karakter-kasbon": "Warung Life Simulator Wiki: Karakter Kasbon (Hutang) v1.3",
+    "daftar-harga": "Warung Life Simulator Wiki: Daftar Harga v1.3",
+    "daftar-upgrade": "Warung Life Simulator Wiki: Daftar Upgrade v1.3",
+    "panduan-mini-game": "Warung Life Simulator Wiki: Panduan Mini-Game v1.3",
+    "kalender": "Warung Life Simulator Wiki: Kalender v1.3",
+    "tips-trik": "Warung Life Simulator Wiki: Tips & Trik v1.3",
+    "papan-peringkat": "Warung Life Simulator Wiki: Papan Peringkat",
+    "change-log": "Warung Life Simulator Wiki: Change Log v1.3"
+  };
   const PAGE_MATCH = {
     "beranda": (h) => /^Isi$/i.test(plain(h)),
     "daftar-npc-pelanggan": (h) => /^1\.\s*Daftar NPC/i.test(plain(h)),
@@ -120,6 +137,70 @@
     return "beranda";
   };
   const pageFile = (key) => PAGE_FILES[key] || "index.html";
+
+  function runPageTransition(update) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      update();
+      return;
+    }
+    if (document.startViewTransition) {
+      document.startViewTransition(() => update());
+      return;
+    }
+    const el = document.getElementById("guideContent");
+    if (!el) {
+      update();
+      return;
+    }
+    el.classList.add("is-switching");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        update();
+        el.classList.remove("is-switching");
+      });
+    });
+  }
+
+  function navigateToPage(key, hash, push = true) {
+    window.GUIDE_PAGE = key;
+    if (push) {
+      history.pushState({ page: key }, "", pageFile(key) + (hash ? "#" + hash : ""));
+    }
+    document.title = PAGE_TITLES[key] || document.title;
+    runPageTransition(() => {
+      showOnlyCurrentSection();
+      buildNavigation();
+      updateCrumb();
+      if (sidebar) sidebar.classList.remove("open");
+      if (backdrop) backdrop.classList.remove("show");
+      if (hash) revealTarget(hash);
+      else window.scrollTo({ top: 0, behavior: "auto" });
+    });
+  }
+
+  function setupSoftNavigation() {
+    document.addEventListener("click", (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest("a[href]");
+      if (!a || a.target === "_blank" || a.hasAttribute("download")) return;
+      const href = a.getAttribute("href") || "";
+      if (href.startsWith("#")) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname.endsWith("/data/guide.md")) return;
+      const file = url.pathname.split("/").pop() || "index.html";
+      const key = Object.keys(PAGE_FILES).find((k) => PAGE_FILES[k] === file);
+      if (!key) return;
+      e.preventDefault();
+      navigateToPage(key, url.hash.slice(1), true);
+    });
+    window.addEventListener("popstate", () => {
+      const file = location.pathname.split("/").pop() || "index.html";
+      const key = Object.keys(PAGE_FILES).find((k) => PAGE_FILES[k] === file) || "beranda";
+      navigateToPage(key, location.hash.slice(1), false);
+    });
+  }
+
   const sectionPageOf = (el) => {
     const h2 = (el && el.tagName === "H2") ? el : (el ? el.previousElementSibling : null);
     let node = el;
@@ -160,6 +241,7 @@
       showOnlyCurrentSection();
       setupSearch();
       setupMobileNav();
+      setupSoftNavigation();
       updateCrumb();
       initPapanWidget();
       goToHash();
@@ -634,15 +716,13 @@
   }
 
   function bindAnchors() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      });
+    document.addEventListener("click", (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      const targetId = anchor.getAttribute("href").slice(1);
+      const target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
     });
   }
 
