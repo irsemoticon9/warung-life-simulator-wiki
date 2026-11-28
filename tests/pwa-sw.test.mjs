@@ -20,7 +20,7 @@ function walk(dir) {
 test("sw.js ada dan memakai versi cache yang ditentukan", () => {
   assert.equal(existsSync(swPath), true, "sw.js belum ada");
   const sw = readFileSync(swPath, "utf8");
-  assert.ok(sw.includes('const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261128b"'), "versi cache salah");
+  assert.ok(sw.includes('const WIKI_CACHE_VERSION = "warung-wiki-v1.3-20261128c"'), "versi cache salah");
   assert.ok(sw.includes("caches.open(WIKI_CACHE_VERSION)"), "cache tidak dibuka dengan versi");
 });
 

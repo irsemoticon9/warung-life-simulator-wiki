@@ -60,3 +60,21 @@ test("transisi memakai View Transition dan fallback opacity/transform", () => {
   const rule = css.match(/\.guide-content[^,{]*\{[^}]*\}/)?.[0] || "";
   assert.ok(!/transition:\s*all/.test(rule), "fallback tidak boleh memakai transition: all");
 });
+
+test("reduced motion menonaktifkan scroll halus", () => {
+  const js = readFileSync(jsPath, "utf8");
+  const css = readFileSync(join(root, "assets/css/style.css"), "utf8");
+  assert.ok(css.includes("@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}"), "CSS belum menonaktifkan smooth scroll");
+  assert.ok(js.includes("function scrollBehavior()"), "helper scrollBehavior belum ada");
+  assert.equal((js.match(/behavior: scrollBehavior\(\)/g) || []).length, 3, "scrollBehavior belum dipakai di tiga tempat");
+});
+
+test("pindah halaman menutup panel pencarian", () => {
+  const src = readFileSync(jsPath, "utf8");
+  const body = src.match(/function navigateToPage\(key, hash, push = true\) \{[\s\S]*?\n  \}/)?.[0] || "";
+  for (const needle of [
+    "searchResults.hidden = true",
+    'searchResults.innerHTML = ""',
+    'searchInput.value = ""'
+  ]) assert.ok(body.includes(needle), `navigateToPage kehilangan ${needle}`);
+});

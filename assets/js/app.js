@@ -161,6 +161,10 @@
     });
   }
 
+  function scrollBehavior() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
+  }
+
   function navigateToPage(key, hash, push = true) {
     window.GUIDE_PAGE = key;
     if (push) {
@@ -173,8 +177,13 @@
       updateCrumb();
       if (sidebar) sidebar.classList.remove("open");
       if (backdrop) backdrop.classList.remove("show");
+      if (searchResults) {
+        searchResults.hidden = true;
+        searchResults.innerHTML = "";
+      }
+      if (searchInput) searchInput.value = "";
       if (hash) revealTarget(hash);
-      else window.scrollTo({ top: 0, behavior: "auto" });
+      else window.scrollTo({ top: 0, behavior: scrollBehavior() });
     });
   }
 
@@ -722,7 +731,7 @@
       e.preventDefault();
       const targetId = anchor.getAttribute("href").slice(1);
       const target = document.getElementById(targetId);
-      if (target) target.scrollIntoView({ behavior: "smooth" });
+      if (target) target.scrollIntoView({ behavior: scrollBehavior() });
     });
   }
 
@@ -788,7 +797,7 @@
       if (parent.tagName === "DETAILS") parent.open = true;
       parent = parent.parentElement;
     }
-    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
     return true;
   }
 
