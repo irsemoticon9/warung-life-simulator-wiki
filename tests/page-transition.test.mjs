@@ -78,3 +78,9 @@ test("pindah halaman menutup panel pencarian", () => {
     'searchInput.value = ""'
   ]) assert.ok(body.includes(needle), `navigateToPage kehilangan ${needle}`);
 });
+
+test("kembali ke beranda menampilkan lagi kartu navigasi", () => {
+  const src = readFileSync(jsPath, "utf8");
+  const body = src.match(/if \(cur === "beranda"\) \{[\s\S]*?return;\r?\n    \}/)?.[0] || "";
+  assert.ok(body.includes('navGroups.style.display = ""'), "beranda tidak mengembalikan .nav-groups");
+});

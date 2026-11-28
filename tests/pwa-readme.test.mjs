@@ -37,5 +37,5 @@ test("README tidak menyatakan library masih dimuat dari CDN", () => {
 test("README menjelaskan preview media sosial dan versi cache terbaru", () => {
   assert.ok(readme.includes("og-preview.png"), "gambar preview tidak disebut");
   assert.ok(readme.includes("Open Graph"), "tag Open Graph tidak disebut");
-  assert.ok(readme.includes("warung-wiki-v1.3-20261128c"), "contoh versi cache terbaru tidak ada");
+  assert.ok(readme.includes("warung-wiki-v1.3-20261128d"), "contoh versi cache terbaru tidak ada");
 });

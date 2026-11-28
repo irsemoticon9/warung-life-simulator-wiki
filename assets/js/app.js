@@ -758,6 +758,7 @@
   function showOnlyCurrentSection() {
     const cur = currentPageKey();
     const headings = [...content.querySelectorAll("h2")];
+    const navGroups = document.querySelector(".nav-groups");
     if (cur === "beranda") {
       // On beranda, hide all guide sections (navigation via icon buttons)
       headings.forEach((h) => {
@@ -771,6 +772,7 @@
       const qs = document.querySelector(".quick-stats");
       if (hero) hero.style.display = "";
       if (qs) qs.style.display = "";
+      if (navGroups) navGroups.style.display = "";
       return;
     }
     headings.forEach((h) => {
@@ -782,7 +784,6 @@
     });
     const hero = document.querySelector(".hero");
     const qs = document.querySelector(".quick-stats");
-    const navGroups = document.querySelector(".nav-groups");
     if (hero) hero.style.display = "none";
     if (qs) qs.style.display = "none";
     if (navGroups) navGroups.style.display = "none";

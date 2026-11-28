@@ -52,7 +52,7 @@ Wiki ini sekarang adalah PWA (progressive web app): bisa dipasang dari layar uta
 
 ### Aturan penting saat mengubah konten
 
-Setiap kali mengubah file HTML, CSS, JS, gambar, font, atau `data/guide.md`, **naikkan nilai `WIKI_CACHE_VERSION` di `sw.js`**. Tanpa itu, pengunjung yang sudah pernah membuka wiki akan terus melihat versi lama dari cache. Format yang dipakai saat ini: `warung-wiki-v1.3-20261128c` (naikkan nomor versi atau tanggalnya setiap ada perubahan).
+Setiap kali mengubah file HTML, CSS, JS, gambar, font, atau `data/guide.md`, **naikkan nilai `WIKI_CACHE_VERSION` di `sw.js`**. Tanpa itu, pengunjung yang sudah pernah membuka wiki akan terus melihat versi lama dari cache. Format yang dipakai saat ini: `warung-wiki-v1.3-20261128d` (naikkan nomor versi atau tanggalnya setiap ada perubahan).
 
 ## Catatan
 - Tidak membutuhkan backend, database, build tools, atau server berbayar.
